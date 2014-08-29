@@ -1,7 +1,6 @@
 package dominio
 
 import java.util.List
-import dominio.lugares.Lugar
 import dominio.auxiliar.Random
 import exception.ExceptionPaisYaAgregado
 

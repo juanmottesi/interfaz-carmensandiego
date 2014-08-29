@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import dominio.lugares.Lugar;
+import dominio.Lugar;
 import exception.ExceptionPaisYaAgregado;
 
 public class PaisTest {
