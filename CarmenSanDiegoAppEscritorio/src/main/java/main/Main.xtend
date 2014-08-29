@@ -1,21 +1,30 @@
 package main
 
 import dominio.Pais
-import dominio.lugares.Lugar
 import dominio.Detective
 import dominio.Villano
+import dominio.Biblioteca
+import dominio.Club
+import dominio.Embajada
+import dominio.Lugar
+import java.util.ArrayList
+import java.util.List
 
 class Main {
 		def static void main(String[] args) {
 
 		var detective = new Detective
-		var arg = new Pais("Argentina",#["Celeste y Blanca","Asado"], #[new Lugar, new Lugar, new Lugar], #[])
-		var chl = new Pais("Chile",#["Celeste y Blanca","Asado"], #[new Lugar, new Lugar, new Lugar], #[])
-		var col = new Pais("Colombia",#["Celeste y Blanca","Asado"], #[new Lugar, new Lugar, new Lugar], #[])
-		var esp = new Pais("España",#["Celeste y Blanca","Asado"], #[new Lugar, new Lugar, new Lugar], #[])
-		var itl = new Pais("Italia",#["Celeste y Blanca","Asado"], #[new Lugar, new Lugar, new Lugar], #[])
-		var fr = new Pais("Francia",#["Celeste y Blanca","Asado"], #[new Lugar, new Lugar, new Lugar], #[])
-		var ing = new Pais("Inglaterra",#["Celeste y Blanca","Asado"], #[new Lugar, new Lugar, new Lugar], #[])
+		var lugares =  new ArrayList<Lugar>()
+		lugares+= (new Biblioteca)
+		lugares+= (new Club)
+		lugares+= (new Embajada)
+		var arg = new Pais("Argentina",#["Celeste y Blanca","Asado"], lugares , #[])
+		var chl = new Pais("Chile",#["Celeste y Blanca","Asado"], lugares, #[])
+		var col = new Pais("Colombia",#["Celeste y Blanca","Asado"], lugares, #[])
+		var esp = new Pais("España",#["Celeste y Blanca","Asado"], lugares, #[])
+		var itl = new Pais("Italia",#["Celeste y Blanca","Asado"], lugares, #[])
+		var fr = new Pais("Francia",#["Celeste y Blanca","Asado"], lugares, #[])
+		var ing = new Pais("Inglaterra",#["Celeste y Blanca","Asado"], lugares, #[])
 		
 
 		arg.conexionesAereas = #[chl,col,esp,itl,fr,ing]
