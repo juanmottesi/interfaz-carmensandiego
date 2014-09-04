@@ -49,6 +49,18 @@ class Mapamundi {
 		
 	}
 	
+	def editar() {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
+	def eliminar() {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
+	def nuevo() {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
 	
 	
 }

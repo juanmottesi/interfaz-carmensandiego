@@ -1,17 +1,17 @@
 package vista
 
 import dominio.Mapamundi
+import dominio.Pais
+import org.uqbar.arena.bindings.PropertyAdapter
 import org.uqbar.arena.layout.ColumnLayout
+import org.uqbar.arena.layout.HorizontalLayout
+import org.uqbar.arena.layout.VerticalLayout
+import org.uqbar.arena.widgets.Button
+import org.uqbar.arena.widgets.Label
+import org.uqbar.arena.widgets.List
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
-import org.uqbar.arena.widgets.List
-import org.uqbar.arena.bindings.ObservableProperty
-import dominio.Pais
-import org.uqbar.arena.layout.HorizontalLayout
-import org.uqbar.arena.widgets.Label
-import org.uqbar.arena.bindings.PropertyAdapter
-import org.uqbar.arena.layout.VerticalLayout
 
 class InicioMapamundi extends Dialog<Mapamundi> {
 	
@@ -21,30 +21,54 @@ class InicioMapamundi extends Dialog<Mapamundi> {
 				nombreDelPais = "Argentina"
 				caracteristicasDelPais = newArrayList
 				caracteristicasDelPais += "LALALa"
+				conexionesAereas = newArrayList
+				conexionesAereas += new Pais() =>[nombreDelPais = "Chile"]
 			]
 			
 			paises += new Pais()=>[
 				nombreDelPais = "Brasil"
 				caracteristicasDelPais = newArrayList
 				caracteristicasDelPais += "lololo"
+				conexionesAereas = newArrayList
+				conexionesAereas += new Pais() =>[nombreDelPais = "Bolivia"]
 			]
 		])
 	}
 	
 	override protected createFormPanel(Panel mainPanel) {
 		this.setTitle("Mapamundi")
-		mainPanel.setLayout(new VerticalLayout)
+		val editorPanel = new Panel(mainPanel)
+		editorPanel.setLayout(new ColumnLayout(2))
 		
-		var panel1 = new Panel(mainPanel)
-		panel1.setLayout(new ColumnLayout(2))
+		var panelIzquierdo = new Panel(editorPanel)
+		panelIzquierdo.setLayout(new VerticalLayout)
 		
-		new List<Pais>(panel1) => [				
+		new Label(panelIzquierdo).setText("Paises:")
+		new List<Pais>(panelIzquierdo) => [				
 				bindItemsToProperty("paises").adapter = new PropertyAdapter(Pais,"nombreDelPais")
 				bindValueToProperty("paisSeleccionado")
 				width = 100
+				height = 500
 			]
+
+		new Button(panelIzquierdo) => [ 
+			caption = "Eliminar"
+			onClick [ | modelObject.eliminar ]
+		]
+
 		
-		var panelDerecho= new Panel(panel1)
+		new Button(panelIzquierdo) => [ 
+			caption = "Editar"
+			onClick [ | modelObject.editar ]
+		]
+
+		new Button(panelIzquierdo) => [ 
+			caption = "Nuevo"
+			onClick [ | modelObject.nuevo ]
+		]
+
+		
+		var panelDerecho= new Panel(editorPanel)
 		panelDerecho.setLayout(new VerticalLayout)
 		
 			
@@ -62,7 +86,7 @@ class InicioMapamundi extends Dialog<Mapamundi> {
 		
 		new Label(panelCaracteristica).setText("Caracteristicas:")
 		new List<Pais>(panelCaracteristica) => [				
-				bindItemsToProperty("paisSeleccionado.caracteristicasDelPais")
+			bindItemsToProperty("paisSeleccionado.caracteristicasDelPais")
 			height = 100
 			width = 100	
 			]
@@ -71,12 +95,22 @@ class InicioMapamundi extends Dialog<Mapamundi> {
 		panelConexiones.setLayout(new VerticalLayout)
 		
 		new Label(panelConexiones).setText("Conexiones:")
-		new List<Pais>(panelCaracteristica) => [				
-				bindItemsToProperty("paisSeleccionado.conexionesAereas")
-			
+		new List<Pais>(panelConexiones) => [				
+			bindItemsToProperty("paisSeleccionado.conexionesAereas").adapter = new PropertyAdapter(Pais,"nombreDelPais")
+			height = 100
 			width = 100	
 			]
 				
+			
+		var panelLugaresDeInteres= new Panel(panelDerecho)
+		panelLugaresDeInteres.setLayout(new VerticalLayout)
+		
+		new Label(panelLugaresDeInteres).setText("Lugares de interés:")
+		new List<Pais>(panelLugaresDeInteres) => [				
+			bindItemsToProperty("paisSeleccionado.lugaresDeInteres") 
+			height = 100
+			width = 100	
+			]
 			
 	}
 		
