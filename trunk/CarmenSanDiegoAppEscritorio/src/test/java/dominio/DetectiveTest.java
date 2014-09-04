@@ -5,11 +5,7 @@ import static org.mockito.Mockito.*;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import exception.ExceptionFaltanPaises;
-import exception.ExceptionFaltanPaisesOVillanos;
-import exception.ExceptionPaisRepetido;
-import exception.ExceptionVillanoRepetido;
+import org.uqbar.commons.model.UserException;
 
 public class DetectiveTest {
 
@@ -30,55 +26,53 @@ public class DetectiveTest {
 	
 	@Test
 	public void testConstructor() {
-		assertEquals(0, detective.getExpedientes().size());
-		assertEquals(0, detective.getMapamundi().size());
+		assertNotNull(detective.getExpedientes());
+		assertNotNull(detective.getMapamundi());
 		assertNull(detective.getCasoActual());
 	}
 
 	@Test
 	public void testAgregarVillanoCorrecto() {
 		detective.agregarVillano(mockVillano);
-		assertEquals(1, detective.getExpedientes().size());
+		assertEquals(1, detective.getExpedientes().getVillanos().size());
 	}
 	
-	@Test(expected=ExceptionVillanoRepetido.class)
+	@Test(expected=UserException.class)
 	public void testAgregarVillanoIncorrecto() {
 		detective.agregarVillano(mockVillano);
 		detective.agregarVillano(mockVillano);
-		assertEquals(1, detective.getExpedientes().size());
 	}
 	
 	@Test
 	public void testAgregarPaisCorrecto() {
 		detective.agregarPais(mockPais1);
-		assertEquals(1, detective.getMapamundi().size());
+		assertEquals(1, detective.getMapamundi().getPaises().size());
 	}
 	
-	@Test(expected=ExceptionPaisRepetido.class)
+	@Test(expected=UserException.class)
 	public void testAgregarPaisIncorrecto() {
 		detective.agregarPais(mockPais1);
 		detective.agregarPais(mockPais1);
-		assertEquals(1, detective.getMapamundi().size());
 	}
 
-	@Test(expected= ExceptionFaltanPaisesOVillanos.class)
+	@Test(expected= UserException.class)
 	public void testIniciarJuegoIncorrecto(){
 		detective.iniciarJuego();
 	}
 	
-	@Test(expected= ExceptionFaltanPaisesOVillanos.class)
+	@Test(expected= UserException.class)
 	public void testIniciarJuegoIncorrectoConPais(){
 		detective.agregarPais(mockPais1);
 		detective.iniciarJuego();
 	}
 	
-	@Test(expected= ExceptionFaltanPaisesOVillanos.class)
+	@Test(expected= UserException.class)
 	public void testIniciarJuegoIncorrectoConVillano(){
 		detective.agregarVillano(mockVillano);
 		detective.iniciarJuego();
 	}
 	
-	@Test(expected=ExceptionFaltanPaises.class)
+	@Test(expected=UserException.class)
 	public void testIniciarJuegoCon2Paises(){
 		detective.agregarPais(mockPais1);
 		detective.agregarPais(mockPais2);
@@ -88,6 +82,7 @@ public class DetectiveTest {
 		assertNotNull(detective.getCasoActual());
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testIniciarJuego(){
 		detective.agregarPais(mockPais1);
