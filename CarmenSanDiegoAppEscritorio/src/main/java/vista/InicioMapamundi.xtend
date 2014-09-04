@@ -59,12 +59,12 @@ class InicioMapamundi extends Dialog<Mapamundi> {
 		
 		new Button(panelIzquierdo) => [ 
 			caption = "Editar"
-			onClick [ | modelObject.editar ]
+			onClick [ | new EditarPaisVentana(this,modelObject.paisSeleccionado).open ]
 		]
 
 		new Button(panelIzquierdo) => [ 
 			caption = "Nuevo"
-			onClick [ | modelObject.nuevo ]
+			onClick [ | new CrearPaisVentana(this).open ]
 		]
 
 		
