@@ -1,13 +1,12 @@
 package vista
 
-import org.uqbar.arena.windows.MainWindow
-import org.uqbar.arena.widgets.Panel
 import dominio.Detective
 import org.uqbar.arena.layout.HorizontalLayout
-import org.uqbar.arena.widgets.Label
-import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.layout.VerticalLayout
-import dominio.Pais
+import org.uqbar.arena.widgets.Button
+import org.uqbar.arena.widgets.Label
+import org.uqbar.arena.widgets.Panel
+import org.uqbar.arena.windows.MainWindow
 
 class InicialWindow extends MainWindow<Detective> {
 	
