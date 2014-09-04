@@ -1,7 +1,5 @@
 package dominio
 
-import org.uqbar.commons.model.UserException
-
 class Detective {
 	
 	@Property Expediente expedientes

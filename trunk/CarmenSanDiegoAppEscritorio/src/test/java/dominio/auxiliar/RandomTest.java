@@ -13,12 +13,14 @@ public class RandomTest {
 		random = new Random();
 	}
 		
+	@SuppressWarnings("static-access")
 	@Test
 	public void testObtenerRandomCorrecto() {
 		int n = random.obtenerRandom(0, 2);
 		assertTrue(n>=0 && n<=2);
 	}
 
+	@SuppressWarnings("static-access")
 	@Test
 	public void testObtenerRandomIncorrecto() {
 		int n = random.obtenerRandom(4, 2);
