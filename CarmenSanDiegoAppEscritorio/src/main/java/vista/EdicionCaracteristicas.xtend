@@ -32,6 +32,7 @@ class EdicionCaracteristicas extends Dialog<Pais>{
 			bindItemsToProperty("caracteristicasDelPais")
 			bindValueToProperty("caracteristicaSeleccionada")
 			width= 180
+			height= 100 
 		]
 		new Button(panelElimCaract) =>[
 			caption= "Eliminar"

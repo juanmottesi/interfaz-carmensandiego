@@ -50,7 +50,7 @@ class Pais {
 	}
 	
 	def agregarCaracteristica(){		
-		if(caracteristicasDelPais.contains(nuevaCaracteristica))
+		if(caracteristicasLowerCase.contains(nuevaCaracteristica.toLowerCase))
 			throw new UserException("Característica ya agregada")
 		caracteristicasDelPais+= nuevaCaracteristica
 		actualizar
@@ -110,6 +110,10 @@ class Pais {
 		lugaresDeInteres= lugares
 		nuevoLugar= null
 		lugarSeleccionado= null
+	}
+	
+	def caracteristicasLowerCase(){
+		caracteristicasDelPais.map[toLowerCase]
 	}
 	
 }

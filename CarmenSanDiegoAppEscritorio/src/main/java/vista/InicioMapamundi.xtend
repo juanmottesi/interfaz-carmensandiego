@@ -14,6 +14,7 @@ import org.uqbar.arena.widgets.List
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
+import dominio.Lugar
 
 class InicioMapamundi extends Dialog<Mapamundi> {
 	
@@ -66,6 +67,8 @@ class InicioMapamundi extends Dialog<Mapamundi> {
 		new Button(panelBotones) =>[
 			caption= "Editar"
 			//onClick [ | new EditarPaisVentana(this,modelObject.paisSeleccionado).open ]
+			bindEnabled(new NotNullObservable("paisSeleccionado"))
+			disableOnError
 		]
 		new Button(panelBotones) =>[
 			caption= "Nuevo"
@@ -90,7 +93,7 @@ class InicioMapamundi extends Dialog<Mapamundi> {
 		agregarLabel(panelCarac, "Características", 153)
 		new List(panelCarac) =>[
 			width= 130
-			height= 30
+			height= 40
 			bindItemsToProperty("paisSeleccionado.caracteristicasDelPais")
 		]
 	}	
@@ -101,7 +104,7 @@ class InicioMapamundi extends Dialog<Mapamundi> {
 		agregarLabel(panelConex, "Conexiones", 153)
 		new List(panelConex) =>[
 			width= 130
-			height= 30
+			height= 40
 			bindItemsToProperty("paisSeleccionado.conexionesAereas").adapter= new PropertyAdapter(Pais, "nombreDelPais")
 		]
 	}
@@ -112,8 +115,8 @@ class InicioMapamundi extends Dialog<Mapamundi> {
 		agregarLabel(panelLuga, "Lugares de Interés", 153)
 		new List(panelLuga) =>[
 			width= 130
-			height= 30
-			bindItemsToProperty("paisSeleccionado.lugaresDeInteres")
+			height= 40
+			bindItemsToProperty("paisSeleccionado.lugaresDeInteres").adapter= new PropertyAdapter(Lugar, "nombreDelLugar")
 		]
 	}
 }

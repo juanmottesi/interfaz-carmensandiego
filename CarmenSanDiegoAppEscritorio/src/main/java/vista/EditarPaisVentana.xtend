@@ -12,6 +12,7 @@ import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
+import dominio.Lugar
 
 class EditarPaisVentana extends Dialog<Pais>{
 	
@@ -81,7 +82,7 @@ class EditarPaisVentana extends Dialog<Pais>{
 		]
 		
 		new List<String>(fila4) => [				
-			bindItemsToProperty("lugaresDeInteres")
+			bindItemsToProperty("lugaresDeInteres").adapter= new PropertyAdapter(Lugar, "nombreDelLugar")
 			width = 100
 			height = 50
 		]
