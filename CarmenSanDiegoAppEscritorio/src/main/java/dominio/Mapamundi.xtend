@@ -8,6 +8,8 @@ import org.uqbar.commons.utils.Observable
 @Observable
 class Mapamundi {
 	
+	private static Mapamundi instance = null
+	
 	@Property List<Pais> paises
 	@Property List<Lugar> lugaresPosibles
 	
@@ -15,11 +17,19 @@ class Mapamundi {
 	@Property Pais paisSeleccionado
 	@Property Pais nuevoPais
 	
-	new(){
+	private new(){
 		paises = newArrayList
 		lugaresPosibles= newArrayList
 		lugaresPosibles.addAll(#[(new Embajada), (new Banco), (new Biblioteca), (new Club)])
 	}
+	
+	static def getInstance() {
+		if (instance == null) {
+			instance = new Mapamundi
+		}
+		instance
+	}
+	
 	
 	def puedoIniciar() {
 		if (!(paises.size >= 3)){
