@@ -8,7 +8,7 @@ class Detective {
 	
 	new(){
 		this.expedientes = new Expediente
-		this.mapamundi = new Mapamundi
+		this.mapamundi = Mapamundi.instance
 	}
 	
 	def void agregarVillano(Villano villano){

@@ -20,7 +20,11 @@ class InicioMapamundi extends Dialog<Mapamundi> {
 	
 	new(WindowOwner owner) {
 
-		super(owner, new Mapamundi)
+		super(owner, Mapamundi.instance)
+	}
+	
+	new(InicialWindow owner, Mapamundi mapamundi) {
+		super(owner, mapamundi)
 	}
 	
 	override protected createFormPanel(Panel mainPanel) {
