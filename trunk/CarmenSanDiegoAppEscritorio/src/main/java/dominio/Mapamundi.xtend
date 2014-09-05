@@ -1,7 +1,7 @@
 package dominio
 
-import java.util.List
 import dominio.auxiliar.Random
+import java.util.List
 import org.uqbar.commons.model.UserException
 import org.uqbar.commons.utils.Observable
 
@@ -9,10 +9,16 @@ import org.uqbar.commons.utils.Observable
 class Mapamundi {
 	
 	@Property List<Pais> paises
+	@Property List<Lugar> lugaresPosibles
+	
+	//Para agregar y editar Pais
 	@Property Pais paisSeleccionado
+	@Property Pais nuevoPais
 	
 	new(){
 		paises = newArrayList
+		lugaresPosibles= newArrayList
+		lugaresPosibles.addAll(#[(new Embajada), (new Banco), (new Biblioteca), (new Club)])
 	}
 	
 	def puedoIniciar() {
@@ -49,18 +55,44 @@ class Mapamundi {
 		
 	}
 	
+
+	def agregarPais(){
+		if(paises.contains(nuevoPais))
+			throw new UserException("Pais ya agregado")
+		if(nuevoPais.nombreDelPais == null)
+			throw new UserException("Debe ingresar el nombre del Pais")
+		if(nuevoPais.lugaresDeInteres.size < 3)
+			throw new UserException("Debe seleccionar 3 lugares de Interés")
+		paises += nuevoPais
+		actualizarPaises
+	}
+
 	def editar() {
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
-	
+
+
 	def eliminar() {
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
+
 	
 	def nuevo() {
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
 	
 	
-	
+	def eliminarPais() {
+		paisSeleccionado.conexionesAereas.forEach[ each| each.eliminarConexion(paisSeleccionado)]
+		paises -= paisSeleccionado
+		actualizarPaises
+	}
+
+	def actualizarPaises() {
+		var p= paises
+		paises= null
+		paises= p
+		paisSeleccionado= null
+		nuevoPais= null
+	}
 }
