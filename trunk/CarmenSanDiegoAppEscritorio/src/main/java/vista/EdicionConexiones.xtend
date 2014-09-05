@@ -34,6 +34,7 @@ class EdicionConexiones extends Dialog<Mapamundi>{
 			bindItemsToProperty("nuevoPais.conexionesAereas").adapter= new PropertyAdapter(Pais, "nombreDelPais")
 			bindValueToProperty("nuevoPais.conexionSeleccionada")
 			width= 180
+			height= 100
 		]
 		new Button(panelElimConex) =>[
 			caption= "Eliminar"
@@ -47,6 +48,7 @@ class EdicionConexiones extends Dialog<Mapamundi>{
 		new Selector(panelAgregarConex) =>[
 			bindItemsToProperty("paises").adapter= new PropertyAdapter(Pais, "nombreDelPais")
 			bindValueToProperty("nuevoPais.nuevaConexion")
+			width= 150
 		]
 		new Button(panelAgregarConex) =>[
 			caption= "Agregar"

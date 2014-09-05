@@ -57,7 +57,7 @@ class Mapamundi {
 	
 
 	def agregarPais(){
-		if(paises.contains(nuevoPais))
+		if(paisesNombreLowerCase.contains(nuevoPais.nombreDelPais.toLowerCase))
 			throw new UserException("Pais ya agregado")
 		if(nuevoPais.nombreDelPais == null)
 			throw new UserException("Debe ingresar el nombre del Pais")
@@ -94,5 +94,9 @@ class Mapamundi {
 		paises= p
 		paisSeleccionado= null
 		nuevoPais= null
+	}
+	
+	def paisesNombreLowerCase(){
+		paises.map[nombreDelPais.toLowerCase]		
 	}
 }

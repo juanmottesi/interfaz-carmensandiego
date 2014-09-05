@@ -11,6 +11,8 @@ import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.Selector
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
+import dominio.Lugar
+import org.uqbar.arena.bindings.PropertyAdapter
 
 class EdicionLugares extends Dialog<Mapamundi>{
 	
@@ -29,10 +31,10 @@ class EdicionLugares extends Dialog<Mapamundi>{
 			width= 203
 		]
 		new List(panelElimLug) =>[
-			bindItemsToProperty("nuevoPais.lugaresDeInteres")
+			bindItemsToProperty("nuevoPais.lugaresDeInteres").adapter= new PropertyAdapter(Lugar, "nombreDelLugar")
 			bindValueToProperty("nuevoPais.lugarSeleccionado")
 			width= 180
-			height= 30
+			height= 100
 		]
 		new Button(panelElimLug) =>[
 			caption= "Eliminar"
@@ -44,8 +46,9 @@ class EdicionLugares extends Dialog<Mapamundi>{
 		var panelAgregarLug= new Panel(mainPanel)
 		panelAgregarLug.setLayout(new ColumnLayout(2))
 		new Selector(panelAgregarLug) =>[
-			bindItemsToProperty("lugaresPosibles")
+			bindItemsToProperty("lugaresPosibles").adapter= new PropertyAdapter(Lugar, "nombreDelLugar")
 			bindValueToProperty("nuevoPais.nuevoLugar")
+			width= 150
 		]
 		new Button(panelAgregarLug) =>[
 			caption= "Agregar"
