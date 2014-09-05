@@ -3,7 +3,7 @@ package dominio
 import dominio.Villano
 
 abstract class Lugar {
-	
+
 	def String obtenerPista(Villano villano)
 	
 }
