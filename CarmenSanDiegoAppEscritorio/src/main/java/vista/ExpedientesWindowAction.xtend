@@ -14,11 +14,12 @@ import org.uqbar.arena.bindings.PropertyAdapter
 import org.uqbar.arena.widgets.Button
 import java.awt.Color
 import dominio.Hobbie
+import org.uqbar.arena.bindings.NotNullObservable
 
 class ExpedientesWindowAction extends Dialog<Expediente>{
 	
 	new(WindowOwner owner) {
-		super(owner, new Expediente)
+		super(owner, Expediente.instance)
 	}
 	
 	override protected createFormPanel(Panel mainPanel) {
@@ -30,7 +31,7 @@ class ExpedientesWindowAction extends Dialog<Expediente>{
 		var panelIzq= new Panel(editorPanel)
 		agregarLabel(panelIzq, "Villano", 153)			
 		new List<Villano>(panelIzq) => [				
-		bindItemsToProperty("villanos").adapter = new PropertyAdapter(Villano,"nombre")
+			bindItemsToProperty("villanos").adapter = new PropertyAdapter(Villano,"nombre")
 			bindValueToProperty("villanoSeleccionado")
 			width = 130
 			height= 227
@@ -104,11 +105,16 @@ class ExpedientesWindowAction extends Dialog<Expediente>{
 		panelBotones.setLayout(new HorizontalLayout)
 		new Button(panelBotones) =>[
 			caption= "Nuevo"
-			onClick [ | new NuevoVillano(this).open]
+			onClick [ | 
+				modelObject.setNuevoVillano(new Villano)
+				new NuevoVillano(this, modelObject).open	
+			]
 		]
 		new Button(panelBotones) =>[
 			caption= "Editar"
-			onClick [ | new EditarVillano(this,modelObject.villanoSeleccionado).open ]
+			onClick [ | new EditarVillano(this, modelObject.villanoSeleccionado).open ]
+			bindEnabled(new NotNullObservable("villanoSeleccionado"))
+			disableOnError 
 		]
 			
 	}
