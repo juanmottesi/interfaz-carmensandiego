@@ -13,7 +13,6 @@ import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
-import dominio.Lugar
 
 class NuevoPais extends Dialog<Mapamundi>{
 	
@@ -48,7 +47,6 @@ class NuevoPais extends Dialog<Mapamundi>{
 		new List(panelListCaract) =>[
 			bindItemsToProperty("nuevoPais.caracteristicasDelPais")
 			width= 180
-			height= 30 
 		]
 		
 		//Conexiones
@@ -69,7 +67,6 @@ class NuevoPais extends Dialog<Mapamundi>{
 		new List(panelListaConex) =>[
 			bindItemsToProperty("nuevoPais.conexionesAereas").adapter= new PropertyAdapter(Pais,"nombreDelPais")
 			width= 180
-			height= 30 
 		]
 		
 		//Lugares de Interes
@@ -88,7 +85,7 @@ class NuevoPais extends Dialog<Mapamundi>{
 			width= 203
 		]
 		new List(panelListaInter) =>[
-			bindItemsToProperty("nuevoPais.lugaresDeInteres").adapter= new PropertyAdapter(Lugar, "nombreDelLugar")
+			bindItemsToProperty("nuevoPais.lugaresDeInteres")
 			width= 180
 			height= 30 
 		]
