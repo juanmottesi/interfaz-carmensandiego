@@ -8,6 +8,7 @@ import dominio.Lugar
 import dominio.Pais
 import dominio.Villano
 import java.util.ArrayList
+import dominio.Hobbie
 
 class Main {
 		def static void main(String[] args) {
@@ -53,8 +54,12 @@ class Main {
 //		juego.agregarPais(chl)
 //		juego.agregarPais(col)
 
+		var h1 = new Hobbie("Tenis")
+		var h2 = new Hobbie("Paddel")
+		var h3 = new Hobbie("VideoJuegos")
+
 		for(r :0..1000){	
-		val v1 = new Villano("Pepe",#["Sombrero","Anillos","Celular ultimo modelo"],#["Tenis","Autos","Tejo"],"Masculino")
+		val v1 = new Villano("Pepe",#["Sombrero","Anillos","Celular ultimo modelo"],#[h1,h2,h3],"Masculino")
 		
 		detective.agregarVillano(v1)
 		

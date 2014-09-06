@@ -13,7 +13,7 @@ public class VillanoTest {
 	
 	@Before 
 	public void setUp(){
-		villano = new Villano("Nombre", new ArrayList<String>(), new ArrayList<String>() , "Masculino");
+		villano = new Villano("Nombre", new ArrayList<String>(), new ArrayList<Hobbie>() , "Masculino");
 	}
 	
 	@Test
