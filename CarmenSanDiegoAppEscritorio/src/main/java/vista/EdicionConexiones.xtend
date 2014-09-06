@@ -2,53 +2,40 @@ package vista
 
 import dominio.Mapamundi
 import dominio.Pais
-import java.awt.Color
 import org.uqbar.arena.bindings.NotNullObservable
 import org.uqbar.arena.bindings.PropertyAdapter
 import org.uqbar.arena.layout.ColumnLayout
 import org.uqbar.arena.widgets.Button
-import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.List
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.Selector
-import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
 
-class EdicionConexiones extends Dialog<Mapamundi>{
+class EdicionConexiones extends TipoEdicion{
 	
-	new(WindowOwner owner, Mapamundi model) {
-		super(owner, model)
+	new(WindowOwner parent, Mapamundi model) {
+		super(parent, model)
+		textoLabel= "Conexiones"
+		modelProperty= "nuevoPais.conexionesAereas"
+		bindablePropertySelec= "nuevoPais.conexionSeleccionada"
+		nuevoModelProperty= "nuevoPaos.nuevaConexion"
 	}
 	
-	override protected createFormPanel(Panel mainPanel) {
+	override agregar() {
+		modelObject.nuevoPais.agregarConexion
+	}
+	
+	override eliminar() {
+		modelObject.nuevoPais.eliminarConexion
+	}
+	
+	override panelDeAgregar(Panel panel) {
 		this.setTitle("Editar Conexiones")
-		
-		var panelElimConex= new Panel(mainPanel)
-		panelElimConex.setLayout(new ColumnLayout(1))
-		new Label(panelElimConex) =>[
-			setText("Conexiones")
-			setBackground(Color.lightGray)
-			width= 203
-		]
-		new List(panelElimConex) =>[
-			bindItemsToProperty("nuevoPais.conexionesAereas").adapter= new PropertyAdapter(Pais, "nombreDelPais")
-			bindValueToProperty("nuevoPais.conexionSeleccionada")
-			width= 180
-			height= 100
-		]
-		new Button(panelElimConex) =>[
-			caption= "Eliminar"
-			onClick[ | modelObject.nuevoPais.eliminarConexion ]
-			bindEnabled(new NotNullObservable("nuevoPais.conexionSeleccionada"))
-			disableOnError
-		]
-		
-		var panelAgregarConex= new Panel(mainPanel)
+		var panelAgregarConex= new Panel(panel)
 		panelAgregarConex.setLayout(new ColumnLayout(2))
 		new Selector(panelAgregarConex) =>[
 			bindItemsToProperty("paises").adapter= new PropertyAdapter(Pais, "nombreDelPais")
 			bindValueToProperty("nuevoPais.nuevaConexion")
-			width= 150
 		]
 		new Button(panelAgregarConex) =>[
 			caption= "Agregar"
@@ -56,14 +43,14 @@ class EdicionConexiones extends Dialog<Mapamundi>{
 			bindEnabled(new NotNullObservable("nuevoPais.nuevaConexion"))
 			disableOnError
 		]
-		
-		var panelAceptar= new Panel(mainPanel)
-		new Button(panelAceptar) =>[
-			caption= "Aceptar"
-			onClick[ | 
-				this.close
-				modelObject.nuevoPais.actualizar
-			]
+	}
+	
+	override listDePropiedadesAEditar(Panel panel) {
+		new List(panel) =>[
+			bindItemsToProperty(modelProperty).adapter= new PropertyAdapter(Pais, "nombreDelPais")
+			bindValueToProperty(bindablePropertySelec)
+			width= 180
 		]
 	}
+	
 }
