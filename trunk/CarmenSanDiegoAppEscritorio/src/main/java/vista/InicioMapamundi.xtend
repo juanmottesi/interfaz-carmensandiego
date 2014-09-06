@@ -32,7 +32,7 @@ class InicioMapamundi extends Dialog<Mapamundi> {
 		var panelIzq= new Panel(editorPanel)
 		agregarLabel(panelIzq, "Paises", 153)			
 		new List<Pais>(panelIzq) => [				
-		bindItemsToProperty("paises").adapter = new PropertyAdapter(Pais,"nombreDelPais")
+			bindItemsToProperty("paises").adapter = new PropertyAdapter(Pais,"nombreDelPais")
 			bindValueToProperty("paisSeleccionado")
 			width = 130
 			height= 227

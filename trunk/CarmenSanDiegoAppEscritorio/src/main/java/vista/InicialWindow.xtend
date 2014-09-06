@@ -32,13 +32,14 @@ class InicialWindow extends MainWindow<Detective> {
 		new Button(panel) => [ 
 			caption = "Mapamundi"
 			onClick [ | 
-				
 				new InicioMapamundi(this).open
 			]
 		]
 		new Button(panel) => [ 
 			caption = "Expedientes"
-			onClick [ | modelObject.expedientes ]
+			onClick [ | 
+				new ExpedientesWindowAction(this).open
+			]
 		]
 	}
 

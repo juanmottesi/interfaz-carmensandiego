@@ -1,39 +1,109 @@
 package vista
 
-import dominio.Villano
+import dominio.Expediente
+import org.uqbar.arena.layout.HorizontalLayout
+import org.uqbar.arena.layout.VerticalLayout
+import org.uqbar.arena.widgets.Button
+import org.uqbar.arena.widgets.Label
+import org.uqbar.arena.widgets.List
+import org.uqbar.arena.widgets.Panel
+import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
-import org.uqbar.arena.widgets.Panel
-import org.uqbar.arena.layout.VerticalLayout
-import org.uqbar.arena.widgets.Label
-import org.uqbar.arena.layout.HorizontalLayout
-import org.uqbar.arena.widgets.TextBox
-import org.uqbar.arena.widgets.Button
-import org.uqbar.arena.widgets.List
+import org.uqbar.arena.bindings.NotNullObservable
+import org.uqbar.arena.layout.ColumnLayout
+import java.awt.Color
 
-class NuevoVillano extends Dialog<Villano> {
+class NuevoVillano extends Dialog<Expediente> {
 	
-	new(WindowOwner owner) {
-		super(owner, new Villano)
+	new(WindowOwner owner, Expediente model) {
+		super(owner, model)
 	}
 	
 	override protected createFormPanel(Panel mainPanel) {
 		this.setTitle("Expedientes - Nuevo Villano")
+		
 		val editorPanel = new Panel(mainPanel)
 		editorPanel.setLayout(new VerticalLayout)
 		
-		agregarPanelNombre(editorPanel)
-		agegarPanelSexo(editorPanel)
-		agregarPanelSenias(editorPanel)
-		agregarPanelHobbies(editorPanel)
+//		agregarPanelNombre(editorPanel)
+//		agegarPanelSexo(editorPanel)
+//		agregarPanelSenias(editorPanel)
+//		agregarPanelHobbies(editorPanel)
+
+//Agregado
+
+		//Nombre
+		var panelNombre= new Panel(mainPanel)
+		panelNombre.setLayout(new ColumnLayout(2))
+		new Label(panelNombre).setText("Nombre:")
+		new TextBox(panelNombre)=>[
+			bindValueToProperty("nuevoVillano.nombre")
+		]
+		//Sexo
+		var panelSexo= new Panel(mainPanel)
+		panelSexo.setLayout(new ColumnLayout(2))
+		new Label(panelSexo).setText("Sexo:")
+		new TextBox(panelSexo)=>[
+			bindValueToProperty("nuevoVillano.sexo")
+		//Señas particulares
+		var panelSenias= new Panel(mainPanel)
+		panelSenias.setLayout(new ColumnLayout(2))
+		new Label(panelSenias).setText("Señas particulares: ")
+		new Button(panelSenias) =>[
+			caption= "Editar Senias particulares"
+			onClick[ | /*new EdicionSeniasParticulares(this, modelObject).open*/ ]
+		]
 		
-		new Button(editorPanel) =>[
+		var panelListSenias= new Panel(mainPanel)
+		panelListSenias.setLayout(new ColumnLayout(1))
+		new Label(panelListSenias) => [
+			setText("Senias particulares")
+			setBackground(Color.lightGray)
+			width= 203
+		]
+		
+		new List(panelListSenias) =>[
+			bindItemsToProperty("nuevoVillano.seniasParticulares")
+			width= 180
+		]
+		
+		//Hobbies
+		var panelHobbies= new Panel(mainPanel)
+		panelHobbies.setLayout(new ColumnLayout(2))
+		new Label(panelHobbies).setText("Hobbies: ")
+		new Button(panelHobbies) =>[
+			caption= "Editar Hobbies"
+			onClick[ | /*new EdicionHobbies(this, modelObject).open*/ ]
+		]
+		
+		var panelListHobbie= new Panel(mainPanel)
+		panelListHobbie.setLayout(new ColumnLayout(1))
+		new Label(panelListHobbie) => [
+			setText("Hobbies")
+			setBackground(Color.lightGray)
+			width= 203
+		]
+
+		new List(panelListHobbie) =>[
+			bindItemsToProperty("nuevoVillano.hobbies")
+			width= 180
+		]
+
+
+//Fin
+		var panelAceptar= new Panel(mainPanel)
+		panelAceptar.setLayout(new ColumnLayout(1))
+		new Button(panelAceptar) =>[
 			caption= "Aceptar"
 			onClick [ |
-				 this.close
-				//actualizar 
+				 modelObject.agregarVillano
+				 this.close				 
 			]
+			bindEnabled(new NotNullObservable("nuevoVillano"))
 		]
+		
+	]
 		
 	}
 	
