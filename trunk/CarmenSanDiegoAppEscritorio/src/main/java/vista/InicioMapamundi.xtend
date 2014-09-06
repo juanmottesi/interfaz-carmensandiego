@@ -70,7 +70,7 @@ class InicioMapamundi extends Dialog<Mapamundi> {
 		]
 		new Button(panelBotones) =>[
 			caption= "Editar"
-			//onClick [ | new EditarPaisVentana(this,modelObject.paisSeleccionado).open ]
+			onClick [ | new EditarPaisVentana(this,modelObject.paisSeleccionado).open ]
 			bindEnabled(new NotNullObservable("paisSeleccionado"))
 			disableOnError
 		]

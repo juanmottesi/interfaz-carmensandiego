@@ -9,6 +9,7 @@ import org.uqbar.commons.utils.Observable
 class Expediente {
 	
 	@Property List<Villano> villanos
+	@Property Villano villanoSeleccionado
 	
 	new(){
 		villanos = newArrayList
