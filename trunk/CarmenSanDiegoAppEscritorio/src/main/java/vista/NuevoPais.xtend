@@ -13,6 +13,7 @@ import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
+import dominio.Lugar
 
 class NuevoPais extends Dialog<Mapamundi>{
 	
@@ -85,7 +86,7 @@ class NuevoPais extends Dialog<Mapamundi>{
 			width= 203
 		]
 		new List(panelListaInter) =>[
-			bindItemsToProperty("nuevoPais.lugaresDeInteres")
+			bindItemsToProperty("nuevoPais.lugaresDeInteres").adapter= new PropertyAdapter(Lugar,"nombreDelLugar")
 			width= 180
 			height= 30 
 		]

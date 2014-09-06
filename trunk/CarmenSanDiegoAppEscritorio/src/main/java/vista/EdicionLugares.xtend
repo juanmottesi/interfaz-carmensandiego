@@ -8,6 +8,8 @@ import org.uqbar.arena.widgets.List
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.Selector
 import org.uqbar.arena.windows.WindowOwner
+import dominio.Lugar
+import org.uqbar.arena.bindings.PropertyAdapter
 
 class EdicionLugares extends TipoEdicion{
 	
@@ -32,7 +34,7 @@ class EdicionLugares extends TipoEdicion{
 		var panelAgregarLug= new Panel(panel)
 		panelAgregarLug.setLayout(new ColumnLayout(2))
 		new Selector(panelAgregarLug) =>[
-			bindItemsToProperty("lugaresPosibles")
+			bindItemsToProperty("lugaresPosibles").adapter= new PropertyAdapter(Lugar,"nombreDelLugar")
 			bindValueToProperty(nuevoModelProperty)
 		]
 		new Button(panelAgregarLug) =>[
@@ -45,7 +47,7 @@ class EdicionLugares extends TipoEdicion{
 	
 	override listDePropiedadesAEditar(Panel panel) {
 		new List(panel) =>[
-			bindItemsToProperty(modelProperty)
+			bindItemsToProperty(modelProperty).adapter= new PropertyAdapter(Lugar,"nombreDelLugar")
 			bindValueToProperty(bindablePropertySelec)
 			width= 180
 		]

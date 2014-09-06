@@ -54,9 +54,9 @@ class Mapamundi {
 	}
 
 	def agregarPais(){
-		if(nuevoPais.nombreDelPais == null)
+		if(nuevoPais.nombreDelPais == null || !(nuevoPais.nombreDelPais.length > 0))
 			throw new UserException("Debe ingresar el nombre del Pais")
-		if(paisesNombreLowerCase.contains(nuevoPais.nombreDelPais.toLowerCase) && nuevoPais.nombreDelPais.length > 0)
+		if(paisesNombreLowerCase.contains(nuevoPais.nombreDelPais.toLowerCase))
 			throw new UserException("Pais ya agregado")		
 		if(nuevoPais.lugaresDeInteres.size < 3)
 			throw new UserException("Debe seleccionar 3 lugares de Interés")
