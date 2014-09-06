@@ -1,69 +1,54 @@
 package vista
 
 import dominio.Mapamundi
-import java.awt.Color
 import org.uqbar.arena.bindings.NotNullObservable
 import org.uqbar.arena.layout.ColumnLayout
 import org.uqbar.arena.widgets.Button
-import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.List
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.Selector
-import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
-import dominio.Lugar
-import org.uqbar.arena.bindings.PropertyAdapter
 
-class EdicionLugares extends Dialog<Mapamundi>{
+class EdicionLugares extends TipoEdicion{
 	
-	new(WindowOwner owner, Mapamundi model) {
-		super(owner, model)
+	new(WindowOwner parent, Mapamundi model) {
+		super(parent, model)
+		textoLabel= "Lugares de Interés"
+		modelProperty= "nuevoPais.lugaresDeInteres"
+		bindablePropertySelec= "nuevoPais.lugarSeleccionado"
+		nuevoModelProperty= "nuevoPais.nuevoLugar"
 	}
 	
-	override protected createFormPanel(Panel mainPanel) {
+	override agregar() {
+		 modelObject.nuevoPais.agregarLugar
+	}
+	
+	override eliminar() {
+		modelObject.nuevoPais.eliminarLugar
+	}
+	
+	override panelDeAgregar(Panel panel) {
 		this.setTitle("Editar Lugares")
-		
-		var panelElimLug= new Panel(mainPanel)
-		panelElimLug.setLayout(new ColumnLayout(1))
-		new Label(panelElimLug) =>[
-			text= "Lugares de interés"
-			setBackground(Color.lightGray)
-			width= 203
-		]
-		new List(panelElimLug) =>[
-			bindItemsToProperty("nuevoPais.lugaresDeInteres").adapter= new PropertyAdapter(Lugar, "nombreDelLugar")
-			bindValueToProperty("nuevoPais.lugarSeleccionado")
-			width= 180
-			height= 100
-		]
-		new Button(panelElimLug) =>[
-			caption= "Eliminar"
-			onClick[ | modelObject.nuevoPais.eliminarLugar ]
-			bindEnabled(new NotNullObservable("nuevoPais.lugarSeleccionado"))
-			disableOnError
-		]
-		
-		var panelAgregarLug= new Panel(mainPanel)
+		var panelAgregarLug= new Panel(panel)
 		panelAgregarLug.setLayout(new ColumnLayout(2))
 		new Selector(panelAgregarLug) =>[
-			bindItemsToProperty("lugaresPosibles").adapter= new PropertyAdapter(Lugar, "nombreDelLugar")
-			bindValueToProperty("nuevoPais.nuevoLugar")
-			width= 150
+			bindItemsToProperty("lugaresPosibles")
+			bindValueToProperty(nuevoModelProperty)
 		]
 		new Button(panelAgregarLug) =>[
 			caption= "Agregar"
 			onClick[ | modelObject.nuevoPais.agregarLugar ]
-			bindEnabled(new NotNullObservable("nuevoPais.nuevoLugar"))
+			bindEnabled(new NotNullObservable(nuevoModelProperty))
 			disableOnError
 		]
-		var panelAceptar= new Panel(mainPanel)
-		panelAceptar.setLayout(new ColumnLayout(1))
-		new Button(panelAceptar) =>[
-			caption= "Aceptar"
-			onClick[ | 
-				this.close
-				modelObject.nuevoPais.actualizar
-			]
+	}
+	
+	override listDePropiedadesAEditar(Panel panel) {
+		new List(panel) =>[
+			bindItemsToProperty(modelProperty)
+			bindValueToProperty(bindablePropertySelec)
+			width= 180
 		]
 	}
+	
 }
