@@ -10,7 +10,6 @@ import org.junit.Test;
 import org.uqbar.commons.model.UserException;
 
 import dominio.Lugar;
-import exception.ExceptionPaisYaAgregado;
 
 public class PaisTest {
 
