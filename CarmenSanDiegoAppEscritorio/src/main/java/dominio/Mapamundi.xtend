@@ -30,27 +30,15 @@ class Mapamundi {
 		instance
 	}
 	
-	
 	def puedoIniciar() {
 		if (!(paises.size >= 3)){
 			throw new UserException("Faltan crear mas paises")		
 		}
 	}
 	
-	def agregar(Pais pais) {
-		if(!paises.contains(pais)){
-			paises += pais
-		}
-		else{
-			throw new UserException("Pais ya agregado")
-		}		
-	}
-	
-	
 	def primerPais(){
 		paises.get(Random.obtenerRandom(0, paises.size))
 	}
-	
 	
 	def planDeEscape() {
 
@@ -64,33 +52,17 @@ class Mapamundi {
 		ret
 		
 	}
-	
 
 	def agregarPais(){
-		if(paisesNombreLowerCase.contains(nuevoPais.nombreDelPais.toLowerCase) && nuevoPais.nombreDelPais.length > 0)
-			throw new UserException("Pais ya agregado")
 		if(nuevoPais.nombreDelPais == null)
 			throw new UserException("Debe ingresar el nombre del Pais")
+		if(paisesNombreLowerCase.contains(nuevoPais.nombreDelPais.toLowerCase) && nuevoPais.nombreDelPais.length > 0)
+			throw new UserException("Pais ya agregado")		
 		if(nuevoPais.lugaresDeInteres.size < 3)
 			throw new UserException("Debe seleccionar 3 lugares de Interés")
 		paises += nuevoPais
 		actualizarPaises
 	}
-
-	def editar() {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
-
-
-	def eliminar() {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
-
-	
-	def nuevo() {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
-	
 	
 	def eliminarPais() {
 		paisSeleccionado.conexionesAereas.forEach[ each| each.eliminarConexion(paisSeleccionado)]
