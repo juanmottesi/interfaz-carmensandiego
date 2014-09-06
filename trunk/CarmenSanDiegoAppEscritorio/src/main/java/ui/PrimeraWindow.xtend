@@ -1,4 +1,4 @@
-package vista
+package ui
 
 import dominio.Detective
 import org.uqbar.arena.layout.HorizontalLayout
@@ -12,7 +12,7 @@ import dominio.Expediente
 import ui.MapamundiWindow
 import dominio.Mapamundi
 
-class InicialWindow extends MainWindow<Detective> {
+class PrimeraWindow extends MainWindow<Detective> {
 	
 	new() {
 		super(new Detective)
@@ -48,7 +48,8 @@ class InicialWindow extends MainWindow<Detective> {
 	}
 
 	def static main(String[] args) {
-		new InicialWindow().startApplication
+		new PrimeraWindow().startApplication
 	}
+	
 
 }
