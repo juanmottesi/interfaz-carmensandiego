@@ -36,7 +36,7 @@ class NuevoPais extends Dialog<Mapamundi>{
 		new Label(panelCaract).setText("Características")
 		new Button(panelCaract) =>[
 			caption= "Editar Características"
-			onClick[| new EdicionCaracteristicas(owner, modelObject.nuevoPais).open]
+			onClick[ | new EdicionCaracteristicas(owner, modelObject).open ]
 		]
 		var panelListCaract= new Panel(mainPanel)
 		panelListCaract.setLayout(new ColumnLayout(1))
@@ -57,7 +57,7 @@ class NuevoPais extends Dialog<Mapamundi>{
 		new Label(panelConexiones).setText("Conexiones")
 		new Button(panelConexiones) =>[
 			caption= "Editar Conexiones"
-			onClick[ | new EdicionConexiones(this, modelObject).open]
+			onClick[ | new EdicionConexiones(this, modelObject).open ]
 		]
 		var panelListaConex= new Panel(mainPanel)
 		panelListaConex.setLayout(new ColumnLayout(1))
@@ -78,7 +78,7 @@ class NuevoPais extends Dialog<Mapamundi>{
 		new Label(panelIntereses).setText("Lugares de Interés")
 		new Button(panelIntereses) =>[
 			caption= "Editar Lugares"
-			onClick[ | new EdicionLugares(this, modelObject).open]
+			onClick[ | new EdicionLugares(this, modelObject).open ]
 		]
 		var panelListaInter= new Panel(mainPanel)
 		panelListaInter.setLayout(new ColumnLayout(1))
