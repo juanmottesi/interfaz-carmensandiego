@@ -13,10 +13,9 @@ class EdicionCaracteristicas extends TipoEdicion{
 	
 	new(WindowOwner parent, Mapamundi model) {
 		super(parent, model)
+		tituloVentana= "Editar Características"
 		textoLabel= "Características"
-		modelProperty= "nuevoPais.caracteristicasDelPais"
 		bindablePropertySelec= "nuevoPais.caracteristicaSeleccionada"
-		nuevoModelProperty= "nuevoPais.nuevaCaracteristica"
 	}
 	
 	override agregar() {
@@ -28,26 +27,23 @@ class EdicionCaracteristicas extends TipoEdicion{
 	}
 	
 	override panelDeAgregar(Panel panel) {
-		this.setTitle("Editar Características")
 		var panelAgregarCaract= new Panel(panel)
 		panelAgregarCaract.setLayout(new ColumnLayout(2))
 		new TextBox(panelAgregarCaract) =>[
 			width= 150
-			bindValueToProperty(nuevoModelProperty)
+			bindValueToProperty("nuevoPais.nuevaCaracteristica")
 		]
 		new Button(panelAgregarCaract) =>[
 			caption= "Agregar"
-			onClick[ | 
-				agregar
-			]
-			bindEnabled(new NotNullObservable(nuevoModelProperty))
+			onClick[ | agregar ]
+			bindEnabled(new NotNullObservable("nuevoPais.nuevaCaracteristica"))
 			disableOnError
 		]
 	}
 	
 	override listDePropiedadesAEditar(Panel panel) {
 		new List(panel) =>[
-			bindItemsToProperty(modelProperty)
+			bindItemsToProperty("nuevoPais.caracteristicasDelPais")
 			bindValueToProperty(bindablePropertySelec)
 			width= 180
 		]
