@@ -20,6 +20,7 @@ class Pais implements InterfazPaises {
 	//Para Edicion De Conexiones
 	@Property Pais conexionSeleccionada
 	@Property Pais nuevaConexion
+	@Property List<Pais> paises
 	
 	//Para edicion de Lugares
 	@Property Lugar lugarSeleccionado
@@ -61,7 +62,7 @@ class Pais implements InterfazPaises {
 		actualizar
 	}
 	
-	def void agregarConexion(){
+	override void agregarConexion(){
 		if( conexionesAereas.contains(nuevaConexion))
 			throw new UserException("Conexion ya agregada")
 		if(conexionesAereas.size >= 3)
@@ -136,7 +137,29 @@ class Pais implements InterfazPaises {
 		"caracteristicaSeleccionada"
 	}
 	
+	override botonEliminarConexiones() {
+		"conexionSeleccionada"
+	}
 	
+	override eliminarConexionSeleccionada() {
+		eliminarConexion(conexionSeleccionada)
+	}
+	
+	override conexionesSeleccionada() {
+		"conexionSeleccionada"
+	}
+	
+	override listaConexiones() {
+		"conexionesAereas"
+	}
+	
+	override obtenerInputConexiones() {
+		"nuevaConexion"
+	}
+	
+	def getPaises(){
+		(Mapamundi.instance.paises.filter[each | !(each == this)]).toList
+	}
 	
 	
 }

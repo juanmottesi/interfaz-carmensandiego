@@ -26,7 +26,7 @@ class NuevoPaisWindow extends TemplateNuevoEditar<Mapamundi>{
 	override agregarCaracteristicas(Panel panel) {
 		agregarTexBox(panel, "Nombre: ", "nuevoPais.nombreDelPais")
 		agregarLabelBotonYList(panel, "Características", "Editar Características",[ | new EdicionCaracteristicasWindow(owner, modelObject).open ], "nuevoPais.caracteristicasDelPais")
-		agregarLabelBotonYList(panel, "Conexiones", "Editar Conexiones",[ | new EdicionConexiones(this, modelObject).open ], "nuevoPais.conexionesAereas", new PropertyAdapter(Pais,"nombreDelPais"))
+		agregarLabelBotonYList(panel, "Conexiones", "Editar Conexiones",[ | new EdicionConexionesWindow(this, modelObject).open ], "nuevoPais.conexionesAereas", new PropertyAdapter(Pais,"nombreDelPais"))
 		agregarLabelBotonYList(panel, "Lugares de Interés", "Editar Lugares",[ | new EdicionLugares(this, modelObject).open ], "nuevoPais.lugaresDeInteres",new PropertyAdapter(Lugar,"nombreDelLugar"))	
 	}
 	

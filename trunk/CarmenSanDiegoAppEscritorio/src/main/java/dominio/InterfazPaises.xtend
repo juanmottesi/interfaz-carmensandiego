@@ -15,4 +15,17 @@ interface InterfazPaises {
 	def void agregarCaracteristica()
 	
 	def void actualizar()
+	
+	def String botonEliminarConexiones()
+	
+	def void eliminarConexionSeleccionada()
+	
+	def String conexionesSeleccionada()
+	
+	def String listaConexiones()
+	
+	def String obtenerInputConexiones()
+	
+	def void agregarConexion()
+	
 }
