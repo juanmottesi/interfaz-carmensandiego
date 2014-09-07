@@ -6,7 +6,7 @@ import org.uqbar.commons.model.UserException
 import org.uqbar.commons.utils.Observable
 
 @Observable
-class Pais {
+class Pais implements InterfazPaises {
 	
 	@Property String nombreDelPais
 	@Property List<String> caracteristicasDelPais
@@ -49,7 +49,7 @@ class Pais {
 		pais.get(Random.obtenerRandom(0, pais.size))
 	}
 	
-	def agregarCaracteristica(){		
+	override agregarCaracteristica(){		
 		if(caracteristicasLowerCase.contains(nuevaCaracteristica.toLowerCase))
 			throw new UserException("Característica ya agregada")
 		caracteristicasDelPais+= nuevaCaracteristica
@@ -91,7 +91,7 @@ class Pais {
 		actualizar
 	}
 	
-	def actualizar(){
+	override actualizar(){
 		//Actualizar caracteristicas
 		var carac= caracteristicasDelPais 
 		caracteristicasDelPais= null
@@ -115,5 +115,28 @@ class Pais {
 	def caracteristicasLowerCase(){
 		caracteristicasDelPais.map[toLowerCase]
 	}
+	
+	override botonEliminarCaracteristicas() {
+		"caracteristicaSeleccionada"
+	}
+	
+	override eliminarCaracteristicaSeleccionada() {
+		eliminarCaracteristica
+	}
+	
+	override obtenerInputCaracteristica() {
+		"nuevaCaracteristica"
+	}
+	
+	override listaCaracteristicas() {
+		"caracteristicasDelPais"
+	}
+	
+	override caracteristicasSeleccionada(){
+		"caracteristicaSeleccionada"
+	}
+	
+	
+	
 	
 }

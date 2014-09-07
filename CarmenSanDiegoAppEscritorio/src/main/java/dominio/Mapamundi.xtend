@@ -6,7 +6,7 @@ import org.uqbar.commons.model.UserException
 import org.uqbar.commons.utils.Observable
 
 @Observable
-class Mapamundi {
+class Mapamundi implements InterfazPaises {
 	
 	private static Mapamundi instance = null
 	
@@ -81,4 +81,33 @@ class Mapamundi {
 	def paisesNombreLowerCase(){
 		paises.map[nombreDelPais.toLowerCase]		
 	}
+	
+	override botonEliminarCaracteristicas() {
+		"nuevoPais.caracteristicaSeleccionada"
+	}
+	
+	override eliminarCaracteristicaSeleccionada() {
+		nuevoPais.eliminarCaracteristica
+	}
+	
+	override obtenerInputCaracteristica() {
+		"nuevoPais.nuevaCaracteristica"
+	}
+	
+	override listaCaracteristicas() {
+		"nuevoPais.caracteristicasDelPais"
+	}
+	
+	override caracteristicasSeleccionada(){
+		"nuevoPais.caracteristicaSeleccionada"
+	}
+	
+	override agregarCaracteristica() {
+		nuevoPais.agregarCaracteristica
+	}
+	
+	override actualizar() {
+		nuevoPais.actualizar
+	}
+	
 }
