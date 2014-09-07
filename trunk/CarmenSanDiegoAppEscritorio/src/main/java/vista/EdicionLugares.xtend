@@ -15,10 +15,9 @@ class EdicionLugares extends TipoEdicion{
 	
 	new(WindowOwner parent, Mapamundi model) {
 		super(parent, model)
+		tituloVentana= "Editar Lugares"
 		textoLabel= "Lugares de Interés"
-		modelProperty= "nuevoPais.lugaresDeInteres"
 		bindablePropertySelec= "nuevoPais.lugarSeleccionado"
-		nuevoModelProperty= "nuevoPais.nuevoLugar"
 	}
 	
 	override agregar() {
@@ -30,24 +29,23 @@ class EdicionLugares extends TipoEdicion{
 	}
 	
 	override panelDeAgregar(Panel panel) {
-		this.setTitle("Editar Lugares")
 		var panelAgregarLug= new Panel(panel)
 		panelAgregarLug.setLayout(new ColumnLayout(2))
 		new Selector(panelAgregarLug) =>[
 			bindItemsToProperty("lugaresPosibles").adapter= new PropertyAdapter(Lugar,"nombreDelLugar")
-			bindValueToProperty(nuevoModelProperty)
+			bindValueToProperty("nuevoPais.nuevoLugar")
 		]
 		new Button(panelAgregarLug) =>[
 			caption= "Agregar"
 			onClick[ | modelObject.nuevoPais.agregarLugar ]
-			bindEnabled(new NotNullObservable(nuevoModelProperty))
+			bindEnabled(new NotNullObservable("nuevoPais.nuevoLugar"))
 			disableOnError
 		]
 	}
 	
 	override listDePropiedadesAEditar(Panel panel) {
 		new List(panel) =>[
-			bindItemsToProperty(modelProperty).adapter= new PropertyAdapter(Lugar,"nombreDelLugar")
+			bindItemsToProperty("nuevoPais.lugaresDeInteres").adapter= new PropertyAdapter(Lugar,"nombreDelLugar")
 			bindValueToProperty(bindablePropertySelec)
 			width= 180
 		]
