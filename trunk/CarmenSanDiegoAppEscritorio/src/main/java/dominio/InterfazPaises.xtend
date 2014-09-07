@@ -28,4 +28,16 @@ interface InterfazPaises {
 	
 	def void agregarConexion()
 	
+	def String botonEliminarLugares()
+	
+	def String listaLugares()
+	
+	def String obtenerInputLugares()
+	
+	def void eliminarLugarSeleccionado()
+	
+	def String lugaresSeleccionada()
+	
+	def void agregarLugares()
+	
 }

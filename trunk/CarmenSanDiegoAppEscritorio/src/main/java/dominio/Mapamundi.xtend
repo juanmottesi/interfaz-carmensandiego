@@ -134,4 +134,28 @@ class Mapamundi implements InterfazPaises {
 		nuevoPais.agregarConexion
 	}
 	
+	override botonEliminarLugares() {
+		"nuevoPais.lugarSeleccionado"
+	}
+	
+	override listaLugares() {
+		"nuevoPais.lugaresDeInteres"
+	}
+	
+	override obtenerInputLugares() {
+		"nuevoPais.nuevoLugar"
+	}
+	
+	override eliminarLugarSeleccionado() {
+		nuevoPais.eliminarLugarSeleccionado()
+	}
+	
+	override lugaresSeleccionada() {
+		"nuevoPais.lugarSeleccionado"
+	}
+	
+	override agregarLugares() {
+		nuevoPais.agregarLugar
+	}
+	
 }
