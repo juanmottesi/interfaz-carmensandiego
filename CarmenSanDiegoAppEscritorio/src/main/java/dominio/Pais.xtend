@@ -25,6 +25,7 @@ class Pais implements InterfazPaises {
 	//Para edicion de Lugares
 	@Property Lugar lugarSeleccionado
 	@Property Lugar nuevoLugar
+	@Property List<Lugar> lugaresPosibles
 	
 	new(){
 		caracteristicasDelPais= newArrayList
@@ -161,5 +162,32 @@ class Pais implements InterfazPaises {
 		(Mapamundi.instance.paises.filter[each | !(each == this)]).toList
 	}
 	
+	override botonEliminarLugares() {
+		"lugarSeleccionado"
+	}
+	
+	override listaLugares() {
+		"lugaresDeInteres"
+	}
+	
+	override obtenerInputLugares() {
+		"nuevoLugar"
+	}
+	
+	override eliminarLugarSeleccionado() {
+		eliminarLugarSeleccionado()
+	}
+	
+	override lugaresSeleccionada() {
+		"lugarSeleccionado"
+	}
+	
+	override agregarLugares() {
+		agregarLugar
+	}
+	
+	def getLugaresPosibles(){
+		Mapamundi.instance.lugaresPosibles
+	}
 	
 }
