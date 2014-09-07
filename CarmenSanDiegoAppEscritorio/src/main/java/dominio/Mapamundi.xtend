@@ -110,4 +110,28 @@ class Mapamundi implements InterfazPaises {
 		nuevoPais.actualizar
 	}
 	
+	override botonEliminarConexiones() {
+		"nuevoPais.conexionSeleccionada"
+	}
+	
+	override eliminarConexionSeleccionada() {
+		nuevoPais.eliminarConexion(paisSeleccionado)
+	}
+	
+	override conexionesSeleccionada() {
+		"nuevoPais.conexionSeleccionada"
+	}
+	
+	override listaConexiones() {
+		"nuevoPais.conexionesAereas"
+	}
+	
+	override obtenerInputConexiones() {
+		"nuevoPais.nuevaConexion"
+	}
+	
+	override agregarConexion() {
+		nuevoPais.agregarConexion
+	}
+	
 }

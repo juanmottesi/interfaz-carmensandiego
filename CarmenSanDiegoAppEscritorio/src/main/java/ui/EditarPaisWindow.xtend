@@ -23,7 +23,7 @@ class EditarPaisWindow extends TemplateNuevoEditar<Pais>{
 	override agregarCaracteristicas(Panel panel) {
 		agregarTexBox(panel, "Nombre: ", "nombreDelPais")
 		agregarLabelBotonYList(panel, "Características", "Editar Características",[ | new EdicionCaracteristicasWindow(owner, modelObject).open ], "caracteristicasDelPais")
-		agregarLabelBotonYList(panel, "Conexiones", "Editar Conexiones",[ | ], "conexionesAereas", new PropertyAdapter(Pais,"nombreDelPais"))
+		agregarLabelBotonYList(panel, "Conexiones", "Editar Conexiones",[ |  new EdicionConexionesWindow(this, modelObject).open], "conexionesAereas", new PropertyAdapter(Pais,"nombreDelPais"))
 		agregarLabelBotonYList(panel, "Lugares de Interés", "Editar Lugares",[ | ], "lugaresDeInteres",new PropertyAdapter(Lugar,"nombreDelLugar"))	
 	}
 	
