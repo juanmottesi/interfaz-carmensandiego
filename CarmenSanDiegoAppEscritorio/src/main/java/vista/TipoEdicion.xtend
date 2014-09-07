@@ -12,10 +12,9 @@ import org.uqbar.arena.windows.WindowOwner
 
 abstract class TipoEdicion extends Dialog<Mapamundi>{
 	
+	@Property String tituloVentana
 	@Property String textoLabel
-	@Property String modelProperty
 	@Property String bindablePropertySelec
-	@Property String nuevoModelProperty
 	
 	new(WindowOwner parent, Mapamundi model) {
 		super(parent, model)
@@ -27,6 +26,7 @@ abstract class TipoEdicion extends Dialog<Mapamundi>{
 	def void eliminar()
 	
 	override protected createFormPanel(Panel mainPanel) {
+		this.setTitle(tituloVentana)
 		var panelElim= new Panel(mainPanel)
 		panelElim.setLayout(new ColumnLayout(1))
 		new Label(panelElim) =>[
@@ -39,9 +39,7 @@ abstract class TipoEdicion extends Dialog<Mapamundi>{
 		
 		new Button(panelElim) =>[
 			caption= "Eliminar"
-			onClick[ | 
-				eliminar
-			]
+			onClick[ | eliminar ]
 			bindEnabled(new NotNullObservable(bindablePropertySelec))
 			disableOnError
 		]
