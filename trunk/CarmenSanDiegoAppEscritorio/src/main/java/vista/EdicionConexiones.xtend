@@ -15,10 +15,9 @@ class EdicionConexiones extends TipoEdicion{
 	
 	new(WindowOwner parent, Mapamundi model) {
 		super(parent, model)
+		tituloVentana= "Editar Conexiones"
 		textoLabel= "Conexiones"
-		modelProperty= "nuevoPais.conexionesAereas"
 		bindablePropertySelec= "nuevoPais.conexionSeleccionada"
-		nuevoModelProperty= "nuevoPaos.nuevaConexion"
 	}
 	
 	override agregar() {
@@ -30,7 +29,6 @@ class EdicionConexiones extends TipoEdicion{
 	}
 	
 	override panelDeAgregar(Panel panel) {
-		this.setTitle("Editar Conexiones")
 		var panelAgregarConex= new Panel(panel)
 		panelAgregarConex.setLayout(new ColumnLayout(2))
 		new Selector(panelAgregarConex) =>[
@@ -47,7 +45,7 @@ class EdicionConexiones extends TipoEdicion{
 	
 	override listDePropiedadesAEditar(Panel panel) {
 		new List(panel) =>[
-			bindItemsToProperty(modelProperty).adapter= new PropertyAdapter(Pais, "nombreDelPais")
+			bindItemsToProperty("nuevoPais.conexionesAereas").adapter= new PropertyAdapter(Pais, "nombreDelPais")
 			bindValueToProperty(bindablePropertySelec)
 			width= 180
 		]
