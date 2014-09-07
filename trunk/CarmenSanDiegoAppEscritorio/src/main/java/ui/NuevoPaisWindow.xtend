@@ -31,15 +31,4 @@ class NuevoPaisWindow extends TemplateNuevoEditar<Mapamundi>{
 		agregarLabelBotonYList(panel, "Lugares de Interés", "Editar Lugares",[ | new EdicionLugares(this, modelObject).open ], "nuevoPais.lugaresDeInteres",new PropertyAdapter(Lugar,"nombreDelLugar"))	
 	}
 	
-//	def agregarLabelYLista(Panel panel, String text, String property) {
-//		var panelAux = new Panel(panel)
-//		panelAux.setLayout(new VerticalLayout)
-//		agregarLabel(panelAux, text, 203)
-//		new List(panel) =>[
-//			bindItemsToProperty(property)
-//			width= 180
-//		]
-//	}
-	
-
 }
