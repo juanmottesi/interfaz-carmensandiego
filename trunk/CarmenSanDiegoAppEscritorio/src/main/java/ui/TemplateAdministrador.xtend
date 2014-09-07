@@ -13,6 +13,7 @@ import org.uqbar.arena.widgets.List
 import org.uqbar.arena.bindings.PropertyAdapter
 import org.uqbar.arena.bindings.Adapter
 import org.uqbar.arena.layout.HorizontalLayout
+import org.uqbar.arena.widgets.TextBox
 
 abstract class TemplateAdministrador<T> extends Dialog<T>{
 	
@@ -129,6 +130,15 @@ abstract class TemplateAdministrador<T> extends Dialog<T>{
 			bindValueToProperty(property)
 			width = 100
 		]	
+	}
+	
+	def agregarTexBox(Panel panel, String text, String property){
+		
+		panel.setLayout(new ColumnLayout(2))
+		new Label(panel).setText("Nombre:")
+		new TextBox(panel)=>[
+			bindValueToProperty("nuevoPais.nombreDelPais")
+		]
 	}
 	
 }
