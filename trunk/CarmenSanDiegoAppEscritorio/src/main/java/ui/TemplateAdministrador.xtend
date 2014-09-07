@@ -104,7 +104,7 @@ abstract class TemplateAdministrador<T> extends Dialog<T>{
 		]
 	}
 	
-		def agregarPanelConListaConLabel(Panel panel, String text, String label, String property) {
+	def agregarPanelConListaConLabel(Panel panel, String text, String label, String property) {
 		var panelSenias= new Panel(panel)
 		panelSenias.setLayout(new ColumnLayout(1))
 		new Label(panelSenias).setText(text)
@@ -141,9 +141,9 @@ abstract class TemplateAdministrador<T> extends Dialog<T>{
 	def agregarTexBox(Panel panel, String text, String property){
 		var panelAux = new Panel(panel)
 		panelAux.setLayout(new ColumnLayout(2))
-		new Label(panelAux).setText("Nombre:")
+		new Label(panelAux).setText(text)
 		new TextBox(panelAux)=>[
-			bindValueToProperty("nuevoPais.nombreDelPais")
+			bindValueToProperty(property)
 		]
 	}
 	

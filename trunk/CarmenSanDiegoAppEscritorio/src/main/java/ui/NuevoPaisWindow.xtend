@@ -4,8 +4,6 @@ import dominio.Lugar
 import dominio.Mapamundi
 import dominio.Pais
 import org.uqbar.arena.bindings.PropertyAdapter
-import org.uqbar.arena.layout.VerticalLayout
-import org.uqbar.arena.widgets.List
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.WindowOwner
 import vista.EdicionCaracteristicas
@@ -33,15 +31,15 @@ class NuevoPaisWindow extends TemplateNuevoEditar<Mapamundi>{
 		agregarLabelBotonYList(panel, "Lugares de Interés", "Editar Lugares",[ | new EdicionLugares(this, modelObject).open ], "nuevoPais.lugaresDeInteres",new PropertyAdapter(Lugar,"nombreDelLugar"))	
 	}
 	
-	def agregarLabelYLista(Panel panel, String text, String property) {
-		var panelAux = new Panel(panel)
-		panelAux.setLayout(new VerticalLayout)
-		agregarLabel(panelAux, text, 203)
-		new List(panel) =>[
-			bindItemsToProperty(property)
-			width= 180
-		]
-	}
+//	def agregarLabelYLista(Panel panel, String text, String property) {
+//		var panelAux = new Panel(panel)
+//		panelAux.setLayout(new VerticalLayout)
+//		agregarLabel(panelAux, text, 203)
+//		new List(panel) =>[
+//			bindItemsToProperty(property)
+//			width= 180
+//		]
+//	}
 	
 
 }
