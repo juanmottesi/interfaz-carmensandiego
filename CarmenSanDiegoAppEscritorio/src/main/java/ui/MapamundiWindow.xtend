@@ -9,7 +9,6 @@ import org.uqbar.arena.widgets.List
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.WindowOwner
 import vista.EditarPaisVentana
-import vista.NuevoPais
 
 class MapamundiWindow extends TemplateAdministrador<Mapamundi>{
 	
