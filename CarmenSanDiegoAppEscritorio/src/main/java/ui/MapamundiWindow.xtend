@@ -37,7 +37,7 @@ class MapamundiWindow extends TemplateAdministrador<Mapamundi>{
 		
 		agregarBoton(panelBotones, "Eliminar", "paisSeleccionado", [ | modelObject.eliminarPais])
 		agregarBoton(panelBotones, "Editar", "paisSeleccionado", [ | new EditarPaisVentana(this, modelObject.paisSeleccionado).open])
-		agregarBoton(panelBotones, "Nuevo", [ | modelObject.setNuevoPais(new Pais) new NuevoPais(this, modelObject).open])
+		agregarBoton(panelBotones, "Nuevo", [ | modelObject.setNuevoPais(new Pais) new NuevoPaisWindow(this, modelObject).open])
 	}
 		
 	override agregarCaracteristicas(Panel panel) {
