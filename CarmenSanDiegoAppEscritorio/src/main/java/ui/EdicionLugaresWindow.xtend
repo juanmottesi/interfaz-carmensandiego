@@ -1,7 +1,6 @@
 package ui
 
 import dominio.InterfazPaises
-import dominio.Pais
 import org.uqbar.arena.bindings.PropertyAdapter
 import org.uqbar.arena.widgets.List
 import org.uqbar.arena.widgets.Panel
