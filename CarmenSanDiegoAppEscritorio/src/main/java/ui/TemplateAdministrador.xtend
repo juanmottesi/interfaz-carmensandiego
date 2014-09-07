@@ -56,6 +56,12 @@ abstract class TemplateAdministrador<T> extends Dialog<T>{
 		]
 	}
 	
+	def agregarLabel(Panel panel, String texto){
+		new Label(panel) =>[
+			text= texto
+		]
+	}
+	
 	def agregarBoton(Panel panel,String nombre, ()=>void onclick){
 		var panelBotones= new Panel(panel)
 		panelBotones.setLayout(new VerticalLayout)
@@ -133,11 +139,47 @@ abstract class TemplateAdministrador<T> extends Dialog<T>{
 	}
 	
 	def agregarTexBox(Panel panel, String text, String property){
-		
-		panel.setLayout(new ColumnLayout(2))
-		new Label(panel).setText("Nombre:")
-		new TextBox(panel)=>[
+		var panelAux = new Panel(panel)
+		panelAux.setLayout(new ColumnLayout(2))
+		new Label(panelAux).setText("Nombre:")
+		new TextBox(panelAux)=>[
 			bindValueToProperty("nuevoPais.nombreDelPais")
+		]
+	}
+	
+		def agregarLabelBotonYList(Panel panel, String text, String nombre, ()=>void onclick, String property, Adapter adapter) {
+		var panelAux= new Panel(panel)
+		panelAux.setLayout(new ColumnLayout(2))
+		new Label(panelAux).setText(text)
+		new Button(panelAux) =>[
+			caption= nombre
+			onClick= onclick
+		]
+		var panelLista= new Panel(panel)
+		panelLista.setLayout(new ColumnLayout(1))
+		agregarLabel(panelLista, text, 203)
+		new List(panelLista) =>[
+			bindItemsToProperty(property).adapter= adapter
+			width= 180
+		]
+	}
+	
+	def agregarLabelBotonYList(Panel panel, String text, String nombre, ()=>void onclick, String property) {
+		var panelAux= new Panel(panel)
+		panelAux.setLayout(new ColumnLayout(2))
+		new Label(panelAux).setText(text)
+		new Button(panelAux) =>[
+			caption= nombre
+			onClick= onclick
+		]
+		var panelLista= new Panel(panel)
+		panelLista.setLayout(new ColumnLayout(1))
+				
+		agregarLabel(panelLista, text, 203)
+		
+		new List(panelLista) =>[
+			bindItemsToProperty(property)
+			width= 180
 		]
 	}
 	
