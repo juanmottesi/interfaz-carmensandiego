@@ -7,7 +7,6 @@ import org.uqbar.arena.bindings.PropertyAdapter
 import org.uqbar.arena.widgets.List
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.WindowOwner
-import vista.EditarVillano
 
 class ExpedienteWindow extends TemplateAdministrador<Expediente> {
 	
@@ -32,7 +31,7 @@ class ExpedienteWindow extends TemplateAdministrador<Expediente> {
 	override agregarBotones(Panel panel) {
 		
 		agregarBoton(panel, "Nuevo", [ | modelObject.setNuevoVillano(new Villano) new NuevoVillanoWindow(this, modelObject).open])
-		agregarBoton(panel, "Editar", "villanoSeleccionado", [ | new EditarVillano(this, modelObject.villanoSeleccionado).open ])
+		agregarBoton(panel, "Editar", "villanoSeleccionado", [ | new EditarVillanoWindow(this, modelObject.villanoSeleccionado).open ])
 		
 	}
 	

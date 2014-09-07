@@ -8,7 +8,6 @@ import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.widgets.List
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.WindowOwner
-import vista.EditarPaisVentana
 
 class MapamundiWindow extends TemplateAdministrador<Mapamundi>{
 	
@@ -35,7 +34,7 @@ class MapamundiWindow extends TemplateAdministrador<Mapamundi>{
 		panelBotones.setLayout(new VerticalLayout)
 		
 		agregarBoton(panelBotones, "Eliminar", "paisSeleccionado", [ | modelObject.eliminarPais])
-		agregarBoton(panelBotones, "Editar", "paisSeleccionado", [ | new EditarPaisVentana(this, modelObject.paisSeleccionado).open])
+		agregarBoton(panelBotones, "Editar", "paisSeleccionado", [ | new EditarPaisWindow(this, modelObject.paisSeleccionado).open])
 		agregarBoton(panelBotones, "Nuevo", [ | modelObject.setNuevoPais(new Pais) new NuevoPaisWindow(this, modelObject).open])
 	}
 		

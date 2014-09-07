@@ -143,6 +143,7 @@ abstract class TemplateAdministrador<T> extends Dialog<T>{
 		panelAux.setLayout(new ColumnLayout(2))
 		new Label(panelAux).setText(text)
 		new TextBox(panelAux)=>[
+			width= 100
 			bindValueToProperty(property)
 		]
 	}
