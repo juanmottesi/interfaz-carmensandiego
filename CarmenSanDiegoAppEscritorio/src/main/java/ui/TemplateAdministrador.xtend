@@ -148,7 +148,17 @@ abstract class TemplateAdministrador<T> extends Dialog<T>{
 		]
 	}
 	
-		def agregarLabelBotonYList(Panel panel, String text, String nombre, ()=>void onclick, String property, Adapter adapter) {
+	def agregarTexBoxInmodificable(Panel panel, String text, String property){
+		var panelAux = new Panel(panel)
+		panelAux.setLayout(new ColumnLayout(2))
+		new Label(panelAux).setText(text)
+		new TextBox(panelAux)=>[
+			width= 100
+			bindValueToProperty(property)
+		]
+	}
+	
+	def agregarLabelBotonYList(Panel panel, String text, String nombre, ()=>void onclick, String property, Adapter adapter) {
 		var panelAux= new Panel(panel)
 		panelAux.setLayout(new ColumnLayout(2))
 		new Label(panelAux).setText(text)

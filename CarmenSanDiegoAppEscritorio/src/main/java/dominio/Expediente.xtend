@@ -6,7 +6,7 @@ import org.uqbar.commons.model.UserException
 import org.uqbar.commons.utils.Observable
 
 @Observable
-class Expediente {
+class Expediente implements InterfazVillanos {
 	
 	private static Expediente instance = null
 	
@@ -48,10 +48,15 @@ class Expediente {
 	}
 	
 	def agregarVillano() {
+		nuevoVillano.sexo = nuevoVillano.sexo.toLowerCase
 		if(nuevoVillano.nombre == null || !(nuevoVillano.nombre.length > 0))
 			throw new UserException("Debe ingresar el nombre del Villano")
 		if(villanosNombreLowerCase.contains(nuevoVillano.nombre.toLowerCase))
-			throw new UserException("Villano ya agregado")		
+			throw new UserException("Villano ya agregado")
+		if(nuevoVillano.sexo != "masculino"){
+			if(nuevoVillano.sexo != "femenino") throw new UserException("El sexo del villano tiene que ser femenino o masculino")
+		}
+			
 		villanos += nuevoVillano
 		actualizarVillanos
 	}
@@ -67,5 +72,58 @@ class Expediente {
 		villanoSeleccionado= null
 		nuevoVillano= null
 	}
+	
+	override obtenerInputHobbie() {
+		"nuevoVillano.nuevoHobbie"
+	}
+	
+	override botonEliminarHobbie() {
+		"nuevoVillano.hobbieSeleccionado"
+	}
+	
+	override eliminarHobieSeleccionado() {
+		nuevoVillano.eliminarHobieSeleccionado
+	}
+	
+	override agregarHobbie() {
+		nuevoVillano.agregarHobbie
+	}
+	
+	override listaHobbies() {
+		"nuevoVillano.hobbies"
+	}
+	
+	override hobbiesSeleccionado() {
+		"nuevoVillano.hobbieSeleccionado"
+	}
+	
+	override actualizar() {
+		nuevoVillano.actualizar
+	}
+	
+	override agregarSeniasParticulares() {
+		nuevoVillano.agregarSeniasParticulares
+	}
+	
+	override botonEliminarSeniasParticulares() {
+		"nuevoVillano.seniaParticularSeleccionada"
+	}
+	
+	override eliminarSeniasParticularesSeleccionado() {
+		nuevoVillano.eliminarSeniasParticularesSeleccionado
+	}
+	
+	override obtenerInputSeniasParticulares() {
+		"nuevoVillano.nuevaSeniaParticular"
+	}
+	
+	override listaSeniasParticulares() {
+		"nuevoVillano.seniasParticulares"
+	}
+	
+	override seniasParticularesSeleccionada() {
+		"nuevoVillano.seniaParticularSeleccionada"
+	}
+	
 	
 }
