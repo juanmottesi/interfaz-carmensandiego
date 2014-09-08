@@ -45,7 +45,7 @@ class Villano implements InterfazVillanos{
 	}
 	
 	override agregarHobbie() {
-		if(hobiesLowerCase.contains(nuevoHobbie.toLowerCase))
+		if(hobbiesLowerCase.contains(nuevoHobbie.toLowerCase))
 			throw new UserException("Hobbie ya agregada")
 		hobbies += nuevoHobbie
 		actualizar
@@ -103,7 +103,7 @@ class Villano implements InterfazVillanos{
 		"seniaParticularSeleccionada"
 	}
 	
-	def hobiesLowerCase() {
+	def hobbiesLowerCase() {
 		hobbies.map[toLowerCase]		
 	}
 	
