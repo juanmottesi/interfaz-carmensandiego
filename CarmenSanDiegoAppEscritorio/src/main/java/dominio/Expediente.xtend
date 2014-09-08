@@ -28,15 +28,6 @@ class Expediente implements InterfazVillanos {
 		instance
 	}
 	
-	def agregar(Villano villano) {
-		if(!villanos.contains(villano)){
-			villanos += villano
-		}
-		else{
-			throw new UserException("Villano ya agregado")
-		}	
-	}
-	
 	def puedoIniciar() {
 		if (!(villanos.size > 0)){
 			throw new UserException("Faltan crear mas villanos")		
