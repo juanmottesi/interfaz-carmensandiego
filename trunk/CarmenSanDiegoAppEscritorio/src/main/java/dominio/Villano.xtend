@@ -3,6 +3,8 @@ package dominio
 import java.util.List
 import org.uqbar.commons.utils.Observable
 import org.uqbar.commons.model.UserException
+import org.uqbar.arena.widgets.Panel
+import ui.NuevoVillanoWindow
 
 @Observable
 class Villano implements InterfazVillanos{
@@ -33,10 +35,6 @@ class Villano implements InterfazVillanos{
 	
 	override obtenerInputHobbie() {
 		"nuevoHobbie"
-	}
-	
-	override botonEliminarHobbie() {
-		"hobbieSeleccionado"
 	}
 	
 	override eliminarHobieSeleccionado() {
@@ -71,7 +69,7 @@ class Villano implements InterfazVillanos{
 		seniasParticulares= null
 		seniasParticulares= sp  
 		hobbieSeleccionado= null
-		nuevoHobbie= null
+		nuevaSeniaParticular= null
 		
 	}
 	
@@ -82,10 +80,6 @@ class Villano implements InterfazVillanos{
 		actualizar
 	}
 		
-	override botonEliminarSeniasParticulares() {
-		"seniaParticularSeleccionada"
-	}
-	
 	override eliminarSeniasParticularesSeleccionado() {
 		seniasParticulares-= seniaParticularSeleccionada
 		actualizar
@@ -110,4 +104,14 @@ class Villano implements InterfazVillanos{
 	def seniasParticularesLowerCase() {
 		seniasParticulares.map[toLowerCase]
 	}
+	
+	override agregarBotonAceptar(Panel panel, NuevoVillanoWindow window) {
+		window.agregarBoton(panel, "Aceptar", [ |window.close ])
+	}
+	
+	override agregarNombreYSexo(Panel panel, NuevoVillanoWindow window) {
+		window.agregarPanel(panel, "Nombre: ", "nombre")
+		window.agregarPanel(panel, "Sexo: ", "sexo")
+	}
+	
 }

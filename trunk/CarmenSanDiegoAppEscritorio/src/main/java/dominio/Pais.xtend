@@ -4,6 +4,8 @@ import dominio.auxiliar.Random
 import java.util.List
 import org.uqbar.commons.model.UserException
 import org.uqbar.commons.utils.Observable
+import org.uqbar.arena.widgets.Panel
+import ui.NuevoPaisWindow
 
 @Observable
 class Pais implements InterfazPaises {
@@ -118,10 +120,6 @@ class Pais implements InterfazPaises {
 		caracteristicasDelPais.map[toLowerCase]
 	}
 	
-	override botonEliminarCaracteristicas() {
-		"caracteristicaSeleccionada"
-	}
-	
 	override eliminarCaracteristicaSeleccionada() {
 		eliminarCaracteristica
 	}
@@ -137,11 +135,7 @@ class Pais implements InterfazPaises {
 	override caracteristicasSeleccionada(){
 		"caracteristicaSeleccionada"
 	}
-	
-	override botonEliminarConexiones() {
-		"conexionSeleccionada"
-	}
-	
+		
 	override eliminarConexionSeleccionada() {
 		eliminarConexion(conexionSeleccionada)
 	}
@@ -161,11 +155,7 @@ class Pais implements InterfazPaises {
 	def getPaises(){
 		(Mapamundi.instance.paises.filter[each | !(each == this)]).toList
 	}
-	
-	override botonEliminarLugares() {
-		"lugarSeleccionado"
-	}
-	
+		
 	override listaLugares() {
 		"lugaresDeInteres"
 	}
@@ -188,6 +178,18 @@ class Pais implements InterfazPaises {
 	
 	def getLugaresPosibles(){
 		Mapamundi.instance.lugaresPosibles
+	}
+	
+	override obtenerTitulo(){
+		"Mapamundi - Editar Pais"
+	}
+		
+	override agregarBotonAceptar(Panel panel, NuevoPaisWindow window) {
+		window.agregarBoton(panel, "Aceptar",[ | window.close])
+	}
+	
+	override agregarNombreDelPais(Panel panel, NuevoPaisWindow window) {
+		window.agregarPanel(panel, "Nombre: ", "nombreDelPais")
 	}
 	
 }

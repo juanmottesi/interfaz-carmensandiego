@@ -1,12 +1,12 @@
 package ui
 
-import dominio.Expediente
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Panel
+import dominio.InterfazVillanos
 
-class NuevoVillanoWindow extends TemplateNuevoEditar<Expediente> {
+class NuevoVillanoWindow extends TemplateNuevoEditar<InterfazVillanos> {
 	
-	new(WindowOwner owner, Expediente model) {
+	new(WindowOwner owner, InterfazVillanos model) {
 		super(owner, model)
 	}
 	
@@ -15,14 +15,13 @@ class NuevoVillanoWindow extends TemplateNuevoEditar<Expediente> {
 	}
 	
 	override agregarBotones(Panel panel) {
-		agregarBoton(panel, "Aceptar","nuevoVillano", [ | modelObject.agregarVillano this.close])
+		modelObject.agregarBotonAceptar(panel, this)
 	}
 	
 	override agregarCaracteristicas(Panel panel) {
-		agregarTexBox(panel, "Nombre: ", "nuevoVillano.nombre")
-		agregarTexBox(panel, "Sexo: ", "nuevoVillano.sexo")
-		agregarLabelBotonYList(panel, "Señas particulares: ", "Editar Senias particulares",[ | new EdicionSeniasParticularesWindow(this, modelObject).open ], "nuevoVillano.seniasParticulares")
-		agregarLabelBotonYList(panel, "Hobbies: ", "Editar Hobbies",[ | new EdicionHobbiesWindow(this, modelObject).open ], "nuevoVillano.hobbies")
+		modelObject.agregarNombreYSexo(panel, this)
+		agregarLabelBotonYList(panel, "Señas particulares: ", "Editar Senias particulares",[ | new EdicionSeniasParticularesWindow(this, modelObject).open ], modelObject.listaSeniasParticulares)
+		agregarLabelBotonYList(panel, "Hobbies: ", "Editar Hobbies",[ | new EdicionHobbiesWindow(this, modelObject).open ], modelObject.listaHobbies)
 	}
 	
 }

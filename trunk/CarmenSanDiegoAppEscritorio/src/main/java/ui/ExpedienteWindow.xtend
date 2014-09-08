@@ -30,7 +30,7 @@ class ExpedienteWindow extends TemplateAdministrador<Expediente> {
 	override agregarBotones(Panel panel) {
 		
 		agregarBoton(panel, "Nuevo", [ | modelObject.setNuevoVillano(new Villano) new NuevoVillanoWindow(this, modelObject).open])
-		agregarBoton(panel, "Editar", "villanoSeleccionado", [ | new EditarVillanoWindow(this, modelObject.villanoSeleccionado).open ])
+		agregarBoton(panel, "Editar", "villanoSeleccionado", [ | new NuevoVillanoWindow(this, modelObject.villanoSeleccionado).open ])
 		
 	}
 	

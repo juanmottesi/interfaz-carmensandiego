@@ -13,7 +13,7 @@ class EdicionCaracteristicasWindow extends TemplateEdicion<InterfazPaises> {
 	}
 	
 	override agregarEliminar(Panel mainPanel) {
-		agregarBoton(mainPanel, "Eliminar",modelObject.botonEliminarCaracteristicas,[ | modelObject.eliminarCaracteristicaSeleccionada()])
+		agregarBoton(mainPanel, "Eliminar",modelObject.caracteristicasSeleccionada,[ | modelObject.eliminarCaracteristicaSeleccionada()])
 	}
 	
 	override agregarInput(Panel mainPanel) {

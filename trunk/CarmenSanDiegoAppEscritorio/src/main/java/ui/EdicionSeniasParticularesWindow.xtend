@@ -17,7 +17,7 @@ class EdicionSeniasParticularesWindow extends TemplateEdicion<InterfazVillanos>{
 	}
 	
 	override agregarEliminar(Panel mainPanel) {
-		agregarBoton(mainPanel, "Eliminar",modelObject.botonEliminarSeniasParticulares,[ | modelObject.eliminarSeniasParticularesSeleccionado()])
+		agregarBoton(mainPanel, "Eliminar",modelObject.seniasParticularesSeleccionada,[ | modelObject.eliminarSeniasParticularesSeleccionado()])
 	}
 	
 	override agregarInput(Panel mainPanel) {
