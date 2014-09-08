@@ -35,7 +35,7 @@ interface InterfazPaises {
 	
 	def String lugaresSeleccionada()
 	
-	def void agregarLugares()
+	def void agregarLugar()
 	
 	def String obtenerTitulo()
 		

@@ -8,7 +8,10 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.uqbar.arena.widgets.Panel;
 import org.uqbar.commons.model.UserException;
+
+import ui.NuevoPaisWindow;
 
 public class MapamundiTest {
 	
@@ -151,42 +154,120 @@ public class MapamundiTest {
 	}
 	
 	@Test
-    public void testCaracteristicasSeleccionada(){}
-	@Test
-	public void testObtenerInputCaracteristica(){}
-	@Test
-	public void testListaCaracteristicas(){}
-	@Test
-	public void testEliminarCaracteristicaSeleccionada(){}
-	@Test
-	public void testAgregarCaracteristica(){}
-	@Test
-	public void testActualizar(){}
-	@Test
-	public void testEliminarConexionSeleccionada(){}
-	@Test
-	public void testConexionesSeleccionada(){}
-	@Test
-	public void testListaConexiones(){}
-	@Test
-	public void testObtenerInputConexiones(){}
-	@Test
-	public void testAgregarConexion(){}
-	@Test
-	public void testListaLugares(){}
-	@Test
-	public void testObtenerInputLugares(){}
-	@Test
-	public void testEliminarLugarSeleccionado(){}
-	@Test
-	public void testLugaresSeleccionada(){}
-	@Test
-	public void testAgregarLugares(){}
-	@Test
-	public void testObtenerTitulo(){}
-	@Test
-	public void testAgregarBotonAceptar(){}
-	@Test
-	public void testAgregarNombreDelPais(){}
+    public void testCaracteristicasSeleccionada(){
+		assertEquals("nuevoPais.caracteristicaSeleccionada", mapamundi.caracteristicasSeleccionada());
+	}
 	
+	@Test
+	public void testObtenerInputCaracteristica(){
+		assertEquals("nuevoPais.nuevaCaracteristica", mapamundi.obtenerInputCaracteristica());
+	}
+	
+	@Test
+	public void testListaCaracteristicas(){
+		assertEquals("nuevoPais.caracteristicasDelPais",mapamundi.listaCaracteristicas());
+	}
+
+	@Test
+	public void testActualizar(){
+		mapamundi.setNuevoPais(mockPais);
+		mapamundi.actualizar();
+		verify(mockPais).actualizar();
+	}
+		
+	@Test
+	public void testConexionesSeleccionada(){
+		assertEquals("nuevoPais.conexionSeleccionada", mapamundi.conexionesSeleccionada());
+	}
+	
+	@Test
+	public void testListaConexiones(){
+		assertEquals("nuevoPais.conexionesAereas", mapamundi.listaConexiones());
+	}
+	
+	@Test
+	public void testObtenerInputConexiones(){
+		assertEquals("nuevoPais.nuevaConexion", mapamundi.obtenerInputConexiones());
+	}
+	
+	@Test
+	public void testListaLugares(){
+		assertEquals("nuevoPais.lugaresDeInteres", mapamundi.listaLugares());
+	}
+	
+	@Test
+	public void testObtenerInputLugares(){
+		assertEquals("nuevoPais.nuevoLugar", mapamundi.obtenerInputLugares());
+	}
+		
+	@Test
+	public void testLugaresSeleccionada(){
+		assertEquals("nuevoPais.lugarSeleccionado",mapamundi.lugaresSeleccionada());
+	}
+	
+	@Test
+	public void testAgregarLugares(){
+		mapamundi.setNuevoPais(mockPais);
+		mapamundi.agregarLugar();
+		verify(mockPais).agregarLugar();
+	}
+		
+	@Test
+	public void testObtenerTitulo(){
+		assertEquals("Mapamundi - Nuevo Pais", mapamundi.obtenerTitulo());
+	}
+	
+	@Test
+	public void testAgregarNombreDelPais(){
+		NuevoPaisWindow mockWindow = mock(NuevoPaisWindow.class);
+		Panel mockPanel = mock(Panel.class);
+		mapamundi.agregarNombreDelPais(mockPanel, mockWindow);
+		verify(mockWindow).agregarTexBox(mockPanel, "Nombre: ", "nuevoPais.nombreDelPais");
+	}
+	
+	@Test
+	public void testAgregarCaracterisitca(){
+		mapamundi.setNuevoPais(mockPais);
+		mapamundi.agregarCaracteristica();
+		verify(mockPais).agregarCaracteristica();
+	}
+	
+	@Test
+	public void testAgregarConexion(){
+		mapamundi.setNuevoPais(mockPais);
+		mapamundi.agregarConexion();
+		verify(mockPais).agregarConexion();
+	}
+	
+	@Test
+	public void testEliminarCaracteristica(){
+		mapamundi.setNuevoPais(mockPais);
+		mapamundi.agregarCaracteristica();
+		mapamundi.setNuevoPais(mockPais);
+		mapamundi.eliminarCaracteristica();
+		verify(mockPais).eliminarCaracteristica();
+	}
+	
+	@Test
+	public void testEliminarConexion(){
+		mapamundi.setNuevoPais(mockPais);
+		mapamundi.agregarConexion();
+		mapamundi.setNuevoPais(mockPais);
+		mapamundi.eliminarConexion();
+		verify(mockPais).eliminarConexion();
+	}
+	
+	@Test
+	public void testEliminarLugar(){
+		mapamundi.setNuevoPais(mockPais);
+		mapamundi.agregarLugar();
+		mapamundi.setNuevoPais(mockPais);
+		mapamundi.eliminarLugar();
+		verify(mockPais).eliminarLugar();
+	}
+	
+//	@Test
+//	public void testAgregarBotonAceptar(){
+//		
+//	}
 }

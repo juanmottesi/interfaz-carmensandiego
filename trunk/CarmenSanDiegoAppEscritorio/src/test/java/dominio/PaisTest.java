@@ -7,8 +7,10 @@ import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.uqbar.arena.widgets.Panel;
 import org.uqbar.commons.model.UserException;
 
+import ui.NuevoPaisWindow;
 import dominio.Lugar;
 
 public class PaisTest {
@@ -159,10 +161,11 @@ public class PaisTest {
 	public void testEliminarConexionConPais(){
 		pais.setNuevaConexion(mockPais);
 		pais.agregarConexion();
+		pais.setConexionSeleccionada(mockPais);
 		pais.eliminarConexion();
 		assertEquals(0,pais.getConexionesAereas().size());
 	}
-	///----
+
 	@Test
     public void testCaracteristicasSeleccionada(){
 		assertEquals("caracteristicaSeleccionada", pais.caracteristicasSeleccionada());
@@ -175,67 +178,78 @@ public class PaisTest {
 	
 	@Test
 	public void testListaCaracteristicas(){
-		assertEquals("",pais.listaCaracteristicas());
-	}
-	
-	@Test
-	public void testEliminarCaracteristicaSeleccionada(){
-		
+		assertEquals("caracteristicasDelPais",pais.listaCaracteristicas());
 	}
 
-	@Test
-	public void testActualizar(){
+//	@Test
+//	public void testActualizar(){
+//		
+//	}
 		
-	}
-	
-	@Test
-	public void testEliminarConexionSeleccionada(){
-		
-	}
-	
 	@Test
 	public void testConexionesSeleccionada(){
-		assertEquals("", pais.conexionesSeleccionada());
+		assertEquals("conexionSeleccionada", pais.conexionesSeleccionada());
 	}
 	
 	@Test
 	public void testListaConexiones(){
-		assertEquals("", pais.listaConexiones());
+		assertEquals("conexionesAereas", pais.listaConexiones());
 	}
 	
 	@Test
 	public void testObtenerInputConexiones(){
-		assertEquals("", pais.obtenerInputConexiones());
+		assertEquals("nuevaConexion", pais.obtenerInputConexiones());
 	}
 	
 	@Test
 	public void testListaLugares(){
-		assertEquals("", pais.listaLugares());
+		assertEquals("lugaresDeInteres", pais.listaLugares());
 	}
 	
 	@Test
 	public void testObtenerInputLugares(){
-		assertEquals("", pais.obtenerInputLugares());
+		assertEquals("nuevoLugar", pais.obtenerInputLugares());
 	}
-	
-	@Test
-	public void testEliminarLugarSeleccionado(){
 		
-	}
-	
 	@Test
 	public void testLugaresSeleccionada(){
-		assertEquals("",pais.lugaresSeleccionada());
+		assertEquals("lugarSeleccionado",pais.lugaresSeleccionada());
 	}
 	
 	@Test
 	public void testAgregarLugares(){
-		
+		pais.setNuevoLugar(mockLugar);
+		pais.agregarLugar();
+		assertEquals(1, pais.getLugaresDeInteres().size());
 	}
+	
+	@Test(expected= UserException.class)
+	public void testAgregarLugaresConPrimeraException(){
+		pais.setNuevoLugar(mockLugar);
+		pais.agregarLugar();
+		pais.setNuevoLugar(mockLugar);
+		pais.agregarLugar();
+	}
+	
+	@Test(expected= UserException.class)
+	public void testAgregarLugaresConSegundaException(){
+		pais.setNuevoLugar(mockLugar);
+		pais.agregarLugar();
+		Lugar l1 = mock(Lugar.class);
+		Lugar l2 = mock(Lugar.class);
+		Lugar l3 = mock(Lugar.class);
+		pais.setNuevoLugar(l1);
+		pais.agregarLugar();
+		pais.setNuevoLugar(l2);
+		pais.agregarLugar();
+		pais.setNuevoLugar(l3);
+		pais.agregarLugar();
+	}
+	
 	
 	@Test
 	public void testObtenerTitulo(){
-		assertEquals("", pais.obtenerTitulo());
+		assertEquals("Mapamundi - Editar Pais", pais.obtenerTitulo());
 	}
 	
 //	@Test
@@ -245,7 +259,10 @@ public class PaisTest {
 	
 	@Test
 	public void testAgregarNombreDelPais(){
-		
+		NuevoPaisWindow mockWindow = mock(NuevoPaisWindow.class);
+		Panel mockPanel = mock(Panel.class);
+		pais.agregarNombreDelPais(mockPanel, mockWindow);
+		verify(mockWindow).agregarPanel(mockPanel, "Nombre: ", "nombreDelPais");
 	}
 	
 }
