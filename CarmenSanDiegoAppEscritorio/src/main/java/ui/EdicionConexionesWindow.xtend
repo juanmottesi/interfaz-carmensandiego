@@ -15,7 +15,7 @@ class EdicionConexionesWindow extends TemplateEdicion<InterfazPaises>{
 	}
 	
 	override agregarEliminar(Panel mainPanel) {
-		agregarBoton(mainPanel, "Eliminar",modelObject.botonEliminarConexiones,[ | modelObject.eliminarConexionSeleccionada()])
+		agregarBoton(mainPanel, "Eliminar",modelObject.conexionesSeleccionada,[ | modelObject.eliminarConexionSeleccionada()])
 	}
 	
 	override agregarInput(Panel mainPanel) {

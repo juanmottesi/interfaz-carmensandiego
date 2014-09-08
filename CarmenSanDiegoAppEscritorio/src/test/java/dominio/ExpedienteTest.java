@@ -118,11 +118,6 @@ public class ExpedienteTest {
 	}
 	
 	@Test
-	public void testBotonEliminarHobbie() {
-		assertEquals("nuevoVillano.hobbieSeleccionado",exp.botonEliminarHobbie());
-	}
-	
-	@Test
 	public void testEliminarHobieSeleccionado() {
 		exp.setNuevoVillano(mockVillano);
 		exp.eliminarHobieSeleccionado();
@@ -156,11 +151,6 @@ public class ExpedienteTest {
 		exp.agregarSeniasParticulares();
 		verify(mockVillano).agregarSeniasParticulares();
 		
-	}
-	
-	@Test
-	public void testBotonEliminarSeniasParticulares() {
-		assertEquals("nuevoVillano.seniaParticularSeleccionada", exp.botonEliminarSeniasParticulares());
 	}
 	
 	@Test

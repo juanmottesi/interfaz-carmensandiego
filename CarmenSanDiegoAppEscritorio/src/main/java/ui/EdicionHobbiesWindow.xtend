@@ -17,7 +17,7 @@ class EdicionHobbiesWindow extends TemplateEdicion<InterfazVillanos> {
 	}
 	
 	override agregarEliminar(Panel mainPanel) {
-		agregarBoton(mainPanel, "Eliminar",modelObject.botonEliminarHobbie,[ | modelObject.eliminarHobieSeleccionado()])
+		agregarBoton(mainPanel, "Eliminar",modelObject.hobbiesSeleccionado,[ | modelObject.eliminarHobieSeleccionado()])
 	}
 	
 	override agregarInput(Panel mainPanel) {

@@ -4,6 +4,8 @@ import java.util.List
 import dominio.auxiliar.Random
 import org.uqbar.commons.model.UserException
 import org.uqbar.commons.utils.Observable
+import org.uqbar.arena.widgets.Panel
+import ui.NuevoVillanoWindow
 
 @Observable
 class Expediente implements InterfazVillanos {
@@ -67,11 +69,7 @@ class Expediente implements InterfazVillanos {
 	override obtenerInputHobbie() {
 		"nuevoVillano.nuevoHobbie"
 	}
-	
-	override botonEliminarHobbie() {
-		"nuevoVillano.hobbieSeleccionado"
-	}
-	
+		
 	override eliminarHobieSeleccionado() {
 		nuevoVillano.eliminarHobieSeleccionado
 	}
@@ -95,11 +93,7 @@ class Expediente implements InterfazVillanos {
 	override agregarSeniasParticulares() {
 		nuevoVillano.agregarSeniasParticulares
 	}
-	
-	override botonEliminarSeniasParticulares() {
-		"nuevoVillano.seniaParticularSeleccionada"
-	}
-	
+		
 	override eliminarSeniasParticularesSeleccionado() {
 		nuevoVillano.eliminarSeniasParticularesSeleccionado
 	}
@@ -114,6 +108,15 @@ class Expediente implements InterfazVillanos {
 	
 	override seniasParticularesSeleccionada() {
 		"nuevoVillano.seniaParticularSeleccionada"
+	}
+	
+	override agregarBotonAceptar(Panel panel, NuevoVillanoWindow window) {
+		window.agregarBoton(panel, "Aceptar","nuevoVillano", [ | agregarVillano window.close])
+	}
+	
+	override agregarNombreYSexo(Panel panel, NuevoVillanoWindow window) {
+		window.agregarTexBox(panel, "Nombre: ", "nuevoVillano.nombre")
+		window.agregarTexBox(panel, "Sexo: ", "nuevoVillano.sexo")
 	}
 	
 	

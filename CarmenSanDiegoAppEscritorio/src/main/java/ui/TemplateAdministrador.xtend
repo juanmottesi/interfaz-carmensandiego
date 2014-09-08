@@ -48,6 +48,10 @@ abstract class TemplateAdministrador<T> extends Dialog<T>{
 	abstract def void agregarBotones(Panel panel)
 	abstract def void agregarCaracteristicas(Panel panel)
 	
+	/**
+	 * agrega un Label con el texto recibido por parametro con ancho recibido por parametro
+	 * de color gris.
+	 */
 	def agregarLabel(Panel panel, String texto, int ancho){
 		new Label(panel) =>[
 			text= texto
@@ -56,12 +60,19 @@ abstract class TemplateAdministrador<T> extends Dialog<T>{
 		]
 	}
 	
+	/**
+	 * agrega un Label con el texto recibido por parametro
+	 */
 	def agregarLabel(Panel panel, String texto){
 		new Label(panel) =>[
 			text= texto
 		]
 	}
 	
+	/**
+	 * agrega un boton con el nombre recibido por parametro y realiza la accion que esta 
+	 * en el bloque onclick
+	 */
 	def agregarBoton(Panel panel,String nombre, ()=>void onclick){
 		var panelBotones= new Panel(panel)
 		panelBotones.setLayout(new VerticalLayout)
@@ -71,6 +82,10 @@ abstract class TemplateAdministrador<T> extends Dialog<T>{
 		]
 	}
 	
+	/**
+	 * agrega un boton con el nombre recibido por parametro, realiza la accion que esta 
+	 * en el bloque onclick y tiene un bindEnabled
+	 */
 	def agregarBoton(Panel panel,String nombre, String bindEnabled, ()=>void onclick){
 		var panelBotones= new Panel(panel)
 		panelBotones.setLayout(new VerticalLayout)
@@ -105,11 +120,11 @@ abstract class TemplateAdministrador<T> extends Dialog<T>{
 	}
 	
 	def agregarPanelConListaConLabel(Panel panel, String text, String label, String property) {
-		var panelSenias= new Panel(panel)
-		panelSenias.setLayout(new ColumnLayout(1))
-		new Label(panelSenias).setText(text)
-		agregarLabel(panelSenias, label, 153)
-		new List(panelSenias) =>[
+		var panelAux= new Panel(panel)
+		panelAux.setLayout(new ColumnLayout(1))
+		agregarLabel(panelAux, text)
+		agregarLabel(panelAux, label, 153)
+		new List(panelAux) =>[
 			width= 130
 			height= 30
 			bindItemsToProperty(property)
@@ -117,11 +132,11 @@ abstract class TemplateAdministrador<T> extends Dialog<T>{
 	}
 	
 	def agregarPanelConListaConLabel(Panel panel, String text,String label, String property, Adapter adapter) {
-			var panelHobbie= new Panel(panel)
-		panelHobbie.setLayout(new ColumnLayout(1))
-		new Label(panelHobbie).setText(text)
-		agregarLabel(panelHobbie, label, 153)
-		new List(panelHobbie) =>[
+		var panelAux= new Panel(panel)
+		panelAux.setLayout(new ColumnLayout(1))
+		agregarLabel(panelAux, text)
+		agregarLabel(panelAux, label, 153)
+		new List(panelAux) =>[
 			width= 130
 			height= 30
 			bindItemsToProperty(property).adapter= adapter
@@ -129,10 +144,10 @@ abstract class TemplateAdministrador<T> extends Dialog<T>{
 	}
 	
 	def agregarPanel(Panel panel, String text, String property) {
-		var panelNombre = new Panel(panel)
-		panelNombre.setLayout(new HorizontalLayout)
-		new Label(panelNombre).setText(text)
-		new Label(panelNombre) => [
+		var panelAux = new Panel(panel)
+		panelAux.setLayout(new HorizontalLayout)
+		agregarLabel(panelAux, text)
+		new Label(panelAux) => [
 			bindValueToProperty(property)
 			width = 100
 		]	
@@ -141,7 +156,7 @@ abstract class TemplateAdministrador<T> extends Dialog<T>{
 	def agregarTexBox(Panel panel, String text, String property){
 		var panelAux = new Panel(panel)
 		panelAux.setLayout(new ColumnLayout(2))
-		new Label(panelAux).setText(text)
+		agregarLabel(panelAux, text)
 		new TextBox(panelAux)=>[
 			width= 100
 			bindValueToProperty(property)
@@ -151,7 +166,7 @@ abstract class TemplateAdministrador<T> extends Dialog<T>{
 	def agregarTexBoxInmodificable(Panel panel, String text, String property){
 		var panelAux = new Panel(panel)
 		panelAux.setLayout(new ColumnLayout(2))
-		new Label(panelAux).setText(text)
+		agregarLabel(panelAux, text)
 		new TextBox(panelAux)=>[
 			width= 100
 			bindValueToProperty(property)
@@ -161,7 +176,7 @@ abstract class TemplateAdministrador<T> extends Dialog<T>{
 	def agregarLabelBotonYList(Panel panel, String text, String nombre, ()=>void onclick, String property, Adapter adapter) {
 		var panelAux= new Panel(panel)
 		panelAux.setLayout(new ColumnLayout(2))
-		new Label(panelAux).setText(text)
+		agregarLabel(panelAux, text)
 		new Button(panelAux) =>[
 			caption= nombre
 			onClick= onclick
@@ -178,7 +193,7 @@ abstract class TemplateAdministrador<T> extends Dialog<T>{
 	def agregarLabelBotonYList(Panel panel, String text, String nombre, ()=>void onclick, String property) {
 		var panelAux= new Panel(panel)
 		panelAux.setLayout(new ColumnLayout(2))
-		new Label(panelAux).setText(text)
+		agregarLabel(panelAux, text)
 		new Button(panelAux) =>[
 			caption= nombre
 			onClick= onclick

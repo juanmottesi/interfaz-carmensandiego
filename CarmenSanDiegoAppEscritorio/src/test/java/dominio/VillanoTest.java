@@ -30,12 +30,7 @@ public class VillanoTest {
 	public void obtenerInputHobbie() {
 		assertEquals("nuevoHobbie", villano.obtenerInputHobbie());
 	}
-	
-	@Test
-	public void botonEliminarHobbie() {
-		assertEquals("hobbieSeleccionado", villano.botonEliminarHobbie());
-	}
-	
+		
 	@Test
 	public void testEliminarHobieSeleccionado() {
 		villano.setNuevoHobbie("nuevo");
@@ -91,12 +86,6 @@ public class VillanoTest {
 		assertEquals(1, villano.getSeniasParticulares().size());
 		villano.setNuevaSeniaParticular("nuevo");
 		villano.agregarSeniasParticulares();
-	}
-		
-	@Test
-	public void testBotonEliminarSeniasParticulares() {
-		assertEquals("seniaParticularSeleccionada", villano.botonEliminarSeniasParticulares());
-	
 	}
 	
 	@Test

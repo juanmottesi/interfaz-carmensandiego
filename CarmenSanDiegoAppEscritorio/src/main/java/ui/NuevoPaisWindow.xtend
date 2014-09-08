@@ -1,31 +1,32 @@
 package ui
 
 import dominio.Lugar
-import dominio.Mapamundi
 import dominio.Pais
 import org.uqbar.arena.bindings.PropertyAdapter
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.WindowOwner
+import dominio.InterfazPaises
 
-class NuevoPaisWindow extends TemplateNuevoEditar<Mapamundi>{
+class NuevoPaisWindow extends TemplateNuevoEditar<InterfazPaises>{
 	
-	new(WindowOwner owner, Mapamundi model) {
+	new(WindowOwner owner, InterfazPaises model) {
 		super(owner, model)
 	}
 	
 	override obtenerTitulo() {
-		this.setTitle("Mapamundi - Nuevo País")
+		this.setTitle(modelObject.obtenerTitulo)
 	}
 	
 	override agregarBotones(Panel panel) {
-		agregarBoton(panel, "Aceptar", "nuevoPais", [ | modelObject.agregarPais this.close])
+		//agregarBoton(panel, "Aceptar", "nuevoPais", modelObject.accionBotonAceptar(this))
+		modelObject.agregarBotonAceptar(panel, this)
 	}
 	
 	override agregarCaracteristicas(Panel panel) {
-		agregarTexBox(panel, "Nombre: ", "nuevoPais.nombreDelPais")
-		agregarLabelBotonYList(panel, "Características", "Editar Características",[ | new EdicionCaracteristicasWindow(owner, modelObject).open ], "nuevoPais.caracteristicasDelPais")
-		agregarLabelBotonYList(panel, "Conexiones", "Editar Conexiones",[ | new EdicionConexionesWindow(this, modelObject).open ], "nuevoPais.conexionesAereas", new PropertyAdapter(Pais,"nombreDelPais"))
-		agregarLabelBotonYList(panel, "Lugares de Interés", "Editar Lugares",[ | new EdicionLugaresWindow(this, modelObject).open ], "nuevoPais.lugaresDeInteres",new PropertyAdapter(Lugar,"nombreDelLugar"))	
+		modelObject.agregarNombreDelPais(panel, this)
+		agregarLabelBotonYList(panel, "Características", "Editar Características",[ | new EdicionCaracteristicasWindow(owner, modelObject).open ], modelObject.listaCaracteristicas)
+		agregarLabelBotonYList(panel, "Conexiones", "Editar Conexiones",[ | new EdicionConexionesWindow(this, modelObject).open ], modelObject.listaConexiones, new PropertyAdapter(Pais,"nombreDelPais"))
+		agregarLabelBotonYList(panel, "Lugares de Interés", "Editar Lugares",[ | new EdicionLugaresWindow(this, modelObject).open ], modelObject.listaLugares,new PropertyAdapter(Lugar,"nombreDelLugar"))	
 	}
 	
 }
