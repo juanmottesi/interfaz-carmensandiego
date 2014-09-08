@@ -1,7 +1,6 @@
 package ui
 
 import dominio.Expediente
-import dominio.Hobbie
 import dominio.Villano
 import org.uqbar.arena.bindings.PropertyAdapter
 import org.uqbar.arena.widgets.List
@@ -40,7 +39,7 @@ class ExpedienteWindow extends TemplateAdministrador<Expediente> {
 		agregarPanel(panel, "Nombre:", "villanoSeleccionado.nombre")
 		agregarPanel(panel, "Sexo: ", "villanoSeleccionado.sexo")
 		agregarPanelConListaConLabel(panel, "Señas Particulares: ", "Seña", "villanoSeleccionado.seniasParticulares")
-		agregarPanelConListaConLabel(panel, "Hobbies: ","Hobbie", "villanoSeleccionado.hobbies", new PropertyAdapter(Hobbie, "nombre"))
+		agregarPanelConListaConLabel(panel, "Hobbies: ","Hobbie", "villanoSeleccionado.hobbies")
 
 	}
 

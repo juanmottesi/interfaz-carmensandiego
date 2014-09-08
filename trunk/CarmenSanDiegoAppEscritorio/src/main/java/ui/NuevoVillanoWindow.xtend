@@ -21,8 +21,8 @@ class NuevoVillanoWindow extends TemplateNuevoEditar<Expediente> {
 	override agregarCaracteristicas(Panel panel) {
 		agregarTexBox(panel, "Nombre: ", "nuevoVillano.nombre")
 		agregarTexBox(panel, "Sexo: ", "nuevoVillano.sexo")
-		agregarLabelBotonYList(panel, "Señas particulares: ", "Editar Senias particulares",[ |  ], "nuevoVillano.seniasParticulares")
-		agregarLabelBotonYList(panel, "Hobbies: ", "Editar Hobbies",[ | ], "nuevoVillano.hobbies")
+		agregarLabelBotonYList(panel, "Señas particulares: ", "Editar Senias particulares",[ | new EdicionSeniasParticularesWindow(this, modelObject).open ], "nuevoVillano.seniasParticulares")
+		agregarLabelBotonYList(panel, "Hobbies: ", "Editar Hobbies",[ | new EdicionHobbiesWindow(this, modelObject).open ], "nuevoVillano.hobbies")
 	}
 	
 }
