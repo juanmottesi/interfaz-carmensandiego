@@ -67,7 +67,7 @@ class Mapamundi implements InterfazPaises {
 	}
 	
 	def eliminarPais() {
-		paisSeleccionado.conexionesAereas.forEach[ each| each.eliminarConexion(paisSeleccionado)]
+		paisSeleccionado.conexionesAereas.forEach[ each| each.eliminarConexion()]
 		paises -= paisSeleccionado
 		actualizarPaises
 	}
@@ -84,7 +84,7 @@ class Mapamundi implements InterfazPaises {
 		paises.map[nombreDelPais.toLowerCase]		
 	}
 	
-	override eliminarCaracteristicaSeleccionada() {
+	override eliminarCaracteristica() {
 		nuevoPais.eliminarCaracteristica
 	}
 	
@@ -108,8 +108,8 @@ class Mapamundi implements InterfazPaises {
 		nuevoPais.actualizar
 	}
 		
-	override eliminarConexionSeleccionada() {
-		nuevoPais.eliminarConexion(paisSeleccionado)
+	override eliminarConexion() {
+		nuevoPais.eliminarConexion()
 	}
 	
 	override conexionesSeleccionada() {
@@ -136,8 +136,8 @@ class Mapamundi implements InterfazPaises {
 		"nuevoPais.nuevoLugar"
 	}
 	
-	override eliminarLugarSeleccionado() {
-		nuevoPais.eliminarLugarSeleccionado()
+	override eliminarLugar() {
+		nuevoPais.eliminarLugar()
 	}
 	
 	override lugaresSeleccionada() {

@@ -15,7 +15,7 @@ class EdicionLugaresWindow extends TemplateEdicion<InterfazPaises>{
 	}
 	
 	override agregarEliminar(Panel mainPanel) {
-		agregarBoton(mainPanel, "Eliminar",modelObject.lugaresSeleccionada,[ | modelObject.eliminarLugarSeleccionado()])
+		agregarBoton(mainPanel, "Eliminar",modelObject.lugaresSeleccionada,[ | modelObject.eliminarLugar()])
 	}
 	
 	override agregarInput(Panel mainPanel) {

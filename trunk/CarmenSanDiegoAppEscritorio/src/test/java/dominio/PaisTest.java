@@ -159,9 +159,93 @@ public class PaisTest {
 	public void testEliminarConexionConPais(){
 		pais.setNuevaConexion(mockPais);
 		pais.agregarConexion();
-		pais.eliminarConexion(mockPais);
+		pais.eliminarConexion();
 		assertEquals(0,pais.getConexionesAereas().size());
 	}
+	///----
+	@Test
+    public void testCaracteristicasSeleccionada(){
+		assertEquals("caracteristicaSeleccionada", pais.caracteristicasSeleccionada());
+	}
 	
+	@Test
+	public void testObtenerInputCaracteristica(){
+		assertEquals("nuevaCaracteristica", pais.obtenerInputCaracteristica());
+	}
+	
+	@Test
+	public void testListaCaracteristicas(){
+		assertEquals("",pais.listaCaracteristicas());
+	}
+	
+	@Test
+	public void testEliminarCaracteristicaSeleccionada(){
+		
+	}
+
+	@Test
+	public void testActualizar(){
+		
+	}
+	
+	@Test
+	public void testEliminarConexionSeleccionada(){
+		
+	}
+	
+	@Test
+	public void testConexionesSeleccionada(){
+		assertEquals("", pais.conexionesSeleccionada());
+	}
+	
+	@Test
+	public void testListaConexiones(){
+		assertEquals("", pais.listaConexiones());
+	}
+	
+	@Test
+	public void testObtenerInputConexiones(){
+		assertEquals("", pais.obtenerInputConexiones());
+	}
+	
+	@Test
+	public void testListaLugares(){
+		assertEquals("", pais.listaLugares());
+	}
+	
+	@Test
+	public void testObtenerInputLugares(){
+		assertEquals("", pais.obtenerInputLugares());
+	}
+	
+	@Test
+	public void testEliminarLugarSeleccionado(){
+		
+	}
+	
+	@Test
+	public void testLugaresSeleccionada(){
+		assertEquals("",pais.lugaresSeleccionada());
+	}
+	
+	@Test
+	public void testAgregarLugares(){
+		
+	}
+	
+	@Test
+	public void testObtenerTitulo(){
+		assertEquals("", pais.obtenerTitulo());
+	}
+	
+//	@Test
+//	public void testAgregarBotonAceptar(){
+//		
+//	}
+	
+	@Test
+	public void testAgregarNombreDelPais(){
+		
+	}
 	
 }
