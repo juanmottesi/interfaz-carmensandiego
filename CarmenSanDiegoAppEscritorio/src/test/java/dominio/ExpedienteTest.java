@@ -8,7 +8,10 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.uqbar.arena.widgets.Panel;
 import org.uqbar.commons.model.UserException;
+
+import ui.NuevoVillanoWindow;
 
 public class ExpedienteTest {
 
@@ -176,5 +179,27 @@ public class ExpedienteTest {
 		assertEquals("nuevoVillano.seniaParticularSeleccionada", exp.seniasParticularesSeleccionada());
 	}
 	
+//	@Test
+//	public void testAgregarBotonAceptar(){
+//		fail("asd");
+//	}
+//	
+	@Test
+	public void testAgregarNombreYSexo(){
+		NuevoVillanoWindow mockWindow = mock(NuevoVillanoWindow.class);
+		Panel mockPanel = mock(Panel.class);
+		exp.agregarNombreYSexo(mockPanel, mockWindow);
+		verify(mockWindow).agregarTexBox(mockPanel, "Nombre: ", "nuevoVillano.nombre");
+		verify(mockWindow).agregarTexBox(mockPanel, "Sexo: ", "nuevoVillano.sexo");		
+	}
+	
+	@Test
+	public void testActualizar(){
+		exp.setNuevoVillano(mockVillano);
+		List<Villano> lista = new ArrayList<Villano>();
+		exp.setVillanos(lista);
+		exp.actualizar();
+		assertEquals(lista, exp.getVillanos());
+	}
 
 }
