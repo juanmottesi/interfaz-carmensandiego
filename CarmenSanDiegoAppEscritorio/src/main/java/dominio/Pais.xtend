@@ -77,7 +77,7 @@ class Pais implements InterfazPaises {
 		actualizar
 	}
 	
-	def agregarLugar(){		
+	override agregarLugar(){		
 		if(lugaresDeInteres.contains(nuevoLugar))
 			throw new UserException("Lugar ya agregado, elija otro")
 		if(lugaresDeInteres.size == 3)
@@ -155,11 +155,7 @@ class Pais implements InterfazPaises {
 	override lugaresSeleccionada() {
 		"lugarSeleccionado"
 	}
-	
-	override agregarLugares() {
-		agregarLugar
-	}
-	
+		
 	def getLugaresPosibles(){
 		Mapamundi.instance.lugaresPosibles
 	}

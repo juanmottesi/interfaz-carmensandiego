@@ -144,7 +144,7 @@ class Mapamundi implements InterfazPaises {
 		"nuevoPais.lugarSeleccionado"
 	}
 	
-	override agregarLugares() {
+	override agregarLugar() {
 		nuevoPais.agregarLugar
 	}
 	

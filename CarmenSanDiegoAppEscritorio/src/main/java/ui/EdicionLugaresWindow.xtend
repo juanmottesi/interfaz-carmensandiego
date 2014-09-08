@@ -45,7 +45,7 @@ class EdicionLugaresWindow extends TemplateEdicion<InterfazPaises>{
 	}
 	
 	override agregarAgregar(Panel panel) {
-		agregarBoton(panel, "Agregar", [ | modelObject.agregarLugares])
+		agregarBoton(panel, "Agregar", [ | modelObject.agregarLugar])
 	}
 	
 	override agregarCaracteristicas(Panel panel) {
