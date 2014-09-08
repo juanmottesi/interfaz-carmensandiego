@@ -43,11 +43,7 @@ class Pais implements InterfazPaises {
 		this.lugaresDeInteres = lugaresDeInteres
 		this.conexionesAereas = conexionesAereas
 	}
-	
-	def eliminarConexion(Pais pais){
-		conexionesAereas-= pais
-	}
-	
+		
 	def Pais obtenerSiguientePais(List<Pais> paises) {
 		var pais = conexionesAereas.filter[!paises.contains(it)]
 		pais.get(Random.obtenerRandom(0, pais.size))
@@ -60,7 +56,7 @@ class Pais implements InterfazPaises {
 		actualizar
 	}
 	
-	def eliminarCaracteristica(){
+	override eliminarCaracteristica(){
 		caracteristicasDelPais -= caracteristicaSeleccionada 
 		actualizar
 	}
@@ -75,7 +71,7 @@ class Pais implements InterfazPaises {
 		actualizar
 	}
 	
-	def void eliminarConexion(){
+	override void eliminarConexion(){
 		conexionesAereas -= conexionSeleccionada
 		conexionSeleccionada.conexionesAereas -= this
 		actualizar
@@ -90,7 +86,7 @@ class Pais implements InterfazPaises {
 		actualizar
 	}
 	
-	def eliminarLugar() {
+	override eliminarLugar() {
 		lugaresDeInteres -= lugarSeleccionado
 		actualizar
 	}
@@ -120,10 +116,6 @@ class Pais implements InterfazPaises {
 		caracteristicasDelPais.map[toLowerCase]
 	}
 	
-	override eliminarCaracteristicaSeleccionada() {
-		eliminarCaracteristica
-	}
-	
 	override obtenerInputCaracteristica() {
 		"nuevaCaracteristica"
 	}
@@ -136,10 +128,6 @@ class Pais implements InterfazPaises {
 		"caracteristicaSeleccionada"
 	}
 		
-	override eliminarConexionSeleccionada() {
-		eliminarConexion(conexionSeleccionada)
-	}
-	
 	override conexionesSeleccionada() {
 		"conexionSeleccionada"
 	}
@@ -163,11 +151,7 @@ class Pais implements InterfazPaises {
 	override obtenerInputLugares() {
 		"nuevoLugar"
 	}
-	
-	override eliminarLugarSeleccionado() {
-		eliminarLugarSeleccionado()
-	}
-	
+		
 	override lugaresSeleccionada() {
 		"lugarSeleccionado"
 	}

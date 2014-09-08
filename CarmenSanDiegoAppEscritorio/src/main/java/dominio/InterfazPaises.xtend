@@ -11,13 +11,13 @@ interface InterfazPaises {
 	
 	def String listaCaracteristicas()
 	
-	def void eliminarCaracteristicaSeleccionada()
+	def void eliminarCaracteristica()
 	
 	def void agregarCaracteristica()
 	
 	def void actualizar()
 		
-	def void eliminarConexionSeleccionada()
+	def void eliminarConexion()
 	
 	def String conexionesSeleccionada()
 	
@@ -31,7 +31,7 @@ interface InterfazPaises {
 	
 	def String obtenerInputLugares()
 	
-	def void eliminarLugarSeleccionado()
+	def void eliminarLugar()
 	
 	def String lugaresSeleccionada()
 	

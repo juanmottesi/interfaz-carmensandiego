@@ -150,6 +150,43 @@ public class MapamundiTest {
 		assertEquals("pais", mapamundi.paisesNombreLowerCase().get(0));
 	}
 	
-	
+	@Test
+    public void testCaracteristicasSeleccionada(){}
+	@Test
+	public void testObtenerInputCaracteristica(){}
+	@Test
+	public void testListaCaracteristicas(){}
+	@Test
+	public void testEliminarCaracteristicaSeleccionada(){}
+	@Test
+	public void testAgregarCaracteristica(){}
+	@Test
+	public void testActualizar(){}
+	@Test
+	public void testEliminarConexionSeleccionada(){}
+	@Test
+	public void testConexionesSeleccionada(){}
+	@Test
+	public void testListaConexiones(){}
+	@Test
+	public void testObtenerInputConexiones(){}
+	@Test
+	public void testAgregarConexion(){}
+	@Test
+	public void testListaLugares(){}
+	@Test
+	public void testObtenerInputLugares(){}
+	@Test
+	public void testEliminarLugarSeleccionado(){}
+	@Test
+	public void testLugaresSeleccionada(){}
+	@Test
+	public void testAgregarLugares(){}
+	@Test
+	public void testObtenerTitulo(){}
+	@Test
+	public void testAgregarBotonAceptar(){}
+	@Test
+	public void testAgregarNombreDelPais(){}
 	
 }
