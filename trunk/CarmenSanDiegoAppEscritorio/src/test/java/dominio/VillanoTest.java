@@ -1,12 +1,17 @@
 package dominio;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.uqbar.arena.widgets.Panel;
 import org.uqbar.commons.model.UserException;
+//import org.eclipse.xtext.xbase.lib.Procedures.Procedure0;
+
+import ui.NuevoVillanoWindow;
 
 public class VillanoTest {
 
@@ -127,4 +132,26 @@ public class VillanoTest {
 		villano.agregarSeniasParticulares();
 		assertEquals("nuevo", villano.seniasParticularesLowerCase().get(0));
 	}
+	
+	@Test
+	public void testAgregarNombreYSexo(){
+		NuevoVillanoWindow mockWindow = mock(NuevoVillanoWindow.class);
+		Panel mockPanel = mock(Panel.class);
+		villano.agregarNombreYSexo(mockPanel, mockWindow);
+		verify(mockWindow).agregarPanel(mockPanel, "Nombre: ", "nombre");
+		verify(mockWindow).agregarPanel(mockPanel, "Sexo: ", "sexo");		
+	}
+	
+//	@Test
+//	public void testAgregarBotonAceptar(){
+//		final NuevoVillanoWindow mockWindow = mock(NuevoVillanoWindow.class);
+//		Panel mockPanel = mock(Panel.class);
+//		 final Procedure0 function = new Procedure0() {
+//		      public void apply() {
+//		    	  mockWindow.close();
+//		      }
+//		 };
+//		villano.agregarBotonAceptar(mockPanel, mockWindow);
+//		verify(mockWindow).agregarBoton(mockPanel, "Aceptar",function);
+//	}
 }
