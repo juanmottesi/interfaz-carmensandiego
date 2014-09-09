@@ -4,8 +4,6 @@ import java.util.List
 import dominio.auxiliar.Random
 import org.uqbar.commons.model.UserException
 import org.uqbar.commons.utils.Observable
-import org.uqbar.arena.widgets.Panel
-import ui.NuevoVillanoWindow
 
 @Observable
 class Expediente implements InterfazVillanos {
@@ -40,7 +38,7 @@ class Expediente implements InterfazVillanos {
 		villanos.get(Random.obtenerRandom(0,villanos.size -1))	
 	}
 	
-	def agregarVillano() {
+	override agregarVillano() {
 		
 		if(nuevoVillano.nombre == null || !(nuevoVillano.nombre.length > 0))
 			throw new UserException("Debe ingresar el nombre del Villano")
@@ -112,13 +110,8 @@ class Expediente implements InterfazVillanos {
 		"nuevoVillano.seniaParticularSeleccionada"
 	}
 	
-	override agregarBotonAceptar(Panel panel, NuevoVillanoWindow window) {
-		window.agregarBoton(panel, "Aceptar","nuevoVillano", [ | agregarVillano window.close])
-	}
-	
-	override agregarNombreYSexo(Panel panel, NuevoVillanoWindow window) {
-		window.agregarTexBox(panel, "Nombre: ", "nuevoVillano.nombre")
-		window.agregarTexBox(panel, "Sexo: ", "nuevoVillano.sexo")
+	override soyEditar() {
+		false
 	}
 	
 	

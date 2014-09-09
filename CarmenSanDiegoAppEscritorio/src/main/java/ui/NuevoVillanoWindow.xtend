@@ -15,11 +15,24 @@ class NuevoVillanoWindow extends TemplateNuevoEditar<InterfazVillanos> {
 	}
 	
 	override agregarBotones(Panel panel) {
-		modelObject.agregarBotonAceptar(panel, this)
+		if(modelObject.soyEditar){
+			agregarBoton(panel, "Aceptar", [ |this.close ])
+		}
+		else{
+			agregarBoton(panel, "Aceptar","nuevoVillano", [ | modelObject.agregarVillano this.close])
+		}
 	}
 	
 	override agregarCaracteristicas(Panel panel) {
-		modelObject.agregarNombreYSexo(panel, this)
+		if(modelObject.soyEditar){
+			agregarPanel(panel, "Nombre: ", "nombre")
+			agregarPanel(panel, "Sexo: ", "sexo")
+		}
+		else{
+			agregarTexBox(panel, "Nombre: ", "nuevoVillano.nombre")
+			agregarTexBox(panel, "Sexo: ", "nuevoVillano.sexo")
+		}
+		
 		agregarLabelBotonYList(panel, "Señas particulares: ", "Editar Senias particulares",[ | new EdicionSeniasParticularesWindow(this, modelObject).open ], modelObject.listaSeniasParticulares)
 		agregarLabelBotonYList(panel, "Hobbies: ", "Editar Hobbies",[ | new EdicionHobbiesWindow(this, modelObject).open ], modelObject.listaHobbies)
 	}

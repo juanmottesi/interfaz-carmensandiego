@@ -8,10 +8,8 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.uqbar.arena.widgets.Panel;
 import org.uqbar.commons.model.UserException;
 
-import ui.NuevoPaisWindow;
 
 public class MapamundiTest {
 	
@@ -218,14 +216,6 @@ public class MapamundiTest {
 	}
 	
 	@Test
-	public void testAgregarNombreDelPais(){
-		NuevoPaisWindow mockWindow = mock(NuevoPaisWindow.class);
-		Panel mockPanel = mock(Panel.class);
-		mapamundi.agregarNombreDelPais(mockPanel, mockWindow);
-		verify(mockWindow).agregarTexBox(mockPanel, "Nombre: ", "nuevoPais.nombreDelPais");
-	}
-	
-	@Test
 	public void testAgregarCaracterisitca(){
 		mapamundi.setNuevoPais(mockPais);
 		mapamundi.agregarCaracteristica();
@@ -266,8 +256,8 @@ public class MapamundiTest {
 		verify(mockPais).eliminarLugar();
 	}
 	
-//	@Test
-//	public void testAgregarBotonAceptar(){
-//		
-//	}
+	@Test
+	public void testSoyEditar(){
+		assertFalse(mapamundi.soyEditar());
+	}
 }

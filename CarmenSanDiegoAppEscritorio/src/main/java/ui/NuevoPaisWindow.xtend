@@ -18,12 +18,21 @@ class NuevoPaisWindow extends TemplateNuevoEditar<InterfazPaises>{
 	}
 	
 	override agregarBotones(Panel panel) {
-		//agregarBoton(panel, "Aceptar", "nuevoPais", modelObject.accionBotonAceptar(this))
-		modelObject.agregarBotonAceptar(panel, this)
+		if(modelObject.soyEditar){
+			agregarBoton(panel, "Aceptar",[ | this.close])
+		}
+		else{
+			agregarBoton(panel, "Aceptar", "nuevoPais",[ | modelObject.agregarPais this.close])
+		}
 	}
 	
 	override agregarCaracteristicas(Panel panel) {
-		modelObject.agregarNombreDelPais(panel, this)
+		if(modelObject.soyEditar){
+			agregarPanel(panel, "Nombre: ", "nombreDelPais")
+		}
+		else{
+			agregarTexBox(panel, "Nombre: ", "nuevoPais.nombreDelPais")
+		}
 		agregarLabelBotonYList(panel, "Características", "Editar Características",[ | new EdicionCaracteristicasWindow(owner, modelObject).open ], modelObject.listaCaracteristicas)
 		agregarLabelBotonYList(panel, "Conexiones", "Editar Conexiones",[ | new EdicionConexionesWindow(this, modelObject).open ], modelObject.listaConexiones, new PropertyAdapter(Pais,"nombreDelPais"))
 		agregarLabelBotonYList(panel, "Lugares de Interés", "Editar Lugares",[ | new EdicionLugaresWindow(this, modelObject).open ], modelObject.listaLugares,new PropertyAdapter(Lugar,"nombreDelLugar"))	
