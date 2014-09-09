@@ -1,8 +1,5 @@
 package dominio
 
-import org.uqbar.arena.widgets.Panel
-import ui.NuevoVillanoWindow
-
 interface InterfazVillanos {
 	
 	abstract def String obtenerInputHobbie()
@@ -26,9 +23,10 @@ interface InterfazVillanos {
 	def String listaSeniasParticulares()
 	
 	def String seniasParticularesSeleccionada()
+		
+	def Boolean soyEditar()
 	
-	def void agregarBotonAceptar(Panel panel, NuevoVillanoWindow window)
+	def void agregarVillano()
 	
-	def void agregarNombreYSexo(Panel panel, NuevoVillanoWindow window)
 	
 }

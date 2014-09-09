@@ -3,8 +3,6 @@ package dominio
 import java.util.List
 import org.uqbar.commons.utils.Observable
 import org.uqbar.commons.model.UserException
-import org.uqbar.arena.widgets.Panel
-import ui.NuevoVillanoWindow
 
 @Observable
 class Villano implements InterfazVillanos{
@@ -104,14 +102,13 @@ class Villano implements InterfazVillanos{
 	def seniasParticularesLowerCase() {
 		seniasParticulares.map[toLowerCase]
 	}
-	
-	override agregarBotonAceptar(Panel panel, NuevoVillanoWindow window) {
-		window.agregarBoton(panel, "Aceptar", [ |window.close ])
+		
+	override soyEditar() {
+		true
 	}
 	
-	override agregarNombreYSexo(Panel panel, NuevoVillanoWindow window) {
-		window.agregarPanel(panel, "Nombre: ", "nombre")
-		window.agregarPanel(panel, "Sexo: ", "sexo")
+	override agregarVillano() {
+		throw new Exception("Error!")		
 	}
 	
 }

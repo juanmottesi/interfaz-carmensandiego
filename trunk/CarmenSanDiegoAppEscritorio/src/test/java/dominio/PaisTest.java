@@ -7,10 +7,8 @@ import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.uqbar.arena.widgets.Panel;
 import org.uqbar.commons.model.UserException;
 
-import ui.NuevoPaisWindow;
 import dominio.Lugar;
 
 public class PaisTest {
@@ -246,23 +244,18 @@ public class PaisTest {
 		pais.agregarLugar();
 	}
 	
-	
 	@Test
 	public void testObtenerTitulo(){
 		assertEquals("Mapamundi - Editar Pais", pais.obtenerTitulo());
 	}
-	
-//	@Test
-//	public void testAgregarBotonAceptar(){
-//		
-//	}
-	
-	@Test
-	public void testAgregarNombreDelPais(){
-		NuevoPaisWindow mockWindow = mock(NuevoPaisWindow.class);
-		Panel mockPanel = mock(Panel.class);
-		pais.agregarNombreDelPais(mockPanel, mockWindow);
-		verify(mockWindow).agregarPanel(mockPanel, "Nombre: ", "nombreDelPais");
+		
+	@Test(expected=Exception.class)
+	public void testAgregarPais(){
+		pais.agregarPais();
 	}
 	
+	@Test
+	public void testSoyEditar(){
+		assertTrue(pais.soyEditar());
+	}
 }

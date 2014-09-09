@@ -1,8 +1,5 @@
 package dominio
 
-import org.uqbar.arena.widgets.Panel
-import ui.NuevoPaisWindow
-
 interface InterfazPaises {
 	
 	def String caracteristicasSeleccionada()
@@ -39,8 +36,8 @@ interface InterfazPaises {
 	
 	def String obtenerTitulo()
 		
-	def void agregarBotonAceptar(Panel panel, NuevoPaisWindow window)
+	def Boolean soyEditar()
 	
-	def void agregarNombreDelPais(Panel panel, NuevoPaisWindow window)
+	def void agregarPais()
 	
 }

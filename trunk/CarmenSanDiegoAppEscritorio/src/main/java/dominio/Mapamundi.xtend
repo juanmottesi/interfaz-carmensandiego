@@ -4,8 +4,6 @@ import dominio.auxiliar.Random
 import java.util.List
 import org.uqbar.commons.model.UserException
 import org.uqbar.commons.utils.Observable
-import org.uqbar.arena.widgets.Panel
-import ui.NuevoPaisWindow
 
 @Observable
 class Mapamundi implements InterfazPaises {
@@ -55,7 +53,7 @@ class Mapamundi implements InterfazPaises {
 		
 	}
 
-	def agregarPais(){
+	override agregarPais(){
 		if(nuevoPais.nombreDelPais == null || !(nuevoPais.nombreDelPais.length > 0))
 			throw new UserException("Debe ingresar el nombre del Pais")
 		if(paisesNombreLowerCase.contains(nuevoPais.nombreDelPais.toLowerCase))
@@ -152,12 +150,7 @@ class Mapamundi implements InterfazPaises {
 		"Mapamundi - Nuevo Pais"
 	}
 		
-	override agregarBotonAceptar(Panel panel, NuevoPaisWindow window) {
-		window.agregarBoton(panel, "Aceptar", "nuevoPais",[ | this.agregarPais window.close])
+	override soyEditar(){
+		false
 	}
-	
-	override agregarNombreDelPais(Panel panel, NuevoPaisWindow window) {
-		window.agregarTexBox(panel, "Nombre: ", "nuevoPais.nombreDelPais")
-	}
-	
 }
