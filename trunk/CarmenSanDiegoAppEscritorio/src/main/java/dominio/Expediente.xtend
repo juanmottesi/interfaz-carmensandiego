@@ -41,11 +41,13 @@ class Expediente implements InterfazVillanos {
 	}
 	
 	def agregarVillano() {
-		nuevoVillano.sexo = nuevoVillano.sexo.toLowerCase
+		
 		if(nuevoVillano.nombre == null || !(nuevoVillano.nombre.length > 0))
 			throw new UserException("Debe ingresar el nombre del Villano")
 		if(villanosNombreLowerCase.contains(nuevoVillano.nombre.toLowerCase))
 			throw new UserException("Villano ya agregado")
+		if(nuevoVillano.sexo == null) throw new UserException("El sexo del villano tiene que ser femenino o masculino")
+		nuevoVillano.sexo = nuevoVillano.sexo.toLowerCase
 		if(nuevoVillano.sexo != "masculino"){
 			if(nuevoVillano.sexo != "femenino") throw new UserException("El sexo del villano tiene que ser femenino o masculino")
 		}
