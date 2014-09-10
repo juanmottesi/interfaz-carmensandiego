@@ -39,6 +39,7 @@ class MapamundiWindow extends TemplateAdministrador<Mapamundi>{
 	}
 		
 	override agregarCaracteristicas(Panel panel) {
+		agregarPanel(panel,"Nombre: ", "paisSeleccionado.nombreDelPais")
 		agregarPanelConLista(panel,"Caracteristicas","paisSeleccionado.caracteristicasDelPais")
 		agregarPanelConLista(panel, "Conexiones", "paisSeleccionado.conexionesAereas", new PropertyAdapter(Pais, "nombreDelPais"))
 		agregarPanelConLista(panel, "Lugares de Interés", "paisSeleccionado.lugaresDeInteres", new PropertyAdapter(Lugar,"nombreDelLugar"))
