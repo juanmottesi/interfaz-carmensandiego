@@ -114,5 +114,9 @@ class Expediente implements InterfazVillanos {
 		false
 	}
 	
+	override obtenerTitulo() {
+		"Expediente - Nuevo Villano"	
+	}
+	
 	
 }
