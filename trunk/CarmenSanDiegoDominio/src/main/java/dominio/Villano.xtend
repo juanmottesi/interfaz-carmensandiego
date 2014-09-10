@@ -111,4 +111,8 @@ class Villano implements InterfazVillanos{
 		throw new Exception("Error!")		
 	}
 	
+	override obtenerTitulo() {
+		"Expediente - Editar Villano"
+	}
+	
 }

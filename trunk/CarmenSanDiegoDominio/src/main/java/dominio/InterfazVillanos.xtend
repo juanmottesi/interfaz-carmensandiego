@@ -28,5 +28,7 @@ interface InterfazVillanos {
 	
 	def void agregarVillano()
 	
+	def String obtenerTitulo()
+	
 	
 }
