@@ -27,7 +27,7 @@ class EdicionLugaresWindow extends TemplateEdicion<InterfazPaises>{
 	}
 	
 	override obtenerTitulo() {
-		this.setTitle("Editar Caracteristicas")
+		this.setTitle("Editar Lugares")
 	}
 		
 	override agregarBotones(Panel panel) {
@@ -36,7 +36,7 @@ class EdicionLugaresWindow extends TemplateEdicion<InterfazPaises>{
 	}
 		
 	override def agregarLista(Panel panel){
-		agregarLabel(panel,"Características", 203)
+		agregarLabel(panel,"Lugares de Interés", 203)
 		new List(panel) =>[
 			bindItemsToProperty(modelObject.listaLugares).adapter= new PropertyAdapter(Lugar, "nombreDelLugar")
 			bindValueToProperty(modelObject.lugaresSeleccionada)
