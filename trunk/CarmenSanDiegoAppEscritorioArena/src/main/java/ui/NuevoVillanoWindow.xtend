@@ -11,7 +11,7 @@ class NuevoVillanoWindow extends TemplateNuevoEditar<InterfazVillanos> {
 	}
 	
 	override obtenerTitulo() {
-		this.setTitle("Expedientes - Nuevo Villano")
+		this.setTitle(modelObject.obtenerTitulo)
 	}
 	
 	override agregarBotones(Panel panel) {
