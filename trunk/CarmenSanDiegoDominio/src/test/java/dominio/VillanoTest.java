@@ -14,15 +14,15 @@ public class VillanoTest {
 	
 	@Before 
 	public void setUp(){
-		villano = new Villano("Nombre", new ArrayList<String>(), new ArrayList<String>() , "Masculino");
+		villano = new Villano("Nombre", new ArrayList<String>(), new ArrayList<String>() , Sexo.Masculino);
 	}
 	
 	@Test
 	public void testConstructor() {
 		assertEquals("Nombre",villano.getNombre());
 		assertEquals(0,villano.getHobbies().size());
-		assertEquals(0,villano.getSeniasParticulares().size());
-		assertEquals("Masculino",villano.getSexo());
+		assertTrue(villano.getSeniasParticulares().isEmpty());
+		assertEquals(Sexo.Masculino,villano.getSexo());
 	}
 
 	

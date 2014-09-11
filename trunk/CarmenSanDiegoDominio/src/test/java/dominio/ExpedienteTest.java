@@ -49,7 +49,7 @@ public class ExpedienteTest {
 	@Test
 	public void testAgregarVillano() {
 		exp.setNuevoVillano(mockVillano);
-		when(mockVillano.getSexo()).thenReturn("masculino");
+		when(mockVillano.getSexo()).thenReturn(Sexo.Masculino);
 		when(mockVillano.getNombre()).thenReturn("nombre");
 		exp.agregarVillano();
 		assertEquals(1, exp.getVillanos().size());
@@ -58,15 +58,15 @@ public class ExpedienteTest {
 	@Test(expected=UserException.class)
 	public void testAgregarVillanoPrimerExeption() {
 		exp.setNuevoVillano(mockVillano);
-		when(mockVillano.getSexo()).thenReturn("masculino");
+		when(mockVillano.getSexo()).thenReturn(Sexo.Masculino);
 		when(mockVillano.getNombre()).thenReturn(null);
 		exp.agregarVillano();
 	}
 	
 	@Test(expected=UserException.class)
-	public void testAgregarVillanoPrimerExeptionLength() {
+	public void testNoSePuedeAgregarVillanoSinNombre() {
 		exp.setNuevoVillano(mockVillano);
-		when(mockVillano.getSexo()).thenReturn("masculino");
+		when(mockVillano.getSexo()).thenReturn(Sexo.Masculino);
 		when(mockVillano.getNombre()).thenReturn("");
 		exp.agregarVillano();
 	}
@@ -75,27 +75,19 @@ public class ExpedienteTest {
 	public void testAgregarVillanoSegundaExeption() {
 		exp.setNuevoVillano(mockVillano);
 		exp.setVillanos(new ArrayList<Villano>());
-		when(mockVillano.getSexo()).thenReturn("masculino");
+		when(mockVillano.getSexo()).thenReturn(Sexo.Masculino);
 		when(mockVillano.getNombre()).thenReturn("nombre");
 		exp.agregarVillano();
 		exp.setNuevoVillano(mockVillano);
-		when(mockVillano.getSexo()).thenReturn("masculino");
+		when(mockVillano.getSexo()).thenReturn(Sexo.Masculino);
 		when(mockVillano.getNombre()).thenReturn("nombre");
-		exp.agregarVillano();
-	}
-	
-	@Test(expected=UserException.class)
-	public void testAgregarVillanoTerceraExeption() {
-		exp.setNuevoVillano(mockVillano);
-		when(mockVillano.getSexo()).thenReturn("asd");
-		when(mockVillano.getNombre()).thenReturn("");
 		exp.agregarVillano();
 	}
 	
 	@Test(expected=UserException.class)
 	public void testAgregarVillanoTerceraExeptionFemenino() {
 		exp.setNuevoVillano(mockVillano);
-		when(mockVillano.getSexo()).thenReturn("femenino");
+		when(mockVillano.getSexo()).thenReturn(Sexo.Femenino);
 		when(mockVillano.getNombre()).thenReturn("");
 		exp.agregarVillano();
 		assertEquals(1, exp.getVillanos().size());
@@ -106,7 +98,7 @@ public class ExpedienteTest {
 		exp.setNuevoVillano(mockVillano);
 		exp.setVillanos(new ArrayList<Villano>());
 		when(mockVillano.getNombre()).thenReturn("NOMBRE");	
-		when(mockVillano.getSexo()).thenReturn("femenino");
+		when(mockVillano.getSexo()).thenReturn(Sexo.Femenino);
 		exp.agregarVillano();
 
 		assertEquals("nombre", exp.villanosNombreLowerCase().get(0));	
