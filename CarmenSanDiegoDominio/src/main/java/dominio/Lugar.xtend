@@ -1,15 +1,17 @@
 package dominio
 
 import dominio.Villano
+import org.uqbar.commons.utils.Observable
 
 abstract class Lugar {
 	
 	@Property String nombreDelLugar
 
 	def String obtenerPista(Villano villano)
-	
 }
 
+
+@Observable
 class Biblioteca extends Lugar{
 	
 	new(){
@@ -22,6 +24,7 @@ class Biblioteca extends Lugar{
 	
 }
 
+@Observable
 class Club extends Lugar{
 	
 	new(){
@@ -34,6 +37,7 @@ class Club extends Lugar{
 	
 }
 
+@Observable
 class Embajada extends Lugar{
 	
 	new(){
@@ -46,6 +50,7 @@ class Embajada extends Lugar{
 	
 }
 
+@Observable
 class Banco extends Lugar{
 	
 	new(){

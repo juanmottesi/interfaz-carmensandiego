@@ -9,7 +9,7 @@ class Villano implements InterfazVillanos{
 	@Property String nombre
 	@Property List<String> seniasParticulares
 	@Property List<String> hobbies
-	@Property String sexo
+	@Property Sexo sexo
 	
 	//Para Edicion De Hobbie
 	@Property String hobbieSeleccionado
@@ -24,7 +24,7 @@ class Villano implements InterfazVillanos{
 		this.hobbies = newArrayList
 	}
 	
-	new(String nombre, List<String> seniasParticulares, List<String> hobbies, String sexo){
+	new(String nombre, List<String> seniasParticulares, List<String> hobbies, Sexo sexo){
 		this.nombre = nombre
 		this.seniasParticulares = seniasParticulares
 		this.hobbies = hobbies
