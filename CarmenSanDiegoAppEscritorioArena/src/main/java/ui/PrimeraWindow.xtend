@@ -7,10 +7,8 @@ import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.MainWindow
-import ui.ExpedienteWindow
-import dominio.Expediente
 import ui.MapamundiWindow
-import dominio.Mapamundi
+import appModel.MapamundiAppModel
 
 class PrimeraWindow extends MainWindow<Detective> {
 	
@@ -36,13 +34,13 @@ class PrimeraWindow extends MainWindow<Detective> {
 		new Button(panel) => [ 
 			caption = "Mapamundi"
 			onClick [ | 
-				new MapamundiWindow(this, Mapamundi.instance).open
+				new MapamundiWindow(this, new MapamundiAppModel).open
 			]
 		]
 		new Button(panel) => [ 
 			caption = "Expedientes"
 			onClick [ | 
-				new ExpedienteWindow(this, Expediente.instance).open
+				//new ExpedienteWindow(this, Expediente.instance).open
 			]
 		]
 	}

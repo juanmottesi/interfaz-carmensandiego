@@ -1,17 +1,20 @@
 package ui
 
 import dominio.Lugar
-import dominio.Mapamundi
 import dominio.Pais
 import org.uqbar.arena.bindings.PropertyAdapter
 import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.widgets.List
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.WindowOwner
+import appModel.MapamundiAppModel
+import appModel.PaisAppModel
+import ui.paises.EditarPaisVentana
+import ui.paises.NuevoPaisVentana
 
-class MapamundiWindow extends TemplateAdministrador<Mapamundi>{
+class MapamundiWindow extends TemplateAdministrador<MapamundiAppModel>{
 	
-	new(WindowOwner owner, Mapamundi model) {
+	new(WindowOwner owner, MapamundiAppModel model) {
 		super(owner, model)
 	}
 	
@@ -22,7 +25,7 @@ class MapamundiWindow extends TemplateAdministrador<Mapamundi>{
 	override agregarLista(Panel panel) {
 		agregarLabel(panel, "Paises", 153)	
 		new List<Pais>(panel) => [				
-			bindItemsToProperty("paises").adapter = new PropertyAdapter(Pais,"nombreDelPais")
+			bindItemsToProperty("mapamundi.paises").adapter = new PropertyAdapter(Pais,"nombreDelPais")
 			bindValueToProperty("paisSeleccionado")
 			width = 130
 			height= 227
@@ -34,8 +37,8 @@ class MapamundiWindow extends TemplateAdministrador<Mapamundi>{
 		panelBotones.setLayout(new VerticalLayout)
 		
 		agregarBoton(panelBotones, "Eliminar", "paisSeleccionado", [ | modelObject.eliminarPais])
-		agregarBoton(panelBotones, "Editar", "paisSeleccionado", [ | new NuevoPaisWindow(this, modelObject.paisSeleccionado).open])
-		agregarBoton(panelBotones, "Nuevo", [ | modelObject.setNuevoPais(new Pais) new NuevoPaisWindow(this, modelObject).open])
+		agregarBoton(panelBotones, "Editar", "paisSeleccionado", [ | new EditarPaisVentana(this, new PaisAppModel(modelObject.paisSeleccionado)).open])
+		agregarBoton(panelBotones, "Nuevo", [ | new NuevoPaisVentana(this, new PaisAppModel(modelObject.agregarPais())).open])
 	}
 		
 	override agregarCaracteristicas(Panel panel) {
@@ -45,6 +48,4 @@ class MapamundiWindow extends TemplateAdministrador<Mapamundi>{
 		agregarPanelConLista(panel, "Lugares de Interés", "paisSeleccionado.lugaresDeInteres", new PropertyAdapter(Lugar,"nombreDelLugar"))
 	}
 	
-
-		
 }

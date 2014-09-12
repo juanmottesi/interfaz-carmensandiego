@@ -3,9 +3,6 @@ package ui
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Panel
 import dominio.InterfazVillanos
-import org.uqbar.arena.widgets.Selector
-import dominio.Sexo
-import java.util.Arrays
 
 class NuevoVillanoWindow extends TemplateNuevoEditar<InterfazVillanos> {
 	
