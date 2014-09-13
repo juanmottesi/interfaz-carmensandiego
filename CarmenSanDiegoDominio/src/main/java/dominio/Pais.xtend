@@ -14,35 +14,12 @@ class Pais {
 	@Property List<String> caracteristicasDelPais
 	@Property List<Lugar> lugaresDeInteres
 	@Property List<Pais> conexionesAereas
-//	
-//	//Para Edicion De Caracteristicas
-//	@Property String caracteristicaSeleccionada
-//	@Property String nuevaCaracteristica
-//	
-//	//Para Edicion De Conexiones
-//	@Property Pais conexionSeleccionada
-//	@Property Pais nuevaConexion
-//	@Property List<Pais> paises
-//	
-//	//Para edicion de Lugares
-//	@Property Lugar lugarSeleccionado
-//	@Property Lugar nuevoLugar
-//	@Property List<Lugar> lugaresPosibles
-//	
+
 	new(){
 		caracteristicasDelPais= newArrayList
 		lugaresDeInteres= newArrayList
 		conexionesAereas= newArrayList
 	}
-//	
-//	new(String nombreDelPais, List<String> caracteristicasDelPais, 
-//		List<Lugar> lugaresDeInteres, List<Pais> conexionesAereas
-//	){
-//		this.nombreDelPais = nombreDelPais
-//		this.caracteristicasDelPais = caracteristicasDelPais
-//		this.lugaresDeInteres = lugaresDeInteres
-//		this.conexionesAereas = conexionesAereas
-//	}
 		
 	def Pais obtenerSiguientePais(List<Pais> paises) {
 		var pais = conexionesAereas.filter[!paises.contains(it)]
@@ -105,6 +82,9 @@ class Pais {
 		} 
 		if(StringUtils.isEmpty(this.nombreDelPais) || StringUtils.isBlank(this.nombreDelPais)){ 
 			throw new UserException("Nombre del pais Incorrecto")	
+		}
+		if (lugaresDeInteres.size != 3){
+			throw new UserException("Se necesitan tres Lugares de Interés")
 		}
 	}
 	
