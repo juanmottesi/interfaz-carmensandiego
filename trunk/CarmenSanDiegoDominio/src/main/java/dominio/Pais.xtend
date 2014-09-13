@@ -5,6 +5,7 @@ import java.util.List
 import org.uqbar.commons.model.UserException
 import org.uqbar.commons.utils.Observable
 import org.apache.commons.lang.StringUtils
+import org.uqbar.commons.model.ObservableUtils
 
 @Observable
 class Pais {
@@ -48,16 +49,20 @@ class Pais {
 		pais.get(Random.obtenerRandom(0, pais.size))
 	}
 	
-	def agregarCaracteristica(String nuevaCaracteristica){		
-		if(caracteristicasLowerCase.contains(nuevaCaracteristica.toLowerCase))
+	def agregarCaracteristica(String nuevaCaracteristica){	
+		if(StringUtils.isBlank(nuevaCaracteristica)){
+			throw new UserException("Característica no valida")
+		}	
+		if(caracteristicasLowerCase.contains(nuevaCaracteristica.toLowerCase)){
 			throw new UserException("Característica ya agregada")
+		}
 		caracteristicasDelPais+= nuevaCaracteristica
-		//actualizar
+		ObservableUtils.firePropertyChanged(this,"caracteristicasDelPais", caracteristicasDelPais)
 	}
 	
 	def eliminarCaracteristica(String caracteristicaSeleccionada){
 		caracteristicasDelPais -= caracteristicaSeleccionada 
-		//actualizar
+		ObservableUtils.firePropertyChanged(this,"caracteristicasDelPais", caracteristicasDelPais)
 	}
 	
 	def void agregarConexion(Pais paisSeleccionado){
@@ -67,13 +72,13 @@ class Pais {
 			throw new UserException("Solo puede poseer 3 conexiones")
 		conexionesAereas += paisSeleccionado
 		paisSeleccionado.conexionesAereas += this
-		//actualizar
+		ObservableUtils.firePropertyChanged(this,"conexionesAereas", conexionesAereas)
 	}
 	
 	def void eliminarConexion(Pais paisSeleccionado){
 		conexionesAereas -= paisSeleccionado
 		paisSeleccionado.conexionesAereas -= this
-		//actualizar
+		ObservableUtils.firePropertyChanged(this,"conexionesAereas", conexionesAereas)
 	}
 	
 	def agregarLugar(Lugar nuevoLugar){		
@@ -82,12 +87,12 @@ class Pais {
 		if(lugaresDeInteres.size == 3)
 			throw new UserException("Solo puede poseer 3 lugares de interés")
 		lugaresDeInteres += nuevoLugar
-		//actualizar
+		ObservableUtils.firePropertyChanged(this,"lugaresDeInteres", lugaresDeInteres)
 	}
 	
 	def eliminarLugar(Lugar lugarSeleccionado) {
 		lugaresDeInteres -= lugarSeleccionado
-		//actualizar
+		ObservableUtils.firePropertyChanged(this,"lugaresDeInteres", lugaresDeInteres)
 	}
 	
 	def caracteristicasLowerCase(){
