@@ -99,7 +99,7 @@ class Acciones {
 		]	
 	}
 	
-		/**
+	/**
 	 * Crea una lista en el panel del primer parametro. Con el segundo parametro se crea un label de color y con el ultimo
 	 * parametro se le la referencia de donde esta la lista
 	 */	
@@ -127,7 +127,7 @@ class Acciones {
 		]
 	}
 	
-		/**
+	/**
 	 * Crea un label en el panel del primer parametro. Con el segundo parametro es el texto del label y este se hace con un color
 	 * de fundo gris
 	 */	
@@ -140,8 +140,8 @@ class Acciones {
 	}
 	
 	/**
-	 * Se crea un texBox en un panel horizontal que esta en el pasado por parametro. Con el segundo parametro se crea un label y con el tercer parametro
-	 * se hace un bind
+	 * Se crea un texBox en un panel horizontal que esta en el pasado por parametro. Con el segundo parametro se crea un label y
+	 * con el tercer parametro se hace un bind
 	 */
 	def static agregarTexBox(Panel panel, String bind) {
 		new TextBox(panel)=>[
@@ -160,6 +160,10 @@ class Acciones {
 		]	
 	}
 	
+	/**
+	 * Se crea un selector en el panel pasado por parametro, bindItems en el segundo parametro , en el tercero bindValue y en el
+	 * ultimo un adapter
+	 */
 	def static agregarSelector(Panel panel, String bindItems, String bindValue, Adapter adapter){
 		new Selector(panel) =>[
 			bindItemsToProperty(bindItems).adapter= adapter
