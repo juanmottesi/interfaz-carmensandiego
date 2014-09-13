@@ -65,4 +65,5 @@ class PaisAppModel {
 	def getLugaresPosibles(){
 		#[new Biblioteca, new Banco, new Club, new Embajada].filter[!pais.lugaresDeInteres.contains(it)].toList
 	}
+	
 }
