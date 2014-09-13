@@ -1,4 +1,4 @@
-package ui
+package ui.datos
 
 import dominio.Expediente
 import dominio.Villano
@@ -7,7 +7,7 @@ import org.uqbar.arena.widgets.List
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.WindowOwner
 
-class ExpedienteWindow extends TemplateAdministrador<Expediente> {
+class ExpedienteWindow extends ui.TemplateAdministrador<Expediente> {
 	
 	new(WindowOwner owner, Expediente model) {
 		super(owner, model)
@@ -29,8 +29,8 @@ class ExpedienteWindow extends TemplateAdministrador<Expediente> {
 	
 	override agregarBotones(Panel panel) {
 		
-		agregarBoton(panel, "Nuevo", [ | modelObject.setNuevoVillano(new Villano) new NuevoVillanoWindow(this, modelObject).open])
-		agregarBoton(panel, "Editar", "villanoSeleccionado", [ | new NuevoVillanoWindow(this, modelObject.villanoSeleccionado).open ])
+		agregarBoton(panel, "Nuevo", [ | modelObject.setNuevoVillano(new Villano) new ui.NuevoVillanoWindow(this, modelObject).open])
+		agregarBoton(panel, "Editar", "villanoSeleccionado", [ | new ui.NuevoVillanoWindow(this, modelObject.villanoSeleccionado).open ])
 		
 	}
 	

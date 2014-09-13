@@ -1,4 +1,4 @@
-package ui
+package ui.datos
 
 import dominio.Lugar
 import dominio.Pais
