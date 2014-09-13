@@ -4,11 +4,9 @@ import java.util.List
 import dominio.auxiliar.Random
 import org.uqbar.commons.model.UserException
 import org.uqbar.commons.utils.Observable
-import org.apache.commons.lang.StringUtils
-import org.uqbar.commons.model.ObservableUtils
 
 @Observable
-class Expediente implements InterfazVillanos {
+class Expediente {
 	
 	private static Expediente instance = null
 	
@@ -40,11 +38,18 @@ class Expediente implements InterfazVillanos {
 		villanos.get(Random.obtenerRandom(0,villanos.size -1))	
 	}
 	
-	override agregarVillano() {
-		if(nuevoVillano.nombre == null || StringUtils.isEmpty(nuevoVillano.nombre))
+	def agregarVillano() {
+		
+		if(nuevoVillano.nombre == null || !(nuevoVillano.nombre.length > 0))
 			throw new UserException("Debe ingresar el nombre del Villano")
 		if(villanosNombreLowerCase.contains(nuevoVillano.nombre.toLowerCase))
 			throw new UserException("Villano ya agregado")
+		if(nuevoVillano.sexo == null) throw new UserException("El sexo del villano tiene que ser femenino o masculino")
+		nuevoVillano.sexo = nuevoVillano.sexo.toLowerCase
+		if(nuevoVillano.sexo != "masculino"){
+			if(nuevoVillano.sexo != "femenino") throw new UserException("El sexo del villano tiene que ser femenino o masculino")
+		}
+			
 		villanos += nuevoVillano
 		actualizarVillanos
 	}
@@ -54,62 +59,11 @@ class Expediente implements InterfazVillanos {
 	}
 	
 	def actualizarVillanos() {
-		ObservableUtils.firePropertyChanged(this,"villanos",villanos)
+		var p= villanos
+		villanos= null
+		villanos= p
 		villanoSeleccionado= null
 		nuevoVillano= null
 	}
-	
-	override obtenerInputHobbie() {
-		"nuevoVillano.nuevoHobbie"
-	}
 		
-	override eliminarHobieSeleccionado() {
-		nuevoVillano.eliminarHobieSeleccionado
-	}
-	
-	override agregarHobbie() {
-		nuevoVillano.agregarHobbie
-	}
-	
-	override listaHobbies() {
-		"nuevoVillano.hobbies"
-	}
-	
-	override hobbiesSeleccionado() {
-		"nuevoVillano.hobbieSeleccionado"
-	}
-	
-	override actualizar() {
-		nuevoVillano.actualizar
-	}
-	
-	override agregarSeniasParticulares() {
-		nuevoVillano.agregarSeniasParticulares
-	}
-		
-	override eliminarSeniasParticularesSeleccionado() {
-		nuevoVillano.eliminarSeniasParticularesSeleccionado
-	}
-	
-	override obtenerInputSeniasParticulares() {
-		"nuevoVillano.nuevaSeniaParticular"
-	}
-	
-	override listaSeniasParticulares() {
-		"nuevoVillano.seniasParticulares"
-	}
-	
-	override seniasParticularesSeleccionada() {
-		"nuevoVillano.seniaParticularSeleccionada"
-	}
-	
-	override soyEditar() {
-		false
-	}
-	
-	override obtenerTitulo() {
-		"Expediente - Nuevo Villano"	
-	}
-	
-	
 }
