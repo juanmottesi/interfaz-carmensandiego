@@ -12,6 +12,7 @@ import ui.paises.edicion.EdicionConexionesVentana
 import dominio.Pais
 import org.uqbar.arena.bindings.PropertyAdapter
 import ui.paises.edicion.EdicionLugaresVentana
+import dominio.Lugar
 
 abstract class PaisVentana extends Dialog<PaisAppModel>{
 	
@@ -60,7 +61,7 @@ abstract class PaisVentana extends Dialog<PaisAppModel>{
 		
 		val listaLugaresPanel = new Panel(editorPanel)
 		listaLugaresPanel.setLayout(new VerticalLayout)
-		Acciones.agregarLista(listaLugaresPanel, "Lugares de Interés", "pais.lugaresDeInteres")
+		Acciones.agregarLista(listaLugaresPanel, "Lugares de Interés", "pais.lugaresDeInteres", new PropertyAdapter(Lugar, "nombreDelLugar"))
 
 		//Label boton
 		val botonera = new Panel(editorPanel)
