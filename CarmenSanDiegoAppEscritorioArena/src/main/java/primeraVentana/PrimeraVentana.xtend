@@ -10,7 +10,7 @@ import org.uqbar.arena.windows.MainWindow
 import appModel.MapamundiAppModel
 import ui.MapamundiVentana
 
-class PrimeraWindow extends MainWindow<Detective> {
+class PrimeraVentana extends MainWindow<Detective> {
 	
 	new() {
 		super(new Detective)
@@ -46,7 +46,7 @@ class PrimeraWindow extends MainWindow<Detective> {
 	}
 
 	def static main(String[] args) {
-		new PrimeraWindow().startApplication
+		new PrimeraVentana().startApplication
 	}
 	
 
