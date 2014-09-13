@@ -48,7 +48,6 @@ class Mapamundi {
 	}
 
 	def agregarPais(Pais nuevoPais){
-		//nuevoPais.esCorrecto(paises)
 		paises += nuevoPais
 		ObservableUtils.firePropertyChanged(this,"paises", paises)
 	}

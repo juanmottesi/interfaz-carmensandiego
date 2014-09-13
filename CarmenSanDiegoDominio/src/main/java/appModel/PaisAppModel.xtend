@@ -4,6 +4,10 @@ import dominio.Pais
 import dominio.Lugar
 import org.uqbar.commons.utils.Observable
 import dominio.Mapamundi
+import dominio.Biblioteca
+import dominio.Banco
+import dominio.Club
+import dominio.Embajada
 
 @Observable
 class PaisAppModel {
@@ -18,7 +22,7 @@ class PaisAppModel {
 	
 	@Property Lugar lugarSeleccionada
 	@Property Lugar nuevoLugar
-	
+		
 	new(Pais paisSeleccionado){
 		pais = paisSeleccionado
 	}
@@ -29,6 +33,7 @@ class PaisAppModel {
 	
 	def agregarCaracteristica(){
 		pais.agregarCaracteristica(nuevaCaracteristica)
+		nuevaCaracteristica
 	}
 	
 	def eliminarCaracteristica(){
@@ -37,6 +42,7 @@ class PaisAppModel {
 	
 	def agregarConexion(){
 		pais.agregarConexion(nuevaConexion)
+		nuevaConexion
 	}
 	
 	def eliminarConexion(){
@@ -45,9 +51,18 @@ class PaisAppModel {
 	
 	def agregarLugar(){
 		pais.agregarLugar(nuevoLugar)
+		nuevoLugar
 	} 
 	
 	def eliminarLugar(){
 		pais.eliminarLugar(lugarSeleccionada)
+	}
+	
+	def getPaisesPosibles(){
+		Mapamundi.instance.paises.filter[!it.equals(pais)].toList
+	}
+	
+	def getLugaresPosibles(){
+		#[new Biblioteca, new Banco, new Club, new Embajada].filter[!pais.lugaresDeInteres.contains(it)].toList
 	}
 }
