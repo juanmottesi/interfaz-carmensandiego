@@ -16,24 +16,20 @@ class EdicionCaracteristicasVentana extends PaisEdicionVentana {
 	override obtenerTitulo() {
 		title = "Editar Características"
 	}
-	
-	override agregarBotonAceptar(Panel panel) {
-		Acciones.agregarBoton(panel, "Aceptar", [ | ])
-	}
-	
+		
 	override agregarInputYBoton(Panel panel) {
 		val panelAux = new Panel(panel)
 		panelAux.setLayout(new HorizontalLayout)
 		Acciones.agregarTexBox(panelAux,"nuevaCaracteristica")
-		Acciones.agregarBoton(panelAux,"Agregar",[ | modelObject.pais.agregarCaracteristica(modelObject.nuevaCaracteristica)])
+		Acciones.agregarBoton(panelAux,"Agregar",[ | modelObject.agregarCaracteristica])
 	}
 	
 	override agregarBotonEliminar(Panel panel) {
-		Acciones.agregarBoton(panel, "Eliminar", [ | ])
+		Acciones.agregarBoton(panel, "Eliminar", [ | modelObject.eliminarCaracteristica])
 	}
 	
 	override agregarLista(Panel panel) {
-		Acciones.agregarLista(panel, "Características", "pais.caracteristicasDelPais")
+		Acciones.agregarLista(panel, "Características", "pais.caracteristicasDelPais", "caracteristicaSeleccionada")
 	}
 	
 
