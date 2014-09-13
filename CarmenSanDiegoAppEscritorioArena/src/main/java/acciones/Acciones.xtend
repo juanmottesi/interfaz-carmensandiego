@@ -8,6 +8,7 @@ import java.awt.Color
 import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.bindings.Adapter
 import org.uqbar.arena.widgets.Selector
+import org.uqbar.arena.bindings.NotNullObservable
 
 class Acciones {
 	
@@ -28,6 +29,19 @@ class Acciones {
 		new Button(panel) =>[
 			caption = texto
 			onClick= onclick
+		]
+	}
+	
+	/**
+	 * agrega un boton con el nombre recibido por parametro, realiza la accion que esta 
+	 * en el bloque onclick y tiene un bindEnabled
+	 */
+	def static agregarBoton(Panel panel,String nombre, String bindEnabled, ()=>void onclick){
+		new Button(panel) =>[
+			caption = nombre
+			onClick= onclick
+			bindEnabled(new NotNullObservable(bindEnabled))
+			disableOnError
 		]
 	}
 
@@ -85,6 +99,21 @@ class Acciones {
 		]	
 	}
 	
+		/**
+	 * Crea una lista en el panel del primer parametro. Con el segundo parametro se crea un label de color y con el ultimo
+	 * parametro se le la referencia de donde esta la lista
+	 */	
+	def static agregarListaConTamanio(Panel panel, String texto, String bind, String guardarEn, Adapter adapter, Integer alto, Integer ancho) {
+		Acciones.agregarLabelDeColor(panel, texto, ancho)
+		new List(panel) =>[
+			width= ancho
+			height= alto
+			bindItemsToProperty(bind).adapter = adapter
+			bindValueToProperty(guardarEn)
+		]	
+	}
+	
+	
 
 	/**
 	 * Crea un label en el panel del primer parametro. Con el segundo parametro es el texto del label y este se hace con un color
@@ -94,6 +123,18 @@ class Acciones {
 		new Label(panel) =>[
 			text= texto
 			width= 203
+			background= Color.lightGray
+		]
+	}
+	
+		/**
+	 * Crea un label en el panel del primer parametro. Con el segundo parametro es el texto del label y este se hace con un color
+	 * de fundo gris
+	 */	
+	def static agregarLabelDeColor(Panel panel, String texto, Integer ancho) {
+		new Label(panel) =>[
+			text= texto
+			width= ancho
 			background= Color.lightGray
 		]
 	}
