@@ -8,6 +8,7 @@ import dominio.Biblioteca
 import dominio.Banco
 import dominio.Club
 import dominio.Embajada
+import org.uqbar.commons.model.ObservableUtils
 
 @Observable
 class PaisAppModel {
@@ -51,11 +52,13 @@ class PaisAppModel {
 	
 	def agregarLugar(){
 		pais.agregarLugar(nuevoLugar)
+		ObservableUtils.firePropertyChanged(this,"lugaresPosibles",lugaresPosibles)
 		nuevoLugar
 	} 
 	
 	def eliminarLugar(){
 		pais.eliminarLugar(lugarSeleccionada)
+		ObservableUtils.firePropertyChanged(this,"lugaresPosibles",lugaresPosibles)
 	}
 	
 	def getPaisesPosibles(){
@@ -63,7 +66,11 @@ class PaisAppModel {
 	}
 	
 	def getLugaresPosibles(){
-		#[new Biblioteca, new Banco, new Club, new Embajada].filter[!pais.lugaresDeInteres.contains(it)].toList
+		var lista = #[new Biblioteca, new Banco, new Club, new Embajada]
+		lista.filter[
+			var aux = pais.lugaresDeInteres.map[nombreDelLugar]
+			!aux.contains(it.nombreDelLugar)
+		].toList
 	}
 	
 }

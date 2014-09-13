@@ -20,242 +20,114 @@ public class PaisTest {
 	
 	@Before
 	public void setUp(){
-		pais = new Pais("nombrePais",new ArrayList<String>(), new ArrayList<Lugar>(),
-			            new ArrayList<Pais>());
+		pais = new Pais();
 		mockPais = mock(Pais.class);
 		mockLugar = mock(Lugar.class);
-	}
-
-	@Test
-	public void testConstructor() {
-		assertEquals("nombrePais", pais.getNombreDelPais());
-		assertEquals(0, pais.getCaracteristicasDelPais().size());
-		assertEquals(0, pais.getLugaresDeInteres().size());
-		assertEquals(0, pais.getConexionesAereas().size());
 	}
 	
 	@Test
 	public void testObtenerSiguientePais() {
-		pais.setNuevaConexion(mockPais);
-		pais.agregarConexion();
-		
+		pais.agregarConexion(mockPais);		
 		assertEquals(mockPais, pais.obtenerSiguientePais(new ArrayList<Pais>()));
 	}
 	
 	@Test
 	public void testAgregarCaracteristica(){
-		pais.setNuevaCaracteristica("nueva");
-		pais.agregarCaracteristica();
+		pais.agregarCaracteristica("nueva");
 		assertEquals("nueva", pais.getCaracteristicasDelPais().get(0));
 	}		
 
 	@Test(expected= UserException.class)
 	public void testAgregarCaracteristicaConException(){
-		pais.setNuevaCaracteristica("nueva");
-		pais.agregarCaracteristica();
-		pais.setNuevaCaracteristica("nueva");
-		pais.agregarCaracteristica();
+		pais.agregarCaracteristica("nueva");
+		pais.agregarCaracteristica("nueva");
+		assertEquals(1, pais.getCaracteristicasDelPais());
 	}	
 	
 	@Test
 	public void testEliminarCaracteristica(){
-		pais.setNuevaCaracteristica("nueva");
-		pais.agregarCaracteristica();
-		pais.setCaracteristicaSeleccionada("nueva");
-		pais.eliminarCaracteristica();
-		
+		pais.agregarCaracteristica("nueva");
+		pais.eliminarCaracteristica("nueva");
 		assertEquals(0, pais.getCaracteristicasDelPais().size());
 	}
 	
 	@Test
 	public void testAgregarConexion(){
-		pais.setNuevaConexion(mockPais);
-		pais.agregarConexion();
+		pais.agregarConexion(mockPais);
 		assertEquals(1, pais.getConexionesAereas().size());
 		
 	}
 	
 	@Test(expected = UserException.class)
-	public void testAgregarConexionExepcionPrimera(){
-		pais.setNuevaConexion(mockPais);
-		pais.agregarConexion();
-		pais.setNuevaConexion(mockPais);
-		pais.agregarConexion();
+	public void testAgregarConexionConElMismoPaisQueYaTenia(){
+		pais.agregarConexion(mockPais);
+		pais.agregarConexion(mockPais);
+		assertEquals(1, pais.getConexionesAereas());
 	}
 	
 	@Test(expected = UserException.class)
-	public void testAgregarConexionExepcionSegunda(){
+	public void testAgregarConexionConMasDeTresConexiones(){
 		Pais p1 = mock(Pais.class);
 		Pais p2 = mock(Pais.class);
-		Pais p3 = mock(Pais.class);
-		pais.setNuevaConexion(mockPais);
-		pais.agregarConexion();
-		pais.setNuevaConexion(p1);
-		pais.agregarConexion();
-		pais.setNuevaConexion(p2);
-		pais.agregarConexion();
-		pais.setNuevaConexion(p3);
-		pais.agregarConexion();
+		Pais p3 = mock(Pais.class);		
+		pais.agregarConexion(mockPais);		
+		pais.agregarConexion(p1);		
+		pais.agregarConexion(p2);		
+		pais.agregarConexion(p3);
+		assertEquals(3, pais.getConexionesAereas().size());
 	}
 	
 	@Test
 	public void testEliminarConexion(){
-		pais.setNuevaConexion(mockPais);
-		pais.agregarConexion();
-		pais.setConexionSeleccionada(mockPais);
-		pais.eliminarConexion();
-		assertEquals(0, pais.getConexionesAereas().size());
-		
+		pais.agregarConexion(mockPais);		
+		pais.eliminarConexion(mockPais);
+		assertEquals(0, pais.getConexionesAereas().size());		
 	}
 	
 	@Test
 	public void testAgregarLugar(){
-		pais.setNuevoLugar(mockLugar);
-		pais.agregarLugar();
+		pais.agregarLugar(mockLugar);
 		assertEquals(1, pais.getLugaresDeInteres().size());
 	}
 	
 	@Test(expected=UserException.class)
-	public void testAgregarLugarExceptionPrimera(){
-		pais.setNuevoLugar(mockLugar);
-		pais.agregarLugar();
-		pais.setNuevoLugar(mockLugar);
-		pais.agregarLugar();
+	public void testAgregarLugarConElMismoLugarQueYaTenia(){
+		pais.agregarLugar(mockLugar);		
+		pais.agregarLugar(mockLugar);
+		assertEquals(1, pais.getLugaresDeInteres());
 	}
 	
 	@Test(expected=UserException.class)
-	public void testAgregarLugarExceptionSegunda(){
+	public void testAgregarLugarConMasDeTresLugares(){
 		Lugar l1 = mock(Lugar.class);
 		Lugar l2 = mock(Lugar.class);
 		Lugar l3 = mock(Lugar.class);
 		
-		pais.setNuevoLugar(mockLugar);
-		pais.agregarLugar();
-		pais.setNuevoLugar(l1);
-		pais.agregarLugar();
-		pais.setNuevoLugar(l2);
-		pais.agregarLugar();
-		pais.setNuevoLugar(l3);
-		pais.agregarLugar();
+		pais.agregarLugar(mockLugar);
+		pais.agregarLugar(l1);
+		pais.agregarLugar(l2);
+		pais.agregarLugar(l3);
+		assertEquals(3, pais.getLugaresDeInteres().size());
 	}
 	
 	@Test
 	public void testEliminarLugar(){
-		pais.setNuevoLugar(mockLugar);
-		pais.agregarLugar();
-		pais.setLugarSeleccionado(mockLugar);
-		pais.eliminarLugar();
+		pais.agregarLugar(mockLugar);
+		pais.eliminarLugar(mockLugar);
 		assertEquals(0, pais.getLugaresDeInteres().size());
 	}
 	
 	@Test
 	public void testCaracteristicasLowerCase(){
-		pais.setNuevaCaracteristica("NUEVA");
-		pais.agregarCaracteristica();
+		pais.agregarCaracteristica("NUEVA");
 		assertEquals("nueva", pais.caracteristicasLowerCase().get(0));
 	}
 	
 	@Test
-	public void testEliminarConexionConPais(){
-		pais.setNuevaConexion(mockPais);
-		pais.agregarConexion();
-		pais.setConexionSeleccionada(mockPais);
-		pais.eliminarConexion();
+	public void testEliminarConexionConPaisQueYaTenia(){
+		pais.agregarConexion(mockPais);
+		pais.eliminarConexion(mockPais);
 		assertEquals(0,pais.getConexionesAereas().size());
 	}
-
-	@Test
-    public void testCaracteristicasSeleccionada(){
-		assertEquals("caracteristicaSeleccionada", pais.caracteristicasSeleccionada());
-	}
 	
-	@Test
-	public void testObtenerInputCaracteristica(){
-		assertEquals("nuevaCaracteristica", pais.obtenerInputCaracteristica());
-	}
-	
-	@Test
-	public void testListaCaracteristicas(){
-		assertEquals("caracteristicasDelPais",pais.listaCaracteristicas());
-	}
-
-//	@Test
-//	public void testActualizar(){
-//		
-//	}
-		
-	@Test
-	public void testConexionesSeleccionada(){
-		assertEquals("conexionSeleccionada", pais.conexionesSeleccionada());
-	}
-	
-	@Test
-	public void testListaConexiones(){
-		assertEquals("conexionesAereas", pais.listaConexiones());
-	}
-	
-	@Test
-	public void testObtenerInputConexiones(){
-		assertEquals("nuevaConexion", pais.obtenerInputConexiones());
-	}
-	
-	@Test
-	public void testListaLugares(){
-		assertEquals("lugaresDeInteres", pais.listaLugares());
-	}
-	
-	@Test
-	public void testObtenerInputLugares(){
-		assertEquals("nuevoLugar", pais.obtenerInputLugares());
-	}
-		
-	@Test
-	public void testLugaresSeleccionada(){
-		assertEquals("lugarSeleccionado",pais.lugaresSeleccionada());
-	}
-	
-	@Test
-	public void testAgregarLugares(){
-		pais.setNuevoLugar(mockLugar);
-		pais.agregarLugar();
-		assertEquals(1, pais.getLugaresDeInteres().size());
-	}
-	
-	@Test(expected= UserException.class)
-	public void testAgregarLugaresConPrimeraException(){
-		pais.setNuevoLugar(mockLugar);
-		pais.agregarLugar();
-		pais.setNuevoLugar(mockLugar);
-		pais.agregarLugar();
-	}
-	
-	@Test(expected= UserException.class)
-	public void testAgregarLugaresConSegundaException(){
-		pais.setNuevoLugar(mockLugar);
-		pais.agregarLugar();
-		Lugar l1 = mock(Lugar.class);
-		Lugar l2 = mock(Lugar.class);
-		Lugar l3 = mock(Lugar.class);
-		pais.setNuevoLugar(l1);
-		pais.agregarLugar();
-		pais.setNuevoLugar(l2);
-		pais.agregarLugar();
-		pais.setNuevoLugar(l3);
-		pais.agregarLugar();
-	}
-	
-	@Test
-	public void testObtenerTitulo(){
-		assertEquals("Mapamundi - Editar Pais", pais.obtenerTitulo());
-	}
-		
-	@Test(expected=Exception.class)
-	public void testAgregarPais(){
-		pais.agregarPais();
-	}
-	
-	@Test
-	public void testSoyEditar(){
-		assertTrue(pais.soyEditar());
-	}
 }
