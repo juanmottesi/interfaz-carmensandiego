@@ -1,4 +1,4 @@
-package ui
+package ui.datos
 
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
