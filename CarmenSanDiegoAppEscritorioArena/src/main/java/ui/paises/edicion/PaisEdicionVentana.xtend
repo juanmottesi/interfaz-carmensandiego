@@ -6,6 +6,7 @@ import org.uqbar.arena.widgets.Panel
 import appModel.PaisAppModel
 import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.layout.HorizontalLayout
+import acciones.Acciones
 
 abstract class PaisEdicionVentana extends Dialog<PaisAppModel>{
 	
@@ -36,14 +37,12 @@ abstract class PaisEdicionVentana extends Dialog<PaisAppModel>{
 		val botonAgregar = new Panel(editorPanel)
 		botonAgregar.setLayout(new HorizontalLayout)
 		
-		this.agregarBotonAceptar(botonAgregar)
+		Acciones.agregarBoton(botonAgregar, "Aceptar", [ | this.close ])
 		
 	}
 	
 	abstract def void obtenerTitulo()
 
-	abstract def void agregarBotonAceptar(Panel panel)
-	
 	abstract def void agregarInputYBoton(Panel panel)
 	
 	abstract def void agregarBotonEliminar(Panel panel)
