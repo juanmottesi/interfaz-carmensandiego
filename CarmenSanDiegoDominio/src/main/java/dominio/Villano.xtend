@@ -5,6 +5,8 @@ import org.uqbar.commons.utils.Observable
 import org.apache.commons.lang.StringUtils
 import org.uqbar.commons.model.UserException
 import org.uqbar.commons.model.ObservableUtils
+import java.util.ArrayList
+import dominio.auxiliar.Random
 
 @Observable
 class Villano implements Ocupante{
@@ -66,6 +68,18 @@ class Villano implements Ocupante{
 			throw new UserException("Villano ya agregado")
 		} 
 
+	}
+	
+	def String obtenerSeniaParticular(ArrayList<String> lista) {
+		var aux = seniasParticulares.get(Random.obtenerRandom(0,seniasParticulares.size-1))
+		if(lista.contains(aux)){obtenerSeniaParticular(lista)}
+		aux
+	}
+	
+	def String obtenerHobbie(ArrayList<String> lista) {
+		var aux = hobbies.get(Random.obtenerRandom(0,hobbies.size-1))
+		if(lista.contains(aux)){obtenerHobbie(lista)}
+		aux
 	}
 
 }
