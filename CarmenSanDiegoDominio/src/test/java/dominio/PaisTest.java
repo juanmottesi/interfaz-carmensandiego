@@ -38,7 +38,7 @@ public class PaisTest {
 	}		
 
 	@Test(expected= UserException.class)
-	public void testAgregarCaracteristicaConException(){
+	public void testAgregarCaracteristicaConLaMismaCaracteristicaQueYaTenia(){
 		pais.agregarCaracteristica("nueva");
 		pais.agregarCaracteristica("nueva");
 		assertEquals(1, pais.getCaracteristicasDelPais());
