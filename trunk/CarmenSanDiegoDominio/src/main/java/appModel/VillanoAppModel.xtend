@@ -4,6 +4,7 @@ import dominio.Villano
 import dominio.Sexo
 import org.uqbar.commons.utils.Observable
 import java.util.Arrays
+import dominio.Expediente
 
 @Observable
 class VillanoAppModel {
@@ -40,6 +41,10 @@ class VillanoAppModel {
 	
 	def eliminarHobbie() {
 		villano.eliminarHobbie(hobbieSeleccionada)
+	}
+	
+	def esCorrecto() {
+		villano.esCorrecto(Expediente.instance.villanos)
 	}
 	
 }
