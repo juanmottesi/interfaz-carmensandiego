@@ -1,16 +1,15 @@
-package ui.paises.edicion
+package ui.edicion
 
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Panel
-import appModel.PaisAppModel
 import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.layout.HorizontalLayout
 import acciones.Acciones
 
-abstract class PaisEdicionVentana extends Dialog<PaisAppModel>{
+abstract class PaisEdicionVentana<T> extends Dialog<T>{
 	
-	new(WindowOwner owner, PaisAppModel model) {
+	new(WindowOwner owner, T model) {
 		super(owner, model)
 	}
 	
