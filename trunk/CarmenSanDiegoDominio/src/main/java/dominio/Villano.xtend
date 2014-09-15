@@ -7,7 +7,7 @@ import org.uqbar.commons.model.UserException
 import org.uqbar.commons.model.ObservableUtils
 
 @Observable
-class Villano {
+class Villano implements Ocupante{
 	@Property String nombre
 	@Property List<String> seniasParticulares
 	@Property List<String> hobbies

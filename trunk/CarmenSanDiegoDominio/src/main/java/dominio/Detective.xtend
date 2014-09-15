@@ -7,18 +7,27 @@ class Detective {
 	@Property Caso casoActual
 	
 	new(){
-		this.expedientes = new Expediente
+		this.expedientes = Expediente.instance
 		this.mapamundi = Mapamundi.instance
 	}
 		
 	def void iniciarJuego(){
 		mapamundi.puedoIniciar
 		expedientes.puedoIniciar
-		
 		casoActual = new Caso(mapamundi, expedientes)
-		
-		
 	}
 	
+	
+//	def generarOrdenDeArresto(Villano villano){
+//		
+//	}
+//	
+//	def viajar(Pais pais){
+//		
+//	}
+//	
+//	def visitar(Lugar lugar){
+//		casoActual.visitar(lugar)
+//	}
 
 }

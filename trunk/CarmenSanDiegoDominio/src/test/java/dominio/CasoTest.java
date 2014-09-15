@@ -39,10 +39,10 @@ public class CasoTest {
 		String ret = "Detective, tenemos un caso para usted!" + 
 				"A las 10 de la mañana en la ciudad " + "PAIS" + 
 				"la comunidad  fue conmovida  al darse cuenta del faltante de gran valor!" + 
-				"La Cuchara real";
+				"El Santo Grial";
 		
 		assertEquals(ret, caso.getReporte());
-		assertEquals("La Cuchara real", caso.getObjetoRobado());
+		assertEquals("El Santo Grial", caso.getObjetoRobado());
 		
 	}
 	
