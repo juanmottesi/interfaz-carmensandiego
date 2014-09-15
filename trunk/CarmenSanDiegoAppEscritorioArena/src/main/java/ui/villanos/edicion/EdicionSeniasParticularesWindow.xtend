@@ -1,51 +1,36 @@
-package ui
+package ui.villanos.edicion
 
-import dominio.InterfazVillanos
 import org.uqbar.arena.windows.WindowOwner
+import ui.edicion.EdicionVentana
+import appModel.VillanoAppModel
 import org.uqbar.arena.widgets.Panel
-import org.uqbar.arena.widgets.TextBox
-import org.uqbar.arena.widgets.List
+import org.uqbar.arena.layout.HorizontalLayout
+import acciones.Acciones
 
-class EdicionSeniasParticularesWindow extends TemplateEdicion<InterfazVillanos>{
+class EdicionSeniasParticularesWindow extends EdicionVentana<VillanoAppModel>{
 	
-	new(WindowOwner owner, InterfazVillanos model) {
+	new(WindowOwner owner, VillanoAppModel model) {
 		super(owner, model)
-	}
-	
-	override agregarAgregar(Panel panel) {
-		agregarBoton(panel, "Agregar", [ | modelObject.agregarSeniasParticulares])
-	}
-	
-	override agregarEliminar(Panel mainPanel) {
-		agregarBoton(mainPanel, "Eliminar",modelObject.seniasParticularesSeleccionada,[ | modelObject.eliminarSeniasParticularesSeleccionado()])
-	}
-	
-	override agregarInput(Panel mainPanel) {
-		new TextBox(mainPanel)=>[
-			width= 100
-			bindValueToProperty(modelObject.obtenerInputSeniasParticulares)
-		]
 	}
 	
 	override obtenerTitulo() {
 		this.setTitle("Editar Señas Particulares")
 	}
 	
-	override agregarLista(Panel panel) {
-		agregarLabel(panel,"Señas Particulares", 203)
-		new List(panel) =>[
-			bindItemsToProperty(modelObject.listaSeniasParticulares)
-			bindValueToProperty(modelObject.seniasParticularesSeleccionada)
-			width= 180
-		]	}
-	
-	override agregarBotones(Panel panel) {
-		agregarBoton(panel,"Aceptar", [ | this.close
-				modelObject.actualizar])
+
+	override agregarInputYBoton(Panel panel) {
+		val panelAux = new Panel(panel)
+		panelAux.setLayout(new HorizontalLayout)
+		Acciones.agregarTexBox(panelAux,"nuevaSeniaParticular")
+		Acciones.agregarBoton(panelAux,"Agregar",[ | modelObject.agregarSeniaParticular])
 	}
 	
-	override agregarCaracteristicas(Panel panel) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	override agregarBotonEliminar(Panel panel) {
+		Acciones.agregarBoton(panel, "Eliminar", [ | modelObject.eliminarSeniaParticular])
+	}
+	
+	override agregarLista(Panel panel) {
+		Acciones.agregarLista(panel, "Se�a", "villano.seniasParticulares", "seniaSeleccionada")
 	}
 	
 }

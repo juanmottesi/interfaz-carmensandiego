@@ -7,7 +7,7 @@ import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.layout.HorizontalLayout
 import acciones.Acciones
 
-abstract class PaisEdicionVentana<T> extends Dialog<T>{
+abstract class EdicionVentana<T> extends Dialog<T>{
 	
 	new(WindowOwner owner, T model) {
 		super(owner, model)
