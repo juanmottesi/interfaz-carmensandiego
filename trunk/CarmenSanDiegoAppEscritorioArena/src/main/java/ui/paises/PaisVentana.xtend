@@ -70,8 +70,7 @@ abstract class PaisVentana extends Dialog<PaisAppModel>{
 
 	}
 	
-	override protected createFormPanel(Panel mainPanel) {		
-	}
+	override protected createFormPanel(Panel mainPanel) {}
 	
 	abstract def void obtenerTitulo()
 	abstract def void agregarNombre(Panel panel)

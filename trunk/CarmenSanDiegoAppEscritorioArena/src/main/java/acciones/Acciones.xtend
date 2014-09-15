@@ -140,8 +140,7 @@ class Acciones {
 	}
 	
 	/**
-	 * Se crea un texBox en un panel horizontal que esta en el pasado por parametro. Con el segundo parametro se crea un label y
-	 * con el tercer parametro se hace un bind
+	 * Se crea un texBox en un panel horizontal que esta en el pasado por parametro. Con el segundo parametro se hace un bind
 	 */
 	def static agregarTexBox(Panel panel, String bind) {
 		new TextBox(panel)=>[
@@ -161,12 +160,35 @@ class Acciones {
 	}
 	
 	/**
+	 * Se crea un label con un texto que viene de una propiedad
+	 */
+	def static agregarTextoProperty(Panel panel, String property, Adapter adapter) {
+		new Label(panel) => [
+			bindValueToProperty(property).adapter = adapter
+			width = 100
+		]	
+	}
+	
+	
+	
+	/**
 	 * Se crea un selector en el panel pasado por parametro, bindItems en el segundo parametro , en el tercero bindValue y en el
 	 * ultimo un adapter
 	 */
 	def static agregarSelector(Panel panel, String bindItems, String bindValue, Adapter adapter){
 		new Selector(panel) =>[
 			bindItemsToProperty(bindItems).adapter= adapter
+			bindValueToProperty(bindValue)
+		]
+	}
+	
+	/**
+	 * Se crea un selector en el panel pasado por parametro, bindItems en el segundo parametro , en el tercero bindValue y en el
+	 * ultimo un adapter
+	 */
+	def static agregarSelector(Panel panel, String bindItems, String bindValue){
+		new Selector(panel) =>[
+			bindItemsToProperty(bindItems)
 			bindValueToProperty(bindValue)
 		]
 	}

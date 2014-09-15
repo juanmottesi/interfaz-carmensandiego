@@ -9,6 +9,8 @@ import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.MainWindow
 import appModel.MapamundiAppModel
 import ui.datos.MapamundiVentana
+import appModel.ExpedienteAppModel
+import ui.datos.ExpedienteVentana
 
 class PrimeraVentana extends MainWindow<Detective> {
 	
@@ -40,7 +42,7 @@ class PrimeraVentana extends MainWindow<Detective> {
 		new Button(panel) => [ 
 			caption = "Expedientes"
 			onClick [ | 
-				//new ExpedienteWindow(this, Expediente.instance).open
+				new ExpedienteVentana(this, new ExpedienteAppModel).open
 			]
 		]
 	}

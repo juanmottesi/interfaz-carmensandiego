@@ -1,17 +1,17 @@
 package ui.datos
 
+import acciones.Acciones
+import appModel.MapamundiAppModel
+import appModel.PaisAppModel
 import dominio.Lugar
 import dominio.Pais
 import org.uqbar.arena.bindings.PropertyAdapter
+import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.WindowOwner
-import appModel.MapamundiAppModel
-import appModel.PaisAppModel
 import ui.paises.EditarPaisVentana
 import ui.paises.NuevoPaisVentana
-import acciones.Acciones
-import org.uqbar.arena.layout.HorizontalLayout
 
 class MapamundiVentana extends DatosVentana<MapamundiAppModel>{
 	
