@@ -30,4 +30,32 @@ class Detective {
 //		casoActual.visitar(lugar)
 //	}
 
+	def static void main(String[] args) {
+		var detective = new Detective
+		detective.expedientes.agregarVillano(new Villano =>[
+			nombre = "Carmen San Diego"
+			seniasParticulares = #["Usa gorro","Usa limusina"]
+			hobbies = #["juega tenis", "corre todas las mañanas"]
+			sexo = Sexo.Femenino
+		])
+		
+		detective.expedientes.agregarVillano(new Villano =>[
+			nombre = "Diego"
+			seniasParticulares = #["Usa gorro","Usa limusina"]
+			hobbies = #["juega tenis", "corre todas las mañanas"]
+			sexo = Sexo.Masculino
+		])
+		
+		detective.mapamundi.agregarPais(new Pais =>[
+			nombreDelPais = "Argentina"
+			caracteristicasDelPais 
+			lugaresDeInteres
+			conexionesAereas
+
+			
+		])
+		
+	}
+	
+
 }
