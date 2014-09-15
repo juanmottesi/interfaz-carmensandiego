@@ -77,12 +77,12 @@ class Pais {
 	}
 	
 	def esCorrecto(List<Pais> paises) {
+		if(StringUtils.isBlank(this.nombreDelPais)){ 
+			throw new UserException("Nombre del pais Incorrecto")	
+		}
 		if (paises.filter[it.nombreDelPais == this.nombreDelPais].size != 1){
 			throw new UserException("Pais ya agregado")
 		} 
-		if(StringUtils.isEmpty(this.nombreDelPais) || StringUtils.isBlank(this.nombreDelPais)){ 
-			throw new UserException("Nombre del pais Incorrecto")	
-		}
 		if (lugaresDeInteres.size != 3){
 			throw new UserException("Se necesitan tres Lugares de Interés")
 		}

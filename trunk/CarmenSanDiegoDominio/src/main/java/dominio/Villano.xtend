@@ -2,6 +2,9 @@ package dominio
 
 import java.util.List
 import org.uqbar.commons.utils.Observable
+import org.apache.commons.lang.StringUtils
+import org.uqbar.commons.model.UserException
+import org.uqbar.commons.model.ObservableUtils
 
 @Observable
 class Villano {
@@ -9,109 +12,60 @@ class Villano {
 	@Property List<String> seniasParticulares
 	@Property List<String> hobbies
 	@Property Sexo sexo
-	
-//	//Para Edicion De Hobbie
-//	@Property String hobbieSeleccionado
-//	@Property String nuevoHobbie
-//	
-//	//Para Edicion de Senias Particulares
-//	@Property String nuevaSeniaParticular
-//	@Property String seniaParticularSeleccionada
-	
+
 	new(){
 		this.seniasParticulares = newArrayList
 		this.hobbies = newArrayList
 	}
 	
-//	new(String nombre, List<String> seniasParticulares, List<String> hobbies, Sexo sexo){
-//		this.nombre = nombre
-//		this.seniasParticulares = seniasParticulares
-//		this.hobbies = hobbies
-//		this.sexo = sexo
-//	}
-//	
-//	override obtenerInputHobbie() {
-//		"nuevoHobbie"
-//	}
-//	
-//	override eliminarHobieSeleccionado() {
-//		hobbies -= hobbieSeleccionado
-//		actualizar
-//	}
-//	
-//	override agregarHobbie() {
-//		if(hobbiesLowerCase.contains(nuevoHobbie.toLowerCase))
-//			throw new UserException("Hobbie ya agregada")
-//		hobbies += nuevoHobbie
-//		actualizar
-//	}
-//	
-//	override listaHobbies() {
-//		"hobbies"
-//	}
-//	
-//	override hobbiesSeleccionado() {
-//		"hobbieSeleccionado"
-//	}
-//	
-//	override actualizar() {
-//		//Actualizar Hobbies
-//		var hob= hobbies 
-//		hobbies= null
-//		hobbies= hob  
-//		hobbieSeleccionado= null
-//		nuevoHobbie= null
-//		//Actualizar Senias Particulares
-//		var sp= seniasParticulares
-//		seniasParticulares= null
-//		seniasParticulares= sp  
-//		hobbieSeleccionado= null
-//		nuevaSeniaParticular= null
-//		
-//	}
-//	
-//	override agregarSeniasParticulares() {
-//		if(seniasParticularesLowerCase.contains(nuevaSeniaParticular.toLowerCase))
-//			throw new UserException("Seña Particular ya agregada")
-//		seniasParticulares += nuevaSeniaParticular
-//		actualizar
-//	}
-//		
-//	override eliminarSeniasParticularesSeleccionado() {
-//		seniasParticulares-= seniaParticularSeleccionada
-//		actualizar
-//	}
-//	
-//	override obtenerInputSeniasParticulares() {
-//		"nuevaSeniaParticular"
-//	}
-//	
-//	override listaSeniasParticulares() {
-//		"seniasParticulares"
-//	}
-//	
-//	override seniasParticularesSeleccionada() {
-//		"seniaParticularSeleccionada"
-//	}
-//	
-//	def hobbiesLowerCase() {
-//		hobbies.map[toLowerCase]		
-//	}
-//	
-//	def seniasParticularesLowerCase() {
-//		seniasParticulares.map[toLowerCase]
-//	}
-//		
-//	override soyEditar() {
-//		true
-//	}
-//	
-//	override agregarVillano() {
-//		throw new Exception("Error!")		
-//	}
-//	
-//	override obtenerTitulo() {
-//		"Expediente - Editar Villano"
-//	}
-//	
+	def agregarSeniaParticular(String nuevaSeniaParticular) {
+		if(StringUtils.isBlank(nuevaSeniaParticular)){
+			throw new UserException("Senia Particular no valida")
+		}	
+		if(seniasParticularLowerCase.contains(nuevaSeniaParticular.toLowerCase)){
+			throw new UserException("Senia Particular ya agregada")
+		}
+		seniasParticulares+= nuevaSeniaParticular
+		ObservableUtils.firePropertyChanged(this,"seniasParticulares", seniasParticulares)
+	}
+		
+	def eliminarSeniaParticular(String seniaSeleccionada) {
+		seniasParticulares -= seniaSeleccionada 
+		ObservableUtils.firePropertyChanged(this,"seniasParticulares", seniasParticulares)
+	}
+	
+	def eliminarHobbie(String hobbieSeleccionada) {
+		hobbies -= hobbieSeleccionada 
+		ObservableUtils.firePropertyChanged(this,"hobbies", hobbies)
+	}
+	
+	def agregarHobbie(String nuevoHobbie) {
+		if(StringUtils.isBlank(nuevoHobbie)){
+			throw new UserException("Hobbie no valido")
+		}	
+		if(hobbiesLowerCase.contains(nuevoHobbie.toLowerCase)){
+			throw new UserException("Hobbie ya agregada")
+		}
+		hobbies+= nuevoHobbie
+		ObservableUtils.firePropertyChanged(this,"hobbies", hobbies)
+	}
+
+	def seniasParticularLowerCase() {
+		seniasParticulares.map[toLowerCase]		
+	}
+
+	def hobbiesLowerCase() {
+		hobbies.map[toLowerCase]		
+	}
+	
+	def esCorrecto(List<Villano> villanos) {
+		if (StringUtils.isBlank(this.nombre)){ 
+			throw new UserException("Nombre del Villano Incorrecto")	
+		}
+		if (villanos.filter[it.nombre == this.nombre].size != 1){
+			throw new UserException("Villano ya agregado")
+		} 
+
+	}
+
 }
