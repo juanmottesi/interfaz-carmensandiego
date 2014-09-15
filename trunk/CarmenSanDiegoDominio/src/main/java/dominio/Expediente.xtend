@@ -4,6 +4,7 @@ import java.util.List
 import dominio.auxiliar.Random
 import org.uqbar.commons.model.UserException
 import org.uqbar.commons.utils.Observable
+import org.uqbar.commons.model.ObservableUtils
 
 @Observable
 class Expediente {
@@ -11,11 +12,6 @@ class Expediente {
 	private static Expediente instance = null
 	
 	@Property List<Villano> villanos
-	
-	
-	//Para agregar y editar Villano
-	@Property Villano villanoSeleccionado
-	@Property Villano nuevoVillano
 	
 	new(){
 		villanos = newArrayList
@@ -38,32 +34,9 @@ class Expediente {
 		villanos.get(Random.obtenerRandom(0,villanos.size -1))	
 	}
 	
-	def agregarVillano() {
-		
-		if(nuevoVillano.nombre == null || !(nuevoVillano.nombre.length > 0))
-			throw new UserException("Debe ingresar el nombre del Villano")
-		if(villanosNombreLowerCase.contains(nuevoVillano.nombre.toLowerCase))
-			throw new UserException("Villano ya agregado")
-		if(nuevoVillano.sexo == null) throw new UserException("El sexo del villano tiene que ser femenino o masculino")
-		nuevoVillano.sexo = nuevoVillano.sexo.toLowerCase
-		if(nuevoVillano.sexo != "masculino"){
-			if(nuevoVillano.sexo != "femenino") throw new UserException("El sexo del villano tiene que ser femenino o masculino")
-		}
-			
+	def agregarVillano(Villano nuevoVillano) {
 		villanos += nuevoVillano
-		actualizarVillanos
+		ObservableUtils.firePropertyChanged(this,"villanos", villanos)
 	}
-	
-	def villanosNombreLowerCase() {
-		villanos.map[nombre.toLowerCase]
-	}
-	
-	def actualizarVillanos() {
-		var p= villanos
-		villanos= null
-		villanos= p
-		villanoSeleccionado= null
-		nuevoVillano= null
-	}
-		
+				
 }
