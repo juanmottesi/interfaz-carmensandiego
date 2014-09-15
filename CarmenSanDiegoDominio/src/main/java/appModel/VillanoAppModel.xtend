@@ -13,7 +13,7 @@ class VillanoAppModel {
 	@Property String seniaSeleccionada
 	@Property String nuevaSeniaParticular
 	
-	@Property String HobbieSeleccionada
+	@Property String hobbieSeleccionada
 	@Property String nuevoHobbie
 	
 	new(Villano villanoSeleccionado){
@@ -22,6 +22,24 @@ class VillanoAppModel {
 	
 	def getSexosPosibles(){
 		Arrays.asList(Sexo.values)
+	}
+	
+	def agregarSeniaParticular() {
+		villano.agregarSeniaParticular(nuevaSeniaParticular)
+		nuevaSeniaParticular
+	}
+	
+	def eliminarSeniaParticular() {
+		villano.eliminarSeniaParticular(seniaSeleccionada)
+	}
+	
+	def agregarHobbie() {
+		villano.agregarHobbie(nuevoHobbie)
+		nuevoHobbie
+	}
+	
+	def eliminarHobbie() {
+		villano.eliminarHobbie(hobbieSeleccionada)
 	}
 	
 }
