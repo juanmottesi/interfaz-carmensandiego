@@ -2,12 +2,12 @@ package ui.paises.edicion
 
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.WindowOwner
-import ui.paises.edicion.PaisEdicionVentana
 import appModel.PaisAppModel
 import acciones.Acciones
 import org.uqbar.arena.layout.HorizontalLayout
+import ui.edicion.EdicionVentana
 
-class EdicionCaracteristicasVentana extends PaisEdicionVentana {
+class EdicionCaracteristicasVentana extends EdicionVentana<PaisAppModel> {
 	
 	new(WindowOwner owner, PaisAppModel model) {
 		super(owner, model)
@@ -32,44 +32,4 @@ class EdicionCaracteristicasVentana extends PaisEdicionVentana {
 		Acciones.agregarLista(panel, "Características", "pais.caracteristicasDelPais", "caracteristicaSeleccionada")
 	}
 	
-
-	
-//	override agregarEliminar(Panel mainPanel) {
-//		agregarBoton(mainPanel, "Eliminar",modelObject.caracteristicasSeleccionada,[ | modelObject.eliminarCaracteristica()])
-//	}
-//	
-//	override agregarInput(Panel mainPanel) {
-//		new TextBox(mainPanel)=>[
-//			width= 100
-//			bindValueToProperty(modelObject.obtenerInputCaracteristica)
-//		]
-//		
-//	}
-//	
-//	override obtenerTitulo() {
-//		this.setTitle("Editar Caracteristicas")
-//	}
-//		
-//	override agregarBotones(Panel panel) {
-//		agregarBoton(panel,"Aceptar", [ | this.close
-//				modelObject.actualizar])
-//	}
-//		
-//	override def agregarLista(Panel panel){
-//		agregarLabel(panel,"Características", 203)
-//		new List(panel) =>[
-//			bindItemsToProperty(modelObject.listaCaracteristicas)
-//			bindValueToProperty(modelObject.caracteristicasSeleccionada)
-//			width= 180
-//		]
-//	}
-//	
-//	override agregarAgregar(Panel panel) {
-//		agregarBoton(panel, "Agregar", [ | modelObject.agregarCaracteristica])
-//	}
-//	
-//	override agregarCaracteristicas(Panel panel) {
-//		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-//	}
-			
 }

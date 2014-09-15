@@ -29,7 +29,7 @@ abstract class VillanoVentana extends Dialog<VillanoAppModel>{
 		seniasParticularesPanel.setLayout(new HorizontalLayout)
 		
 		Acciones.agregarTexto(seniasParticularesPanel, "Señas Particulares: ")
-		Acciones.agregarBoton(seniasParticularesPanel, "Editar Señas Particulares", [ | ])
+		Acciones.agregarBoton(seniasParticularesPanel, "Editar Señas Particulares", [ | new EdicionSeniasParticularesVentana(this, modelObject).open ])
 		
 		val listaSenias = new Panel(editorPanel)
 		listaSenias.setLayout(new VerticalLayout)
@@ -40,7 +40,7 @@ abstract class VillanoVentana extends Dialog<VillanoAppModel>{
 		hobbiesPanel.setLayout(new HorizontalLayout)
 		
 		Acciones.agregarTexto(hobbiesPanel, "Hobbies: ")
-		Acciones.agregarBoton(hobbiesPanel, "Editar Hobbies", [ | ])
+		Acciones.agregarBoton(hobbiesPanel, "Editar Hobbies", [ | new EdicionHobbiesVentana(this, modelObject).open ])
 		
 		val listaHobbiesPanel = new Panel(editorPanel)
 		listaHobbiesPanel.setLayout(new VerticalLayout)
@@ -49,7 +49,7 @@ abstract class VillanoVentana extends Dialog<VillanoAppModel>{
 		//Label boton
 		val botonera = new Panel(editorPanel)
 		botonera.setLayout(new HorizontalLayout)
-		Acciones.agregarBoton(botonera, "Aceptar", [ | /*modelObject.esCorrecto() */this.close ])
+		Acciones.agregarBoton(botonera, "Aceptar", [ | modelObject.esCorrecto() this.close ])
 	}
 	
 	override protected createFormPanel(Panel mainPanel) {}

@@ -7,8 +7,9 @@ import org.uqbar.arena.layout.HorizontalLayout
 import acciones.Acciones
 import org.uqbar.arena.bindings.PropertyAdapter
 import dominio.Lugar
+import ui.edicion.EdicionVentana
 
-class EdicionLugaresVentana extends PaisEdicionVentana{
+class EdicionLugaresVentana extends EdicionVentana<PaisAppModel>{
 		
 	new(WindowOwner owner, PaisAppModel model) {
 		super(owner, model)

@@ -1,51 +1,35 @@
-package ui
+package ui.villanos.edicion
 
 import org.uqbar.arena.windows.WindowOwner
+import ui.edicion.EdicionVentana
+import appModel.VillanoAppModel
 import org.uqbar.arena.widgets.Panel
-import dominio.InterfazVillanos
-import org.uqbar.arena.widgets.TextBox
-import org.uqbar.arena.widgets.List
+import org.uqbar.arena.layout.HorizontalLayout
+import acciones.Acciones
 
-class EdicionHobbiesWindow extends TemplateEdicion<InterfazVillanos> {
+class EdicionHobbiesWindow extends EdicionVentana<VillanoAppModel> {
 	
-	new(WindowOwner owner, InterfazVillanos model) {
+	new(WindowOwner owner, VillanoAppModel model) {
 		super(owner, model)
 	}
-	
-	override agregarAgregar(Panel panel) {
-		agregarBoton(panel, "Agregar", [ | modelObject.agregarHobbie])
-	}
-	
-	override agregarEliminar(Panel mainPanel) {
-		agregarBoton(mainPanel, "Eliminar",modelObject.hobbiesSeleccionado,[ | modelObject.eliminarHobieSeleccionado()])
-	}
-	
-	override agregarInput(Panel mainPanel) {
-		new TextBox(mainPanel)=>[
-			width= 100
-			bindValueToProperty(modelObject.obtenerInputHobbie)
-		]
-	}
-	
+
 	override obtenerTitulo() {
 		this.setTitle("Editar Hobbies")
 	}
 	
-	override agregarLista(Panel panel) {
-		agregarLabel(panel,"Hobbie", 203)
-		new List(panel) =>[
-			bindItemsToProperty(modelObject.listaHobbies)
-			bindValueToProperty(modelObject.hobbiesSeleccionado)
-			width= 180
-		]	}
-	
-	override agregarBotones(Panel panel) {
-		agregarBoton(panel,"Aceptar", [ | this.close
-				modelObject.actualizar])
+	override agregarInputYBoton(Panel panel) {
+		val panelAux = new Panel(panel)
+		panelAux.setLayout(new HorizontalLayout)
+		Acciones.agregarTexBox(panelAux,"nuevoHobbie")
+		Acciones.agregarBoton(panelAux,"Agregar",[ | modelObject.agregarHobbie])
 	}
 	
-	override agregarCaracteristicas(Panel panel) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	override agregarBotonEliminar(Panel panel) {
+		Acciones.agregarBoton(panel, "Eliminar", [ | modelObject.eliminarHobbie])
+	}
+	
+	override agregarLista(Panel panel) {
+		Acciones.agregarLista(panel, "Hobbie", "villano.hobbies", "hobbieSeleccionada")
 	}
 	
 }
