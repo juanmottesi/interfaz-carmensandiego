@@ -7,6 +7,8 @@ import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.layout.HorizontalLayout
 import acciones.Acciones
+import ui.villanos.edicion.EdicionSeniasParticularesVentana
+import ui.villanos.edicion.EdicionHobbiesVentana
 
 abstract class VillanoVentana extends Dialog<VillanoAppModel>{
 	

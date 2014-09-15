@@ -7,7 +7,7 @@ import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.layout.HorizontalLayout
 import acciones.Acciones
 
-class EdicionSeniasParticularesWindow extends EdicionVentana<VillanoAppModel>{
+class EdicionSeniasParticularesVentana extends EdicionVentana<VillanoAppModel>{
 	
 	new(WindowOwner owner, VillanoAppModel model) {
 		super(owner, model)
