@@ -88,4 +88,17 @@ class Pais {
 		}
 	}
 	
+	def generarInformantes(Pais pais, Villano villano) {
+		for(Lugar l : lugaresDeInteres){
+			l.generarInformantes(pais, villano)
+		}
+	}
+	
+	def colocarVillanoEInformantes(Villano villano) {
+		for(Lugar l : lugaresDeInteres){
+			l.generarInformantes()
+		}
+		lugaresDeInteres.get(Random.obtenerRandom(0,2)).ubicarVillano(villano)
+	}
+	
 }
