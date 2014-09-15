@@ -1,33 +1,31 @@
 package ui.villanos
 
-import acciones.Acciones
-import appModel.VillanoAppModel
-import org.uqbar.arena.layout.HorizontalLayout
-import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.WindowOwner
+import appModel.VillanoAppModel
+import org.uqbar.arena.widgets.Panel
+import org.uqbar.arena.layout.HorizontalLayout
+import acciones.Acciones
 
-class NuevoVillanoVentana extends VillanoVentana{
-	
+class EditarVillanoVentana extends VillanoVentana {
 	
 	new(WindowOwner owner, VillanoAppModel model) {
 		super(owner, model)
 	}
 	
 	override obtenerTitulo() {
-		this.setTitle("Expedientes - Nuevo Villano")
+		this.setTitle("Expedientes - Editar Villano")
 	}
 	
 	override agregarNombre(Panel panel) {
 		var panelnombre = new Panel(panel)
 		panelnombre.setLayout(new HorizontalLayout)
 		Acciones.agregarTexto(panelnombre, "Nombre: ")
-		Acciones.agregarTexBox(panelnombre, "villano.nombre")
+		Acciones.agregarTextoProperty(panelnombre, "villano.nombre")
 		
 		var panelSexo = new Panel(panel)
 		panelSexo.setLayout(new HorizontalLayout)
 		Acciones.agregarTexto(panelSexo, "Sexo: ")
-		Acciones.agregarSelector(panelSexo,"sexosPosibles","villano.sexo")
+		Acciones.agregarTextoProperty(panelSexo,"villano.sexo")
 	}
-		
+	
 }
-

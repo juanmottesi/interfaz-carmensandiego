@@ -10,6 +10,7 @@ import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.WindowOwner
 import ui.villanos.NuevoVillanoVentana
+import ui.villanos.EditarVillanoVentana
 
 class ExpedienteVentana extends DatosVentana<ExpedienteAppModel> {
 	
@@ -29,7 +30,7 @@ class ExpedienteVentana extends DatosVentana<ExpedienteAppModel> {
 		var panelBotones= new Panel(panel)
 		panelBotones.setLayout(new VerticalLayout)
 		
-		Acciones.agregarBoton(panelBotones, "Editar", "villanoSeleccionado", [ | /*new EditarPaisVentana(this, new PaisAppModel(modelObject.paisSeleccionado)).open*/])
+		Acciones.agregarBoton(panelBotones, "Editar", "villanoSeleccionado", [ | new EditarVillanoVentana(this, new VillanoAppModel(modelObject.villanoSeleccionado)).open])
 		Acciones.agregarBoton(panelBotones, "Nuevo", [ | new NuevoVillanoVentana(this, new VillanoAppModel(modelObject.agregarVillano())).open])
 	}
 	
@@ -44,7 +45,7 @@ class ExpedienteVentana extends DatosVentana<ExpedienteAppModel> {
 		var sexoPanel = new Panel(panel)
 		sexoPanel.setLayout(new HorizontalLayout) 
 		Acciones.agregarTexto(sexoPanel, "Sexo: ")
-		Acciones.agregarTextoProperty(sexoPanel,"villanoSeleccionado.sexo"/* , new PropertyAdapter(Sexo, "toString")*/)
+		Acciones.agregarTextoProperty(sexoPanel,"villanoSeleccionado.sexo")
 		
 		//Label señas particulares
 		val seniasPanel = new Panel(panel)
