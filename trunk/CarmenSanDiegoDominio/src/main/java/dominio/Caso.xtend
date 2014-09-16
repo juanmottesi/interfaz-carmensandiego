@@ -1,7 +1,9 @@
 package dominio
 
 import java.util.List
+import org.uqbar.commons.utils.Observable
 
+@Observable
 class Caso {
 	
 	@Property List<Pais> planDeEscape
