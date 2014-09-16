@@ -13,11 +13,16 @@ import appModel.ExpedienteAppModel
 import ui.datos.ExpedienteVentana
 import ui.juego.InicioJuegoVentana
 import appModel.JuegoAppModel
+import dummyData.DummyData
 
 class PrimeraVentana extends MainWindow<Detective> {
 	
 	new() {
 		super(new Detective)
+	}
+	
+	new(Detective detective){
+		super(detective)
 	}
 	
 	override createContents(Panel mainPanel) {
@@ -52,7 +57,7 @@ class PrimeraVentana extends MainWindow<Detective> {
 	}
 
 	def static main(String[] args) {
-		new PrimeraVentana().startApplication
+		new PrimeraVentana((new DummyData).crearJuegoDummy).startApplication
 	}
 	
 
