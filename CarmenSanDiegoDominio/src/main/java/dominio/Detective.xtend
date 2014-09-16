@@ -1,5 +1,9 @@
 package dominio
 
+
+import org.uqbar.commons.utils.Observable
+
+@Observable
 class Detective {
 	
 	@Property Expediente expedientes
