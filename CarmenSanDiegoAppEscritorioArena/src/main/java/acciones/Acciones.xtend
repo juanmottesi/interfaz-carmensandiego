@@ -6,9 +6,9 @@ import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.List
 import java.awt.Color
 import org.uqbar.arena.widgets.TextBox
-import org.uqbar.arena.bindings.Adapter
 import org.uqbar.arena.widgets.Selector
 import org.uqbar.arena.bindings.NotNullObservable
+import org.uqbar.arena.bindings.Adapter
 
 class Acciones {
 	

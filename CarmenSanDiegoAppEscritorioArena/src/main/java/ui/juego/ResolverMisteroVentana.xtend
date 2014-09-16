@@ -9,7 +9,6 @@ import org.uqbar.arena.layout.ColumnLayout
 import acciones.Acciones
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.bindings.NotNullObservable
-import dominio.Villano
 import org.uqbar.arena.bindings.PropertyAdapter
 import dominio.Pais
 import ui.datos.ExpedienteResolverMisterioVentana
@@ -44,7 +43,7 @@ class ResolverMisteroVentana extends Dialog<JuegoAppModel> {
 		Acciones.agregarTexto(nombrePanel, "Estás en: ")
 		Acciones.agregarTextoProperty(nombrePanel, "detective.casoActual.ciudadActual.nombreDelPais")
 		
-		Acciones.agregarBoton(labelIzq, "Orden de Arresto",[ | ])
+		Acciones.agregarBoton(labelIzq, "Orden de Arresto",[ | new OrdenDeArrestoVentana(this,modelObject).open ])
 		
 		var ordenPanel = new Panel(labelIzq)
 		ordenPanel.layout = new HorizontalLayout
@@ -52,7 +51,7 @@ class ResolverMisteroVentana extends Dialog<JuegoAppModel> {
 		Acciones.agregarTexto(ordenPanel, "Orden ya emitida: ") =>[
 			bindEnabled(new NotNullObservable("ordenDeArresto"))
 		]
-		Acciones.agregarTextoProperty(ordenPanel,"ordenDeArresto")=>[
+		Acciones.agregarTextoProperty(ordenPanel,"ordenDeArresto.nombre")=>[
 			bindEnabled(new NotNullObservable("ordenDeArresto"))
 		]
 		
