@@ -11,6 +11,8 @@ import appModel.MapamundiAppModel
 import ui.datos.MapamundiVentana
 import appModel.ExpedienteAppModel
 import ui.datos.ExpedienteVentana
+import ui.juego.InicioJuegoVentana
+import appModel.JuegoAppModel
 
 class PrimeraVentana extends MainWindow<Detective> {
 	
@@ -30,7 +32,9 @@ class PrimeraVentana extends MainWindow<Detective> {
 		
 		new Button(panel) => [ 
 			caption = "Resolver Misterio"
-			onClick [ | modelObject.casoActual ]
+			onClick [ | modelObject.iniciarJuego
+				new InicioJuegoVentana(this, new JuegoAppModel(modelObject))
+			]
 		]
 		
 		new Button(panel) => [ 
