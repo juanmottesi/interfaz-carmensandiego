@@ -71,7 +71,7 @@ class Villano implements Ocupante{
 	}
 	
 	def String obtenerSeniaParticular(ArrayList<String> lista) {
-		var aux = seniasParticulares.get(Random.obtenerRandom(0,seniasParticulares.size-1))
+		var aux = seniasParticulares.get(Random.obtenerRandom(0,seniasParticulares.size))
 		if(lista.contains(aux)){obtenerSeniaParticular(lista)}
 		aux
 	}

@@ -103,7 +103,7 @@ class Pais {
 	}
 	
 	def String obtenerCaracteristica(ArrayList<String> lista) {
-		var aux = caracteristicasDelPais.get(Random.obtenerRandom(0,caracteristicasDelPais.size-1))
+		var aux = caracteristicasDelPais.get(Random.obtenerRandom(0,caracteristicasDelPais.size))
 		if(lista.contains(aux)){obtenerCaracteristica(lista)}
 		aux
 	}
