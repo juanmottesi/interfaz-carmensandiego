@@ -5,6 +5,9 @@ import dominio.Pais
 import java.util.List
 import dominio.Villano
 
+import org.uqbar.commons.utils.Observable
+
+@Observable
 class JuegoAppModel {
 	
 	@Property Detective detective
