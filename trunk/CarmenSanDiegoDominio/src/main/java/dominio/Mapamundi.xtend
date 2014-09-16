@@ -25,7 +25,7 @@ class Mapamundi {
 	}
 	
 	def puedoIniciar() {
-		if (!(paises.size >= 3)){
+		if (paises.size < 3){
 			throw new UserException("Faltan crear mas paises")		
 		}
 	}
