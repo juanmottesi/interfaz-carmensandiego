@@ -12,6 +12,8 @@ import org.uqbar.arena.bindings.NotNullObservable
 import dominio.Villano
 import org.uqbar.arena.bindings.PropertyAdapter
 import dominio.Pais
+import ui.datos.ExpedienteResolverMisterioVentana
+import appModel.ExpedienteAppModel
 
 class ResolverMisteroVentana extends Dialog<JuegoAppModel> {
 
@@ -56,7 +58,10 @@ class ResolverMisteroVentana extends Dialog<JuegoAppModel> {
 		
 		Acciones.agregarBoton(labelIzq,"Viajar", [ | ])
 		
-		Acciones.agregarBoton(labelIzq,"Expedientes", [ | ])
+		Acciones.agregarBoton(labelIzq,"Expedientes", [ | new ExpedienteResolverMisterioVentana(this, new ExpedienteAppModel)=>[
+			title = '''Resolviendo: «this.modelObject.detective.casoActual.obtenerObjetoRobado» - Expedientes'''
+			open
+		]])
 		
 		//Label Derecho
 		
@@ -64,6 +69,10 @@ class ResolverMisteroVentana extends Dialog<JuegoAppModel> {
 		labelDer.layout = new VerticalLayout
 		
 		Acciones.agregarTexto(labelDer, "Lugares")
+		
+		Acciones.agregarBoton(labelDer,modelObject.detective.casoActual.ciudadActual.lugaresDeInteres.get(0).nombreDelLugar, [ | ])
+		Acciones.agregarBoton(labelDer,modelObject.detective.casoActual.ciudadActual.lugaresDeInteres.get(1).nombreDelLugar, [ | ])
+		Acciones.agregarBoton(labelDer,modelObject.detective.casoActual.ciudadActual.lugaresDeInteres.get(2).nombreDelLugar, [ | ])
 		
 		
 		//Label Recorrido criminal
