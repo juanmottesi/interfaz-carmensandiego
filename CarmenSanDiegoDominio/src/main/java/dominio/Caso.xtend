@@ -20,7 +20,7 @@ class Caso {
 	
 	def getObtenerReporte(){
 		"A las 10 de la mañana en la ciudad " + planDeEscape.get(0).nombreDelPais + 
-		"la comunidad  fue conmovida  al darse cuenta del faltante de gran valor!" + 
+		" la comunidad  fue conmovida  al darse cuenta del faltante de gran valor! " + 
 		obtenerObjetoRobado
 	}
 	
