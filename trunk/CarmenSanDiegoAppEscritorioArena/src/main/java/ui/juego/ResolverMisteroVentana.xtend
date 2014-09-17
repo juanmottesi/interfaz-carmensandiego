@@ -69,9 +69,9 @@ class ResolverMisteroVentana extends Dialog<JuegoAppModel> {
 		
 		Acciones.agregarTexto(labelDer, "Lugares")
 		
-		Acciones.agregarBoton(labelDer,modelObject.detective.casoActual.ciudadActual.lugaresDeInteres.get(0).nombreDelLugar, [ | ])
-		Acciones.agregarBoton(labelDer,modelObject.detective.casoActual.ciudadActual.lugaresDeInteres.get(1).nombreDelLugar, [ | ])
-		Acciones.agregarBoton(labelDer,modelObject.detective.casoActual.ciudadActual.lugaresDeInteres.get(2).nombreDelLugar, [ | ])
+		Acciones.agregarBotonBind(labelDer,"primerLugar.nombreDelLugar", [ | ])
+		Acciones.agregarBotonBind(labelDer,"segundoLugar.nombreDelLugar", [ | ])
+		Acciones.agregarBotonBind(labelDer,"tercerLugar.nombreDelLugar", [ | ])
 		
 		
 		//Label Recorrido criminal
