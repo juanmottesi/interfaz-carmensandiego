@@ -6,7 +6,7 @@ import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Panel
 import acciones.Acciones
 import org.uqbar.arena.layout.VerticalLayout
-
+import java.awt.Color
 
 class InicioJuegoVentana extends Dialog<JuegoAppModel>{
 	
@@ -25,8 +25,12 @@ class InicioJuegoVentana extends Dialog<JuegoAppModel>{
 		Acciones.agregarTexto(editorPanel,"Detective, tenemos un caso para usted!")
 		
 		Acciones.agregarTexto(editorPanel, modelObject.detective.casoActual.obtenerReporte)
+		Acciones.agregarTexto(editorPanel, modelObject.detective.casoActual.obtenerObjetoRobado)=>[
+			fontSize = 20
+			foreground = Color.blue
+		]
 		
-		Acciones.agregarBoton(editorPanel,"Aceptar el caso",[ | new ResolverMisteroVentana(this, modelObject).open this.close])
+		Acciones.agregarBoton(editorPanel,"Aceptar el caso",[ | this.close new ResolverMisteroVentana(this, modelObject).open this.close])
 		
 		
 	}

@@ -51,11 +51,11 @@ class ExpedienteVentana extends DatosVentana<ExpedienteAppModel> {
 		val seniasPanel = new Panel(panel)
 		seniasPanel.setLayout(new HorizontalLayout)
 		
-		Acciones.agregarTexto(seniasPanel, "Se�as Particulares: ")
+		Acciones.agregarTexto(seniasPanel, "Señas Particulares: ")
 		
 		val listaSeniasPanel = new Panel(panel)
 		listaSeniasPanel.setLayout(new VerticalLayout)
-		Acciones.agregarLista(listaSeniasPanel, "Se�a", "villanoSeleccionado.seniasParticulares")
+		Acciones.agregarLista(listaSeniasPanel, "Seña", "villanoSeleccionado.seniasParticulares")
 		
 		//Label hobbies
 		val hobbiesPanel = new Panel(panel)
