@@ -15,6 +15,7 @@ import ui.datos.ExpedienteResolverMisterioVentana
 import appModel.ExpedienteAppModel
 import ui.juego.acciones.OrdenDeArrestoVentana
 import ui.juego.acciones.ViajarVentana
+import ui.juego.acciones.VisitarLugarVentana
 
 class ResolverMisteroVentana extends Dialog<JuegoAppModel> {
 
@@ -71,9 +72,9 @@ class ResolverMisteroVentana extends Dialog<JuegoAppModel> {
 		
 		Acciones.agregarTexto(labelDer, "Lugares")
 		
-		Acciones.agregarBotonBind(labelDer,"primerLugar.nombreDelLugar", [ | ])
-		Acciones.agregarBotonBind(labelDer,"segundoLugar.nombreDelLugar", [ | ])
-		Acciones.agregarBotonBind(labelDer,"tercerLugar.nombreDelLugar", [ | ])
+		Acciones.agregarBotonBind(labelDer,"primerLugar.nombreDelLugar", [ | new VisitarLugarVentana(this,modelObject, modelObject.primerLugar).open ])
+		Acciones.agregarBotonBind(labelDer,"segundoLugar.nombreDelLugar", [ | new VisitarLugarVentana(this,modelObject, modelObject.segundoLugar).open ])
+		Acciones.agregarBotonBind(labelDer,"tercerLugar.nombreDelLugar", [ | new VisitarLugarVentana(this,modelObject, modelObject.tercerLugar).open ])
 		
 		
 		//Label Recorrido criminal
