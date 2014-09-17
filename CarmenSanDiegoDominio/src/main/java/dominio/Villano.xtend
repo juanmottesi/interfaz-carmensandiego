@@ -66,7 +66,13 @@ class Villano implements Ocupante{
 		}
 		if (villanos.filter[it.nombre == this.nombre].size != 1){
 			throw new UserException("Villano ya agregado")
-		} 
+		}
+		if (hobbies.size < 3){
+			throw new UserException("Se necesitan 3 Hobbies")
+		}
+		if (seniasParticulares.size < 3){
+			throw new UserException("Se necesitan 3 Señas particulares")
+		}
 
 	}
 	
