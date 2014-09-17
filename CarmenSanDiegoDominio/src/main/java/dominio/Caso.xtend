@@ -2,6 +2,7 @@ package dominio
 
 import java.util.List
 import org.uqbar.commons.utils.Observable
+import org.uqbar.commons.model.ObservableUtils
 
 @Observable
 class Caso {
@@ -14,9 +15,7 @@ class Caso {
 		this.villano =  expediente.obtenerVillano
 		this.planDeEscape = mapamundi.planDeEscape
 		this.generarInformantes()
-		this.ciudadActual = planDeEscape.get(0)
-		this.planDeEscape -= planDeEscape.get(0)	
-		
+		this.ciudadActual = planDeEscape.get(0)		
 	}
 	
 	def getObtenerReporte(){
@@ -39,5 +38,14 @@ class Caso {
 //	def visitar(Lugar lugar){
 //		
 //	}
+
+	def setCiudadActual(Pais pais){
+		_ciudadActual = pais
+		ObservableUtils.firePropertyChanged(this,"ciudadActual", ciudadActual)	
+	}
+	
+	def perteneceAlPlanDeEscape(Pais pais) {
+		planDeEscape.contains(pais)
+	}
 	
 }
