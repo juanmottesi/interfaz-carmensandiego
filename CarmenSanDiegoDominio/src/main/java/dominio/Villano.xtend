@@ -85,5 +85,9 @@ class Villano implements Ocupante{
 	override pista(Villano villano) {
 		"Alto!!! Detengase: " + villano.nombre
 	}
+	
+	override esVillano() {
+		true
+	}
 
 }
