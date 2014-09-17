@@ -7,7 +7,7 @@ import org.uqbar.arena.layout.HorizontalLayout
 import acciones.Acciones
 import org.uqbar.arena.bindings.PropertyAdapter
 import dominio.Pais
-import ui.juego.edicion.EditarJuegoVentana
+import ui.edicion.EditarJuegoVentana
 
 class ViajarVentana extends EditarJuegoVentana{
 	

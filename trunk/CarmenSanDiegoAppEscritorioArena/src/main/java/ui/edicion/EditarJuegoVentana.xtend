@@ -1,4 +1,4 @@
-package ui.juego.edicion
+package ui.edicion
 
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
