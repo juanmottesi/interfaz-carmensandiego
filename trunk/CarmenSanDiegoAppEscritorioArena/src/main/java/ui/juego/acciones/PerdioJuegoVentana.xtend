@@ -21,7 +21,14 @@ class PerdioJuegoVentana extends ResultadoVentana{
 		Acciones.agregarTexto(panel, "Malas noticias :(") =>[
 			foreground = Color.red
 		]
-		var auxString = '''Ha detenido a «modelObject.detective.casoActual.villano.nombre», pero usted tenia una orden contra «modelObject.ordenDeArresto.nombre»'''
+		var nombreVillano = ""
+		if(modelObject.ordenDeArresto == null){
+			nombreVillano = "nadie"
+		}
+		else{
+			nombreVillano = modelObject.ordenDeArresto.nombre
+		}
+		var auxString = '''Ha detenido a «modelObject.detective.casoActual.villano.nombre», pero usted tenia una orden contra «nombreVillano»'''
 		Acciones.agregarTexto(panel, auxString)
 		Acciones.agregarTexto(panel, "Lamentablemente este crímen quedará impune")
 		

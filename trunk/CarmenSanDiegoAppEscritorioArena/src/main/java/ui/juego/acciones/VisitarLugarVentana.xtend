@@ -30,7 +30,7 @@ class VisitarLugarVentana extends EditarJuegoVentana{
 	}
 	
 	override agregarInput(Panel panel) {
-		Acciones.agregarTexto(panel, lugar.pista(modelObject.ordenDeArresto))
+		Acciones.agregarTexto(panel, lugar.pista(modelObject.detective.casoActual.villano))
 	}
 	
 	override agregarBotones(Panel panel) {
@@ -43,11 +43,11 @@ class VisitarLugarVentana extends EditarJuegoVentana{
 	}
 	
 	def finJuego() {
-		if(modelObject.detective.casoActual.villano.equals(modelObject.ordenDeArresto)){
-			new GanoJuegoVentana(this,modelObject).open
-		}
-		else{
+		if(modelObject.ordenDeArresto == null || !modelObject.detective.casoActual.villano.equals(modelObject.ordenDeArresto)){
 			new PerdioJuegoVentana(this,modelObject).open
+		}
+		else{			
+			new GanoJuegoVentana(this,modelObject).open
 		}
 		this.close
 	}
