@@ -33,6 +33,28 @@ class Acciones {
 	}
 	
 	/**
+	 * Crea un boton en el panel del primer parametro. Con el segundo parametro se le pasa el nombre de dicho boton y con el ultimo
+	 * parametro se le pasa la accion del boton
+	 */	
+	def static agregarBotonBind(Panel panel, String bind, ()=>void onclick) {
+		new Button(panel) =>[
+			bindCaptionToProperty(bind)
+			onClick= onclick
+		]
+	}
+	
+	/**
+	 * Crea un boton en el panel del primer parametro. Con el segundo parametro se le pasa el nombre de dicho boton y con el ultimo
+	 * parametro se le pasa la accion del boton
+	 */	
+	def static agregarBotonBind(Panel panel, String bind, Adapter adapter, ()=>void onclick) {
+		new Button(panel) =>[
+			bindCaptionToProperty(bind).adapter= adapter
+			onClick= onclick
+		]
+	}
+	
+	/**
 	 * agrega un boton con el nombre recibido por parametro, realiza la accion que esta 
 	 * en el bloque onclick y tiene un bindEnabled
 	 */
