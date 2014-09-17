@@ -1,4 +1,4 @@
-package ui.juego
+package ui.juego.acciones
 
 import appModel.JuegoAppModel
 import org.uqbar.arena.windows.WindowOwner
@@ -8,6 +8,7 @@ import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.bindings.NotNullObservable
 import org.uqbar.arena.bindings.PropertyAdapter
 import dominio.Villano
+import ui.juego.edicion.EditarJuegoVentana
 
 class OrdenDeArrestoVentana extends EditarJuegoVentana{
 	
