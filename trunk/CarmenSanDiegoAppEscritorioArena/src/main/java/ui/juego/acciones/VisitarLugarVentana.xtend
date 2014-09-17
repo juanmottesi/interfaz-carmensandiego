@@ -34,7 +34,22 @@ class VisitarLugarVentana extends EditarJuegoVentana{
 	}
 	
 	override agregarBotones(Panel panel) {
-		Acciones.agregarBoton(panel, "Continuar", [ | ])
+		Acciones.agregarBoton(panel, "Continuar", [ |
+			if(lugar.ocupante.esVillano()){
+				this.finJuego()
+			}
+			this.close
+		])
+	}
+	
+	def finJuego() {
+		if(modelObject.detective.casoActual.villano.equals(modelObject.ordenDeArresto)){
+			new GanoJuegoVentana(this,modelObject).open
+		}
+		else{
+			new PerdioJuegoVentana(this,modelObject).open
+		}
+		this.close
 	}
 	
 }
