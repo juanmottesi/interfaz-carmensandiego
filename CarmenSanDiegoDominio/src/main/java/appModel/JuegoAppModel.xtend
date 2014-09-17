@@ -25,7 +25,9 @@ class JuegoAppModel {
 	new(Detective detective){
 		_detective = detective
 		_planDeEscape = newArrayList
+		planDeEscape += detective.casoActual.ciudadActual
 		_destinosFallidos = newArrayList
+		_ordenDeArresto = null
 	}
 	
 	def getTodosLosVillanos(){

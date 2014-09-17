@@ -19,7 +19,7 @@ class Villano implements Ocupante{
 		this.seniasParticulares = newArrayList
 		this.hobbies = newArrayList
 	}
-	
+		
 	def agregarSeniaParticular(String nuevaSeniaParticular) {
 		if(StringUtils.isBlank(nuevaSeniaParticular)){
 			throw new UserException("Senia Particular no valida")
