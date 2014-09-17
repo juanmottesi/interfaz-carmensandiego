@@ -55,7 +55,7 @@ class ResolverMisteroVentana extends Dialog<JuegoAppModel> {
 			bindEnabled(new NotNullObservable("ordenDeArresto"))
 		]
 		
-		Acciones.agregarBoton(labelIzq,"Viajar", [ | ])
+		Acciones.agregarBoton(labelIzq,"Viajar", [ | new ViajarVentana(this,modelObject).open])
 		
 		Acciones.agregarBoton(labelIzq,"Expedientes", [ | new ExpedienteResolverMisterioVentana(this, new ExpedienteAppModel)=>[
 			title = '''Resolviendo: «this.modelObject.detective.casoActual.obtenerObjetoRobado» - Expedientes'''
