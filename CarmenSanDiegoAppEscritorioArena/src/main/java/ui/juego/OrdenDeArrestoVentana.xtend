@@ -1,17 +1,15 @@
 package ui.juego
 
-import ui.edicion.EdicionVentana
 import appModel.JuegoAppModel
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Panel
-import org.uqbar.arena.layout.VerticalLayout
 import acciones.Acciones
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.bindings.NotNullObservable
 import org.uqbar.arena.bindings.PropertyAdapter
 import dominio.Villano
 
-class OrdenDeArrestoVentana extends EdicionVentana<JuegoAppModel> {
+class OrdenDeArrestoVentana extends EditarJuegoVentana{
 	
 	new(WindowOwner owner, JuegoAppModel model) {
 		super(owner, model)
@@ -21,11 +19,8 @@ class OrdenDeArrestoVentana extends EdicionVentana<JuegoAppModel> {
 		title = '''Resolviendo: «modelObject.detective.casoActual.obtenerObjetoRobado»'''
 	}
 	
-	override agregarInputYBoton(Panel panel) {
-		var panelAux = new Panel(panel)
-		panelAux.layout= new VerticalLayout
-			
-		var ordenPanel = new Panel(panelAux)
+	override agregarTexto(Panel panel) {
+		var ordenPanel = new Panel(panel)
 		ordenPanel.layout = new HorizontalLayout
 		
 		Acciones.agregarTexto(ordenPanel, "Orden de arresto emitida contra: ") =>[
@@ -35,8 +30,11 @@ class OrdenDeArrestoVentana extends EdicionVentana<JuegoAppModel> {
 			bindEnabled(new NotNullObservable("ordenDeArresto"))
 			
 		]
-		
-		var selectorPanel = new Panel(panelAux)
+	}
+	
+	override agregarInput(Panel panel) {		
+
+		var selectorPanel = new Panel(panel)
 		selectorPanel.layout = new HorizontalLayout
 		
 		Acciones.agregarTexto(selectorPanel,"Villanos:")
@@ -44,8 +42,8 @@ class OrdenDeArrestoVentana extends EdicionVentana<JuegoAppModel> {
 		
 	}
 	
-	override agregarBotonEliminar(Panel panel) {}
-	
-	override agregarLista(Panel panel) {}
-	
+	override agregarBotones(Panel panel) {
+		Acciones.agregarBoton(panel, "Generar Orden de Arresto", [ | this.close])
+	}
+		
 }
