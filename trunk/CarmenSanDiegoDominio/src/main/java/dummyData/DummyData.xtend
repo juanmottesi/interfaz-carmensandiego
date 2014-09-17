@@ -7,6 +7,7 @@ import dominio.Embajada
 import dominio.Pais
 import dominio.Sexo
 import dominio.Villano
+import dominio.Banco
 
 class DummyData {
 	
@@ -30,9 +31,9 @@ class DummyData {
 			nombreDelPais = "Argentina"
 			caracteristicasDelPais = #["Español","Peso"] 
 			lugaresDeInteres = newArrayList =>[
-				add(new Biblioteca)
 				add(new Club)
 				add(new Embajada)
+				add(new Biblioteca)
 			]	
 			conexionesAereas = newArrayList		
 		])
@@ -53,7 +54,7 @@ class DummyData {
 			caracteristicasDelPais = #["Español","Euro"] 
 			lugaresDeInteres = newArrayList =>[
 				add(new Biblioteca)
-				add(new Club)
+				add(new Banco)
 				add(new Embajada)
 			]	
 			conexionesAereas = newArrayList		
