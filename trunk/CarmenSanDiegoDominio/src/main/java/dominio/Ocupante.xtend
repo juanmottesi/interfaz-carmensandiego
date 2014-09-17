@@ -6,12 +6,18 @@ interface Ocupante {
 	
 	def String pista(Villano villano)
 	
+	def boolean esVillano()
+	
 }
 
 class Cuidador implements Ocupante {
 	
 	override pista(Villano villano) {
 		"Lo siento, creo que se ha equivocado de Ciudad, no hay nadie con esas caracteristicas"
+	}
+	
+	override esVillano() {
+		false
 	}
 	
 }
@@ -29,6 +35,10 @@ class Informante implements Ocupante{
 			ret += informacion.get(i)
 		}
 		ret
+	}
+	
+	override esVillano() {
+		false
 	}
 	
 }
