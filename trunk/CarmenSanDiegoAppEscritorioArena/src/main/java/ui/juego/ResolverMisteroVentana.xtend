@@ -82,7 +82,7 @@ class ResolverMisteroVentana extends Dialog<JuegoAppModel> {
 		var recorridoPanel = new Panel(editorPanel)
 		recorridoPanel.layout = new VerticalLayout
 		
-		Acciones.agregarTexto(recorridoPanel, "Recorrido criminal: ")
+		Acciones.agregarLista(recorridoPanel,"Recorrido criminal: " ,"planDeEscape", new PropertyAdapter(Pais, "nombreDelPais"))
 		
 		//Label destinos fallados
 		var destinosFallados = new Panel(editorPanel)

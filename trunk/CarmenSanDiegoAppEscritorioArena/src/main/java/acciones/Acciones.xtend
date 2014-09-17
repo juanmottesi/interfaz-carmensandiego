@@ -1,5 +1,6 @@
 package acciones
 
+
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Button
@@ -20,7 +21,7 @@ class Acciones {
 			text= texto
 		]
 	}
-
+	
 	/**
 	 * Crea un boton en el panel del primer parametro. Con el segundo parametro se le pasa el nombre de dicho boton y con el ultimo
 	 * parametro se le pasa la accion del boton
