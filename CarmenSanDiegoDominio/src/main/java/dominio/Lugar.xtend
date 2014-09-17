@@ -2,6 +2,7 @@ package dominio
 
 import org.uqbar.commons.utils.Observable
 import dominio.auxiliar.Random
+import java.util.List
 
 abstract class Lugar {
 	
@@ -24,7 +25,7 @@ abstract class Lugar {
 		ocupante = villano
 	}
 	
-	def String pista(Villano villano){
+	def List<String> pista(Villano villano){
 		ocupante.pista(villano)
 	}
 	
