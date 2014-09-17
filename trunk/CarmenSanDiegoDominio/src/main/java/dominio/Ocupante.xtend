@@ -2,9 +2,10 @@ package dominio
 
 import java.util.List
 
+
 interface Ocupante {
 	
-	def String pista(Villano villano)
+	def List<String> pista(Villano villano)
 	
 	def boolean esVillano()
 	
@@ -13,7 +14,7 @@ interface Ocupante {
 class Cuidador implements Ocupante {
 	
 	override pista(Villano villano) {
-		"Lo siento, creo que se ha equivocado de Ciudad, no hay nadie con esas caracteristicas"
+		#["Lo siento, creo que se ha equivocado de Ciudad, no hay nadie con esas caracteristicas"]
 	}
 	
 	override esVillano() {
@@ -30,11 +31,7 @@ class Informante implements Ocupante{
 	}
 	
 	override pista(Villano villano) {
-		var ret = ""
-		for(var i = 0; i < informacion.size ; i++){
-			ret += informacion.get(i)
-		}
-		ret
+		informacion
 	}
 	
 	override esVillano() {
