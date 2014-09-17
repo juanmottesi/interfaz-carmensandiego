@@ -11,8 +11,6 @@ abstract class Lugar {
 	new(){
 		ocupante = new Cuidador
 	}
-
-	//def String obtenerPista()
 	
 	def void generarInformantes(Pais siguientePais, Villano villano)
 	
@@ -85,10 +83,10 @@ class Embajada extends Lugar{
 	}
 	
 	override generarInformantes(Pais siguientePais, Villano villano) {
-		ocupante = new Informante(newArrayList =>[
-			add(siguientePais.obtenerCaracteristica(it))
-			add(siguientePais.obtenerCaracteristica(it))
-		])
+		var lista = newArrayList
+		lista.add(siguientePais.obtenerCaracteristica(lista))
+		lista.add(siguientePais.obtenerCaracteristica(lista))
+		ocupante = new Informante(lista)
 	}
 		
 }
@@ -102,10 +100,10 @@ class Banco extends Lugar{
 	}
 	
 	override generarInformantes(Pais siguientePais, Villano villano) {
-		ocupante = new Informante(newArrayList =>[	
-			add(siguientePais.obtenerCaracteristica(it))
-			add(villano.obtenerSeniaParticular(it))
-			])
+		var lista = newArrayList
+		lista.add(siguientePais.obtenerCaracteristica(lista))
+		lista.add(villano.obtenerSeniaParticular(lista))
+		ocupante = new Informante(lista)
 	}
 	
 

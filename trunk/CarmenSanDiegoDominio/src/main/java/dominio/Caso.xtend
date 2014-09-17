@@ -35,10 +35,6 @@ class Caso {
 		planDeEscape.get(planDeEscape.size -1).colocarVillanoEInformantes(villano)
 	}
 	
-//	def visitar(Lugar lugar){
-//		
-//	}
-
 	def setCiudadActual(Pais pais){
 		_ciudadActual = pais
 		ObservableUtils.firePropertyChanged(this,"ciudadActual", ciudadActual)
