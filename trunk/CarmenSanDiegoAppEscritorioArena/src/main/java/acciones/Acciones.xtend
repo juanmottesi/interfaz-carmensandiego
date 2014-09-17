@@ -22,6 +22,15 @@ class Acciones {
 		]
 	}
 	
+		/**
+	 * Crea un label en el panel que se pasa por parametro con el texto del segundo parametro
+	 */
+	def static agregarTexto(Panel panel, java.util.List<String> lista) {
+		lista.forEach[
+			Acciones.agregarTexto(panel,it)
+		]
+	}
+	
 	/**
 	 * Crea un boton en el panel del primer parametro. Con el segundo parametro se le pasa el nombre de dicho boton y con el ultimo
 	 * parametro se le pasa la accion del boton
