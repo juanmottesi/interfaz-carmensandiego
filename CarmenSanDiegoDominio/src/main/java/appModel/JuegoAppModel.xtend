@@ -8,6 +8,7 @@ import dominio.Villano
 import org.uqbar.commons.utils.Observable
 import dominio.Expediente
 import org.uqbar.commons.model.ObservableUtils
+import org.uqbar.arena.graphics.Image
 
 @Observable
 class JuegoAppModel {
@@ -22,12 +23,15 @@ class JuegoAppModel {
 	
 	@Property Pais siguientePais
 
+	@Property Image imagen
+
 	new(Detective detective){
 		_detective = detective
 		_planDeEscape = newArrayList
 		planDeEscape += detective.casoActual.ciudadActual
 		_destinosFallidos = newArrayList
 		_ordenDeArresto = null
+		
 	}
 	
 	def getTodosLosVillanos(){
