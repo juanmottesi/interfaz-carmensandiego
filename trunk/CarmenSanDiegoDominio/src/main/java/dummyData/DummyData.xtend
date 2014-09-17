@@ -22,11 +22,38 @@ class DummyData {
 		
 		detective.expedientes.agregarVillano(new Villano =>[
 			nombre = "Diego"
+			seniasParticulares = #["Rizos","Lunares"]
+			hobbies = #["Musica", "Lectura"]
+			sexo = Sexo.Masculino
+		])
+		
+		detective.expedientes.agregarVillano(new Villano =>[
+			nombre = "Pepe"
+			seniasParticulares = #["Ojos verdes","Cicatriz"]
+			hobbies = #["Natacion", "Croquet"]
+			sexo = Sexo.Masculino
+		])
+		
+		detective.expedientes.agregarVillano(new Villano =>[
+			nombre = "Marcelo"
+			seniasParticulares = #["Manco","Anteojos"]
+			hobbies = #["Musica", "Escritura"]
+			sexo = Sexo.Masculino
+		])
+		
+		detective.expedientes.agregarVillano(new Villano =>[
+			nombre = "Elena"
+			seniasParticulares = #["Gorro","Polleras"]
+			hobbies = #["Musica", "Moda"]
+			sexo = Sexo.Femenino
+		])
+			
+		detective.expedientes.agregarVillano(new Villano =>[
+			nombre = "TOTO"
 			seniasParticulares = #["Gorro","Cicatriz"]
 			hobbies = #["Musica", "Croquet"]
 			sexo = Sexo.Masculino
 		])
-		
 		detective.mapamundi.agregarPais(new Pais =>[
 			nombreDelPais = "Argentina"
 			caracteristicasDelPais = #["Español","Peso"] 
