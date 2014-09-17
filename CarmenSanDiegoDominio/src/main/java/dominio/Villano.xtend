@@ -79,13 +79,17 @@ class Villano implements Ocupante{
 	def String obtenerSeniaParticular(ArrayList<String> lista) {
 		var aux = seniasParticulares.get(Random.obtenerRandom(0,seniasParticulares.size))
 		if(lista.contains(aux)){obtenerSeniaParticular(lista)}
-		aux
+		else{
+			aux	
+		}
 	}
 	
 	def String obtenerHobbie(ArrayList<String> lista) {
 		var aux = hobbies.get(Random.obtenerRandom(0,hobbies.size-1))
 		if(lista.contains(aux)){obtenerHobbie(lista)}
-		aux
+		else{
+			aux	
+		}
 	}
 	
 	override pista(Villano villano) {
