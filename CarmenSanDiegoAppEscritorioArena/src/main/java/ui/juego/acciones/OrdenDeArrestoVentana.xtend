@@ -8,7 +8,7 @@ import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.bindings.NotNullObservable
 import org.uqbar.arena.bindings.PropertyAdapter
 import dominio.Villano
-import ui.juego.edicion.EditarJuegoVentana
+import ui.edicion.EditarJuegoVentana
 
 class OrdenDeArrestoVentana extends EditarJuegoVentana{
 	
