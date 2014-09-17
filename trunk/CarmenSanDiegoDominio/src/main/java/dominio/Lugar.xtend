@@ -25,6 +25,11 @@ abstract class Lugar {
 	def ubicarVillano(Villano villano) {
 		ocupante = villano
 	}
+	
+	def String pista(Villano villano){
+		ocupante.pista(villano)
+	}
+	
 }
 
 

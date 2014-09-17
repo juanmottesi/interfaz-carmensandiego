@@ -81,5 +81,9 @@ class Villano implements Ocupante{
 		if(lista.contains(aux)){obtenerHobbie(lista)}
 		aux
 	}
+	
+	override pista(Villano villano) {
+		"Alto!!! Detengase: " + villano.nombre
+	}
 
 }
