@@ -30,7 +30,6 @@ class PrimeraVentana extends SimpleWindow<Detective> {
 	override createMainTemplate(Panel mainPanel) {
 		this.setTitle("¿Donde esta Carmen San Diego?")
 		mainPanel.setLayout(new VerticalLayout)
-
 		new Label(mainPanel).setText("¿Que haremos ahora detective?")
 		
 		var panel = new Panel(mainPanel)

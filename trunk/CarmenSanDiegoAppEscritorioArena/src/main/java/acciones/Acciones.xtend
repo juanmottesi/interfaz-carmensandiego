@@ -21,7 +21,17 @@ class Acciones {
 			text= texto
 		]
 	}
+	/**
+	 * Crea un label en el panel que se pasa por parametro con el texto del segundo parametro
+	 */
+	def static agregarTexto(Panel panel, CharSequence texto) {
+		new Label(panel) =>[
+			text= texto.toString
+		]
+	}
 	
+
+
 		/**
 	 * Crea un label en el panel que se pasa por parametro con el texto del segundo parametro
 	 */
@@ -224,6 +234,5 @@ class Acciones {
 			bindValueToProperty(bindValue)
 		]
 	}
-	
-	
+		
 }
