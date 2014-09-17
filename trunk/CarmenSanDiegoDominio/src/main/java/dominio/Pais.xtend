@@ -84,8 +84,11 @@ class Pais {
 		if (paises.filter[it.nombreDelPais == this.nombreDelPais].size != 1){
 			throw new UserException("Pais ya agregado")
 		} 
-		if (lugaresDeInteres.size != 3){
-			throw new UserException("Se necesitan tres Lugares de Interés")
+		if (lugaresDeInteres.size < 3){
+			throw new UserException("Se necesitan 3 Lugares de Interés")
+		}
+		if (caracteristicasDelPais.size < 3){
+			throw new UserException("Se necesitan 3 Caracteristicas")
 		}
 	}
 	
