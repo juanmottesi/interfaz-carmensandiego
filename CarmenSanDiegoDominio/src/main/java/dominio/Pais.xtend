@@ -34,7 +34,7 @@ class Pais {
 		if(caracteristicasLowerCase.contains(nuevaCaracteristica.toLowerCase)){
 			throw new UserException("Característica ya agregada")
 		}
-		caracteristicasDelPais+= nuevaCaracteristica
+		caracteristicasDelPais += nuevaCaracteristica
 		ObservableUtils.firePropertyChanged(this,"caracteristicasDelPais", caracteristicasDelPais)
 	}
 	

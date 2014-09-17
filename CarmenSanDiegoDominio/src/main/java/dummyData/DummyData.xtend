@@ -15,48 +15,28 @@ class DummyData {
 		var detective = new Detective
 		detective.expedientes.agregarVillano(new Villano =>[
 			nombre = "Carmen San Diego"
-			seniasParticulares = #["Gorro","Joyas"]
-			hobbies = #["Tenis", "Natacion"]
+			seniasParticulares = newArrayList =>[add("Gorro") add("Joyas")]
+			hobbies = newArrayList =>[addAll(#["Tenis", "Natacion"])]
 			sexo = Sexo.Femenino
 		])
 		
 		detective.expedientes.agregarVillano(new Villano =>[
 			nombre = "Diego"
-			seniasParticulares = #["Rizos","Lunares"]
-			hobbies = #["Musica", "Lectura"]
+			seniasParticulares = newArrayList =>[addAll(#["Tenis", "Natacion"])]
+			hobbies = newArrayList =>[addAll(#["Tenis", "Natacion"])]
 			sexo = Sexo.Masculino
 		])
 		
 		detective.expedientes.agregarVillano(new Villano =>[
 			nombre = "Pepe"
-			seniasParticulares = #["Ojos verdes","Cicatriz"]
-			hobbies = #["Natacion", "Croquet"]
+			seniasParticulares = newArrayList =>[addAll(#["Ojos verdes","Cicatriz"])]
+			hobbies = newArrayList =>[addAll(#["Tenis", "Natacion"])]
 			sexo = Sexo.Masculino
 		])
 		
-		detective.expedientes.agregarVillano(new Villano =>[
-			nombre = "Marcelo"
-			seniasParticulares = #["Manco","Anteojos"]
-			hobbies = #["Musica", "Escritura"]
-			sexo = Sexo.Masculino
-		])
-		
-		detective.expedientes.agregarVillano(new Villano =>[
-			nombre = "Elena"
-			seniasParticulares = #["Gorro","Polleras"]
-			hobbies = #["Musica", "Moda"]
-			sexo = Sexo.Femenino
-		])
-			
-		detective.expedientes.agregarVillano(new Villano =>[
-			nombre = "TOTO"
-			seniasParticulares = #["Gorro","Cicatriz"]
-			hobbies = #["Musica", "Croquet"]
-			sexo = Sexo.Masculino
-		])
 		detective.mapamundi.agregarPais(new Pais =>[
 			nombreDelPais = "Argentina"
-			caracteristicasDelPais = #["Español","Peso"] 
+			caracteristicasDelPais = newArrayList =>[addAll(#["Español","Peso"])] 
 			lugaresDeInteres = newArrayList =>[
 				add(new Club)
 				add(new Embajada)
@@ -67,7 +47,7 @@ class DummyData {
 		
 		detective.mapamundi.agregarPais(new Pais =>[
 			nombreDelPais = "Chile"
-			caracteristicasDelPais = #["Español","Peso Chileno"] 
+			caracteristicasDelPais = newArrayList =>[addAll(#["Español","Peso Chileno"])] 
 			lugaresDeInteres = newArrayList =>[
 				add(new Biblioteca)
 				add(new Club)
@@ -78,7 +58,7 @@ class DummyData {
 		
 		detective.mapamundi.agregarPais(new Pais =>[
 			nombreDelPais = "España"
-			caracteristicasDelPais = #["Español","Euro"] 
+			caracteristicasDelPais =newArrayList =>[add("Español") add("Euro")]  
 			lugaresDeInteres = newArrayList =>[
 				add(new Biblioteca)
 				add(new Banco)
