@@ -35,6 +35,9 @@ class JuegoAppModel {
 	def viajar(){
 		this.agregarALista
 		detective.viajarA(siguientePais)
+		ObservableUtils.firePropertyChanged(this,"primerLugar",primerLugar)
+		ObservableUtils.firePropertyChanged(this,"segundoLugar",segundoLugar)
+		ObservableUtils.firePropertyChanged(this,"tercerLugar",tercerLugar)
 	}
 
 	def agregarALista(){
@@ -52,5 +55,16 @@ class JuegoAppModel {
 		}
 		
 	}
-
+	
+	def getPrimerLugar(){
+		detective.casoActual.ciudadActual.lugaresDeInteres.get(0)
+	}
+	
+	def getSegundoLugar(){
+		detective.casoActual.ciudadActual.lugaresDeInteres.get(1)
+	}
+	
+	def getTercerLugar(){
+		detective.casoActual.ciudadActual.lugaresDeInteres.get(2)
+	}
 }

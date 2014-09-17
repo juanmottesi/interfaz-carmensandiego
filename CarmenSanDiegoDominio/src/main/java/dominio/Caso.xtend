@@ -41,7 +41,7 @@ class Caso {
 
 	def setCiudadActual(Pais pais){
 		_ciudadActual = pais
-		ObservableUtils.firePropertyChanged(this,"ciudadActual", ciudadActual)	
+		ObservableUtils.firePropertyChanged(this,"ciudadActual", ciudadActual)
 	}
 	
 	def perteneceAlPlanDeEscape(Pais pais) {
