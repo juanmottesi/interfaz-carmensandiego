@@ -25,17 +25,17 @@ abstract class VillanoVentana extends Dialog<VillanoAppModel>{
 			
 		this.agregarNombre(editorPanel)		
 		
-		//Label seña particular
+		//Label seï¿½a particular
 		
 		val seniasParticularesPanel = new Panel(editorPanel)
 		seniasParticularesPanel.setLayout(new HorizontalLayout)
 		
-		Acciones.agregarTexto(seniasParticularesPanel, "Señas Particulares: ")
-		Acciones.agregarBoton(seniasParticularesPanel, "Editar Señas Particulares", [ | new EdicionSeniasParticularesVentana(this, modelObject).open ])
+		Acciones.agregarTexto(seniasParticularesPanel, "SeÃ±as Particulares: ")
+		Acciones.agregarBoton(seniasParticularesPanel, "Editar SeÃ±as Particulares", [ | new EdicionSeniasParticularesVentana(this, modelObject).open ])
 		
 		val listaSenias = new Panel(editorPanel)
 		listaSenias.setLayout(new VerticalLayout)
-		Acciones.agregarLista(listaSenias, "Seña", "villano.seniasParticulares")
+		Acciones.agregarLista(listaSenias, "SeÃ±a", "villano.seniasParticulares")
 		
 		//Label hobbies
 		val hobbiesPanel = new Panel(editorPanel)

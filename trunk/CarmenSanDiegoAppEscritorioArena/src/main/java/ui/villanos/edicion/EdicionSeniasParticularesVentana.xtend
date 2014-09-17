@@ -30,7 +30,7 @@ class EdicionSeniasParticularesVentana extends EdicionVentana<VillanoAppModel>{
 	}
 	
 	override agregarLista(Panel panel) {
-		Acciones.agregarLista(panel, "Seña", "villano.seniasParticulares", "seniaSeleccionada")
+		Acciones.agregarLista(panel, "SeÃ±a", "villano.seniasParticulares", "seniaSeleccionada")
 	}
 	
 }
