@@ -13,6 +13,8 @@ import org.uqbar.arena.bindings.PropertyAdapter
 import dominio.Pais
 import ui.datos.ExpedienteResolverMisterioVentana
 import appModel.ExpedienteAppModel
+import ui.juego.acciones.OrdenDeArrestoVentana
+import ui.juego.acciones.ViajarVentana
 
 class ResolverMisteroVentana extends Dialog<JuegoAppModel> {
 
