@@ -13,65 +13,107 @@ class DummyData {
 	
 	def crearJuegoDummy(){
 		var detective = new Detective
-		detective.expedientes.agregarVillano(new Villano =>[
-			nombre = "Carmen San Diego"
-			seniasParticulares = newArrayList =>[add("Gorro") add("Joyas")]
-			hobbies = newArrayList =>[addAll(#["Tenis", "Natacion"])]
-			sexo = Sexo.Femenino
-		])
+		this.crearVillanos(detective)
+		this.crearPaises(detective)
+		detective
 		
-		detective.expedientes.agregarVillano(new Villano =>[
-			nombre = "Diego"
-			seniasParticulares = newArrayList =>[addAll(#["Tenis", "Natacion"])]
-			hobbies = newArrayList =>[addAll(#["Tenis", "Natacion"])]
-			sexo = Sexo.Masculino
-		])
-		
-		detective.expedientes.agregarVillano(new Villano =>[
-			nombre = "Pepe"
-			seniasParticulares = newArrayList =>[addAll(#["Ojos verdes","Cicatriz"])]
-			hobbies = newArrayList =>[addAll(#["Tenis", "Natacion"])]
-			sexo = Sexo.Masculino
-		])
-		
+	}
+	
+	def crearPaises(Detective detective) {
 		detective.mapamundi.agregarPais(new Pais =>[
 			nombreDelPais = "Argentina"
-			caracteristicasDelPais = newArrayList =>[addAll(#["Español","Peso"])] 
-			lugaresDeInteres = newArrayList =>[
-				add(new Club)
-				add(new Embajada)
-				add(new Biblioteca)
-			]	
-			conexionesAereas = newArrayList		
+			caracteristicasDelPais = newArrayList =>[addAll(#["Se constituye de 24 entidades, 23 provincias y una ciudad autónoma",
+			"En el interior del país la música popular es el folklore",
+			"Es reconocida por su gran pasión por el fútbol"])]
+			lugaresDeInteres = newArrayList =>[addAll(#[new Biblioteca, new Club, new Embajada])]
 		])
 		
 		detective.mapamundi.agregarPais(new Pais =>[
-			nombreDelPais = "Chile"
-			caracteristicasDelPais = newArrayList =>[addAll(#["Español","Peso Chileno"])] 
-			lugaresDeInteres = newArrayList =>[
-				add(new Biblioteca)
-				add(new Club)
-				add(new Embajada)
-			]	
-			conexionesAereas = newArrayList			
+			nombreDelPais = ""
+			caracteristicasDelPais = newArrayList =>[addAll(#["",
+			"",
+			""])]
+			lugaresDeInteres = newArrayList =>[addAll(#[new Biblioteca, new Club, new Embajada])]
+		])
+		
+		detective.mapamundi.agregarPais(new Pais =>[
+			nombreDelPais = ""
+			caracteristicasDelPais = newArrayList =>[addAll(#["","",""])]
+			lugaresDeInteres = newArrayList =>[addAll(#[new Biblioteca, new Club, new Embajada])]
+		])
+		
+		detective.mapamundi.agregarPais(new Pais =>[
+			nombreDelPais = "Brasil"
+			caracteristicasDelPais = newArrayList =>[addAll(#["El idioma oficial es el portugués",
+			"El carnaval es una celebración que se vive como toda una verdadera fiesta nacional",
+			"Al norte del país se encuentra la cuenca amazónica"])]
+			lugaresDeInteres = newArrayList =>[addAll(#[new Biblioteca, new Club, new Embajada])]
+		])
+		
+		detective.mapamundi.agregarPais(new Pais =>[
+			nombreDelPais = "Mexico"
+			caracteristicasDelPais = newArrayList =>[addAll(#["La bandera tiene 3 colores de manera vertical: verde, blanco y rojo",
+			"Introdujo el chocolate, el chile y el maíz al resto del mundo ",
+			"Es el mayor productor de plata en el mundo"])]
+			lugaresDeInteres = newArrayList =>[addAll(#[new Biblioteca, new Club, new Embajada])]
+		])
+		
+		detective.mapamundi.agregarPais(new Pais =>[
+			nombreDelPais = "Estados Unidos"
+			caracteristicasDelPais = newArrayList =>[addAll(#["","",""])]
+			lugaresDeInteres = newArrayList =>[addAll(#[new Biblioteca, new Club, new Embajada])]
 		])
 		
 		detective.mapamundi.agregarPais(new Pais =>[
 			nombreDelPais = "España"
-			caracteristicasDelPais =newArrayList =>[add("Español") add("Euro")]  
-			lugaresDeInteres = newArrayList =>[
-				add(new Biblioteca)
-				add(new Banco)
-				add(new Embajada)
-			]	
-			conexionesAereas = newArrayList		
+			caracteristicasDelPais = newArrayList =>[addAll(#["","",""])]
+			lugaresDeInteres = newArrayList =>[addAll(#[new Biblioteca, new Club, new Embajada])]
 		])
 		
-		detective.mapamundi.paises.get(0).agregarConexion(detective.mapamundi.paises.get(1))
-		detective.mapamundi.paises.get(0).agregarConexion(detective.mapamundi.paises.get(2))
-		detective.mapamundi.paises.get(1).agregarConexion(detective.mapamundi.paises.get(2))
+		detective.mapamundi.agregarPais(new Pais =>[
+			nombreDelPais = "Italia"
+			caracteristicasDelPais = newArrayList =>[addAll(#["","",""])]
+			lugaresDeInteres = newArrayList =>[addAll(#[new Biblioteca, new Club, new Embajada])]
+		])
 		
-		detective
+		detective.mapamundi.agregarPais(new Pais =>[
+			nombreDelPais = "Alemania"
+			caracteristicasDelPais = newArrayList =>[addAll(#["","",""])]
+			lugaresDeInteres = newArrayList =>[addAll(#[new Biblioteca, new Club, new Embajada])]
+		])
+		
 	}
+	
+	def crearVillanos(Detective detective) {
+		detective.expedientes.agregarVillano(new Villano =>[
+				nombre = ""
+				seniasParticulares = newArrayList =>[addAll(#["","",""])]
+				hobbies = newArrayList =>[addAll(#["","",""])]
+	 			sexo = Sexo.Masculino	
+		])
+		
+		detective.expedientes.agregarVillano(new Villano =>[
+				nombre = ""
+				seniasParticulares = newArrayList =>[addAll(#["","",""])]
+				hobbies = newArrayList =>[addAll(#["","",""])]
+	 			sexo = Sexo.Masculino	
+		])
+		
+		detective.expedientes.agregarVillano(new Villano =>[
+				nombre = ""
+				seniasParticulares = newArrayList =>[addAll(#["","",""])]
+				hobbies = newArrayList =>[addAll(#["","",""])]
+	 			sexo = Sexo.Femenino	
+		])
+		
+		detective.expedientes.agregarVillano(new Villano =>[
+				nombre = ""
+				seniasParticulares = newArrayList =>[addAll(#["","",""])]
+				hobbies = newArrayList =>[addAll(#["","",""])]
+	 			sexo = Sexo.Femenino	
+		])
+	}
+	
+	
 
 }
