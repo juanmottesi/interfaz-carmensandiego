@@ -132,28 +132,28 @@ class DummyData {
 	
 	def crearVillanos(Detective detective) {
 		detective.expedientes.agregarVillano(new Villano =>[
-				nombre = "Jerónimo"
+				nombre = "El Pinguino"
 				seniasParticulares = newArrayList =>[addAll(#["Alto","Pelado","Corpulento"])]
 				hobbies = newArrayList =>[addAll(#["El futbol","Pesca","Autos"])]
 	 			sexo = Sexo.Masculino	
 		])
 		
 		detective.expedientes.agregarVillano(new Villano =>[
-				nombre = ""
+				nombre = "Loki"
 				seniasParticulares = newArrayList =>[addAll(#["Alto","Flaco","Pelo castaño"])]
 				hobbies = newArrayList =>[addAll(#["Surf","El futbol","Rafting"])]
 	 			sexo = Sexo.Masculino	
 		])
 		
 		detective.expedientes.agregarVillano(new Villano =>[
-				nombre = "Agata"
+				nombre = "Gatubela"
 				seniasParticulares = newArrayList =>[addAll(#["Usa vestidos","Es Fumadora","Usa jayas"])]
 				hobbies = newArrayList =>[addAll(#["Pintura","La fotografia","Hockey"])]
 	 			sexo = Sexo.Femenino	
 		])
 		
 		detective.expedientes.agregarVillano(new Villano =>[
-				nombre = "Madame Green"
+				nombre = "Madame Hydra"
 				seniasParticulares = newArrayList =>[addAll(#["Delgada","Alta","Pelo largo de color verde oscuro"])]
 				hobbies = newArrayList =>[addAll(#["Lectura","Tiro con arco","Baile"])]
 	 			sexo = Sexo.Femenino	
