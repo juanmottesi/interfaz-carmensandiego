@@ -46,8 +46,6 @@ class Pais {
 	def void agregarConexion(Pais paisSeleccionado){
 		if( conexionesAereas.contains(paisSeleccionado))
 			throw new UserException("Conexion ya agregada")
-		if(conexionesAereas.size >= 3)
-			throw new UserException("Solo puede poseer 3 conexiones")
 		conexionesAereas += paisSeleccionado
 		paisSeleccionado.conexionesAereas += this
 		ObservableUtils.firePropertyChanged(this,"conexionesAereas", conexionesAereas)
