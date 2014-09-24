@@ -1,14 +1,12 @@
 package ui
 
-import org.uqbar.arena.Application
-import dominio.Detective
 import dummyData.DummyData
+import org.uqbar.arena.Application
 
 class CarmenSanDiegoApp extends Application {
 	
 	override protected createMainWindow() {
-		var model = new Detective
-		model = new DummyData().crearJuegoDummy
+		var model = new DummyData().crearJuegoDummy
 		new PrimeraVentana(this, model) 
 	}
 	
