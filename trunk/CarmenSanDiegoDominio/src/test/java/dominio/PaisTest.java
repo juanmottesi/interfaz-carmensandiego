@@ -64,19 +64,7 @@ public class PaisTest {
 		pais.agregarConexion(mockPais);
 		assertEquals(1, pais.getConexionesAereas());
 	}
-	
-	@Test(expected = UserException.class)
-	public void testAgregarConexionConMasDeTresConexiones(){
-		Pais p1 = mock(Pais.class);
-		Pais p2 = mock(Pais.class);
-		Pais p3 = mock(Pais.class);		
-		pais.agregarConexion(mockPais);		
-		pais.agregarConexion(p1);		
-		pais.agregarConexion(p2);		
-		pais.agregarConexion(p3);
-		assertEquals(3, pais.getConexionesAereas().size());
-	}
-	
+		
 	@Test
 	public void testEliminarConexion(){
 		pais.agregarConexion(mockPais);		
