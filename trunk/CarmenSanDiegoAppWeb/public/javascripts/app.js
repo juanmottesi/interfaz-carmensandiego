@@ -13,11 +13,13 @@
 		  	})
 	  }
 	  
+	  $scope.iniciarJuego();
+	  
 	  $scope.paisActual = function(){
 		  $http.get('paisAcutal')
-		  	.success(function(data)){
+		  	.success(function(data){
 			  return data;
-		  }
+		  })
 	  }
 	  
 	  this.setSiguientePais = function(newValue){
@@ -41,9 +43,9 @@
 	      
 	  this.getOrdenDeArresto = function(){
 		  $http.get('ordenDeArresto')
-		  	.success(function(data)){
+		  	.success(function(data){
 			  return data;
-		  }
+		  })
 	  };
 	     	    
 	  this.viajar = function(value){
@@ -65,6 +67,12 @@
 	      return this.ordenSinEmitir === newValue;
 	  };
 	  
+	  $scope.fin = function(){
+		  $http.get('final')
+		  	.success(function(data){
+			  return data;
+		  })
+	  };
   });
 
  app.controller('TabController', function(){
