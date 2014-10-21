@@ -4,6 +4,10 @@
 
 # LIBROS
 GET		/iniciarjuego				controllers.Application.iniciarJuego()
+GET 	/ordenDeArresto				controllers.Application.ordenDeArresto()
+GET		/paisActual					controllers.Application.paisActual()
+POST	/ordenDeArresto/:villano	controllers.Application.ordenDeArresto(villano:Villano)
+POST	/viajar/:pais				controllers.Application.viajar(pais:Pais)
 
 
 # Map static resources from the /public folder to the /assets URL path
