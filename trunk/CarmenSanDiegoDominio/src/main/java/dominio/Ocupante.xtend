@@ -12,9 +12,14 @@ interface Ocupante {
 }
 
 class Cuidador implements Ocupante {
+	@Property List<String> informacion
+
+	new() {
+		informacion = #["Lo siento, creo que se ha equivocado de Ciudad, no hay nadie con esas caracteristicas"]
+	}
 	
 	override pista(Villano villano) {
-		#["Lo siento, creo que se ha equivocado de Ciudad, no hay nadie con esas caracteristicas"]
+		informacion
 	}
 	
 	override esVillano() {
