@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html ng-app="juegoAppModel">
+
+  <head>
+    <title>¿Dondé está Carmen San Diego?</title>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="shortcut icon" href="images/iconoCarmenSanDiego.png" type="image/png" />
+    <!-- Bootstrap -->
+      <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+      <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
+      <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.min.css">
+      <link rel="stylesheet" href="stylesheets/bootstrap-theme.min.css">
+      <script src="javascripts/bootstrap.min.js"></script>
+    <!-- Fin bootstrap -->
+    <script type="text/javascript" src="lib/angular.min.js"></script>
+    
+    <script type="text/javascript" src="javascripts/app.js"></script>
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">    
+
+  </head>
+
+  <body ng-controller="juegoCtrl as juego">
+    <!-- Inicio del nav bar -->
+    <div class="container" ng-controller="TabController as tab">
+      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+          <ul class="nav navbar-nav">
+            <li> <img id="navbarHeader" src="images/iconoCarmenSanDiego.png"></li>
+            <li ng-class="{ active: tab.isSet(1)}"><a href ng-click="tab.setTab(1)">Informacion</a></li>
+            <li ng-class="{ active: tab.isSet(2)}"><a href ng-click="tab.setTab(2)">Orden de arresto</a></li>
+            <li ng-class="{ active: tab.isSet(3)}"><a href ng-click="tab.setTab(3)">Pistas</a></li>
+          </ul>
+        </div>
+      </nav>
+      <!-- Fin del nav bar -->
+      <!-- Inicio del Cuerpo -->
+      
+      <!-- Inicio del Informacion -->
+      <div ng-show="tab.isSet(1)" class="jumbotron">
+        <center><h2>Pais Actual: {{juego.paisActual()}}</h2></center>
+        <!-- Inicio de lugares a donde ir -->
+        <center><h3>Siguiente Pais:</h3></center>
+        <div class="list-group"  style="width: 45%; margin: 0 auto">
+           <div ng-repeat="paises in juego.detective.caso.ciudadActual.conexiones">
+             <a href ng-click="juego.setSiguientePais(paises)" ng-class="{ active: juego.isSetSiguientePais(paises)}" class="list-group-item">{{paises.nombreDelPais}}</a>
+           </div>
+        </div>
+        <!-- Fin de lugares a donde ir -->
+        <br>
+        <center><button type="button" class="btn btn-default" ng-click="juego.actualizarPaises()" ng-hide="juego.getSiguientePais() === null">Viajar a {{juego.getSiguientePais().nombreDelPais}}</button></center>
+        
+        <h5>Paises ya Visitados: </h5>
+        <div ng-repeat="paisesYV in juego.detective.caso.paisesVisitados">
+           <em class="pull-left">{{paisesYV.nombreDelPais}} -->  </em>
+        </div>
+        
+      </div>
+      <!-- Fin de la informacion -->
+      
+      <!-- Inicio de la orden de arresto -->
+      <div ng-show="tab.isSet(2)" class="jumbotron">
+        <center><h2>Orden de arresto: {{juego.ordenDeArresto.nombre}}</h2></center>
+        <div>
+          <div class="list-group"  style="width: 45%; margin: 0 auto">
+          <div ng-repeat="villano in juego.detective.expedientes">
+            <a href ng-click="juego.setOrdenSinEmitir(villano)" ng-class="{ active: juego.isSetOrdenSinEmitir(villano)}" class="list-group-item">{{villano.nombre}}</a>
+          </div>
+        </div>
+        <br>
+        <center><button type="button" class="btn btn-default" ng-hide="juego.getOrdenSinEmitir() === null" ng-click="juego.setOrdenDeArresto(juego.getOrdenSinEmitir())">Generar orden para {{juego.getOrdenSinEmitir().nombre}}</button></center>
+        
+          
+        </div>
+        
+        <div class="jumbotron">
+          <div class="col-xs-6 col-md-6">
+            <center><h4> Hobbies</h4></center>
+            <div class="list-group">
+              <div ng-repeat="hobbie in juego.ordenSinEmitir.hobbies">
+                <a class="list-group-item">{{hobbie}}</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-6 col-md-6">
+            <center><h4> Señas Particulares</h4></center>
+            <div class="list-group">
+              <div ng-repeat="senias in juego.ordenSinEmitir.seniasParticulares">
+                <a class="list-group-item">{{senias}}</a>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <div class="jumbotron"></div>
+        
+      </div>
+      <!-- Fin de Orden de arresto -->
+      
+      <!-- Inicio de Pistas -->
+      <div ng-show="tab.isSet(3)" class="jumbotron">
+        <center><h2>Pistas</h2></center>
+        <center><div class="row">
+          <div class="col-xs-6 col-md-4" ng-repeat="lugar in juego.detective.caso.ciudadActual.lugaresDeInteres">
+            <div class="thumbnail" ng-controller= "TabController as tab">
+              <a href ng-click="tab.setTab(2)" class="thumbnail"><img src={{lugar.images[0]}} height="168" width="145"></a>
+              <h4>{{lugar.nombreDelLugar}}</h4> <hr>
+              <div ng-show="tab.isSet(2)">
+                <div ng-repeat="info in lugar.informante">
+                  {{info}}
+                </div>
+                <!--<center><button type="button" class="btn btn-default" ng-hide="lugar.informante[0] != 'Alto Detengase!!!'" ng-click="juego.fin()">Finalizar Partida</button></center> -->
+                  <div ng-controller="ModalController as modal">
+                  <button ng-click="toggleModal()" class="btn btn-default" ng-hide="lugar.informante[0] != 'Alto Detengase!!!'">Finalizar Partida</button>
+    
+                  <modal title="Resultado" visible="showModal">
+                    <h2>{{juego.fin()}}</h2>
+                  </modal>
+                </div>
+                
+              </div>
+              
+              
+            </div>
+          </div>
+        </div></center>
+      </div>
+      
+    </div>
+    <!-- Fin de Pistas -->
+    
+    <!-- Fin del Cuerpo -->
+    
+    <!-- Inicio del Footer -->
+    
+    <!-- Fin del Footer -->
+  </body>
+  
+  
+</html>
