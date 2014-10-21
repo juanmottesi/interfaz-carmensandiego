@@ -44,13 +44,23 @@ class Pais {
 	}
 	
 	def void agregarConexion(Pais paisSeleccionado){
-		if( conexionesAereas.contains(paisSeleccionado))
-			throw new UserException("Conexion ya agregada")
+		if( conexionesAereas.contains(paisSeleccionado)){
+			throw new UserException("Conexion ya agregada")	
+		}
 		conexionesAereas += paisSeleccionado
-		paisSeleccionado.conexionesAereas += this
+		paisSeleccionado.agregarConexionAux(this)
 		ObservableUtils.firePropertyChanged(this,"conexionesAereas", conexionesAereas)
 	}
 	
+	private def void agregarConexionAux(Pais pais){
+		if(conexionesAereas.contains(pais)){
+			throw new UserException("Conexion ya agregada")
+		}
+		else{
+			conexionesAereas += pais		
+		}
+	}
+		
 	def void eliminarConexion(Pais paisSeleccionado){
 		conexionesAereas -= paisSeleccionado
 		paisSeleccionado.conexionesAereas -= this

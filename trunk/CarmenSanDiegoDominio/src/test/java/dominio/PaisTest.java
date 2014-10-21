@@ -53,7 +53,8 @@ public class PaisTest {
 	
 	@Test
 	public void testAgregarConexion(){
-		pais.agregarConexion(mockPais);
+		when(mockPais.getConexionesAereas()).thenReturn(new ArrayList<Pais>());
+		pais.agregarConexion(mockPais);		
 		assertEquals(1, pais.getConexionesAereas().size());
 		
 	}
