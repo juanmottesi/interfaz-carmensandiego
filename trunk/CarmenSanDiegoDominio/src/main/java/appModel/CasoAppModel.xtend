@@ -5,6 +5,8 @@ import java.util.List
 import dominio.Pais
 import dominio.Villano
 import dummyData.DummyData
+import dominio.Mapamundi
+import dominio.Expediente
 
 class CasoAppModel {
 	
@@ -31,7 +33,8 @@ class CasoAppModel {
 		ordenEmitida = null
 	}
 	
-	def CasoAppModel viajar(Pais paisSeleccionado){
+	def CasoAppModel viajar(String nombrePais){
+		var paisSeleccionado = Mapamundi.getInstance.paises.findFirst[nombrePais == nombrePais]
 		if(casoActual.perteneceAlPlanDeEscape(paisSeleccionado)){
 			paisesVisitadosCorrectos += paisSeleccionado
 		}
@@ -47,7 +50,8 @@ class CasoAppModel {
 		casoActual.ciudadActual.nombreDelPais
 	}
 	
-	def  setOrdenDeArresto(Villano villano){
+	def  setOrdenDeArresto(String villanoNombre){
+		var villano = Expediente.getInstance.villanos.findFirst[nombre == villanoNombre]
 		ordenEmitida = villano
 	}	
 	
