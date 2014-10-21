@@ -42,16 +42,20 @@
         <!-- Inicio de lugares a donde ir -->
         <center><h3>Siguiente Pais:</h3></center>
         <div class="list-group"  style="width: 45%; margin: 0 auto">
-           <div ng-repeat="paises in juego.detective.caso.ciudadActual.conexiones">
-             <a href ng-click="juego.setSiguientePais(paises)" ng-class="{ active: juego.isSetSiguientePais(paises)}" class="list-group-item">{{paises.nombreDelPais}}</a>
+           <div ng-repeat="pais in juego.paises()">
+             <a href ng-click="juego.setSiguientePais(paises)" ng-class="{ active: juego.isSetSiguientePais(paises)}" class="list-group-item">{{pais.nombreDelPais}}</a>
            </div>
         </div>
         <!-- Fin de lugares a donde ir -->
         <br>
-        <center><button type="button" class="btn btn-default" ng-click="juego.actualizarPaises()" ng-hide="juego.getSiguientePais() === null">Viajar a {{juego.getSiguientePais().nombreDelPais}}</button></center>
+        <center><button type="button" class="btn btn-default" ng-click="juego.viajar()" ng-hide="juego.getSiguientePais() === null">Viajar a {{juego.getSiguientePais()}}</button></center>
         
-        <h5>Paises ya Visitados: </h5>
-        <div ng-repeat="paisesYV in juego.detective.caso.paisesVisitados">
+        <h5>Paises ya Visitados Correctos: </h5>
+        <div ng-repeat="paisesYV in juego.getPaisesVisitadosCorrectos()">
+           <em class="pull-left">{{paisesYV.nombreDelPais}} -->  </em>
+        </div>
+        <h5>Paises ya Visitados Incorrectos: </h5>
+        <div ng-repeat="paisesYV in juego.getPaisesVisitadosIncorrectos()">
            <em class="pull-left">{{paisesYV.nombreDelPais}} -->  </em>
         </div>
         
@@ -60,7 +64,7 @@
       
       <!-- Inicio de la orden de arresto -->
       <div ng-show="tab.isSet(2)" class="jumbotron">
-        <center><h2>Orden de arresto: {{juego.ordenDeArresto.nombre}}</h2></center>
+        <center><h2>Orden de arresto: {{juego.getOrdenDeArresto}}</h2></center>
         <div>
           <div class="list-group"  style="width: 45%; margin: 0 auto">
           <div ng-repeat="villano in juego.detective.expedientes">
