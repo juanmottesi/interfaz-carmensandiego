@@ -8,6 +8,7 @@ import dominio.Pais
 import dominio.Sexo
 import dominio.Villano
 import dominio.Banco
+import appModel.CasoAppModel
 
 class DummyData {
 	
@@ -164,10 +165,13 @@ class DummyData {
 	}
 	
 	def static void main(String[] args) {
-		var d = new DummyData().crearJuegoDummy
-		d.iniciarJuego
+			var dummy = new DummyData().crearJuegoDummy
+			dummy.iniciarJuego
+			var r = new CasoAppModel(dummy.casoActual)
+				System.out.println(r.casoActual.ciudadActual.nombreDelPais)
+			r = r.viajar("Argentina")
 		
-		System.out.println(d.casoActual.ciudadActual.conexionesAereas)
+		System.out.println(r.casoActual.ciudadActual.nombreDelPais)
 	}
 	
 	
