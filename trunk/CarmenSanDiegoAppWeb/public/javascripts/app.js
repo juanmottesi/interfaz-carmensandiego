@@ -50,6 +50,7 @@
     	  .success(function(data) {
     		  $scope.casoAppModel = data;
           })
+          $scope.iniciarJuego()
 	  };
 	  
 	  $scope.setOrdenSinEmitir = function(newValue){
