@@ -1,11 +1,16 @@
 package controllers;
 
+import java.util.Collection;
+
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
 import appModel.CasoAppModel;
 
 import com.fasterxml.jackson.databind.JsonNode;
+
+import dominio.Expediente;
+import dominio.Villano;
 
 public class Application extends Controller {
     
@@ -36,7 +41,14 @@ public class Application extends Controller {
     }
     
     public static Result esFinal(){
-    	return ok(CasoAppModel.getInstance().esFinal());
+    	//return ok(CasoAppModel.getInstance().esFinal());
+    	return ok();
+    }
+        
+    public static Result getExpedientes(){
+    	response().setContentType("application/json");
+    	Collection<Villano> villanos = Expediente.getInstance().getVillanos();
+    	return ok(Json.toJson(villanos));
     }
     
 }
