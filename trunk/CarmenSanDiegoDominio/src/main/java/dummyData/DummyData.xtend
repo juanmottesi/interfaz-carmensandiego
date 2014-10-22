@@ -167,7 +167,7 @@ class DummyData {
 		var d = new DummyData().crearJuegoDummy
 		d.iniciarJuego
 		
-		System.out.println(d.casoActual)
+		System.out.println(d.casoActual.ciudadActual.conexionesAereas)
 	}
 	
 	

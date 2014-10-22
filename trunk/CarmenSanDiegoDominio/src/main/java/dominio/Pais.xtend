@@ -14,7 +14,7 @@ class Pais {
 	@Property String nombreDelPais
 	@Property List<String> caracteristicasDelPais
 	@Property List<Lugar> lugaresDeInteres
-	@Property List<Pais> conexionesAereas
+	@Property List<String> conexionesAereas
 
 	new(){
 		caracteristicasDelPais= newArrayList
@@ -23,8 +23,9 @@ class Pais {
 	}
 		
 	def Pais obtenerSiguientePais(List<Pais> paises) {
-		var pais = conexionesAereas.filter[!paises.contains(it)]
-		pais.get(Random.obtenerRandom(0, pais.size))
+		val paisesAux = paises.map[nombreDelPais].toList
+		var pais = conexionesAereas.filter[ each | !paisesAux.contains(each)]
+		Mapamundi.getInstance().getPais(pais.get(Random.obtenerRandom(0, pais.size)))
 	}
 	
 	def agregarCaracteristica(String nuevaCaracteristica){	
@@ -47,7 +48,7 @@ class Pais {
 		if( conexionesAereas.contains(paisSeleccionado)){
 			throw new UserException("Conexion ya agregada")	
 		}
-		conexionesAereas.add(paisSeleccionado)
+		conexionesAereas.add(paisSeleccionado.nombreDelPais)
 		paisSeleccionado.agregarConexionAux(this)
 		ObservableUtils.firePropertyChanged(this,"conexionesAereas", conexionesAereas)
 	}
@@ -58,13 +59,13 @@ class Pais {
 			throw new UserException("Conexion ya agregada")
 		}
 		else{
-			conexionesAereas.add(pais)
+			conexionesAereas.add(pais.nombreDelPais)
 		}
 	}
 		
 	def void eliminarConexion(Pais paisSeleccionado){
-		conexionesAereas -= paisSeleccionado
-		paisSeleccionado.conexionesAereas -= this
+		conexionesAereas -= paisSeleccionado.nombreDelPais
+		paisSeleccionado.conexionesAereas -= this.nombreDelPais
 		ObservableUtils.firePropertyChanged(this,"conexionesAereas", conexionesAereas)
 	}
 	
