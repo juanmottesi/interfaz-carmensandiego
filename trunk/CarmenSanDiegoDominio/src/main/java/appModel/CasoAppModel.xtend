@@ -11,14 +11,12 @@ import dominio.Expediente
 class CasoAppModel {
 	
 	private static CasoAppModel instance = null
-	
-	@Property List<Pais> paises
-	
+		
 	static def getInstance() {
 		if (instance == null) {
-			var dummy = new DummyData().crearJuegoDummy
-			dummy.iniciarJuego
-			instance = new CasoAppModel(dummy.casoActual)
+			var dummyDetective = new DummyData().crearJuegoDummy
+			dummyDetective.iniciarJuego
+			instance = new CasoAppModel(dummyDetective.casoActual)
 		}
 		instance
 	}
@@ -32,7 +30,7 @@ class CasoAppModel {
 		casoActual = caso
 		paisesVisitadosCorrectos = newArrayList
 		paisesVisitadosIncorrectos = newArrayList
-		ordenEmitida = null
+		ordenEmitida = new Villano("null")
 	}
 	
 	def CasoAppModel viajar(String nombrePais){
@@ -52,12 +50,12 @@ class CasoAppModel {
 		casoActual.ciudadActual.nombreDelPais
 	}
 	
-	def  setOrdenDeArresto(String villanoNombre){
+	def  ordenDeArresto(String villanoNombre){
 		var villano = Expediente.getInstance.villanos.findFirst[nombre == villanoNombre]
 		ordenEmitida = villano
 	}	
 	
-	def getOrdenDeArresto(){
+	def ordenDeArresto(){
 		ordenEmitida.nombre
 	}
 }

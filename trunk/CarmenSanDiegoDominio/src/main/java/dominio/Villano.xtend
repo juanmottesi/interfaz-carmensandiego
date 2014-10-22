@@ -19,6 +19,13 @@ class Villano implements Ocupante{
 		this.seniasParticulares = newArrayList
 		this.hobbies = newArrayList
 	}
+	
+	new(String nombre){
+		this.nombre = nombre
+		this.seniasParticulares = newArrayList
+		this.hobbies = newArrayList
+		this.sexo = Sexo.Masculino;
+	}
 		
 	def agregarSeniaParticular(String nuevaSeniaParticular) {
 		if(StringUtils.isBlank(nuevaSeniaParticular)){
