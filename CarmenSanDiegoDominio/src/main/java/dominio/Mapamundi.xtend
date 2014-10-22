@@ -53,9 +53,13 @@ class Mapamundi {
 	}
 	
 	def eliminarPais(Pais paisSeleccionado) {
-		paisSeleccionado.conexionesAereas.forEach[ each| each.conexionesAereas -= paisSeleccionado]
+		paisSeleccionado.conexionesAereas.forEach[ each| Mapamundi.getInstance.getPais(each).conexionesAereas -= paisSeleccionado.nombreDelPais]
 		paises -= paisSeleccionado
 		ObservableUtils.firePropertyChanged(this,"paises",paises)
+	}
+	
+	def Pais getPais(String nombrePais){
+		return paises.findFirst[nombreDelPais == nombrePais]
 	}
 	
 }

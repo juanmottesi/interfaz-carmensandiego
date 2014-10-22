@@ -62,7 +62,7 @@ public class MapamundiTest {
 	@Test
 	public void testEliminarPais() {
 		mapamundi.setPaises(new ArrayList<Pais>());
-		when(mockPais.getConexionesAereas()).thenReturn(new ArrayList<Pais>());
+		when(mockPais.getConexionesAereas()).thenReturn(new ArrayList<String>());
 		mapamundi.agregarPais(mockPais);
 		mapamundi.eliminarPais(mockPais);
 		assertEquals(0, mapamundi.getPaises().size());		
