@@ -2,8 +2,15 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Home page
-GET     /                           controllers.Application.index()
+# LIBROS
+GET 	/iniciar					controllers.Application.iniciarJuego()
+GET 	/ordendearresto				controllers.Application.getOrdenDeArresto()
+GET		/paisactual					controllers.Application.getPaisAcutal()
+POST	/ordendearresto/:villano	controllers.Application.ordenDeArresto(villano:String)
+POST	/viajar/:pais				controllers.Application.viajar(pais:String)
+GET		/final						controllers.Application.esFinal()
+GET		/expedientes				controllers.Application.getExpedientes()
+  	
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

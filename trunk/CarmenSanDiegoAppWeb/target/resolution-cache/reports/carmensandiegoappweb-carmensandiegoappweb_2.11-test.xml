@@ -7,14 +7,14 @@
 		revision="1.0-SNAPSHOT"
 		conf="test"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20141021150644"/>
+		date="20141021233717"/>
 	<dependencies>
 		<module organisation="CarmenSanDiegoDominio" name="CarmenSanDiegoDominio">
 			<revision name="0.0.2" status="release" pubdate="20141016000333" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="62">
 				<metadata-artifact status="no" details="" size="2882" time="0" location="C:\Users\juan\.ivy2\cache\CarmenSanDiegoDominio\CarmenSanDiegoDominio\ivy-0.0.2.xml" searched="false" origin-is-local="true" origin-location="C:\Users\juan\.m2\repository\CarmenSanDiegoDominio\CarmenSanDiegoDominio\0.0.2\CarmenSanDiegoDominio-0.0.2.pom"/>
 				<caller organisation="carmensandiegoappweb" name="carmensandiegoappweb_2.11" conf="test, compile, runtime" rev="0.0.2" rev-constraint-default="0.0.2" rev-constraint-dynamic="0.0.2" callerrev="1.0-SNAPSHOT"/>
 				<artifacts>
-					<artifact name="CarmenSanDiegoDominio" type="jar" ext="jar" status="no" details="" size="160409" time="0" location="C:\Users\juan\.m2\repository\CarmenSanDiegoDominio\CarmenSanDiegoDominio\0.0.2\CarmenSanDiegoDominio-0.0.2.jar">
+					<artifact name="CarmenSanDiegoDominio" type="jar" ext="jar" status="no" details="" size="163808" time="0" location="C:\Users\juan\.m2\repository\CarmenSanDiegoDominio\CarmenSanDiegoDominio\0.0.2\CarmenSanDiegoDominio-0.0.2.jar">
 						<origin-location is-local="true" location="C:\Users\juan\.m2\repository\CarmenSanDiegoDominio\CarmenSanDiegoDominio\0.0.2\CarmenSanDiegoDominio-0.0.2.jar"/>
 					</artifact>
 				</artifacts>
