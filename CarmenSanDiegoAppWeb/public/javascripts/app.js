@@ -46,11 +46,11 @@
 	  };
 	     	    
 	  $scope.viajar = function(value){
-		  $http.post('/viajar', this.siguientePais)
+		  $http.post('/viajar', $scope.siguientePais)
     	  .success(function(data) {
     		  $scope.casoAppModel = data;
           })
-          $scope.iniciarJuego()
+          //$scope.iniciarJuego()
 	  };
 	  
 	  $scope.setOrdenSinEmitir = function(newValue){

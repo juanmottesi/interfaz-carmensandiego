@@ -31,8 +31,8 @@ public class Application extends Controller {
     public static Result viajar(String pais){
     	response().setContentType("application/json");
     	CasoAppModel caso = CasoAppModel.getInstance().viajar(pais);
-    	JsonNode json = Json.toJson(caso);
-    	return ok(json);
+    	return ok(Json.toJson(caso));
+
     }
     
     public static Result ordenDeArresto(String villano){
