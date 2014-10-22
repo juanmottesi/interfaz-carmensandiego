@@ -16,30 +16,32 @@ class CasoAppModel {
 	
 	static def getInstance() {
 		if (instance == null) {
-			instance = new CasoAppModel(new DummyData().crearJuegoDummy.casoActual)
+			var dummy = new DummyData().crearJuegoDummy
+			dummy.iniciarJuego
+			instance = new CasoAppModel(dummy.casoActual)
 		}
 		instance
 	}
 	
 	@Property Caso casoActual
-	@Property List<Pais> paisesVisitadosCorrectos
-	@Property List<Pais> paisesVisitadosIncorrectos
+	@Property List<String> paisesVisitadosCorrectos
+	@Property List<String> paisesVisitadosIncorrectos
 	@Property Villano ordenEmitida
 	
 	new(Caso caso){
 		casoActual = caso
 		paisesVisitadosCorrectos = newArrayList
-		paisesVisitadosCorrectos = newArrayList
+		paisesVisitadosIncorrectos = newArrayList
 		ordenEmitida = null
 	}
 	
 	def CasoAppModel viajar(String nombrePais){
-		var paisSeleccionado = Mapamundi.getInstance.paises.findFirst[nombrePais == nombrePais]
+		var paisSeleccionado = Mapamundi.getInstance.getPais(nombrePais)
 		if(casoActual.perteneceAlPlanDeEscape(paisSeleccionado)){
-			paisesVisitadosCorrectos += paisSeleccionado
+			paisesVisitadosCorrectos += nombrePais
 		}
 		else{
-			paisesVisitadosIncorrectos += paisSeleccionado
+			paisesVisitadosIncorrectos += nombrePais
 		}
 		
 		casoActual.ciudadActual = paisSeleccionado
