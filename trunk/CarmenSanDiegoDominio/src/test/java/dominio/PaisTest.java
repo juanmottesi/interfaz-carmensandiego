@@ -25,11 +25,11 @@ public class PaisTest {
 		mockLugar = mock(Lugar.class);
 	}
 	
-	@Test
-	public void testObtenerSiguientePais() {
-		pais.agregarConexion(mockPais);		
-		assertEquals(mockPais, pais.obtenerSiguientePais(new ArrayList<Pais>()));
-	}
+//	@Test
+//	public void testObtenerSiguientePais() {
+//		pais.agregarConexion(mockPais);		
+//		assertEquals(mockPais, pais.obtenerSiguientePais(new ArrayList<Pais>()));
+//	}
 	
 	@Test
 	public void testAgregarCaracteristica(){
@@ -51,28 +51,28 @@ public class PaisTest {
 		assertEquals(0, pais.getCaracteristicasDelPais().size());
 	}
 	
-	@Test
-	public void testAgregarConexion(){
-		when(mockPais.getConexionesAereas()).thenReturn(new ArrayList<Pais>());
-		pais.agregarConexion(mockPais);		
-		assertEquals(1, pais.getConexionesAereas().size());
-		
-	}
-	
-	@Test(expected = UserException.class)
-	public void testAgregarConexionConElMismoPaisQueYaTenia(){
-		pais.agregarConexion(mockPais);
-		pais.agregarConexion(mockPais);
-		assertEquals(1, pais.getConexionesAereas());
-	}
-		
-	@Test
-	public void testEliminarConexion(){
-		pais.agregarConexion(mockPais);		
-		pais.eliminarConexion(mockPais);
-		assertEquals(0, pais.getConexionesAereas().size());		
-	}
-	
+//	@Test
+//	public void testAgregarConexion(){
+//		when(mockPais.getConexionesAereas()).thenReturn(new ArrayList<Pais>());
+//		pais.agregarConexion(mockPais);		
+//		assertEquals(1, pais.getConexionesAereas().size());
+//		
+//	}
+//	
+//	@Test(expected = UserException.class)
+//	public void testAgregarConexionConElMismoPaisQueYaTenia(){
+//		pais.agregarConexion(mockPais);
+//		pais.agregarConexion(mockPais);
+//		assertEquals(1, pais.getConexionesAereas());
+//	}
+//		
+//	@Test
+//	public void testEliminarConexion(){
+//		pais.agregarConexion(mockPais);		
+//		pais.eliminarConexion(mockPais);
+//		assertEquals(0, pais.getConexionesAereas().size());		
+//	}
+//	
 	@Test
 	public void testAgregarLugar(){
 		pais.agregarLugar(mockLugar);
@@ -112,11 +112,11 @@ public class PaisTest {
 		assertEquals("nueva", pais.caracteristicasLowerCase().get(0));
 	}
 	
-	@Test
-	public void testEliminarConexionConPaisQueYaTenia(){
-		pais.agregarConexion(mockPais);
-		pais.eliminarConexion(mockPais);
-		assertEquals(0,pais.getConexionesAereas().size());
-	}
+//	@Test
+//	public void testEliminarConexionConPaisQueYaTenia(){
+//		pais.agregarConexion(mockPais);
+//		pais.eliminarConexion(mockPais);
+//		assertEquals(0,pais.getConexionesAereas().size());
+//	}
 	
 }
