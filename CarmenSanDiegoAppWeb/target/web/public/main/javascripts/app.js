@@ -16,7 +16,7 @@
 	  $scope.iniciarJuego();
 	  
 	  $scope.paisActual = function(){
-		  return $scope.casoAppModel.casoActual.ciudadActual.nombreDelPais;
+		return $scope.casoAppModel.casoActual.ciudadActual.nombreDelPais;
 	  };
 	  
 	  $scope.setSiguientePais = function(newValue){
@@ -50,6 +50,7 @@
     	  .success(function(data) {
     		  $scope.casoAppModel = data;
           })
+          $scope.iniciarJuego()
 	  };
 	  
 	  $scope.setOrdenSinEmitir = function(newValue){
@@ -65,16 +66,19 @@
 	  };
 	  
 	  $scope.fin = function(){
-		  if($scope.ordenEmitida.nombre === 'null' || $scope.ordenEmitida.nombre != $scope.casoActual.villano.nombre){
-			  return "Perdiste T_T"
+		  if(!angular.isUndefined($scope.ordenEmitida)){
+			  if($scope.ordenEmitida.nombre === 'null' || $scope.ordenEmitida.nombre != $scope.casoActual.villano.nombre){
+				  return "Perdiste T_T"
+			  }
+			  else{
+				  return "Ganaste! =D"
+			  }
 		  }
-		  else{
-			  return "Ganaste! =D"
-		  }
+		  return "Perdiste T_T"
 	  };
 	  
 	  $scope.paises = function(){
-		  return $scope.casoAppModel.casoActual.ciudadActual.conexionesAereas;
+		 return $scope.casoAppModel.casoActual.ciudadActual.conexionesAereas;
 	  };
 	  
 	  $scope.getPaisesVisitadosCorrectos = function(){
@@ -92,17 +96,13 @@
 			return $scope.casoAppModel.casoActual.ordenDeArresto; 
 		  }
 	  };
-	  
-	  $scope.expedientes = function(){
-		  $http.get('/expedientes')
-		  	.success(function(data){
-			  $scope.expedientes = data;
-		  })
-		  return $scope.expedientes;
-	  };
-	  
+	    
 	  $scope.lugares = function(){
 		  return $scope.casoAppModel.casoActual.ciudadActual.lugaresDeInteres;
+	  }
+	  
+	  $scope.expedientes = function(){
+		  return $scope.casoAppModel.villanos
 	  }
 	  
   }]);

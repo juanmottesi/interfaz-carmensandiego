@@ -7,7 +7,7 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies for carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT [compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.1 [compile->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.11.1 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@27a22fd2[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@3621a93b[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-lang#scala-library;2.11.1[0m
 [0m[[0mdebug[0m] [0m	local: revision in cache: org.scala-lang#scala-library;2.11.1[0m
 [0m[[0mdebug[0m] [0m	found org.scala-lang#scala-library;2.11.1 in sbt-chain[0m
@@ -1068,8 +1068,14 @@
 [0m[[0mdebug[0m] [0m	activator-local: no ivy file found for com.google.guava#guava;[10.0.1,14.0.1][0m
 [0m[[0mdebug[0m] [0mdefault-cache: cached resolved revision expired for com.google.guava#guava;[10.0.1,14.0.1][0m
 [0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/com/google/guava/guava/[revision]/guava-[revision].pom[0m
-[0m[[0mdebug[0m] [0m	public: found md file for com.google.guava#guava;[10.0.1,14.0.1][0m
-[0m[[0mdebug[0m] [0m		=> http://repo1.maven.org/maven2/com/google/guava/guava/14.0.1/guava-14.0.1.pom (14.0.1)[0m
+[0m[[31merror[0m] [0mSERVER ERROR: Backend is unhealthy url=http://repo1.maven.org/maven2/com/google/guava/guava/[0m
+[0m[[33mwarn[0m] [0mproblem while listing resources in http://repo1.maven.org/maven2/com/google/guava/guava/ with public:[0m
+[0m[[33mwarn[0m] [0m  java.lang.NullPointerException charsetName[0m
+[0m[[0mdebug[0m] [0m	public: no ivy file found for com.google.guava#guava;[10.0.1,14.0.1][0m
+[0m[[0mdebug[0m] [0mdefault-cache: cached resolved revision expired for com.google.guava#guava;[10.0.1,14.0.1][0m
+[0m[[0mdebug[0m] [0m		tried http://repo.typesafe.com/typesafe/releases/com/google/guava/guava/[revision]/guava-[revision].pom[0m
+[0m[[0mdebug[0m] [0m	typesafe-releases: found md file for com.google.guava#guava;[10.0.1,14.0.1][0m
+[0m[[0mdebug[0m] [0m		=> http://repo.typesafe.com/typesafe/releases/com/google/guava/guava/14.0.1/guava-14.0.1.pom (14.0.1)[0m
 [0m[[0mdebug[0m] [0m	default-cache: revision in cache: com.google.guava#guava;14.0.1[0m
 [0m[[0mdebug[0m] [0m	found com.google.guava#guava;14.0.1 in sbt-chain[0m
 [0m[[0mdebug[0m] [0m	[14.0.1] com.google.guava#guava;[10.0.1,14.0.1][0m
@@ -9193,7 +9199,7 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#scala-compiler;2.11.1!scala-compiler.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang.modules#scala-xml_2.11;1.0.2!scala-xml_2.11.jar(bundle)[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] jline#jline;2.11!jline.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 14470ms :: artifacts dl 93ms[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 17061ms :: artifacts dl 93ms[0m
 [0m[[0mdebug[0m] [0m	report for carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT compile produced in C:\Users\juan\Documents\facultad\CarmenSanDiegoAppWeb\target\resolution-cache\reports\carmensandiegoappweb-carmensandiegoappweb_2.11-compile.xml[0m
 [0m[[0mdebug[0m] [0m	report for carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT runtime produced in C:\Users\juan\Documents\facultad\CarmenSanDiegoAppWeb\target\resolution-cache\reports\carmensandiegoappweb-carmensandiegoappweb_2.11-runtime.xml[0m
 [0m[[0mdebug[0m] [0m	report for carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT test produced in C:\Users\juan\Documents\facultad\CarmenSanDiegoAppWeb\target\resolution-cache\reports\carmensandiegoappweb-carmensandiegoappweb_2.11-test.xml[0m
@@ -9207,5 +9213,5 @@
 [0m[[0mdebug[0m] [0m	report for carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT docs produced in C:\Users\juan\Documents\facultad\CarmenSanDiegoAppWeb\target\resolution-cache\reports\carmensandiegoappweb-carmensandiegoappweb_2.11-docs.xml[0m
 [0m[[0mdebug[0m] [0m	report for carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT pom produced in C:\Users\juan\Documents\facultad\CarmenSanDiegoAppWeb\target\resolution-cache\reports\carmensandiegoappweb-carmensandiegoappweb_2.11-pom.xml[0m
 [0m[[0mdebug[0m] [0m	report for carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT scala-tool produced in C:\Users\juan\Documents\facultad\CarmenSanDiegoAppWeb\target\resolution-cache\reports\carmensandiegoappweb-carmensandiegoappweb_2.11-scala-tool.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (14470ms resolve - 93ms download)[0m
+[0m[[0mdebug[0m] [0m	resolve done (17061ms resolve - 93ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m
