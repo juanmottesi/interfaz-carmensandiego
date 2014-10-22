@@ -53,7 +53,7 @@ Seq[Any](format.raw/*1.32*/("""
 }
               /*
                   -- GENERATED --
-                  DATE: Tue Oct 21 23:37:35 ART 2014
+                  DATE: Wed Oct 22 12:15:48 ART 2014
                   SOURCE: C:/Users/juan/Documents/facultad/CarmenSanDiegoAppWeb/app/views/main.scala.html
                   HASH: 2161330b6434d5bb9afcd5e16006e0def9590b71
                   MATRIX: 727->1|845->31|873->33|950->84|975->89|1063->151|1077->157|1131->191|1218->252|1232->258|1284->290|1336->315|1351->321|1406->355|1500->422|1528->429|1560->434

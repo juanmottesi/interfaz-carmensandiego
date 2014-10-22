@@ -21,7 +21,7 @@ public class Application extends Controller {
     }
         
     public static Result getOrdenDeArresto(){
-    	return ok(CasoAppModel.getInstance().getOrdenDeArresto());    	
+    	return ok(CasoAppModel.getInstance().ordenDeArresto());    	
     }
     
     public static Result getPaisAcutal(){
@@ -36,7 +36,7 @@ public class Application extends Controller {
     }
     
     public static Result ordenDeArresto(String villano){
-    	CasoAppModel.getInstance().setOrdenDeArresto(villano);
+    	CasoAppModel.getInstance().ordenDeArresto(villano);
     	return ok();
     }
     

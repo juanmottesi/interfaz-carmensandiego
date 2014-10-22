@@ -1,6 +1,6 @@
 // @SOURCE:C:/Users/juan/Documents/facultad/CarmenSanDiegoAppWeb/conf/routes
 // @HASH:8989b59e4e202bff8c00ff5bb7b8a186f435157e
-// @DATE:Wed Oct 22 01:40:41 ART 2014
+// @DATE:Wed Oct 22 12:15:48 ART 2014
 
 
 import play.core._
