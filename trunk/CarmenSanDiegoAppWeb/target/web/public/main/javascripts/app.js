@@ -31,26 +31,23 @@
 	      return $scope.siguientePais === value;
 	  };
 	  
-	  $scope.setOrdenDeArresto = function(newValue){
-	      $http.post('/ordenDeArresto', this.ordenSinEmitir)
-	      	.success(function(data){
-	      		$scope.casoAppModel = data;
+	  $scope.setOrdenDeArresto = function(){
+	      $http.get('/ordendearresto/' + $scope.ordenSinEmitir.nombre).success(function(){
+	      		$scope.iniciarJuego();
 	       	})
 	  };
 	      
-	  $scope.getOrdenDeArresto = function(){
-		  $http.get('/ordenDeArresto')
-		  	.success(function(data){
-			  return data;
-		  })
+	  $scope.orden = function(){
+		  if($scope.casoAppModel.ordenEmitida.nombre === 'null'){
+			  return null
+		  }
+		  return $scope.casoAppModel.ordenEmitida.nombre
 	  };
 	     	    
-	  $scope.viajar = function(value){
-		  $http.post('/viajar', this.siguientePais)
-    	  .success(function(data) {
-    		  $scope.casoAppModel = data;
-          })
-          $scope.iniciarJuego()
+	  $scope.viajar = function(){
+		  $http.get('/viajar/' + $scope.siguientePais).success(function(){
+			  $scope.iniciarJuego();  
+		  })
 	  };
 	  
 	  $scope.setOrdenSinEmitir = function(newValue){
