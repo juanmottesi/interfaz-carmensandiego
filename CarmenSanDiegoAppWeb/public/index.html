@@ -65,7 +65,7 @@
       
       <!-- Inicio de la orden de arresto -->
       <div ng-show="tab.isSet(2)" class="jumbotron">
-        <center><h2>Orden de arresto: {{getOrdenDeArresto()}}</h2></center>
+        <center><h2>Orden de arresto: {{orden()}}</h2></center>
         <div>
           <div class="list-group"  style="width: 45%; margin: 0 auto">
           <div ng-repeat="villano in expedientes()">
@@ -73,7 +73,7 @@
           </div>
         </div>
         <br>
-        <center><button type="button" class="btn btn-default" ng-hide="getOrdenSinEmitir() === null" ng-click="setOrdenDeArresto(getOrdenSinEmitir())">Generar orden para {{getOrdenSinEmitir().nombre}}</button></center>
+        <center><button type="button" class="btn btn-default" ng-hide="getOrdenSinEmitir() === null" ng-click="setOrdenDeArresto()">Generar orden para {{getOrdenSinEmitir().nombre}}</button></center>
         
           
         </div>

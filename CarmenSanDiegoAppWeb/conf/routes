@@ -6,8 +6,8 @@
 GET 	/iniciar					controllers.Application.iniciarJuego()
 GET 	/ordendearresto				controllers.Application.getOrdenDeArresto()
 GET		/paisactual					controllers.Application.getPaisAcutal()
-POST	/ordendearresto/:villano	controllers.Application.ordenDeArresto(villano:String)
-POST	/viajar/:pais				controllers.Application.viajar(pais:String)
+GET		/ordendearresto/:villano	controllers.Application.ordenDeArresto(villano:String)
+GET		/viajar/:pais				controllers.Application.viajar(pais:String)
 GET		/final						controllers.Application.esFinal()
 GET		/expedientes				controllers.Application.getExpedientes()
   	

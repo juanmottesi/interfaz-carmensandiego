@@ -1,6 +1,6 @@
-// @SOURCE:C:/Users/juan/Documents/facultad/CarmenSanDiegoAppWeb/conf/routes
-// @HASH:8989b59e4e202bff8c00ff5bb7b8a186f435157e
-// @DATE:Wed Oct 22 12:15:48 ART 2014
+// @SOURCE:/home/juan3/Documentos/Facultad/workspace2/CarmenSanDiegoAppWeb/conf/routes
+// @HASH:fff8d9dfbe1bf692c6b4c24c74aaba2ae3faaa3c
+// @DATE:Wed Oct 22 20:42:58 ART 2014
 
 
 import play.core._
@@ -54,17 +54,17 @@ HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "getPais
         
 
 // @LINE:9
-private[this] lazy val controllers_Application_ordenDeArresto3_route = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("ordendearresto/"),DynamicPart("villano", """[^/]+""",true))))
+private[this] lazy val controllers_Application_ordenDeArresto3_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("ordendearresto/"),DynamicPart("villano", """[^/]+""",true))))
 private[this] lazy val controllers_Application_ordenDeArresto3_invoker = createInvoker(
 controllers.Application.ordenDeArresto(fakeValue[String]),
-HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "ordenDeArresto", Seq(classOf[String]),"POST", """""", Routes.prefix + """ordendearresto/$villano<[^/]+>"""))
+HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "ordenDeArresto", Seq(classOf[String]),"GET", """""", Routes.prefix + """ordendearresto/$villano<[^/]+>"""))
         
 
 // @LINE:10
-private[this] lazy val controllers_Application_viajar4_route = Route("POST", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("viajar/"),DynamicPart("pais", """[^/]+""",true))))
+private[this] lazy val controllers_Application_viajar4_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("viajar/"),DynamicPart("pais", """[^/]+""",true))))
 private[this] lazy val controllers_Application_viajar4_invoker = createInvoker(
 controllers.Application.viajar(fakeValue[String]),
-HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "viajar", Seq(classOf[String]),"POST", """""", Routes.prefix + """viajar/$pais<[^/]+>"""))
+HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "viajar", Seq(classOf[String]),"GET", """""", Routes.prefix + """viajar/$pais<[^/]+>"""))
         
 
 // @LINE:11
@@ -87,7 +87,7 @@ private[this] lazy val controllers_Assets_at7_invoker = createInvoker(
 controllers.Assets.at(fakeValue[String], fakeValue[String]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]),"GET", """ Map static resources from the /public folder to the /assets URL path""", Routes.prefix + """assets/$file<.+>"""))
         
-def documentation = List(("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """iniciar""","""controllers.Application.iniciarJuego()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """ordendearresto""","""controllers.Application.getOrdenDeArresto()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """paisactual""","""controllers.Application.getPaisAcutal()"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """ordendearresto/$villano<[^/]+>""","""controllers.Application.ordenDeArresto(villano:String)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """viajar/$pais<[^/]+>""","""controllers.Application.viajar(pais:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """final""","""controllers.Application.esFinal()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """expedientes""","""controllers.Application.getExpedientes()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
+def documentation = List(("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """iniciar""","""controllers.Application.iniciarJuego()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """ordendearresto""","""controllers.Application.getOrdenDeArresto()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """paisactual""","""controllers.Application.getPaisAcutal()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """ordendearresto/$villano<[^/]+>""","""controllers.Application.ordenDeArresto(villano:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """viajar/$pais<[^/]+>""","""controllers.Application.viajar(pais:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """final""","""controllers.Application.esFinal()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """expedientes""","""controllers.Application.getExpedientes()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
   case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
   case l => s ++ l.asInstanceOf[List[(String,String,String)]]
 }}

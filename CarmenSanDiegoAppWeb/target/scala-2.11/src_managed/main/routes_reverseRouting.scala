@@ -1,6 +1,6 @@
-// @SOURCE:C:/Users/juan/Documents/facultad/CarmenSanDiegoAppWeb/conf/routes
-// @HASH:8989b59e4e202bff8c00ff5bb7b8a186f435157e
-// @DATE:Wed Oct 22 12:15:48 ART 2014
+// @SOURCE:/home/juan3/Documentos/Facultad/workspace2/CarmenSanDiegoAppWeb/conf/routes
+// @HASH:fff8d9dfbe1bf692c6b4c24c74aaba2ae3faaa3c
+// @DATE:Wed Oct 22 20:42:58 ART 2014
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -66,7 +66,7 @@ def getOrdenDeArresto(): Call = {
 // @LINE:10
 def viajar(pais:String): Call = {
    import ReverseRouteContext.empty
-   Call("POST", _prefix + { _defaultPrefix } + "viajar/" + implicitly[PathBindable[String]].unbind("pais", dynamicString(pais)))
+   Call("GET", _prefix + { _defaultPrefix } + "viajar/" + implicitly[PathBindable[String]].unbind("pais", dynamicString(pais)))
 }
                         
 
@@ -80,7 +80,7 @@ def esFinal(): Call = {
 // @LINE:9
 def ordenDeArresto(villano:String): Call = {
    import ReverseRouteContext.empty
-   Call("POST", _prefix + { _defaultPrefix } + "ordendearresto/" + implicitly[PathBindable[String]].unbind("villano", dynamicString(villano)))
+   Call("GET", _prefix + { _defaultPrefix } + "ordendearresto/" + implicitly[PathBindable[String]].unbind("villano", dynamicString(villano)))
 }
                         
 
@@ -170,7 +170,7 @@ def viajar : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Application.viajar",
    """
       function(pais) {
-      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "viajar/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("pais", encodeURIComponent(pais))})
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "viajar/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("pais", encodeURIComponent(pais))})
       }
    """
 )
@@ -192,7 +192,7 @@ def ordenDeArresto : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Application.ordenDeArresto",
    """
       function(villano) {
-      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "ordendearresto/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("villano", encodeURIComponent(villano))})
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "ordendearresto/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("villano", encodeURIComponent(villano))})
       }
    """
 )
@@ -274,7 +274,7 @@ def getOrdenDeArresto(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRe
 
 // @LINE:10
 def viajar(pais:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Application.viajar(pais), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "viajar", Seq(classOf[String]), "POST", """""", _prefix + """viajar/$pais<[^/]+>""")
+   controllers.Application.viajar(pais), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "viajar", Seq(classOf[String]), "GET", """""", _prefix + """viajar/$pais<[^/]+>""")
 )
                       
 
@@ -286,7 +286,7 @@ def esFinal(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 
 // @LINE:9
 def ordenDeArresto(villano:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Application.ordenDeArresto(villano), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "ordenDeArresto", Seq(classOf[String]), "POST", """""", _prefix + """ordendearresto/$villano<[^/]+>""")
+   controllers.Application.ordenDeArresto(villano), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "ordenDeArresto", Seq(classOf[String]), "GET", """""", _prefix + """ordendearresto/$villano<[^/]+>""")
 )
                       
 

@@ -8,6 +8,8 @@ import play.mvc.Result;
 import appModel.CasoAppModel;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
 
 import dominio.Expediente;
 import dominio.Villano;
@@ -29,10 +31,9 @@ public class Application extends Controller {
     }
     
     public static Result viajar(String pais){
-    	response().setContentType("application/json");
     	CasoAppModel caso = CasoAppModel.getInstance().viajar(pais);
-    	return ok(Json.toJson(caso));
-
+		return ok(Json.toJson(caso));
+    	
     }
     
     public static Result ordenDeArresto(String villano){
