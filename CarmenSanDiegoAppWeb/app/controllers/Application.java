@@ -1,6 +1,8 @@
 package controllers;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import play.libs.Json;
 import play.mvc.Controller;
@@ -10,8 +12,8 @@ import appModel.CasoAppModel;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-
 import dominio.Expediente;
+import dominio.Lugar;
 import dominio.Villano;
 
 public class Application extends Controller {
@@ -50,6 +52,21 @@ public class Application extends Controller {
     	response().setContentType("application/json");
     	Collection<Villano> villanos = Expediente.getInstance().getVillanos();
     	return ok(Json.toJson(villanos));
+    }
+    
+    public static Result getPistas(String lugar){
+    	response().setContentType("application/json");
+    	String pistas = "";
+    	for(Lugar l : CasoAppModel.getInstance().getCasoActual().getCiudadActual().getLugaresDeInteres()){
+    		if(l.getNombreDelLugar().equals(lugar)){
+    			for(String s : l.getOcupante().pista(CasoAppModel.getInstance().getCasoActual().getVillano())){
+    				pistas += " "+s;
+    			}
+    			  
+    		}
+    	}
+    	
+    	return ok(Json.toJson(pistas));
     }
     
 }

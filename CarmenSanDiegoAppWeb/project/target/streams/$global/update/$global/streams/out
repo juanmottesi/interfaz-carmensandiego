@@ -1,4 +1,4 @@
-[0m[[0minfo[0m] [0mUpdating {file:/home/juan3/Documentos/Facultad/workspace2/CarmenSanDiegoAppWeb/project/}carmensandiegoappweb-build...[0m
+[0m[[0minfo[0m] [0mUpdating {file:/C:/Users/juan/Documents/facultad/CarmenSanDiegoAppWeb/project/}carmensandiegoappweb-build...[0m
 [0m[[0mdebug[0m] [0m:: resolving dependencies :: default#carmensandiegoappweb-build;0.1-SNAPSHOT[0m
 [0m[[0mdebug[0m] [0m	confs: [compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool][0m
 [0m[[0mdebug[0m] [0m	validate = true[0m
@@ -99,10 +99,10 @@
 [0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/sbt-run-support-210/sbt-run-support-210_2.10/0.1-SNAPSHOT/ivys/ivy.xml[0m
 [0m[[0mdebug[0m] [0m	sbt-plugin-releases: no ivy file found for sbt-run-support-210#sbt-run-support-210_2.10;0.1-SNAPSHOT[0m
 [0m[[0mdebug[0m] [0mdon't use cache for sbt-run-support-210#sbt-run-support-210_2.10;0.1-SNAPSHOT: changing=true[0m
-[0m[[0mdebug[0m] [0m		tried /home/juan3/.ivy2/local/sbt-run-support-210/sbt-run-support-210_2.10/0.1-SNAPSHOT/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m		tried C:\Users\juan\.ivy2\local\sbt-run-support-210\sbt-run-support-210_2.10\0.1-SNAPSHOT\ivys\ivy.xml[0m
 [0m[[0mdebug[0m] [0m	local: no ivy file found for sbt-run-support-210#sbt-run-support-210_2.10;0.1-SNAPSHOT[0m
 [0m[[0mdebug[0m] [0mdon't use cache for sbt-run-support-210#sbt-run-support-210_2.10;0.1-SNAPSHOT: changing=true[0m
-[0m[[0mdebug[0m] [0m		tried file:/home/juan3/Play/repository/sbt-run-support-210/sbt-run-support-210_2.10/0.1-SNAPSHOT/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m		tried file:/C:/Users/juan/Documents/facultad/CarmenSanDiegoAppWeb/repository/sbt-run-support-210/sbt-run-support-210_2.10/0.1-SNAPSHOT/ivys/ivy.xml[0m
 [0m[[0mdebug[0m] [0m	activator-local: no ivy file found for sbt-run-support-210#sbt-run-support-210_2.10;0.1-SNAPSHOT[0m
 [0m[[0mdebug[0m] [0mdon't use cache for sbt-run-support-210#sbt-run-support-210_2.10;0.1-SNAPSHOT: changing=true[0m
 [0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo1.maven.org/maven2/sbt-run-support-210/sbt-run-support-210_2.10/0.1-SNAPSHOT/maven-metadata.xml[0m
@@ -120,7 +120,7 @@
 [0m[[0mdebug[0m] [0m	typesafe-releases: downloading http://repo.typesafe.com/typesafe/releases/sbt-run-support-210/sbt-run-support-210_2.10/0.1-SNAPSHOT/sbt-run-support-210_2.10-0.1-20141007.041953-1.pom[0m
 [0m[[0mdebug[0m] [0m	typesafe-releases: downloading http://repo.typesafe.com/typesafe/releases/sbt-run-support-210/sbt-run-support-210_2.10/0.1-SNAPSHOT/sbt-run-support-210_2.10-0.1-20141007.041953-1.pom.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for http://repo.typesafe.com/typesafe/releases/sbt-run-support-210/sbt-run-support-210_2.10/0.1-SNAPSHOT/sbt-run-support-210_2.10-0.1-20141007.041953-1.pom[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] sbt-run-support-210#sbt-run-support-210_2.10;0.1-SNAPSHOT!sbt-run-support-210_2.10.pom(pom.original) (708ms)[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] sbt-run-support-210#sbt-run-support-210_2.10;0.1-SNAPSHOT!sbt-run-support-210_2.10.pom(pom.original) (772ms)[0m
 [0m[[0mdebug[0m] [0msbt-run-support-210#sbt-run-support-210_2.10;0.1-SNAPSHOT has changed: deleting old artifacts[0m
 [0m[[0mdebug[0m] [0m	found sbt-run-support-210#sbt-run-support-210_2.10;0.1-SNAPSHOT in typesafe-releases[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#sbt-plugin;2.3.5->sbt-run-support-210#sbt-run-support-210_2.10;0.1-SNAPSHOT [compile->runtime][0m
@@ -12573,7 +12573,7 @@
 [0m[[0mdebug[0m] [0m	typesafe-releases: downloading http://repo.typesafe.com/typesafe/releases/sbt-run-support-210/sbt-run-support-210_2.10/0.1-SNAPSHOT/sbt-run-support-210_2.10-0.1-SNAPSHOT.jar[0m
 [0m[[0mdebug[0m] [0m	typesafe-releases: downloading http://repo.typesafe.com/typesafe/releases/sbt-run-support-210/sbt-run-support-210_2.10/0.1-SNAPSHOT/sbt-run-support-210_2.10-0.1-SNAPSHOT.jar.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for http://repo.typesafe.com/typesafe/releases/sbt-run-support-210/sbt-run-support-210_2.10/0.1-SNAPSHOT/sbt-run-support-210_2.10-0.1-SNAPSHOT.jar[0m
-[0m[[0minfo[0m] [0m	[SUCCESSFUL ] sbt-run-support-210#sbt-run-support-210_2.10;0.1-SNAPSHOT!sbt-run-support-210_2.10.jar (1850ms)[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] sbt-run-support-210#sbt-run-support-210_2.10;0.1-SNAPSHOT!sbt-run-support-210_2.10.jar (2220ms)[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.typesafe#config;1.2.1!config.jar(bundle)[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.mozilla#rhino;1.7R4!rhino.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.google.javascript#closure-compiler;v20130603!closure-compiler.jar[0m
@@ -12756,19 +12756,19 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.5!apply-macro.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#jline;2.10.4!jline.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 18839ms :: artifacts dl 2623ms[0m
-[0m[[0mdebug[0m] [0m	report for default#carmensandiegoappweb-build;0.1-SNAPSHOT compile produced in /home/juan3/Documentos/Facultad/workspace2/CarmenSanDiegoAppWeb/project/target/resolution-cache/reports/default-carmensandiegoappweb-build-compile.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#carmensandiegoappweb-build;0.1-SNAPSHOT runtime produced in /home/juan3/Documentos/Facultad/workspace2/CarmenSanDiegoAppWeb/project/target/resolution-cache/reports/default-carmensandiegoappweb-build-runtime.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#carmensandiegoappweb-build;0.1-SNAPSHOT test produced in /home/juan3/Documentos/Facultad/workspace2/CarmenSanDiegoAppWeb/project/target/resolution-cache/reports/default-carmensandiegoappweb-build-test.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#carmensandiegoappweb-build;0.1-SNAPSHOT provided produced in /home/juan3/Documentos/Facultad/workspace2/CarmenSanDiegoAppWeb/project/target/resolution-cache/reports/default-carmensandiegoappweb-build-provided.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#carmensandiegoappweb-build;0.1-SNAPSHOT optional produced in /home/juan3/Documentos/Facultad/workspace2/CarmenSanDiegoAppWeb/project/target/resolution-cache/reports/default-carmensandiegoappweb-build-optional.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#carmensandiegoappweb-build;0.1-SNAPSHOT compile-internal produced in /home/juan3/Documentos/Facultad/workspace2/CarmenSanDiegoAppWeb/project/target/resolution-cache/reports/default-carmensandiegoappweb-build-compile-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#carmensandiegoappweb-build;0.1-SNAPSHOT runtime-internal produced in /home/juan3/Documentos/Facultad/workspace2/CarmenSanDiegoAppWeb/project/target/resolution-cache/reports/default-carmensandiegoappweb-build-runtime-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#carmensandiegoappweb-build;0.1-SNAPSHOT test-internal produced in /home/juan3/Documentos/Facultad/workspace2/CarmenSanDiegoAppWeb/project/target/resolution-cache/reports/default-carmensandiegoappweb-build-test-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#carmensandiegoappweb-build;0.1-SNAPSHOT plugin produced in /home/juan3/Documentos/Facultad/workspace2/CarmenSanDiegoAppWeb/project/target/resolution-cache/reports/default-carmensandiegoappweb-build-plugin.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#carmensandiegoappweb-build;0.1-SNAPSHOT sources produced in /home/juan3/Documentos/Facultad/workspace2/CarmenSanDiegoAppWeb/project/target/resolution-cache/reports/default-carmensandiegoappweb-build-sources.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#carmensandiegoappweb-build;0.1-SNAPSHOT docs produced in /home/juan3/Documentos/Facultad/workspace2/CarmenSanDiegoAppWeb/project/target/resolution-cache/reports/default-carmensandiegoappweb-build-docs.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#carmensandiegoappweb-build;0.1-SNAPSHOT pom produced in /home/juan3/Documentos/Facultad/workspace2/CarmenSanDiegoAppWeb/project/target/resolution-cache/reports/default-carmensandiegoappweb-build-pom.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#carmensandiegoappweb-build;0.1-SNAPSHOT scala-tool produced in /home/juan3/Documentos/Facultad/workspace2/CarmenSanDiegoAppWeb/project/target/resolution-cache/reports/default-carmensandiegoappweb-build-scala-tool.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (18839ms resolve - 2623ms download)[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 11406ms :: artifacts dl 2391ms[0m
+[0m[[0mdebug[0m] [0m	report for default#carmensandiegoappweb-build;0.1-SNAPSHOT compile produced in C:\Users\juan\Documents\facultad\CarmenSanDiegoAppWeb\project\target\resolution-cache\reports\default-carmensandiegoappweb-build-compile.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#carmensandiegoappweb-build;0.1-SNAPSHOT runtime produced in C:\Users\juan\Documents\facultad\CarmenSanDiegoAppWeb\project\target\resolution-cache\reports\default-carmensandiegoappweb-build-runtime.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#carmensandiegoappweb-build;0.1-SNAPSHOT test produced in C:\Users\juan\Documents\facultad\CarmenSanDiegoAppWeb\project\target\resolution-cache\reports\default-carmensandiegoappweb-build-test.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#carmensandiegoappweb-build;0.1-SNAPSHOT provided produced in C:\Users\juan\Documents\facultad\CarmenSanDiegoAppWeb\project\target\resolution-cache\reports\default-carmensandiegoappweb-build-provided.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#carmensandiegoappweb-build;0.1-SNAPSHOT optional produced in C:\Users\juan\Documents\facultad\CarmenSanDiegoAppWeb\project\target\resolution-cache\reports\default-carmensandiegoappweb-build-optional.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#carmensandiegoappweb-build;0.1-SNAPSHOT compile-internal produced in C:\Users\juan\Documents\facultad\CarmenSanDiegoAppWeb\project\target\resolution-cache\reports\default-carmensandiegoappweb-build-compile-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#carmensandiegoappweb-build;0.1-SNAPSHOT runtime-internal produced in C:\Users\juan\Documents\facultad\CarmenSanDiegoAppWeb\project\target\resolution-cache\reports\default-carmensandiegoappweb-build-runtime-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#carmensandiegoappweb-build;0.1-SNAPSHOT test-internal produced in C:\Users\juan\Documents\facultad\CarmenSanDiegoAppWeb\project\target\resolution-cache\reports\default-carmensandiegoappweb-build-test-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#carmensandiegoappweb-build;0.1-SNAPSHOT plugin produced in C:\Users\juan\Documents\facultad\CarmenSanDiegoAppWeb\project\target\resolution-cache\reports\default-carmensandiegoappweb-build-plugin.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#carmensandiegoappweb-build;0.1-SNAPSHOT sources produced in C:\Users\juan\Documents\facultad\CarmenSanDiegoAppWeb\project\target\resolution-cache\reports\default-carmensandiegoappweb-build-sources.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#carmensandiegoappweb-build;0.1-SNAPSHOT docs produced in C:\Users\juan\Documents\facultad\CarmenSanDiegoAppWeb\project\target\resolution-cache\reports\default-carmensandiegoappweb-build-docs.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#carmensandiegoappweb-build;0.1-SNAPSHOT pom produced in C:\Users\juan\Documents\facultad\CarmenSanDiegoAppWeb\project\target\resolution-cache\reports\default-carmensandiegoappweb-build-pom.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#carmensandiegoappweb-build;0.1-SNAPSHOT scala-tool produced in C:\Users\juan\Documents\facultad\CarmenSanDiegoAppWeb\project\target\resolution-cache\reports\default-carmensandiegoappweb-build-scala-tool.xml[0m
+[0m[[0mdebug[0m] [0m	resolve done (11406ms resolve - 2391ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m
