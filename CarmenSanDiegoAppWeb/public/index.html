@@ -103,18 +103,70 @@
       <!-- Fin de Orden de arresto -->
       
       <!-- Inicio de Pistas -->
-      <div ng-show="tab.isSet(3)" class="jumbotron">
-        <center><h2>Pistas</h2></center>
-        <center><div class="row">
-          <div class="col-xs-6 col-md-4" ng-repeat="lugar in lugares()">
-            <div class="thumbnail" ng-controller= "TabController as tab">
-              <a href ng-click="tab.setTab(2)" class="thumbnail"><!-- <img src={{lugar.images[0]}} height="168" width="145">--></a>
-              <h4>{{lugar.nombreDelLugar}}</h4> <hr>
-              <div ng-show="tab.isSet(2)">
-                <div ng-repeat="info in lugar.ocupante">
-                  {{info}}
-                </div>
-                <!--<center><button type="button" class="btn btn-default" ng-hide="lugar.informante[0] != 'Alto Detengase!!!'" ng-click="juego.fin()">Finalizar Partida</button></center> -->
+      	<div ng-show="tab.isSet(3)" class="jumbotron">
+      		<center><h2>Pistas</h2></center>
+      		<center><div class="row">
+      			<div ng-controller="TabController as tab">
+      				<div  class="col-xs-6 col-md-4 thumbnail" >
+      					<a href ng-click="tab.setTab(2)" class="thumbnail"><img src={{lugares()[0].imagen}} height="168" width="145"></a>
+      					<h4>{{lugares()[0].nombreDelLugar}}</h4>
+      					<div ng-show="tab.isSet(2)">
+      						{{pistasDelLugar()[0]}}
+							<div ng-controller="ModalController as modal">
+                  				<button ng-click="toggleModal()" class="btn btn-default" ng-hide="pistasDelLugar()[0][0] != 'Alto!!! Detengase:'{{getOrdenDeArresto()}}">Finalizar Partida</button>
+    
+			                  <modal title="Resultado" visible="showModal">
+              				      <h2>{{fin()}}</h2>
+                  			  </modal>
+                		   </div>
+      					</div>
+      					
+      				</div>
+      				<div  class="col-xs-6 col-md-4 thumbnail" >
+      					<a href ng-click="tab.setTab(3)" class="thumbnail"><img src={{lugares()[1].imagen}} height="168" width="145"></a>
+      					<h4>{{lugares()[1].nombreDelLugar}}</h4>
+      					<div ng-show="tab.isSet(3)">
+      						{{pistasDelLugar()[1]}}
+							<div ng-controller="ModalController as modal">
+                  				<button ng-click="toggleModal()" class="btn btn-default" ng-hide="pistasDelLugar()[1][0] != 'Alto!!! Detengase:'{{getOrdenDeArresto()}}">Finalizar Partida</button>
+    
+			                  <modal title="Resultado" visible="showModal">
+              				      <h2>{{fin()}}</h2>
+                  			  </modal>
+                		   </div>
+      					</div>	
+      				</div>
+      				<div  class="col-xs-6 col-md-4 thumbnail" >
+      					<a href ng-click="tab.setTab(4)" class="thumbnail"><img src={{lugares()[2].imagen}} height="168" width="145"></a>
+      					<h4>{{lugares()[2].nombreDelLugar}}</h4>
+      					<div ng-show="tab.isSet(4)">
+      						{{pistasDelLugar()[2]}}
+							<div ng-controller="ModalController as modal">
+                  				<button ng-click="toggleModal()" class="btn btn-default" ng-hide="pistasDelLugar()[2][0] != 'Alto!!! Detengase:'{{getOrdenDeArresto()}}">Finalizar Partida</button>
+    
+			                  <modal title="Resultado" visible="showModal">
+              				      <h2>{{fin()}}</h2>
+                  			  </modal>
+                		   </div>
+      					</div>	
+      				</div>
+      			</div>
+      		</div></center>
+      	
+      	</div>
+      
+<!--       <div ng-show="tab.isSet(3)" class="jumbotron"> -->
+<!--         <center><h2>Pistas</h2></center> -->
+<!--         <center><div class="row"> -->
+<!--           <div class="col-xs-6 col-md-4" ng-repeat="lugar in lugares()"> -->
+<!--             <div class="thumbnail" ng-controller= "TabController as tab"> -->
+<!--               <a href ng-click="tab.setTab(2)" class="thumbnail"><img src={{lugar.images[0]}} height="168" width="145"></a> -->
+<!--               <h4>{{lugar.nombreDelLugar}}</h4> <hr> -->
+<!--               <div ng-show="tab.isSet(2)"> -->
+<!--                 <div ng-repeat="info in lugar.ocupante"> -->
+<!--                   {{info}} -->
+<!--                 </div> -->
+                <center><button type="button" class="btn btn-default" ng-hide="lugar.informante[0] != 'Alto Detengase!!!'" ng-click="juego.fin()">Finalizar Partida</button></center>
                   <div ng-controller="ModalController as modal">
                   <button ng-click="toggleModal()" class="btn btn-default" ng-hide="lugar.informante[0] != 'Alto Detengase!!!'">Finalizar Partida</button>
     
@@ -123,22 +175,22 @@
                   </modal>
                 </div>
                 
-              </div>
+<!--               </div> -->
               
               
-            </div>
-          </div>
-        </div></center>
-      </div>
+<!--             </div> -->
+<!--           </div> -->
+<!--         </div></center> -->
+<!--       </div> -->
       
-    </div>
+<!--     </div> -->
     <!-- Fin de Pistas -->
     
     <!-- Fin del Cuerpo -->
     
     <!-- Inicio del Footer -->
     
-    <!-- Fin del Footer -->
+    <!-- Fin del Footer        						<center><button type="button" class="btn btn-default" ng-hide="pistasDelLugar()[0][0] != 'Alto!!! Detengase:'{{getOrdenDeArresto()}}" ng-click="fin()">Finalizar Partida</button></center>-->
   </body>
   
   
