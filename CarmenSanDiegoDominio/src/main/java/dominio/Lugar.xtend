@@ -8,6 +8,7 @@ abstract class Lugar {
 	
 	@Property String nombreDelLugar
 	@Property Ocupante ocupante
+	@Property String imagen
 	
 	new(){
 		ocupante = new Cuidador
@@ -38,6 +39,7 @@ class Biblioteca extends Lugar{
 	new(){
 		super()
 		nombreDelLugar = "Biblioteca"
+		imagen = "images/biblioteca.jpg"
 	}
 	
 	override generarInformantes(Pais siguientePais, Villano villano) {
@@ -59,6 +61,7 @@ class Club extends Lugar{
 	new(){
 		super()
 		nombreDelLugar = "Club"
+		imagen = "images/club.jpg"
 	}
 	
 	override generarInformantes(Pais siguientePais, Villano villano) {
@@ -81,6 +84,7 @@ class Embajada extends Lugar{
 	new(){
 		super()
 		nombreDelLugar = "Embajada"
+		imagen = "images/embajada.jpg"
 	}
 	
 	override generarInformantes(Pais siguientePais, Villano villano) {
@@ -98,6 +102,7 @@ class Banco extends Lugar{
 	new(){
 		super()
 		nombreDelLugar = "Banco"
+		imagen = "images/banco.jpg"
 	}
 	
 	override generarInformantes(Pais siguientePais, Villano villano) {

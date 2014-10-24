@@ -25,26 +25,40 @@ class CasoAppModel {
 	@Property List<String> paisesVisitadosIncorrectos
 	@Property Villano ordenEmitida
 	@Property List<Villano> villanos
+	@Property List<List<String>> pistas	
 	
 	new(Caso caso){
 		casoActual = caso
 		paisesVisitadosCorrectos = newArrayList
+		paisesVisitadosCorrectos+= caso.ciudadActual.nombreDelPais
 		paisesVisitadosIncorrectos = newArrayList
 		ordenEmitida = new Villano("null")
 		villanos = Expediente.getInstance.villanos
+		generarPistas()
 	}
 	
 	def CasoAppModel viajar(String nombrePais){
 		var paisSeleccionado = Mapamundi.getInstance.getPais(nombrePais)
 		if(casoActual.perteneceAlPlanDeEscape(paisSeleccionado)){
-			paisesVisitadosCorrectos += nombrePais
+			if(!paisesVisitadosCorrectos.contains(nombrePais)){
+				paisesVisitadosCorrectos += nombrePais
+			}
 		}
 		else{
-			paisesVisitadosIncorrectos += nombrePais
+			if(!paisesVisitadosIncorrectos.contains(nombrePais)){
+				paisesVisitadosIncorrectos += nombrePais
+			}
 		}
 		
 		casoActual.ciudadActual = paisSeleccionado
+		generarPistas()
+		
 		this
+	}
+	
+	def generarPistas(){
+		pistas = newArrayList
+		casoActual.ciudadActual.lugaresDeInteres.forEach[lugar | pistas += lugar.ocupante.pista(casoActual.villano)]
 	}
 	
 	def String paisActual(){
@@ -58,5 +72,12 @@ class CasoAppModel {
 	
 	def ordenDeArresto(){
 		ordenEmitida.nombre
+	}
+	
+	def esFinal(){
+		if(ordenEmitida == casoActual.villano){
+			return "Ganaste!! =D"
+		}
+		return "Perdiste T_T"
 	}
 }

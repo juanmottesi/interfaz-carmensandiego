@@ -9,6 +9,7 @@ import dominio.Sexo
 import dominio.Villano
 import dominio.Banco
 import appModel.CasoAppModel
+import dominio.Lugar
 
 class DummyData {
 	
@@ -170,7 +171,12 @@ class DummyData {
 			var r = new CasoAppModel(dummy.casoActual)
 				System.out.println(r.casoActual.ciudadActual.nombreDelPais)
 			r = r.viajar("Argentina")
-		
+		for(Pais p :r.casoActual.planDeEscape){
+			for(Lugar l : p.lugaresDeInteres){
+				System.out.println(l.ocupante.pista(r.casoActual.villano))
+			}
+				System.out.println("----")
+		}
 		System.out.println(r.casoActual.ciudadActual.nombreDelPais)
 	}
 	
