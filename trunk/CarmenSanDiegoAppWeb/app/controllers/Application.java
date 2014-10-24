@@ -43,9 +43,8 @@ public class Application extends Controller {
     	return ok();
     }
     
-    public static Result esFinal(){
-    	//return ok(CasoAppModel.getInstance().esFinal());
-    	return ok();
+    public static Result fin(){
+    	return ok(CasoAppModel.getInstance().esFinal());
     }
         
     public static Result getExpedientes(){

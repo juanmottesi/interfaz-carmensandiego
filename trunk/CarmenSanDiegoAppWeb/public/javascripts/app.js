@@ -48,6 +48,7 @@
 	  $scope.viajar = function(){
 		  $http.get('/viajar/' + $scope.siguientePais).success(function(){
 			  $scope.iniciarJuego();  
+			  $scope.siguientePais = null;
 		  })
 	  };
 	  
@@ -63,18 +64,27 @@
 	      return $scope.ordenSinEmitir === newValue;
 	  };
 	  
+//	  $scope.fin = function(){
+//		  if(!angular.isUndefined($scope.ordenEmitida)){
+//			  if($scope.ordenEmitida.nombre == 'null' || $scope.ordenEmitida.nombre != $scope.casoActual.villano.nombre){
+//				  return "Perdiste T_T"
+//			  }
+//			  else{
+//				  return "Ganaste! =D"
+//			  }
+//		  }
+//		  return "Perdiste T_T"
+//	  };
+	  
 	  $scope.fin = function(){
-		  if(!angular.isUndefined($scope.ordenEmitida)){
-			  if($scope.ordenEmitida.nombre === 'null' || $scope.ordenEmitida.nombre != $scope.casoActual.villano.nombre){
-				  return "Perdiste T_T"
-			  }
-			  else{
-				  return "Ganaste! =D"
-			  }
-		  }
-		  return "Perdiste T_T"
+		  $http.get('/final').success(function(data){
+			  $scope.esFin = data
+		  })
 	  };
 	  
+	  $scope.esFin = function(){
+		  return $scope.esFin
+	  }
 	  $scope.paises = function(){
 		 return $scope.casoAppModel.casoActual.ciudadActual.conexionesAereas;
 	  };
@@ -103,12 +113,8 @@
 		  return $scope.casoAppModel.villanos
 	  }
 	  
-	  
-	  
-	  $scope.pistasDelLugar = function(value){
-		  $http.get('/pista/' + value).success(function(data){
-			  $scope.pista = data
-		  })		  
+	  $scope.pistasDelLugar = function(){
+		  return $scope.casoAppModel.pistas
 	  }
 	  
   }]);

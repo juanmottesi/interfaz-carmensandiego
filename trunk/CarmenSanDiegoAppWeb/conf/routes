@@ -8,9 +8,10 @@ GET 	/ordendearresto				controllers.Application.getOrdenDeArresto()
 GET		/paisactual					controllers.Application.getPaisAcutal()
 GET		/ordendearresto/:villano	controllers.Application.ordenDeArresto(villano:String)
 GET		/viajar/:pais				controllers.Application.viajar(pais:String)
-GET		/final						controllers.Application.esFinal()
+GET		/final						controllers.Application.fin()
 GET		/expedientes				controllers.Application.getExpedientes()
-GET		/pista/:lugar						controllers.Application.getPistas(lugar:String)
+GET		/pista/:lugar				controllers.Application.getPistas(lugar:String)
+
   	
 
 # Map static resources from the /public folder to the /assets URL path
