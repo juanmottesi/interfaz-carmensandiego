@@ -102,3 +102,6 @@ run
 update
 eclipse
 run
+clean
+update
+run

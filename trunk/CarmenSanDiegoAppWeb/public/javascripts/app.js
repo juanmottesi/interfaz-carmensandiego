@@ -6,6 +6,7 @@
 	  $scope.siguientePais = null;
 	  $scope.ordenSinEmitir = null;
 	  $scope.casoAppModel = [];
+	  $scope.pistas = [];
 	  
 	  $scope.iniciarJuego = function(){
 		  $http.get('/iniciar').success(function(data){
@@ -100,6 +101,14 @@
 	  
 	  $scope.expedientes = function(){
 		  return $scope.casoAppModel.villanos
+	  }
+	  
+	  
+	  
+	  $scope.pistasDelLugar = function(value){
+		  $http.get('/pista/' + value).success(function(data){
+			  $scope.pista = data
+		  })		  
 	  }
 	  
   }]);
