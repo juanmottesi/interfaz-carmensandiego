@@ -24,16 +24,16 @@ class DummyData {
 	def crearPaises(Detective detective) {
 		detective.mapamundi.agregarPais(new Pais =>[
 			nombreDelPais = "Argentina"
-			caracteristicasDelPais = newArrayList =>[addAll(#["Se constituye de 24 entidades, 23 provincias y una ciudad autÃ³noma",
+			caracteristicasDelPais = newArrayList =>[addAll(#["Se constituye de 24 entidades, 23 provincias y una ciudad autónoma",
 			"La bandera consta de tres franjas dos celestes y una blanca",
-			"Es reconocida por su gran pasiÃ³n por el fÃºtbol"])]
+			"Es reconocida por su gran pasión por el fútbol"])]
 			lugaresDeInteres = newArrayList =>[addAll(#[new Biblioteca, new Club, new Embajada])]
 		])
 		
 		detective.mapamundi.agregarPais(new Pais =>[
 			nombreDelPais = "China"
 			caracteristicasDelPais = newArrayList =>[addAll(#["Estado soberano situado en Asia Oriental",
-			"Es el paÃ­s mÃ¡s poblado del mundo",
+			"Es el país más poblado del mundo",
 			"La moneda oficial es el Yuan"])]
 			lugaresDeInteres = newArrayList =>[addAll(#[new Biblioteca, new Club, new Banco])]
 		])
@@ -41,23 +41,23 @@ class DummyData {
 		detective.mapamundi.agregarPais(new Pais =>[
 			nombreDelPais = "Nigeria"
 			caracteristicasDelPais = newArrayList =>[addAll(#["La moneda oficial es Naira",
-			"Es el paÃ­s mÃ¡s poblado de Ã�frica",
+			"Es el país más poblado de Africa",
 			"La bandera consta de tres franjas dos verdes y una blanca"])]
 			lugaresDeInteres = newArrayList =>[addAll(#[new Biblioteca, new Club, new Embajada])]
 		])
 		
 		detective.mapamundi.agregarPais(new Pais =>[
 			nombreDelPais = "Brasil"
-			caracteristicasDelPais = newArrayList =>[addAll(#["El idioma oficial es el portuguÃ©s",
+			caracteristicasDelPais = newArrayList =>[addAll(#["El idioma oficial es el portugues",
 			"La moneda oficial es el real",
-			"Al norte del paÃ­s se encuentra la cuenca amazÃ³nica"])]
+			"Al norte del país se encuentra la cuenca amazónica"])]
 			lugaresDeInteres = newArrayList =>[addAll(#[new Biblioteca, new Club, new Embajada])]
 		])
 		
 		detective.mapamundi.agregarPais(new Pais =>[
 			nombreDelPais = "Mexico"
 			caracteristicasDelPais = newArrayList =>[addAll(#["La bandera tiene 3 colores verde, blanco y rojo",
-			"Introdujo el chocolate, el chile y el maÃ­z al resto del mundo ",
+			"Introdujo el chocolate, el chile y el maíz al resto del mundo ",
 			"Es el mayor productor de plata en el mundo"])]
 			lugaresDeInteres = newArrayList =>[addAll(#[new Biblioteca, new Club, new Embajada])]
 		])
@@ -145,7 +145,7 @@ class DummyData {
 		
 		detective.expedientes.agregarVillano(new Villano =>[
 				nombre = "Loki"
-				seniasParticulares = newArrayList =>[addAll(#["Alto","Flaco","Pelo castaÃ±o"])]
+				seniasParticulares = newArrayList =>[addAll(#["Alto","Flaco","Pelo castaño"])]
 				hobbies = newArrayList =>[addAll(#["Surf","El futbol","Rafting"])]
 	 			sexo = Sexo.Masculino	
 		])
@@ -177,7 +177,19 @@ class DummyData {
 			}
 				System.out.println("----")
 		}
-		System.out.println(r.casoActual.ciudadActual.nombreDelPais)
+		System.out.println(r.paisesVisitadosCorrectos)
+		System.out.println(r.paisesVisitadosIncorrectos)
+		
+		r = r.viajar("Argentina")
+				System.out.println(r.paisesVisitadosCorrectos)
+		System.out.println(r.paisesVisitadosIncorrectos)
+		r = r.viajar("Alemania")
+		System.out.println(r.paisesVisitadosCorrectos)
+		System.out.println(r.paisesVisitadosIncorrectos)
+			r = r.viajar("Argentina")
+				System.out.println(r.paisesVisitadosCorrectos)
+		System.out.println(r.paisesVisitadosIncorrectos)
+		
 	}
 	
 	
