@@ -1,6 +1,6 @@
-// @SOURCE:/home/juan3/Documentos/Facultad/workspace2/CarmenSanDiegoAppWeb/conf/routes
-// @HASH:fff8d9dfbe1bf692c6b4c24c74aaba2ae3faaa3c
-// @DATE:Wed Oct 22 20:42:58 ART 2014
+// @SOURCE:C:/Users/juan/Documents/facultad/CarmenSanDiegoAppWeb/conf/routes
+// @HASH:73672cc86628dcaba8d0b9b84c5d8a4016c8c08f
+// @DATE:Fri Oct 24 23:29:46 ART 2014
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -15,21 +15,18 @@ import _root_.play.libs.F
 import Router.queryString
 
 
-// @LINE:16
-// @LINE:12
-// @LINE:11
-// @LINE:10
+// @LINE:14
 // @LINE:9
 // @LINE:8
 // @LINE:7
 // @LINE:6
 package controllers {
 
-// @LINE:16
+// @LINE:14
 class ReverseAssets {
 
 
-// @LINE:16
+// @LINE:14
 def at(file:String): Call = {
    implicit val _rrc = new ReverseRouteContext(Map(("path", "/public")))
    Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[PathBindable[String]].unbind("file", file))
@@ -39,9 +36,6 @@ def at(file:String): Call = {
 }
                           
 
-// @LINE:12
-// @LINE:11
-// @LINE:10
 // @LINE:9
 // @LINE:8
 // @LINE:7
@@ -49,45 +43,24 @@ def at(file:String): Call = {
 class ReverseApplication {
 
 
-// @LINE:12
-def getExpedientes(): Call = {
-   import ReverseRouteContext.empty
-   Call("GET", _prefix + { _defaultPrefix } + "expedientes")
-}
-                        
-
-// @LINE:7
-def getOrdenDeArresto(): Call = {
-   import ReverseRouteContext.empty
-   Call("GET", _prefix + { _defaultPrefix } + "ordendearresto")
-}
-                        
-
-// @LINE:10
+// @LINE:8
 def viajar(pais:String): Call = {
    import ReverseRouteContext.empty
    Call("GET", _prefix + { _defaultPrefix } + "viajar/" + implicitly[PathBindable[String]].unbind("pais", dynamicString(pais)))
 }
                         
 
-// @LINE:11
-def esFinal(): Call = {
-   import ReverseRouteContext.empty
-   Call("GET", _prefix + { _defaultPrefix } + "final")
-}
-                        
-
-// @LINE:9
+// @LINE:7
 def ordenDeArresto(villano:String): Call = {
    import ReverseRouteContext.empty
    Call("GET", _prefix + { _defaultPrefix } + "ordendearresto/" + implicitly[PathBindable[String]].unbind("villano", dynamicString(villano)))
 }
                         
 
-// @LINE:8
-def getPaisAcutal(): Call = {
+// @LINE:9
+def fin(): Call = {
    import ReverseRouteContext.empty
-   Call("GET", _prefix + { _defaultPrefix } + "paisactual")
+   Call("GET", _prefix + { _defaultPrefix } + "final")
 }
                         
 
@@ -104,10 +77,7 @@ def iniciarJuego(): Call = {
                   
 
 
-// @LINE:16
-// @LINE:12
-// @LINE:11
-// @LINE:10
+// @LINE:14
 // @LINE:9
 // @LINE:8
 // @LINE:7
@@ -115,11 +85,11 @@ def iniciarJuego(): Call = {
 package controllers.javascript {
 import ReverseRouteContext.empty
 
-// @LINE:16
+// @LINE:14
 class ReverseAssets {
 
 
-// @LINE:16
+// @LINE:14
 def at : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Assets.at",
    """
@@ -133,9 +103,6 @@ def at : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
-// @LINE:12
-// @LINE:11
-// @LINE:10
 // @LINE:9
 // @LINE:8
 // @LINE:7
@@ -143,29 +110,7 @@ def at : JavascriptReverseRoute = JavascriptReverseRoute(
 class ReverseApplication {
 
 
-// @LINE:12
-def getExpedientes : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Application.getExpedientes",
-   """
-      function() {
-      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "expedientes"})
-      }
-   """
-)
-                        
-
-// @LINE:7
-def getOrdenDeArresto : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Application.getOrdenDeArresto",
-   """
-      function() {
-      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "ordendearresto"})
-      }
-   """
-)
-                        
-
-// @LINE:10
+// @LINE:8
 def viajar : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Application.viajar",
    """
@@ -176,18 +121,7 @@ def viajar : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:11
-def esFinal : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Application.esFinal",
-   """
-      function() {
-      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "final"})
-      }
-   """
-)
-                        
-
-// @LINE:9
+// @LINE:7
 def ordenDeArresto : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Application.ordenDeArresto",
    """
@@ -198,12 +132,12 @@ def ordenDeArresto : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:8
-def getPaisAcutal : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Application.getPaisAcutal",
+// @LINE:9
+def fin : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.fin",
    """
       function() {
-      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "paisactual"})
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "final"})
       }
    """
 )
@@ -226,10 +160,7 @@ def iniciarJuego : JavascriptReverseRoute = JavascriptReverseRoute(
         
 
 
-// @LINE:16
-// @LINE:12
-// @LINE:11
-// @LINE:10
+// @LINE:14
 // @LINE:9
 // @LINE:8
 // @LINE:7
@@ -237,11 +168,11 @@ def iniciarJuego : JavascriptReverseRoute = JavascriptReverseRoute(
 package controllers.ref {
 
 
-// @LINE:16
+// @LINE:14
 class ReverseAssets {
 
 
-// @LINE:16
+// @LINE:14
 def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Assets.at(path, file), HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]), "GET", """ Map static resources from the /public folder to the /assets URL path""", _prefix + """assets/$file<.+>""")
 )
@@ -250,9 +181,6 @@ def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.
 }
                           
 
-// @LINE:12
-// @LINE:11
-// @LINE:10
 // @LINE:9
 // @LINE:8
 // @LINE:7
@@ -260,39 +188,21 @@ def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.
 class ReverseApplication {
 
 
-// @LINE:12
-def getExpedientes(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Application.getExpedientes(), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "getExpedientes", Seq(), "GET", """""", _prefix + """expedientes""")
-)
-                      
-
-// @LINE:7
-def getOrdenDeArresto(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Application.getOrdenDeArresto(), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "getOrdenDeArresto", Seq(), "GET", """""", _prefix + """ordendearresto""")
-)
-                      
-
-// @LINE:10
+// @LINE:8
 def viajar(pais:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Application.viajar(pais), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "viajar", Seq(classOf[String]), "GET", """""", _prefix + """viajar/$pais<[^/]+>""")
 )
                       
 
-// @LINE:11
-def esFinal(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Application.esFinal(), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "esFinal", Seq(), "GET", """""", _prefix + """final""")
-)
-                      
-
-// @LINE:9
+// @LINE:7
 def ordenDeArresto(villano:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Application.ordenDeArresto(villano), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "ordenDeArresto", Seq(classOf[String]), "GET", """""", _prefix + """ordendearresto/$villano<[^/]+>""")
 )
                       
 
-// @LINE:8
-def getPaisAcutal(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Application.getPaisAcutal(), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "getPaisAcutal", Seq(), "GET", """""", _prefix + """paisactual""")
+// @LINE:9
+def fin(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.fin(), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "fin", Seq(), "GET", """""", _prefix + """final""")
 )
                       
 
