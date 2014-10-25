@@ -1,6 +1,6 @@
-// @SOURCE:/home/juan3/Documentos/Facultad/workspace2/CarmenSanDiegoAppWeb/conf/routes
-// @HASH:fff8d9dfbe1bf692c6b4c24c74aaba2ae3faaa3c
-// @DATE:Wed Oct 22 20:42:58 ART 2014
+// @SOURCE:C:/Users/juan/Documents/facultad/CarmenSanDiegoAppWeb/conf/routes
+// @HASH:73672cc86628dcaba8d0b9b84c5d8a4016c8c08f
+// @DATE:Fri Oct 24 23:29:46 ART 2014
 
 
 import play.core._
@@ -40,54 +40,33 @@ HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "iniciar
         
 
 // @LINE:7
-private[this] lazy val controllers_Application_getOrdenDeArresto1_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("ordendearresto"))))
-private[this] lazy val controllers_Application_getOrdenDeArresto1_invoker = createInvoker(
-controllers.Application.getOrdenDeArresto(),
-HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "getOrdenDeArresto", Nil,"GET", """""", Routes.prefix + """ordendearresto"""))
-        
-
-// @LINE:8
-private[this] lazy val controllers_Application_getPaisAcutal2_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("paisactual"))))
-private[this] lazy val controllers_Application_getPaisAcutal2_invoker = createInvoker(
-controllers.Application.getPaisAcutal(),
-HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "getPaisAcutal", Nil,"GET", """""", Routes.prefix + """paisactual"""))
-        
-
-// @LINE:9
-private[this] lazy val controllers_Application_ordenDeArresto3_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("ordendearresto/"),DynamicPart("villano", """[^/]+""",true))))
-private[this] lazy val controllers_Application_ordenDeArresto3_invoker = createInvoker(
+private[this] lazy val controllers_Application_ordenDeArresto1_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("ordendearresto/"),DynamicPart("villano", """[^/]+""",true))))
+private[this] lazy val controllers_Application_ordenDeArresto1_invoker = createInvoker(
 controllers.Application.ordenDeArresto(fakeValue[String]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "ordenDeArresto", Seq(classOf[String]),"GET", """""", Routes.prefix + """ordendearresto/$villano<[^/]+>"""))
         
 
-// @LINE:10
-private[this] lazy val controllers_Application_viajar4_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("viajar/"),DynamicPart("pais", """[^/]+""",true))))
-private[this] lazy val controllers_Application_viajar4_invoker = createInvoker(
+// @LINE:8
+private[this] lazy val controllers_Application_viajar2_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("viajar/"),DynamicPart("pais", """[^/]+""",true))))
+private[this] lazy val controllers_Application_viajar2_invoker = createInvoker(
 controllers.Application.viajar(fakeValue[String]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "viajar", Seq(classOf[String]),"GET", """""", Routes.prefix + """viajar/$pais<[^/]+>"""))
         
 
-// @LINE:11
-private[this] lazy val controllers_Application_esFinal5_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("final"))))
-private[this] lazy val controllers_Application_esFinal5_invoker = createInvoker(
-controllers.Application.esFinal(),
-HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "esFinal", Nil,"GET", """""", Routes.prefix + """final"""))
+// @LINE:9
+private[this] lazy val controllers_Application_fin3_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("final"))))
+private[this] lazy val controllers_Application_fin3_invoker = createInvoker(
+controllers.Application.fin(),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "fin", Nil,"GET", """""", Routes.prefix + """final"""))
         
 
-// @LINE:12
-private[this] lazy val controllers_Application_getExpedientes6_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("expedientes"))))
-private[this] lazy val controllers_Application_getExpedientes6_invoker = createInvoker(
-controllers.Application.getExpedientes(),
-HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "getExpedientes", Nil,"GET", """""", Routes.prefix + """expedientes"""))
-        
-
-// @LINE:16
-private[this] lazy val controllers_Assets_at7_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assets/"),DynamicPart("file", """.+""",false))))
-private[this] lazy val controllers_Assets_at7_invoker = createInvoker(
+// @LINE:14
+private[this] lazy val controllers_Assets_at4_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assets/"),DynamicPart("file", """.+""",false))))
+private[this] lazy val controllers_Assets_at4_invoker = createInvoker(
 controllers.Assets.at(fakeValue[String], fakeValue[String]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]),"GET", """ Map static resources from the /public folder to the /assets URL path""", Routes.prefix + """assets/$file<.+>"""))
         
-def documentation = List(("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """iniciar""","""controllers.Application.iniciarJuego()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """ordendearresto""","""controllers.Application.getOrdenDeArresto()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """paisactual""","""controllers.Application.getPaisAcutal()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """ordendearresto/$villano<[^/]+>""","""controllers.Application.ordenDeArresto(villano:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """viajar/$pais<[^/]+>""","""controllers.Application.viajar(pais:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """final""","""controllers.Application.esFinal()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """expedientes""","""controllers.Application.getExpedientes()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
+def documentation = List(("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """iniciar""","""controllers.Application.iniciarJuego()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """ordendearresto/$villano<[^/]+>""","""controllers.Application.ordenDeArresto(villano:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """viajar/$pais<[^/]+>""","""controllers.Application.viajar(pais:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """final""","""controllers.Application.fin()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
   case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
   case l => s ++ l.asInstanceOf[List[(String,String,String)]]
 }}
@@ -104,57 +83,33 @@ case controllers_Application_iniciarJuego0_route(params) => {
         
 
 // @LINE:7
-case controllers_Application_getOrdenDeArresto1_route(params) => {
-   call { 
-        controllers_Application_getOrdenDeArresto1_invoker.call(controllers.Application.getOrdenDeArresto())
+case controllers_Application_ordenDeArresto1_route(params) => {
+   call(params.fromPath[String]("villano", None)) { (villano) =>
+        controllers_Application_ordenDeArresto1_invoker.call(controllers.Application.ordenDeArresto(villano))
    }
 }
         
 
 // @LINE:8
-case controllers_Application_getPaisAcutal2_route(params) => {
-   call { 
-        controllers_Application_getPaisAcutal2_invoker.call(controllers.Application.getPaisAcutal())
+case controllers_Application_viajar2_route(params) => {
+   call(params.fromPath[String]("pais", None)) { (pais) =>
+        controllers_Application_viajar2_invoker.call(controllers.Application.viajar(pais))
    }
 }
         
 
 // @LINE:9
-case controllers_Application_ordenDeArresto3_route(params) => {
-   call(params.fromPath[String]("villano", None)) { (villano) =>
-        controllers_Application_ordenDeArresto3_invoker.call(controllers.Application.ordenDeArresto(villano))
-   }
-}
-        
-
-// @LINE:10
-case controllers_Application_viajar4_route(params) => {
-   call(params.fromPath[String]("pais", None)) { (pais) =>
-        controllers_Application_viajar4_invoker.call(controllers.Application.viajar(pais))
-   }
-}
-        
-
-// @LINE:11
-case controllers_Application_esFinal5_route(params) => {
+case controllers_Application_fin3_route(params) => {
    call { 
-        controllers_Application_esFinal5_invoker.call(controllers.Application.esFinal())
+        controllers_Application_fin3_invoker.call(controllers.Application.fin())
    }
 }
         
 
-// @LINE:12
-case controllers_Application_getExpedientes6_route(params) => {
-   call { 
-        controllers_Application_getExpedientes6_invoker.call(controllers.Application.getExpedientes())
-   }
-}
-        
-
-// @LINE:16
-case controllers_Assets_at7_route(params) => {
+// @LINE:14
+case controllers_Assets_at4_route(params) => {
    call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
-        controllers_Assets_at7_invoker.call(controllers.Assets.at(path, file))
+        controllers_Assets_at4_invoker.call(controllers.Assets.at(path, file))
    }
 }
         
