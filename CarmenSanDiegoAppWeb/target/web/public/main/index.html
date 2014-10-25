@@ -55,6 +55,7 @@
         <div ng-repeat="paisesYV in getPaisesVisitadosCorrectos()">
            <em class="pull-left">{{paisesYV}} -->  </em>
         </div>
+        <br>
         <h5>Paises ya Visitados Incorrectos: </h5>
         <div ng-repeat="paisesYV in getPaisesVisitadosIncorrectos()">
            <em class="pull-left">{{paisesYV}} -->  </em>
@@ -103,35 +104,64 @@
       <!-- Fin de Orden de arresto -->
       
       <!-- Inicio de Pistas -->
-      <div ng-show="tab.isSet(3)" class="jumbotron">
-        <center><h2>Pistas</h2></center>
-        <center><div class="row">
-          <div class="col-xs-6 col-md-4" ng-repeat="lugar in lugares()">
-            <div class="thumbnail" ng-controller= "TabController as tab">
-              <a href ng-click="tab.setTab(2)" class="thumbnail"><!-- <img src={{lugar.images[0]}} height="168" width="145">--></a>
-              <h4>{{lugar.nombreDelLugar}}</h4> <hr>
-              <div ng-show="tab.isSet(2)">
-                <div ng-repeat="info in lugar.ocupante">
-                  {{info}}
-                </div>
-                <!--<center><button type="button" class="btn btn-default" ng-hide="lugar.informante[0] != 'Alto Detengase!!!'" ng-click="juego.fin()">Finalizar Partida</button></center> -->
-                  <div ng-controller="ModalController as modal">
-                  <button ng-click="toggleModal()" class="btn btn-default" ng-hide="lugar.informante[0] != 'Alto Detengase!!!'">Finalizar Partida</button>
+      	<div ng-show="tab.isSet(3)" class="jumbotron">
+      		<center><h2>Pistas</h2></center>
+      		<center><div class="row">
+      			<div ng-controller="TabController as tab">
+      				<div  class="col-xs-6 col-md-4 thumbnail">
+      					<a href ng-click="tab.setTab(2)" class="thumbnail"><img src={{lugares(0).imagen}} height="168" width="145"></a>
+      					<h4>{{lugares(0).nombreDelLugar}}</h4>
+      					<div ng-show="tab.isSet(2)">
+      						<div ng-repeat="p in pistasDelLugar(0)">
+      							{{p}}
+      						</div>
+							<div ng-controller="ModalController as modal">
+                  				<button ng-click="toggleModal(); fin()" class="btn btn-default" ng-hide="mostrarBoton(0)">Finalizar Partida</button>
     
-                  <modal title="Resultado" visible="showModal">
-                    <h2>{{fin()}}</h2>
-                  </modal>
-                </div>
-                
-              </div>
-              
-              
-            </div>
-          </div>
-        </div></center>
-      </div>
-      
-    </div>
+			                  <modal title="Resultado" visible="showModal">
+              				      <h2>{{esFin}}</h2>
+                  			  </modal>
+                		   </div>
+      					</div>
+      					
+      				</div>
+      				<div  class="col-xs-6 col-md-4 thumbnail" >
+      					<a href ng-click="tab.setTab(3)" class="thumbnail"><img src={{lugares(1).imagen}} height="168" width="145"></a>
+      					<h4>{{lugares(1).nombreDelLugar}}</h4>
+      					<div ng-show="tab.isSet(3)">
+      						<div ng-repeat="p in pistasDelLugar(1)">
+      							{{p}}
+      						</div>
+							<div ng-controller="ModalController as modal">
+                  				<button ng-click="toggleModal(); fin()" class="btn btn-default" ng-hide="mostrarBoton(1)">Finalizar Partida</button>
+    
+			                  <modal title="Resultado" visible="showModal">
+              				      <h2>{{esFin}}</h2>
+                  			  </modal>
+                		   </div>
+      					</div>	
+      				</div>
+      				<div  class="col-xs-6 col-md-4 thumbnail" >
+      					<a href ng-click="tab.setTab(4)" class="thumbnail"><img src={{lugares(2).imagen}} height="168" width="145"></a>
+      					<h4>{{lugares(2).nombreDelLugar}}</h4>
+      					<div ng-show="tab.isSet(4)">
+      						<div ng-repeat="p in pistasDelLugar(2)">
+      							{{p}}
+      						</div>
+							<div ng-controller="ModalController as modal">
+                  				<button ng-click="toggleModal(); fin()" class="btn btn-default" ng-hide="mostrarBoton(2)">Finalizar Partida</button>
+    
+			                  <modal title="Resultado" visible="showModal">
+              				      <h2>{{esFin}}</h2>
+                  			  </modal>
+                		   </div>
+      					</div>	
+      				</div>
+      			</div>
+      		</div></center>
+      	
+      	</div>
+
     <!-- Fin de Pistas -->
     
     <!-- Fin del Cuerpo -->
