@@ -6,6 +6,7 @@
 	  $scope.siguientePais = null;
 	  $scope.ordenSinEmitir = null;
 	  $scope.casoAppModel = [];
+	  $scope.pistas = [];
 	  
 	  $scope.iniciarJuego = function(){
 		  $http.get('/iniciar').success(function(data){
@@ -47,6 +48,7 @@
 	  $scope.viajar = function(){
 		  $http.get('/viajar/' + $scope.siguientePais).success(function(){
 			  $scope.iniciarJuego();  
+			  $scope.siguientePais = null;
 		  })
 	  };
 	  
@@ -61,19 +63,16 @@
 	  $scope.isSetOrdenSinEmitir = function(newValue){
 	      return $scope.ordenSinEmitir === newValue;
 	  };
-	  
+	  	  
 	  $scope.fin = function(){
-		  if(!angular.isUndefined($scope.ordenEmitida)){
-			  if($scope.ordenEmitida.nombre === 'null' || $scope.ordenEmitida.nombre != $scope.casoActual.villano.nombre){
-				  return "Perdiste T_T"
-			  }
-			  else{
-				  return "Ganaste! =D"
-			  }
-		  }
-		  return "Perdiste T_T"
+		  $http.get('/final').success(function(data){
+			  $scope.esFin = data
+		  })
 	  };
 	  
+	  $scope.esFin = function(){
+		  return $scope.esFin
+	  }
 	  $scope.paises = function(){
 		 return $scope.casoAppModel.casoActual.ciudadActual.conexionesAereas;
 	  };
@@ -85,25 +84,27 @@
 	  $scope.getPaisesVisitadosIncorrectos = function(){
 		  return $scope.casoAppModel.paisesVisitadosIncorrectos;
 	  };
-	  
-	  $scope.getOrdenDeArresto = function(){
-		  if($scope.casoAppModel.casoActual.ordenDeArresto === 'null')		  
-			  return null;
-		  else{
-			return $scope.casoAppModel.casoActual.ordenDeArresto; 
-		  }
-	  };
-	    
-	  $scope.lugares = function(){
-		  return $scope.casoAppModel.casoActual.ciudadActual.lugaresDeInteres;
+	  	    
+	  $scope.lugares = function(value){
+		  return $scope.casoAppModel.casoActual.ciudadActual.lugaresDeInteres[value];
 	  }
 	  
 	  $scope.expedientes = function(){
 		  return $scope.casoAppModel.villanos
 	  }
 	  
+	  $scope.pistasDelLugar = function(value){
+		  return $scope.casoAppModel.pistas[value]
+	  }
+	  
+	  $scope.mostrarBoton = function(value){
+		  return $scope.pistasDelLugar(value)[0].search("Alto!!!") == -1
+	  }
+	  
   }]);
 
+ //controller de las tabs
+  
  app.controller('TabController', function(){
     this.tab = 1;
 
@@ -124,7 +125,7 @@
   });
 
 
-// directiva
+// directiva del modal
   
   app.directive('modal', function () {
     return {
@@ -167,127 +168,5 @@
       }
     };
   });
-  
-/*
- * //directiva // Dummys "obj"?
- * 
- * var arg = { nombreDelPais : "Argentina", caracteristicasDelPais : ["Se
- * constituye de 24 entidades, 23 provincias y una ciudad autónoma", "La bandera
- * consta de tres franjas dos celestes y una blanca", "Es reconocida por su gran
- * pasión por el fútbol"], lugaresDeInteres : [{ nombreDelLugar : "Biblioteca",
- * informante : ["La moneda oficial es Naira","Flaco"], images:
- * ["images/biblioteca.jpg"] },{ nombreDelLugar : "Club", informante :
- * ["Flaco","Alto"], images: ["images/club.jpg"] },{ nombreDelLugar :
- * "Embajada", informante : ["La moneda oficial es Naira","La bandera consta de
- * tres franjas dos verdes y una blanca"], images: ["images/embajada.jpg"] }],
- * conexiones : {} };
- * 
- * var china = { nombreDelPais : "China", caracteristicasDelPais : ["Estado
- * soberano situado en Asia Oriental", "Es el país más poblado del mundo", "La
- * moneda oficial es el Yuan"], lugaresDeInteres : [{ nombreDelLugar :
- * "Biblioteca", informante : ["Lo siento, creo que se ha equivocado de Ciudad,
- * no hay nadie con esas características"], images: ["images/biblioteca.jpg"]
- * },{ nombreDelLugar : "Club", informante : ["Lo siento, creo que se ha
- * equivocado de Ciudad, no hay nadie con esas características"], images:
- * ["images/club.jpg"] },{ nombreDelLugar : "Embajada", informante : ["Lo
- * siento, creo que se ha equivocado de Ciudad, no hay nadie con esas
- * características"], images: ["images/embajada.jpg"] }], conexiones : {} }; var
- * nigeria ={ nombreDelPais : "Nigeria", caracteristicasDelPais : ["La moneda
- * oficial es Naira", "Es el país más poblado de África", "La bandera consta de
- * tres franjas dos verdes y una blanca"], lugaresDeInteres : [{ nombreDelLugar :
- * "Biblioteca", informante : ["La bandera tiene 3 colores verde, blanco y
- * rojo","Flaco"], images: ["images/biblioteca.jpg"] },{ nombreDelLugar :
- * "Club", informante : ["Flaco","Alto"], images: ["images/club.jpg"] },{
- * nombreDelLugar : "Embajada", informante : ["La bandera tiene 3 colores verde,
- * blanco y rojo","Es el mayor productor de plata en el mundo"], images:
- * ["images/embajada.jpg"] }], conexiones : {} }; var brasil = { nombreDelPais :
- * "Brasil", caracteristicasDelPais : ["El idioma oficial es el portugués", "La
- * moneda oficial es el real", "Al norte del país se encuentra la cuenca
- * amazónica"], lugaresDeInteres : [{ nombreDelLugar : "Biblioteca", informante :
- * ["Lo siento, creo que se ha equivocado de Ciudad, no hay nadie con esas
- * características"], images: ["images/biblioteca.jpg"] },{ nombreDelLugar :
- * "Club", informante : ["Lo siento, creo que se ha equivocado de Ciudad, no hay
- * nadie con esas características"], images: ["images/club.jpg"] },{
- * nombreDelLugar : "Embajada", informante : ["Lo siento, creo que se ha
- * equivocado de Ciudad, no hay nadie con esas características"], images:
- * ["images/embajada.jpg"] }], conexiones : {} }; var mex= { nombreDelPais :
- * "Mexico", caracteristicasDelPais : ["La bandera tiene 3 colores verde, blanco
- * y rojo", "Introdujo el chocolate, el chile y el maíz al resto del mundo ",
- * "Es el mayor productor de plata en el mundo"], lugaresDeInteres : [{
- * nombreDelLugar : "Biblioteca", informante : ["Capital Madrid","Alto"],
- * images: ["images/biblioteca.jpg"] },{ nombreDelLugar : "Club", informante :
- * ["Flaco","Alto"], images: ["images/club.jpg"] },{ nombreDelLugar :
- * "Embajada", informante : ["La bandera tiene 2 franjas rojas, una amarilla y
- * un escudo","Capital Madrid"], images: ["images/embajada.jpg"] }], conexiones : {} };
- * 
- * var eu= { nombreDelPais : "Estados Unidos", caracteristicasDelPais :
- * ["Capital Washington D. C.", "Moneda oficial el Dolar", "La bandera tiene 50
- * estrellas"], lugaresDeInteres : [{ nombreDelLugar : "Biblioteca", informante :
- * ["Lo siento, creo que se ha equivocado de Ciudad, no hay nadie con esas
- * características"], images: ["images/biblioteca.jpg"] },{ nombreDelLugar :
- * "Club", informante : ["Lo siento, creo que se ha equivocado de Ciudad, no hay
- * nadie con esas características"], images: ["images/club.jpg"] },{
- * nombreDelLugar : "Embajada", informante : ["Lo siento, creo que se ha
- * equivocado de Ciudad, no hay nadie con esas características"], images:
- * ["images/bembajada.jpg"] }], conexiones : {} }; var espana= { nombreDelPais :
- * "España", caracteristicasDelPais : ["La moneda oficial es el Euro", "La
- * bandera tiene 2 franjas rojas, una amarilla y un escudo", "Capital Madrid"],
- * lugaresDeInteres : [{ nombreDelLugar : "Biblioteca", informante : ["La moneda
- * oficial es el Euro", "Flaco"], images: ["images/biblioteca.jpg"] },{
- * nombreDelLugar : "Club", informante : ["Flaco","Alto"], images:
- * ["images/club.jpg"] },{ nombreDelLugar : "Embajada", informante : ["La moneda
- * oficial es el Euro", "La bandera tiene 3 colores negro, rojo y amarillo"],
- * images: ["images/embajada.jpg"] }], conexiones : {} }; var italia= {
- * nombreDelPais : "Italia", caracteristicasDelPais : ["Capital Roma","Moneda
- * oficial es el Euro", "La bandera tiene 3 colores verde, blanco y rojo"],
- * lugaresDeInteres : [{ nombreDelLugar : "Biblioteca", informante : ["Lo
- * siento, creo que se ha equivocado de Ciudad, no hay nadie con esas
- * características"], images: ["images/biblioteca.jpg"] },{ nombreDelLugar :
- * "Club", informante : ["Lo siento, creo que se ha equivocado de Ciudad, no hay
- * nadie con esas características"], images: ["images/club.jpg"] },{
- * nombreDelLugar : "Embajada", informante : ["Lo siento, creo que se ha
- * equivocado de Ciudad, no hay nadie con esas características"], images:
- * ["images/embajada.jpg"] }], conexiones : {} }; var alemania= { nombreDelPais :
- * "Alemania", caracteristicasDelPais : ["La moneda oficial es el Euro", "La
- * bandera tiene 3 colores negro, rojo y amarillo", "Capital Berling"],
- * lugaresDeInteres : [{ nombreDelLugar : "Biblioteca", informante : ["CUIDADO
- * DETECTIVE!!!!"], images: ["images/biblioteca.jpg"] },{ nombreDelLugar :
- * "Club", informante : ["CUIDADO DETECTIVE!!!!"], images: ["images/club.jpg"]
- * },{ nombreDelLugar : "Embajada", informante : ["Alto Detengase!!!"], images:
- * ["images/embajada.jpg"] }], conexiones : {} };
- * 
- * arg.conexiones = [ china, nigeria, brasil, mex, eu, espana, italia,
- * alemania]; china.conexiones = [arg, nigeria, brasil, mex, eu, espana, italia,
- * alemania]; nigeria.conexiones = [arg, china, brasil, mex, eu, espana, italia,
- * alemania]; brasil.conexiones = [arg, china, nigeria, mex, eu, espana, italia,
- * alemania]; mex.conexiones = [arg, china, nigeria, brasil, eu, espana, italia,
- * alemania]; eu.conexiones = [arg, china, nigeria, brasil, mex, espana, italia,
- * alemania]; espana.conexiones = [arg, china, nigeria, brasil, mex, eu, italia,
- * alemania]; italia.conexiones = [arg, china, nigeria, brasil, mex, eu, espana,
- * alemania]; alemania.conexiones = [arg, china, nigeria, brasil, mex, eu,
- * espana, italia ];
- * 
- * var mapamundi = [arg, china, nigeria, brasil, mex, eu, espana, italia,
- * alemania];
- * 
- * var expedientes = [{ nombre : "El Pinguino", seniasParticulares :
- * ["Alto","Pelado","Corpulento"], hobbies : ["El futbol","Pesca","Autos"], sexo :
- * "Masculino" },{ nombre : "Loki", seniasParticulares : ["Alto","Flaco","Pelo
- * castaño"], hobbies : ["Surf","El futbol","Rafting"], sexo : "Masculino" },{
- * nombre : "Gatubela", seniasParticulares : ["Usa vestidos","Es Fumadora","Usa
- * jayas"], hobbies : ["Pintura","La fotografia","Hockey"], sexo : "Femenino"
- * },{ nombre : "Madame Hydra", seniasParticulares : ["Delgada","Alta","Pelo
- * largo de color verde oscuro"], hobbies : ["Lectura","Tiro con arco","Baile"],
- * sexo : "Femenino" }];
- * 
- * var planDeEscape = [arg,nigeria,mex,espana,alemania];
- * 
- * var caso = { planDeEscape : planDeEscape, villano : expedientes[1],
- * ciudadActual : planDeEscape[0], paisesVisitados : [planDeEscape[0]] };
- * 
- * var detective = { expedientes : expedientes, mapamundi : mapamundi, caso :
- * caso };
- * 
- */
 
 })();
