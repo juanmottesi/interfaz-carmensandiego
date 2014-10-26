@@ -93,8 +93,14 @@
 		  return $scope.casoAppModel.villanos
 	  }
 	  
+	  $scope.obtenerPistas = function(){
+		  $http.get('/pistas').success(function(data){
+			  $scope.pistas = data
+		  })
+	  }
+	  
 	  $scope.pistasDelLugar = function(value){
-		  return $scope.casoAppModel.pistas[value]
+		  return $scope.pistas[value]
 	  }
 	  
 	  $scope.mostrarBoton = function(value){
