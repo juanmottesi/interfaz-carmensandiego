@@ -6,6 +6,7 @@ import dominio.Villano
 import dummyData.DummyData
 import dominio.Mapamundi
 import dominio.Expediente
+import java.util.ArrayList
 
 class CasoAppModel {
 	
@@ -25,7 +26,6 @@ class CasoAppModel {
 	@Property List<String> paisesVisitadosIncorrectos
 	@Property Villano ordenEmitida
 	@Property List<Villano> villanos
-	@Property List<List<String>> pistas	
 	
 	new(Caso caso){
 		casoActual = caso
@@ -34,7 +34,6 @@ class CasoAppModel {
 		paisesVisitadosIncorrectos = newArrayList
 		ordenEmitida = new Villano("null")
 		villanos = Expediente.getInstance.villanos
-		generarPistas()
 	}
 	
 	def CasoAppModel viajar(String nombrePais){
@@ -51,29 +50,22 @@ class CasoAppModel {
 		}
 		
 		casoActual.ciudadActual = paisSeleccionado
-		generarPistas()
+
 		
 		this
 	}
 	
-	def generarPistas(){
-		pistas = newArrayList
+	def List<List<String>> generarPistas(){
+		val pistas = new ArrayList<List<String>>()
 		casoActual.ciudadActual.lugaresDeInteres.forEach[lugar | pistas += lugar.ocupante.pista(casoActual.villano)]
-	}
-	
-	def String paisActual(){
-		casoActual.ciudadActual.nombreDelPais
+		pistas	
 	}
 	
 	def  ordenDeArresto(String villanoNombre){
 		var villano = Expediente.getInstance.villanos.findFirst[nombre == villanoNombre]
 		ordenEmitida = villano
 	}	
-	
-	def ordenDeArresto(){
-		ordenEmitida.nombre
-	}
-	
+		
 	def esFinal(){
 		if(ordenEmitida == casoActual.villano){
 			return "Ganaste!! =D"
