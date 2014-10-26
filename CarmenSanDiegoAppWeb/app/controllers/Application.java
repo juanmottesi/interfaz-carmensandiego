@@ -1,14 +1,11 @@
 package controllers;
 
-
+import java.util.List;
 
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
 import appModel.CasoAppModel;
-
-import dominio.Lugar;
-
 
 public class Application extends Controller {
     
@@ -33,18 +30,9 @@ public class Application extends Controller {
     	return ok(CasoAppModel.getInstance().esFinal());
     }
     
-    public static Result getPistas(String lugar){
+    public static Result obtenerPistas(){
     	response().setContentType("application/json");
-    	String pistas = "";
-    	for(Lugar l : CasoAppModel.getInstance().getCasoActual().getCiudadActual().getLugaresDeInteres()){
-    		if(l.getNombreDelLugar().equals(lugar)){
-    			for(String s : l.getOcupante().pista(CasoAppModel.getInstance().getCasoActual().getVillano())){
-    				pistas += " "+s;
-    			}
-    			  
-    		}
-    	}
-    	
+    	List<List<String>> pistas = CasoAppModel.getInstance().generarPistas();
     	return ok(Json.toJson(pistas));
     }
     

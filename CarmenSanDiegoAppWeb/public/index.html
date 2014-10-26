@@ -30,7 +30,7 @@
             <li> <img id="navbarHeader" src="images/iconoCarmenSanDiego.png"></li>
             <li ng-class="{ active: tab.isSet(1)}"><a href ng-click="tab.setTab(1)">Informacion</a></li>
             <li ng-class="{ active: tab.isSet(2)}"><a href ng-click="tab.setTab(2)">Orden de arresto</a></li>
-            <li ng-class="{ active: tab.isSet(3)}"><a href ng-click="tab.setTab(3)">Pistas</a></li>
+            <li ng-class="{ active: tab.isSet(3)}"><a href ng-click="tab.setTab(3); obtenerPistas()">Pistas</a></li>
           </ul>
         </div>
       </nav>
