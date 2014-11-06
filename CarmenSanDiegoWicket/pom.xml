@@ -57,11 +57,11 @@
 		</dependency>
 		<!-- /JETTY DEPENDENCIES FOR TESTING -->
 
-		<dependency>
-			<groupId>CarmenSanDiegoDominio</groupId>
-			<artifactId>CarmenSanDiegoDominio</artifactId>
-			<version>0.0.2</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>CarmenSanDiegoDominio</groupId> -->
+<!-- 			<artifactId>CarmenSanDiegoDominio</artifactId> -->
+<!-- 			<version>0.0.2</version> -->
+<!-- 		</dependency> -->
 
 	</dependencies>
 	<build>

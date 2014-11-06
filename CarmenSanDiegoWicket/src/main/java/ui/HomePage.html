@@ -23,8 +23,8 @@
 				<ul class="nav navbar-nav">
 					<li><img id="navbarHeader"
 						src="images/iconoCarmenSanDiego.png"></li>
+					<li class="active"><a href="#">Mapamundi</a></li>
 					<li><a href="#">Expedientes</a></li>
-					<li><a href="#">Mapamundi</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -32,10 +32,18 @@
 	<!-- Fin del nav bar -->
 
 	<div class="jumbotron">
-			<h1>Mapamundi</h1>
+		<h1>Mapamundi</h1>
 	</div>
+
+
+
 	<div>
-		<form action="buscarPaisesForm">
+		<form wicket:id="buscarPaisesForm">
+			
+			<div class="form-actions">
+				<button wicket:id="nuevo" class="btn btn-success">Nuevo Pais</button>
+			</div>
+
 			<table class="table table-striped table-bordered table-condensed">
 				<thead>
 					<tr>
@@ -44,8 +52,8 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr wicket:id=mapamundi>
-						<td><span wicket:id="nombre">unNombre</span></td>
+					<tr wicket:id="paises">
+						<td><span wicket:id="nombreDelPais">unNombre</span></td>
 						<td>
 							<div class="btn-group">
 								<button wicket:id="editar" class="btn-link">
@@ -62,9 +70,7 @@
 		</form>
 
 	</div>
-	<p>
-		Wicket version: <span wicket:id="version">1.5-SNAPSHOT</span>.
-	</p>
+
 
 </body>
 </html>

@@ -3,11 +3,11 @@ package ui
 import org.apache.wicket.markup.html.basic.Label
 import org.apache.wicket.markup.html.WebPage
 import org.uqbar.wicket.xtend.WicketExtensionFactoryMethods
-import appModel.MapamundiAppModel
 import org.apache.wicket.markup.html.form.Form
 import org.apache.wicket.model.CompoundPropertyModel
 import org.uqbar.wicket.xtend.XListView
 import org.uqbar.wicket.xtend.XButton
+import appModel.MapamundiWicket
 import dominio.Pais
 
 /**
@@ -17,17 +17,24 @@ import dominio.Pais
 class HomePage extends WebPage {
 	extension WicketExtensionFactoryMethods = new WicketExtensionFactoryMethods
 
-	var  MapamundiAppModel mapamundi
+	 @Property var MapamundiWicket mapamundi
 
 	new() {
-		mapamundi = new MapamundiAppModel()
-		val Form<MapamundiAppModel> paisForm = new Form<MapamundiAppModel>("buscarPaisesForm", new CompoundPropertyModel<MapamundiAppModel>(this.mapamundi))
+		mapamundi = new MapamundiWicket()
+		val Form<MapamundiWicket> paisForm = new Form<MapamundiWicket>("buscarPaisesForm", new CompoundPropertyModel<MapamundiWicket>(this.mapamundi))
 		this.agregarListaPaises(paisForm)
+		this.agregarAcciones(paisForm)
 		this.addChild(paisForm);
+		this.actualizar()
     }
     
-    def agregarListaPaises(Form<MapamundiAppModel> parent) {
-		val listView = new XListView("mapamundi.paises")
+    
+   def agregarAcciones(Form<MapamundiWicket> parent) {
+		parent.addChild(new XButton("nuevo").onClick = [| editar(new Pais) ])
+	}
+    
+    def agregarListaPaises(Form<MapamundiWicket> parent) {
+		val listView = new XListView("paises")
 		listView.populateItem = [ item |
 			item.model = item.modelObject.asCompoundModel
 			item.addChild(new Label("nombreDelPais"))
@@ -36,8 +43,7 @@ class HomePage extends WebPage {
 			item.addChild(new XButton("eliminar")
 				.onClick = [| 
 					mapamundi.paisSeleccionado= item.modelObject
-					mapamundi.eliminarPais
-					
+					mapamundi.eliminarPaisSeleccionado
 				]
 			)
 		]
@@ -48,4 +54,7 @@ class HomePage extends WebPage {
 		responsePage = new EditarPais(pais, this) 
 	}		
     
+    def actualizar(){
+    	this.mapamundi.buscarPaises
+    }
 }
