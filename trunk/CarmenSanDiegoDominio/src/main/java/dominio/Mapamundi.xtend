@@ -13,7 +13,7 @@ class Mapamundi {
 	
 	@Property List<Pais> paises
 
-	private new(){
+	new(){
 		paises = newArrayList
 }
 	

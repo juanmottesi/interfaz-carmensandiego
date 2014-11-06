@@ -3,21 +3,21 @@ package appModel
 import dominio.Pais
 import java.util.List
 import java.io.Serializable
+import dominio.Mapamundi
 
 class MapamundiWicket implements Serializable {
 	
-	@Property List<Pais> paises
 	@Property Pais paisSeleccionado
+	@Property List<Pais> paises
 	
 	def void eliminarPaisSeleccionado() {
-		getHomePaises().delete(getPaisSeleccionado)
+		Mapamundi.getInstance.eliminarPais(paisSeleccionado)
 		
 		paisSeleccionado = null
 	}
 	
-	def HomeCelulares getHomeCelulares() {
-		ApplicationContext::instance.getSingleton(typeof(Celular))
+	def void buscarPaises() {
+		paises = newArrayList 
+		paises = Mapamundi.getInstance.paises 
 	}
-	
-	
 }
