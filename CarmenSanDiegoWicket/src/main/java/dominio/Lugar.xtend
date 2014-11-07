@@ -3,8 +3,10 @@ package dominio
 import org.uqbar.commons.utils.Observable
 import dominio.auxiliar.Random
 import java.util.List
+import org.uqbar.commons.model.Entity
 
-abstract class Lugar {
+
+abstract class Lugar extends Entity {
 	
 	@Property String nombreDelLugar
 	@Property Ocupante ocupante

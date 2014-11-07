@@ -18,8 +18,8 @@ class PaisAppModel {
 	@Property String caracteristicaSeleccionada
 	@Property String nuevaCaracteristica
 	
-	@Property Pais conexionSeleccionada
-	@Property Pais nuevaConexion
+	@Property String conexionSeleccionada
+	@Property String nuevaConexion
 	
 	@Property Lugar lugarSeleccionada
 	@Property Lugar nuevoLugar
@@ -43,7 +43,7 @@ class PaisAppModel {
 	}
 	
 	def agregarConexion(){
-		pais.agregarConexion(nuevaConexion)
+		pais.agregarConexion(Mapamundi.getInstance.getPais(nuevaConexion))
 		ObservableUtils.firePropertyChanged(this,"paisesPosibles",paisesPosibles)
 		nuevaConexion = null
 		ObservableUtils.firePropertyChanged(this, "nuevaConexion",nuevaConexion)
@@ -68,8 +68,7 @@ class PaisAppModel {
 	
 	def getPaisesPosibles(){
 		Mapamundi.instance.paises.filter[!it.equals(pais)
-			
-		].filter[!pais.conexionesAereas.contains(it)].toList
+		].filter[!pais.conexionesAereas.contains(it)].toList.map[nombreDelPais]
 	}
 	
 	def getLugaresPosibles(){

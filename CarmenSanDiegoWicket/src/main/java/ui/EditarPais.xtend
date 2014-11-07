@@ -14,6 +14,9 @@ import org.uqbar.commons.model.UserException
 import org.apache.wicket.markup.html.form.TextField
 import appModel.PaisAppModel
 import dominio.Pais
+import org.apache.wicket.markup.html.panel.FeedbackPanel
+import org.apache.wicket.markup.html.form.DropDownChoice
+import dominio.Lugar
 
 /**
  * 
@@ -21,8 +24,8 @@ import dominio.Pais
  */
 class EditarPais extends WebPage {
 	extension WicketExtensionFactoryMethods = new WicketExtensionFactoryMethods
-	
-	private final PaisAppModel pais
+
+  	private final PaisAppModel paisAppModel
 	private final HomePage mainPage
 	private final boolean isNew
 	
@@ -31,10 +34,10 @@ class EditarPais extends WebPage {
 		this.mainPage = mainPage
 		this.isNew = paisAEditar.isNew()
 		
-		this.pais= new PaisAppModel(paisAEditar)
+		this.paisAppModel= new PaisAppModel(paisAEditar)
 		this.addChild(new Label("titulo", if (this.isNew) "Nuevo Pais" else "Editar Datos del Pais"))
 		
-		val paisForm = new Form<PaisAppModel>("nuevoPaisForm", this.pais.asCompoundModel)
+		val paisForm = new Form<PaisAppModel>("nuevoPaisForm",new CompoundPropertyModel<PaisAppModel>(this.paisAppModel))
 		this.agregarCamposEdicion(paisForm)
 		this.agregarAcciones(paisForm)
 		this.addChild(paisForm)
@@ -43,14 +46,20 @@ class EditarPais extends WebPage {
 		def void agregarAcciones(Form<PaisAppModel> parent) {
 		parent.addChild(new XButton("aceptar") => [
 			onClick = [|
-				pais.esCorrecto()
-				if (isNew) {
-						Mapamundi.getInstance.agregarPais(pais.pais)
+				try{
+					this.paisAppModel.esCorrecto
+					if (isNew) {
+						Mapamundi.getInstance.eliminarPais(this.paisAppModel.pais)
+						Mapamundi.getInstance.agregarPais(this.paisAppModel.pais)
 					} else {
-						Mapamundi.getInstance.eliminarPais(pais.pais)
-						Mapamundi.getInstance.agregarPais(pais.pais)
+						Mapamundi.getInstance.eliminarPais(this.paisAppModel.pais)
+						Mapamundi.getInstance.agregarPais(this.paisAppModel.pais)
 					}
 					volver()
+				}
+				catch (UserException e) {
+					info(e.getMessage())
+				}
 			]				
 		])
 		parent.addChild(new XButton("cancelar") => [
@@ -64,22 +73,84 @@ class EditarPais extends WebPage {
 	}
 
 	def agregarCamposEdicion(Form<PaisAppModel> parent) {
-		parent.addChild(new TextField<String>("nombreDelPais"))
-
-		val listView = new XListView("pais.caracteristicasDelPais")
-		listView.populateItem = [ item |
-			item.model = item.modelObject.asCompoundModel
-			item.addChild(new Label(item.toString))
-			item.addChild(new XButton("eliminar")
+		// Nombre del Pais
+		parent.addChild(new TextField<String>("pais.nombreDelPais"))
+		
+		//Lista de Caracteristicas
+		val listCaracteristicas = new XListView("pais.caracteristicasDelPais")
+		listCaracteristicas.populateItem = [ item |
+			item.addChild(new Label("string",item.modelObject.toString))
+			item.addChild(new XButton("eliminarCaracteristica")
 				.onClick = [| 
-					pais.caracteristicaSeleccionada = item.toString
-					pais.eliminarCaracteristica
+					paisAppModel.pais.eliminarCaracteristica(item.modelObject)
 				]
 			)
 		]
-		parent.addChild(listView)
+		parent.addChild(listCaracteristicas)
+		
+		parent.addChild(new TextField<String>("nuevaCaracteristica"))
+		parent.addChild(new XButton("agregarCaracteristica").onClick =[|
+			paisAppModel.agregarCaracteristica
+		])
+		
+		//Lista de Lugares
+
+		val listLugares = new XListView("pais.lugaresDeInteres")
+		listLugares.populateItem = [ item |
+			item.model = item.modelObject.asCompoundModel
+			item.addChild(new Label("nombreDelLugar"))
+			item.addChild(new XButton("eliminarLugar")
+				.onClick = [| 
+					paisAppModel.pais.eliminarLugar(item.modelObject)
+				]
+			)
+		]
+		parent.addChild(listLugares)
+		
+		parent.addChild(new DropDownChoice<Lugar>("lugaresPosibles") => [
+			choices = loadableModel([| paisAppModel.lugaresPosibles ])
+			choiceRenderer = choiceRenderer([Lugar l | 
+				paisAppModel.nuevoLugar = l
+				l.nombreDelLugar
+			]) 
+		]) 
+		parent.addChild(new XButton("agregarLugar").onClick =[|
+			paisAppModel.agregarLugar
+		])
+		
+		// Lista de Conexiones
+		
+		val listConexiones = new XListView("pais.conexionesAereas")
+		listConexiones.populateItem = [ item |
+			item.addChild(new Label("stringConexiones", item.modelObject.toString))
+			item.addChild(new XButton("eliminarConexiones")
+				.onClick = [| 
+					paisAppModel.pais.eliminarConexion(item.modelObject)
+				]
+			)
+		]
+		parent.addChild(listConexiones)
+		
+		parent.addChild(new DropDownChoice<String>("paisesPosibles") => [
+			choices = loadableModel([| paisAppModel.getPaisesPosibles])
+			choiceRenderer = choiceRenderer([String s | 
+				paisAppModel.nuevaConexion = s
+				s
+			]) 
+		]) 
+		parent.addChild(new XButton("agregarConexion").onClick =[|
+			paisAppModel.agregarConexion
+		])
+		
+		
+		// Feedback Panel
+		parent.addChild(new FeedbackPanel("feedbackPanel"))
 	}
-	
+  
+  
+  
+  
+  
     
     
 }

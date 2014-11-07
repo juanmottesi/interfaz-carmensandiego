@@ -7,9 +7,10 @@ import org.uqbar.commons.utils.Observable
 import org.apache.commons.lang.StringUtils
 import org.uqbar.commons.model.ObservableUtils
 import java.util.ArrayList
+import org.uqbar.commons.model.Entity
 
 @Observable
-class Pais {
+class Pais extends Entity{
 	
 	@Property String nombreDelPais
 	@Property List<String> caracteristicasDelPais
@@ -21,7 +22,7 @@ class Pais {
 		lugaresDeInteres= newArrayList
 		conexionesAereas= newArrayList
 	}
-		
+
 	def Pais obtenerSiguientePais(List<Pais> paises) {
 		val paisesAux = paises.map[nombreDelPais].toList
 		var pais = conexionesAereas.filter[ each | !paisesAux.contains(each)]
@@ -63,9 +64,9 @@ class Pais {
 		}
 	}
 		
-	def void eliminarConexion(Pais paisSeleccionado){
-		conexionesAereas -= paisSeleccionado.nombreDelPais
-		paisSeleccionado.conexionesAereas -= this.nombreDelPais
+	def void eliminarConexion(String paisSeleccionado){
+		conexionesAereas -= paisSeleccionado
+		Mapamundi.getInstance.getPais(paisSeleccionado).conexionesAereas -= nombreDelPais
 		ObservableUtils.firePropertyChanged(this,"conexionesAereas", conexionesAereas)
 	}
 	
@@ -91,7 +92,7 @@ class Pais {
 		if(StringUtils.isBlank(this.nombreDelPais)){ 
 			throw new UserException("Nombre del pais Incorrecto")	
 		}
-		if (paises.filter[it.nombreDelPais == this.nombreDelPais].size != 1){
+		if (paises.filter[it.nombreDelPais == this.nombreDelPais].size > 1){
 			throw new UserException("Pais ya agregado")
 		} 
 		if (lugaresDeInteres.size < 3){
@@ -123,7 +124,7 @@ class Pais {
 		}
 	}
 	
-	def isNew() {
+	override isNew() {
 		nombreDelPais == null
 	}
 	
