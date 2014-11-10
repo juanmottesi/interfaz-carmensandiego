@@ -3,7 +3,6 @@ package ui
 import org.apache.wicket.markup.html.basic.Label
 import org.apache.wicket.markup.html.WebPage
 import org.uqbar.wicket.xtend.WicketExtensionFactoryMethods
-import appModel.MapamundiAppModel
 import org.apache.wicket.markup.html.form.Form
 import org.apache.wicket.model.CompoundPropertyModel
 import org.uqbar.wicket.xtend.XListView
@@ -17,11 +16,8 @@ import dominio.Pais
 import org.apache.wicket.markup.html.panel.FeedbackPanel
 import org.apache.wicket.markup.html.form.DropDownChoice
 import dominio.Lugar
+import org.apache.wicket.markup.html.link.BookmarkablePageLink
 
-/**
- * 
- * @author ?
- */
 class EditarPais extends WebPage {
 	extension WicketExtensionFactoryMethods = new WicketExtensionFactoryMethods
 
@@ -33,7 +29,7 @@ class EditarPais extends WebPage {
 	new(Pais paisAEditar, HomePage mainPage) {
 		this.mainPage = mainPage
 		this.isNew = paisAEditar.isNew()
-		
+		this.add(new BookmarkablePageLink("linkMapamundi", mainPage.class));
 		this.paisAppModel= new PaisAppModel(paisAEditar)
 		this.addChild(new Label("titulo", if (this.isNew) "Nuevo Pais" else "Editar Datos del Pais"))
 		

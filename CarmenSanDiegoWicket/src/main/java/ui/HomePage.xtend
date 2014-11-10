@@ -9,6 +9,7 @@ import org.uqbar.wicket.xtend.XListView
 import org.uqbar.wicket.xtend.XButton
 import appModel.MapamundiWicket
 import dominio.Pais
+import org.apache.wicket.markup.html.link.BookmarkablePageLink
 
 /**
  * 
@@ -25,6 +26,7 @@ class HomePage extends WebPage {
 		this.agregarListaPaises(paisForm)
 		this.agregarAcciones(paisForm)
 		this.addChild(paisForm);
+		this.add(new BookmarkablePageLink("linkMapamundi", this.class));
 		this.actualizar()
     }
     
