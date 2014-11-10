@@ -106,5 +106,9 @@ class Villano implements Ocupante{
 	override esVillano() {
 		true
 	}
+	
+	def isNew(){
+		return this.nombre == null;
+	}
 
 }

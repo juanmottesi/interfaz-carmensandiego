@@ -38,5 +38,13 @@ class Expediente {
 		villanos += nuevoVillano
 		ObservableUtils.firePropertyChanged(this,"villanos", villanos)
 	}
+	
+	def eliminarVillano(Villano villano){
+		try{
+			villanos -= villano
+		}catch(Exception e){
+			
+		}
+	}
 				
 }

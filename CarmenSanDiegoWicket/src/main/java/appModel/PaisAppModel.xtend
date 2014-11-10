@@ -72,7 +72,7 @@ class PaisAppModel {
 	}
 	
 	def getLugaresPosibles(){
-		var lista = #[new Biblioteca, new Banco, new Club, new Embajada]
+		var lista = newArrayList(new Biblioteca, new Banco, new Club, new Embajada)
 		lista.filter[
 			var aux = pais.lugaresDeInteres.map[nombreDelLugar]
 			!aux.contains(it.nombreDelLugar)
