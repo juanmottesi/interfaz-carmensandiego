@@ -29,7 +29,8 @@ class EditarPais extends WebPage {
 	new(Pais paisAEditar, HomePage mainPage) {
 		this.mainPage = mainPage
 		this.isNew = paisAEditar.isNew()
-		this.add(new BookmarkablePageLink("linkMapamundi", mainPage.class));
+		this.add(new BookmarkablePageLink("linkMapamundi", HomePage))
+		this.add(new BookmarkablePageLink("linkExpedientes",Expedientes))
 		this.paisAppModel= new PaisAppModel(paisAEditar)
 		this.addChild(new Label("titulo", if (this.isNew) "Nuevo Pais" else "Editar Datos del Pais"))
 		

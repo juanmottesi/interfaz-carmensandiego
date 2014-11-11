@@ -27,7 +27,8 @@ class EditarVillano extends WebPage {
 	new(Villano villanoAEditar, Expedientes mainPage) {
 		this.mainPage = mainPage
 		this.isNew = villanoAEditar.isNew()
-		this.add(new BookmarkablePageLink("linkMapamundi", mainPage.class));
+		this.add(new BookmarkablePageLink("linkMapamundi", HomePage))
+		this.add(new BookmarkablePageLink("linkExpedientes",Expedientes))
 		this.villanoAppModel= new VillanoAppModel(villanoAEditar)
 		this.addChild(new Label("titulo", if (this.isNew) "Nuevo Villano" else "Editar Datos del Villano"))
 		
