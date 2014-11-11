@@ -71,7 +71,7 @@ class Villano implements Ocupante{
 		if (StringUtils.isBlank(this.nombre)){ 
 			throw new UserException("Nombre del Villano Incorrecto")	
 		}
-		if (villanos.filter[it.nombre == this.nombre].size != 1){
+		if (villanos.filter[it.nombre == this.nombre].size > 1){
 			throw new UserException("Villano ya agregado")
 		}
 		if (hobbies.size < 3){

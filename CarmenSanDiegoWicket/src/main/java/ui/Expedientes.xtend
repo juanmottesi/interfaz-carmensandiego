@@ -7,57 +7,57 @@ import org.apache.wicket.markup.html.form.Form
 import org.apache.wicket.model.CompoundPropertyModel
 import org.uqbar.wicket.xtend.XListView
 import org.uqbar.wicket.xtend.XButton
-import appModel.MapamundiWicket
-import dominio.Pais
 import org.apache.wicket.markup.html.link.BookmarkablePageLink
+import appModel.ExpedientesWicket
+import dominio.Villano
 
 /**
  * 
  * @author ?
  */
-class HomePage extends WebPage {
+class Expedientes extends WebPage {
 	extension WicketExtensionFactoryMethods = new WicketExtensionFactoryMethods
 
-	 @Property var MapamundiWicket mapamundi
+	 @Property var ExpedientesWicket expediente
 
 	new() {
-		mapamundi = new MapamundiWicket()
-		val Form<MapamundiWicket> paisForm = new Form<MapamundiWicket>("buscarPaisesForm", new CompoundPropertyModel<MapamundiWicket>(this.mapamundi))
-		this.agregarListaPaises(paisForm)
-		this.agregarAcciones(paisForm)
-		this.addChild(paisForm);
+		expediente = new ExpedientesWicket()
+		val Form<ExpedientesWicket> villanoForm = new Form<ExpedientesWicket>("buscarVillanosForm", new CompoundPropertyModel<ExpedientesWicket>(this.expediente))
+		this.agregarListaVillanos(villanoForm)
+		this.agregarAcciones(villanoForm)
+		this.addChild(villanoForm);
 		this.add(new BookmarkablePageLink("linkMapamundi", HomePage))
 		this.add(new BookmarkablePageLink("linkExpedientes",Expedientes))
 		this.actualizar()
     }
     
     
-   def agregarAcciones(Form<MapamundiWicket> parent) {
-		parent.addChild(new XButton("nuevo").onClick = [| editar(new Pais) ])
+   def agregarAcciones(Form<ExpedientesWicket> parent) {
+		parent.addChild(new XButton("nuevo").onClick = [| editar(new Villano) ])
 	}
     
-    def agregarListaPaises(Form<MapamundiWicket> parent) {
-		val listView = new XListView("paises")
+    def agregarListaVillanos(Form<ExpedientesWicket> parent) {
+		val listView = new XListView("villanos")
 		listView.populateItem = [ item |
 			item.model = item.modelObject.asCompoundModel
-			item.addChild(new Label("nombreDelPais"))
+			item.addChild(new Label("nombre"))
 			
 			item.addChild(new XButton("editar").onClick = [| editar(item.modelObject) ])
 			item.addChild(new XButton("eliminar")
 				.onClick = [| 
-					mapamundi.paisSeleccionado= item.modelObject
-					mapamundi.eliminarPaisSeleccionado
+					expediente.villanoSeleccionado= item.modelObject
+					expediente.eliminarVillanoSeleccionado
 				]
 			)
 		]
 		parent.addChild(listView)
 	}
     	
-    def editar(Pais pais) {
-		responsePage = new EditarPais(pais, this) 
+    def editar(Villano villano) {
+		responsePage = new EditarVillano(villano, this) 
 	}		
     
     def actualizar(){
-    	this.mapamundi.buscarPaises
+    	this.expediente.buscarVillanos
     }
 }

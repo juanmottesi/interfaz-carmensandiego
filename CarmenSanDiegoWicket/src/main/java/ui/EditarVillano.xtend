@@ -20,11 +20,11 @@ class EditarVillano extends WebPage {
 	extension WicketExtensionFactoryMethods = new WicketExtensionFactoryMethods
 
   	private final VillanoAppModel villanoAppModel
-	private final HomePage mainPage
+	private final Expedientes mainPage
 	private final boolean isNew
 	
 	
-	new(Villano villanoAEditar, HomePage mainPage) {
+	new(Villano villanoAEditar, Expedientes mainPage) {
 		this.mainPage = mainPage
 		this.isNew = villanoAEditar.isNew()
 		this.add(new BookmarkablePageLink("linkMapamundi", mainPage.class));
