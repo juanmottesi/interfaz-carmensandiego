@@ -35,7 +35,8 @@
         <form wicket:id="buscarPaisesForm">
 
           <div>
-            <table class="table table-bordered" border="1" style="width: 60%; margin: 0 auto">
+          
+            <table class="table table-bordered" border="1" style="width: 50%; margin: 0 auto">
               <thead>
                 <tr>
                   <th id="main" class="text-center"><h3>Paises</h3></th>
@@ -43,9 +44,9 @@
                 </tr>
               </thead>
               <tbody>
-                <tr wicket:id="paises">
+                <tr style="background: #FFFFFF" wicket:id="paises">
                   <td class="text-center"><h4 wicket:id="nombreDelPais" >unNombre</h4></td>
-                  <td>
+                  <td class="text-center">
                     <div class="btn-group">
                       <button wicket:id="editar" class="btn-link"><p class="glyphicon glyphicon-pencil"></p></button>
                       <button wicket:id="eliminar" class="btn-link"><p class="glyphicon glyphicon-trash"></p></button>

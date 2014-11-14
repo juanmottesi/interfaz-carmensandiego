@@ -17,6 +17,7 @@ import org.apache.wicket.markup.html.panel.FeedbackPanel
 import org.apache.wicket.markup.html.form.DropDownChoice
 import dominio.Lugar
 import org.apache.wicket.markup.html.link.BookmarkablePageLink
+import org.apache.wicket.model.PropertyModel
 
 class EditarPais extends WebPage {
 	extension WicketExtensionFactoryMethods = new WicketExtensionFactoryMethods
@@ -46,15 +47,16 @@ class EditarPais extends WebPage {
 				try{
 					this.paisAppModel.esCorrecto
 					if (isNew) {
-						Mapamundi.getInstance.eliminarPais(this.paisAppModel.pais)
+						this.paisAppModel.esCorrectoPaisNuevo
 						Mapamundi.getInstance.agregarPais(this.paisAppModel.pais)
 					} else {
-						Mapamundi.getInstance.eliminarPais(this.paisAppModel.pais)
-						Mapamundi.getInstance.agregarPais(this.paisAppModel.pais)
+						//Mapamundi.getInstance.eliminarPais(this.paisAppModel.pais)
+						//Mapamundi.getInstance.agregarPais(this.paisAppModel.pais)
 					}
 					volver()
 				}
 				catch (UserException e) {
+					this.paisAppModel.borrarConexiones()
 					info(e.getMessage())
 				}
 			]				
@@ -104,12 +106,9 @@ class EditarPais extends WebPage {
 		]
 		parent.addChild(listLugares)
 		
-		parent.addChild(new DropDownChoice<Lugar>("lugaresPosibles") => [
-			choices = loadableModel([| paisAppModel.lugaresPosibles ])
-			choiceRenderer = choiceRenderer([Lugar l | 
-				paisAppModel.nuevoLugar = l
-				l.nombreDelLugar
-			]) 
+		parent.addChild(new DropDownChoice<Lugar>("nuevoLugar") => [
+			choices = new PropertyModel(paisAppModel, "lugaresPosibles")
+			choiceRenderer = choiceRenderer([Lugar l | l.nombreDelLugar ]) 
 		]) 
 		parent.addChild(new XButton("agregarLugar").onClick =[|
 			paisAppModel.agregarLugar
@@ -128,14 +127,11 @@ class EditarPais extends WebPage {
 		]
 		parent.addChild(listConexiones)
 		
-		parent.addChild(new DropDownChoice<String>("paisesPosibles") => [
-			choices = loadableModel([| paisAppModel.getPaisesPosibles])
-			choiceRenderer = choiceRenderer([String s | 
-				paisAppModel.nuevaConexion = s
-				s
-			]) 
+		parent.addChild(new DropDownChoice<String>("conexionSeleccionada") => [
+			choices = new PropertyModel(paisAppModel, "paisesPosibles")
+			choiceRenderer = choiceRenderer([String s | s]) 
 		]) 
-		parent.addChild(new XButton("agregarConexion").onClick =[|
+		parent.addChild(new XButton("agregarConexiones").onClick =[|
 			paisAppModel.agregarConexion
 		])
 		

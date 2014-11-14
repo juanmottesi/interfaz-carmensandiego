@@ -31,6 +31,10 @@ class PaisAppModel {
 	def esCorrecto() {
 		pais.esCorrecto(Mapamundi.instance.paises)
 	}
+
+	def esCorrectoPaisNuevo() {
+		pais.esCorrectoPaisNuevo(Mapamundi.instance.paises)
+	}
 	
 	def agregarCaracteristica(){
 		pais.agregarCaracteristica(nuevaCaracteristica)
@@ -43,9 +47,9 @@ class PaisAppModel {
 	}
 	
 	def agregarConexion(){
-		pais.agregarConexion(Mapamundi.getInstance.getPais(nuevaConexion))
+		pais.agregarConexion(Mapamundi.getInstance.getPais(conexionSeleccionada))
 		ObservableUtils.firePropertyChanged(this,"paisesPosibles",paisesPosibles)
-		nuevaConexion = null
+		conexionSeleccionada = null
 		ObservableUtils.firePropertyChanged(this, "nuevaConexion",nuevaConexion)
 	}
 	
@@ -68,7 +72,7 @@ class PaisAppModel {
 	
 	def getPaisesPosibles(){
 		Mapamundi.instance.paises.filter[!it.equals(pais)
-		].filter[!pais.conexionesAereas.contains(it)].toList.map[nombreDelPais]
+		].filter[!pais.conexionesAereas.contains(it.nombreDelPais)].toList.map[nombreDelPais]
 	}
 	
 	def getLugaresPosibles(){
@@ -79,4 +83,12 @@ class PaisAppModel {
 		].toList
 	}
 	
+	def borrarConexiones(){
+		var lista = pais.conexionesAereas.clone
+		for(String s : lista){
+			pais.eliminarConexion(s)
+		}
+	}
+	
+		
 }

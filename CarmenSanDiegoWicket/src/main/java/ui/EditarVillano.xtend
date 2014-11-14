@@ -15,6 +15,8 @@ import org.apache.wicket.markup.html.link.BookmarkablePageLink
 import appModel.VillanoAppModel
 import dominio.Villano
 import dominio.Expediente
+import org.apache.wicket.markup.html.form.DropDownChoice
+import dominio.Sexo
 
 class EditarVillano extends WebPage {
 	extension WicketExtensionFactoryMethods = new WicketExtensionFactoryMethods
@@ -73,6 +75,11 @@ class EditarVillano extends WebPage {
 		parent.addChild(new TextField<String>("villano.nombre"))
 		
 		//Sexo
+		parent.addChild(new DropDownChoice<Sexo>("villano.sexo") => [
+			choices = loadableModel([| Sexo.values.toList])
+			choiceRenderer = choiceRenderer([Sexo s | s]) 
+		])
+		
 		
 		//Lista de Señas Particulares
 		val listSenias= new XListView("villano.seniasParticulares")

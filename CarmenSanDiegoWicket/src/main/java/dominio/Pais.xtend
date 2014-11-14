@@ -51,17 +51,24 @@ class Pais extends Entity{
 		}
 		conexionesAereas.add(paisSeleccionado.nombreDelPais)
 		paisSeleccionado.agregarConexionAux(this)
+		//paisSeleccionado.conexionesAereas += this.nombreDelPais
 		ObservableUtils.firePropertyChanged(this,"conexionesAereas", conexionesAereas)
 	}
 	
+	def void agregarConexion(String paisNombre){
+		conexionesAereas += paisNombre
+		Mapamundi.getInstance.getPais(paisNombre).conexionesAereas += nombreDelPais
+	}
+	
+
 	
 	private def void agregarConexionAux(Pais pais){
-		if(conexionesAereas.contains(pais)){
-			throw new UserException("Conexion ya agregada")
-		}
-		else{
-			conexionesAereas.add(pais.nombreDelPais)
-		}
+//		if(conexionesAereas.contains(pais)){
+//			throw new UserException("Conexion ya agregada")
+//		}
+//		else{
+			conexionesAereas += (pais.nombreDelPais)
+		//}
 	}
 		
 	def void eliminarConexion(String paisSeleccionado){
@@ -92,9 +99,6 @@ class Pais extends Entity{
 		if(StringUtils.isBlank(this.nombreDelPais)){ 
 			throw new UserException("Nombre del pais Incorrecto")	
 		}
-		if (paises.filter[it.nombreDelPais == this.nombreDelPais].size > 1){
-			throw new UserException("Pais ya agregado")
-		} 
 		if (lugaresDeInteres.size < 3){
 			throw new UserException("Se necesitan 3 Lugares de Interés")
 		}
@@ -102,6 +106,14 @@ class Pais extends Entity{
 			throw new UserException("Se necesitan 3 Caracteristicas")
 		}
 	}
+
+	def esCorrectoPaisNuevo(List<Pais> paises) {
+		if (paises.filter[it.nombreDelPais == this.nombreDelPais].size == 1){
+			throw new UserException("Pais ya agregado")
+		}
+	}
+
+
 	
 	def generarInformantes(Pais pais, Villano villano) {
 		for(Lugar l : lugaresDeInteres){

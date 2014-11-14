@@ -23,7 +23,6 @@
             <li><img id="navbarHeader" src="images/iconoCarmenSanDiego.png"></li>
             <li class="active"><a href="#"wicket:id="linkMapamundi">Mapamundi</a></li>
             <li><a href="#"wicket:id="linkExpedientes">Expedientes</a></li>
-            <li><a href="#">Expedientes</a></li>
           </ul>
         </div>
       </nav>
@@ -43,8 +42,8 @@
           <!-- Nombre del Pais -->
 
           <div class="form-group">
-            <label class="control-label" for="nombreDelPais">Nombre Del País</label>
-            <div class="controls">
+            <label class="control-label col-xs-4" for="nombreDelPais">Nombre Del País</label>
+            <div class="controls col-xs-4">
               <input wicket:id="pais.nombreDelPais" type="text" placeholder="Ej: Argentina" class="form-control" />
             </div>
           </div>
@@ -52,16 +51,16 @@
           <!-- Caracteristica del Pais -->
 
           <div>
-            <table class="table table-bordered" border="1" style="width: 60%; margin: 0 auto">
+            <table class="table table-bordered" border="1" style="width: 50%; margin: 0 auto">
               <thead>
                 <tr>
-                  <th id="main">Características</th>
-                  <th id="main">Acciones</th>
+                  <th class="text-center" id="main">Características</th>
+                  <th class="text-center" id="main">Acciones</th>
                 </tr>
               </thead>
               <tbody>
-                <tr wicket:id="pais.caracteristicasDelPais">
-                  <td><span wicket:id="string">unaCaracteristica</span></td>
+                <tr class="text-center" style="background: #FFFFFF" wicket:id="pais.caracteristicasDelPais">
+                  <td ><span wicket:id="string">unaCaracteristica</span></td>
                   <td>
                     <div class="btn-group">
                       <button wicket:id="eliminarCaracteristica" class="btn-link"><p class="glyphicon glyphicon-trash"></p></button>
@@ -72,14 +71,14 @@
             </table>
 
             <!-- Agregar Caracteristica al Pais -->
-
+			<br>
             <div class="form-group">
-              <label class="control-label" for="caracteristica">Caracteristica Nueva</label>
-              <div class="controls">
-                <input wicket:id="nuevaCaracteristica" type="text" placeholder="Ej: Pelo color naranja" class="form-control" />
+              <label class="control-label col-xs-4" for="caracteristica">Caracteristica Nueva</label>
+              <div class="controls col-xs-4">
+                <input wicket:id="nuevaCaracteristica" type="text" placeholder="Ej: Bandera de dos colores" class="form-control" />
               </div>
-              <br>
-              <div class="form-actions">
+              
+              <div class="form-actions col-xs-4">
                 <button wicket:id="agregarCaracteristica" type="submit"	class="btn btn-primary">Agregar Característica</button>
               </div>
             </div>
@@ -88,15 +87,15 @@
 
           <!-- Lugares del Pais -->
           <div>
-            <table class="table table-bordered" border="1" style="width: 60%; margin: 0 auto">
+            <table class="table table-bordered" border="1" style="width: 50%; margin: 0 auto">
               <thead>
                 <tr>
-                  <th id="main">Lugares</th>
-                  <th id="main">Acciones</th>
+                  <th class="text-center" id="main">Lugares</th>
+                  <th class="text-center" id="main">Acciones</th>
                 </tr>
               </thead>
               <tbody>
-                <tr wicket:id="pais.lugaresDeInteres">
+                <tr class="text-center" style="background: #FFFFFF" wicket:id="pais.lugaresDeInteres">
                   <td><span wicket:id="nombreDelLugar">unLugar</span></td>
                   <td>
                     <div class="btn-group">
@@ -108,16 +107,16 @@
             </table>
 
             <!-- Agregar Lugar al Pais -->
-
+			<br>
             <div class="form-group">
-              <label class="control-label" for="lugar">Lugar Nuevo</label>
-              <div class="controls">
-                <select wicket:id="lugaresPosibles">
+              <label class="control-label col-xs-4" for="lugar">Lugar Nuevo</label>
+              <div class="controls col-xs-4">
+                <select class="form-control" wicket:id="nuevoLugar">
                   <option>unNombreDelLugar</option>
                 </select>
               </div>
-              <br>
-              <div class="form-actions">
+              
+              <div class="form-actions col-xs-4">
                 <button wicket:id="agregarLugar" type="submit" class="btn btn-primary">Agregar Lugar</button>
               </div>
             </div>
@@ -127,15 +126,15 @@
 
           <div>
             <div>
-              <table class="table table-bordered" border="1" style="width: 60%; margin: 0 auto">
+              <table class="table table-bordered" border="1" style="width: 50%; margin: 0 auto">
                 <thead>
                   <tr>
-                    <th id="main">Conexiones</th>
-                    <th id="main">Acciones</th>
+                    <th class="text-center" id="main">Conexiones</th>
+                    <th class="text-center" id="main">Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr wicket:id="pais.conexionesAereas">
+                  <tr  class="text-center" style="background: #FFFFFF" wicket:id="pais.conexionesAereas">
                     <td><span wicket:id="stringConexiones">unLugar</span></td>
                     <td>
                       <div class="btn-group">
@@ -147,17 +146,17 @@
               </table>
 
               <!-- Agregar Conexion al Pais -->
-
+			  <br>
               <div class="form-group">
-                <label class="control-label" for="conexion">Conexion Nueva</label>
-                <div class="controls">
-                  <select wicket:id="paisesPosibles">
+                <label class="control-label col-xs-4" for="conexion">Conexion Nueva</label>
+                <div class="controls col-xs-4">
+                  <select class="form-control" wicket:id="conexionSeleccionada">
                     <option>unNombreDelLugar</option>
                   </select>
                 </div>
-                <br>
-                <div class="form-actions">
-                  <button wicket:id="agregarConexion" type="submit" class="btn btn-primary">Agregar Lugar</button>
+                
+                <div class="form-actions col-xs-4">
+                  <button wicket:id="agregarConexiones" type="submit" class="btn btn-primary">Agregar Lugar</button>
                 </div>
               </div>
             </div>

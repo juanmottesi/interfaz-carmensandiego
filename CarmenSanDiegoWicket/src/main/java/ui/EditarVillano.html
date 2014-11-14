@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="stylesheets/bootstrap-theme.min.css">
     <script src="javascripts/bootstrap.min.js"></script>
     <!-- Fin bootstrap -->
-
+    <link rel="stylesheet" type="text/css" href="stylesheets/carmenSanDiego.css">
   </head>
   
   <body>
@@ -23,7 +23,6 @@
             <li><img id="navbarHeader" src="images/iconoCarmenSanDiego.png"></li>
             <li><a href="#"wicket:id="linkMapamundi">Mapamundi</a></li>
             <li class="active"><a href="#"wicket:id="linkExpedientes">Expedientes</a></li>
-            <li><a href="#">Expedientes</a></li>
           </ul>
         </div>
       </nav>
@@ -43,30 +42,40 @@
           <!-- Nombre del Villano -->
 
           <div class="form-group">
-            <label class="control-label" for="nombre">Nombre Del Villano</label>
-            <div class="controls">
+            <label class="control-label col-xs-4" for="nombre">Nombre Del Villano</label>
+            <div class="controls col-xs-4">
               <input wicket:id="villano.nombre" type="text" placeholder="Ej: Pepe" class="form-control" />
             </div>
           </div>
           
           <!-- Sexo del Villano -->
-          <div>
+          
+           <div class="form-group">
+              <label class="control-label col-xs-4" for="sexo">Sexo</label>
+              <div class="controls col-xs-4">
+                <select class="form-control" wicket:id="villano.sexo">
+                  <option>sexo</option>
+                </select>
+              </div>
+              <br>
+              
           </div>
-
+          
+          
           <!-- SeniasParticulares del villano -->
 
           <div>
-            <table class="table table-bordered" border="1" style="width: 60%; margin: 0 auto">
+            <table class="table table-bordered" border="1" style="width: 50%; margin: 0 auto">
               <thead>
                 <tr>
-                  <th id="main">Señas Particulares</th>
-                  <th id="main">Acciones</th>
+                  <th class="text-center" id="main">Señas Particulares</th>
+                  <th class="text-center" id="main">Acciones</th>
                 </tr>
               </thead>
               <tbody>
-                <tr wicket:id="villano.seniasParticulares">
-                  <td><span wicket:id="stringSenias">unaSenia</span></td>
-                  <td>
+                <tr style="background: #FFFFFF" wicket:id="villano.seniasParticulares">
+                  <td class="text-center"><span wicket:id="stringSenias">unaSenia</span></td>
+                  <td class="text-center">
                     <div class="btn-group">
                       <button wicket:id="eliminarSeniaParticular" class="btn-link"><p class="glyphicon glyphicon-trash"></p></button>
                     </div>
@@ -76,14 +85,13 @@
             </table>
 
             <!-- Agregar Senia al villano -->
-
+			<br>
             <div class="form-group">
-              <label class="control-label" for="senia">Seña Particular Nueva</label>
-              <div class="controls">
+              <label class="control-label col-xs-4" for="senia">Seña Particular Nueva</label>
+              <div class="controls col-xs-4">
                 <input wicket:id="nuevaSeniaParticular" type="text" placeholder="Ej: Pelo color naranja" class="form-control" />
               </div>
-              <br>
-              <div class="form-actions">
+              <div class="form-actions col-xs-4">
                 <button wicket:id="agregarSeniaParticular" type="submit" class="btn btn-primary">Agregar Característica</button>
               </div>
             </div>
@@ -92,17 +100,17 @@
 
           <!-- Hobbies del Villano -->
           <div>
-            <table class="table table-bordered" border="1" style="width: 60%; margin: 0 auto">
+            <table class="table table-bordered" border="1" style="width: 50%; margin: 0 auto">
               <thead>
                 <tr>
-                  <th id="main">Hobbies</th>
-                  <th id="main">Acciones</th>
+                  <th class="text-center" id="main">Hobbies</th>
+                  <th class="text-center" id="main">Acciones</th>
                 </tr>
               </thead>
               <tbody>
-                <tr wicket:id="villano.hobbies">
-                  <td><span wicket:id="stringHobbies">unHobbie</span></td>
-                  <td>
+                <tr style="background: #FFFFFF" wicket:id="villano.hobbies">
+                  <td class="text-center"><span wicket:id="stringHobbies">unHobbie</span></td>
+                  <td class="text-center">
                     <div class="btn-group">
                       <button wicket:id="eliminarHobbie" class="btn-link"><p class="glyphicon glyphicon-trash"></p></button>
                     </div>
@@ -111,15 +119,14 @@
               </tbody>
             </table>
 
-            <!-- Agregar Lugar al Pais -->
-
+            <!-- Agregar Hobbie al Villano -->
+			<br>
             <div class="form-group">
-              <label class="control-label" for="hobbie">Hobbie Nuevo</label>
-              <div class="controls">
+              <label class="control-label col-xs-4" for="hobbie">Hobbie Nuevo</label>
+              <div class="controls col-xs-4">
                 <input wicket:id="nuevoHobbie" type="text" placeholder="Ej: Pelo color naranja" class="form-control" />
               </div>
-              <br>
-              <div class="form-actions">
+              <div class="form-actions col-xs-4">
                 <button wicket:id="agregarHobbie" type="submit" class="btn btn-primary">Agregar Característica</button>
               </div>
             </div>
