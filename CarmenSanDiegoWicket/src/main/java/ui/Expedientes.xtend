@@ -1,21 +1,20 @@
 package ui
 
-import org.apache.wicket.markup.html.basic.Label
-import org.apache.wicket.markup.html.WebPage
-import org.uqbar.wicket.xtend.WicketExtensionFactoryMethods
-import org.apache.wicket.markup.html.form.Form
-import org.apache.wicket.model.CompoundPropertyModel
-import org.uqbar.wicket.xtend.XListView
-import org.uqbar.wicket.xtend.XButton
-import org.apache.wicket.markup.html.link.BookmarkablePageLink
 import appModel.ExpedientesWicket
 import dominio.Villano
+import org.apache.wicket.markup.html.basic.Label
+import org.apache.wicket.markup.html.form.Form
+import org.apache.wicket.model.CompoundPropertyModel
+import org.uqbar.wicket.xtend.WicketExtensionFactoryMethods
+import org.uqbar.wicket.xtend.XButton
+import org.uqbar.wicket.xtend.XListView
+import uiNavBar.NavBarExpediente
 
 /**
  * 
  * @author ?
  */
-class Expedientes extends WebPage {
+class Expedientes extends NavBarExpediente {
 	extension WicketExtensionFactoryMethods = new WicketExtensionFactoryMethods
 
 	 @Property var ExpedientesWicket expediente
@@ -26,8 +25,6 @@ class Expedientes extends WebPage {
 		this.agregarListaVillanos(villanoForm)
 		this.agregarAcciones(villanoForm)
 		this.addChild(villanoForm);
-		this.add(new BookmarkablePageLink("linkMapamundi", HomePage))
-		this.add(new BookmarkablePageLink("linkExpedientes",Expedientes))
 		this.actualizar()
     }
     

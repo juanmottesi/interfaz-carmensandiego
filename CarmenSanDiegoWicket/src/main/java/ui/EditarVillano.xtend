@@ -1,24 +1,22 @@
 package ui
 
+import appModel.VillanoAppModel
+import dominio.Expediente
+import dominio.Sexo
+import dominio.Villano
 import org.apache.wicket.markup.html.basic.Label
-import org.apache.wicket.markup.html.WebPage
-import org.uqbar.wicket.xtend.WicketExtensionFactoryMethods
+import org.apache.wicket.markup.html.form.DropDownChoice
 import org.apache.wicket.markup.html.form.Form
-import org.apache.wicket.model.CompoundPropertyModel
-import org.uqbar.wicket.xtend.XListView
-import org.uqbar.wicket.xtend.XButton
-
-import org.uqbar.commons.model.UserException
 import org.apache.wicket.markup.html.form.TextField
 import org.apache.wicket.markup.html.panel.FeedbackPanel
-import org.apache.wicket.markup.html.link.BookmarkablePageLink
-import appModel.VillanoAppModel
-import dominio.Villano
-import dominio.Expediente
-import org.apache.wicket.markup.html.form.DropDownChoice
-import dominio.Sexo
+import org.apache.wicket.model.CompoundPropertyModel
+import org.uqbar.commons.model.UserException
+import org.uqbar.wicket.xtend.WicketExtensionFactoryMethods
+import org.uqbar.wicket.xtend.XButton
+import org.uqbar.wicket.xtend.XListView
+import uiNavBar.NavBarExpediente
 
-class EditarVillano extends WebPage {
+class EditarVillano extends NavBarExpediente {
 	extension WicketExtensionFactoryMethods = new WicketExtensionFactoryMethods
 
   	private final VillanoAppModel villanoAppModel
@@ -29,8 +27,6 @@ class EditarVillano extends WebPage {
 	new(Villano villanoAEditar, Expedientes mainPage) {
 		this.mainPage = mainPage
 		this.isNew = villanoAEditar.isNew()
-		this.add(new BookmarkablePageLink("linkMapamundi", HomePage))
-		this.add(new BookmarkablePageLink("linkExpedientes",Expedientes))
 		this.villanoAppModel= new VillanoAppModel(villanoAEditar)
 		this.addChild(new Label("titulo", if (this.isNew) "Nuevo Villano" else "Editar Datos del Villano"))
 		

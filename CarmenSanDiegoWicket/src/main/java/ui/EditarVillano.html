@@ -1,35 +1,4 @@
-<!DOCTYPE html>
-<html xmlns:wicket="http://wicket.apache.org">
-  <head>
-    <meta charset="utf-8" />
-    <title>¿Dónde está Carmen San Diego?</title>
-    <link rel="shortcut icon" href="images/iconoCarmenSanDiego.png"	type="image/png" />
-    <!-- Bootstrap -->
-    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-    <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
-    <link rel="stylesheet" type="text/css"href="stylesheets/bootstrap.min.css">
-    <link rel="stylesheet" href="stylesheets/bootstrap-theme.min.css">
-    <script src="javascripts/bootstrap.min.js"></script>
-    <!-- Fin bootstrap -->
-    <link rel="stylesheet" type="text/css" href="stylesheets/carmenSanDiego.css">
-  </head>
-  
-  <body>
-    <!-- Inicio del nav bar -->
-    <div class="container">
-      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
-          <ul class="nav navbar-nav">
-            <li><img id="navbarHeader" src="images/iconoCarmenSanDiego.png"></li>
-            <li><a href="#"wicket:id="linkMapamundi">Mapamundi</a></li>
-            <li class="active"><a href="#"wicket:id="linkExpedientes">Expedientes</a></li>
-          </ul>
-        </div>
-      </nav>
-    
-    <!-- Fin del nav bar -->
-    <br>
-    <br>
+<wicket:extend>
 
     <!-- Inicio del Cuerpo -->
 
@@ -147,6 +116,4 @@
       </div>
     </div>
 
-  </div>
-  </body>
-</html>
+</wicket:extend>

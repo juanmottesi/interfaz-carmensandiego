@@ -1,21 +1,20 @@
 package ui
 
-import org.apache.wicket.markup.html.basic.Label
-import org.apache.wicket.markup.html.WebPage
-import org.uqbar.wicket.xtend.WicketExtensionFactoryMethods
-import org.apache.wicket.markup.html.form.Form
-import org.apache.wicket.model.CompoundPropertyModel
-import org.uqbar.wicket.xtend.XListView
-import org.uqbar.wicket.xtend.XButton
 import appModel.MapamundiWicket
 import dominio.Pais
-import org.apache.wicket.markup.html.link.BookmarkablePageLink
+import org.apache.wicket.markup.html.basic.Label
+import org.apache.wicket.markup.html.form.Form
+import org.apache.wicket.model.CompoundPropertyModel
+import org.uqbar.wicket.xtend.WicketExtensionFactoryMethods
+import org.uqbar.wicket.xtend.XButton
+import org.uqbar.wicket.xtend.XListView
+import uiNavBar.NavBarMapamundi
 
 /**
  * 
  * @author ?
  */
-class HomePage extends WebPage {
+class HomePage extends NavBarMapamundi {
 	extension WicketExtensionFactoryMethods = new WicketExtensionFactoryMethods
 
 	 @Property var MapamundiWicket mapamundi
@@ -26,8 +25,6 @@ class HomePage extends WebPage {
 		this.agregarListaPaises(paisForm)
 		this.agregarAcciones(paisForm)
 		this.addChild(paisForm);
-		this.add(new BookmarkablePageLink("linkMapamundi", HomePage))
-		this.add(new BookmarkablePageLink("linkExpedientes",Expedientes))
 		this.actualizar()
     }
     

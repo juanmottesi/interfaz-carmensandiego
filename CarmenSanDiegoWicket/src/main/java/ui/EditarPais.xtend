@@ -1,25 +1,23 @@
 package ui
 
-import org.apache.wicket.markup.html.basic.Label
-import org.apache.wicket.markup.html.WebPage
-import org.uqbar.wicket.xtend.WicketExtensionFactoryMethods
-import org.apache.wicket.markup.html.form.Form
-import org.apache.wicket.model.CompoundPropertyModel
-import org.uqbar.wicket.xtend.XListView
-import org.uqbar.wicket.xtend.XButton
-
-import dominio.Mapamundi
-import org.uqbar.commons.model.UserException
-import org.apache.wicket.markup.html.form.TextField
 import appModel.PaisAppModel
-import dominio.Pais
-import org.apache.wicket.markup.html.panel.FeedbackPanel
-import org.apache.wicket.markup.html.form.DropDownChoice
 import dominio.Lugar
-import org.apache.wicket.markup.html.link.BookmarkablePageLink
+import dominio.Mapamundi
+import dominio.Pais
+import org.apache.wicket.markup.html.basic.Label
+import org.apache.wicket.markup.html.form.DropDownChoice
+import org.apache.wicket.markup.html.form.Form
+import org.apache.wicket.markup.html.form.TextField
+import org.apache.wicket.markup.html.panel.FeedbackPanel
+import org.apache.wicket.model.CompoundPropertyModel
 import org.apache.wicket.model.PropertyModel
+import org.uqbar.commons.model.UserException
+import org.uqbar.wicket.xtend.WicketExtensionFactoryMethods
+import org.uqbar.wicket.xtend.XButton
+import org.uqbar.wicket.xtend.XListView
+import uiNavBar.NavBarMapamundi
 
-class EditarPais extends WebPage {
+class EditarPais extends NavBarMapamundi {
 	extension WicketExtensionFactoryMethods = new WicketExtensionFactoryMethods
 
   	private final PaisAppModel paisAppModel
@@ -30,8 +28,6 @@ class EditarPais extends WebPage {
 	new(Pais paisAEditar, HomePage mainPage) {
 		this.mainPage = mainPage
 		this.isNew = paisAEditar.isNew()
-		this.add(new BookmarkablePageLink("linkMapamundi", HomePage))
-		this.add(new BookmarkablePageLink("linkExpedientes",Expedientes))
 		this.paisAppModel= new PaisAppModel(paisAEditar)
 		this.addChild(new Label("titulo", if (this.isNew) "Nuevo Pais" else "Editar Datos del Pais"))
 		
@@ -50,8 +46,7 @@ class EditarPais extends WebPage {
 						this.paisAppModel.esCorrectoPaisNuevo
 						Mapamundi.getInstance.agregarPais(this.paisAppModel.pais)
 					} else {
-						//Mapamundi.getInstance.eliminarPais(this.paisAppModel.pais)
-						//Mapamundi.getInstance.agregarPais(this.paisAppModel.pais)
+						
 					}
 					volver()
 				}
