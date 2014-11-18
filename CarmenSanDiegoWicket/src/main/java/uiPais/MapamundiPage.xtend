@@ -1,4 +1,4 @@
-package ui
+package uiPais
 
 import appModel.MapamundiWicket
 import dominio.Pais
@@ -14,7 +14,7 @@ import uiNavBar.NavBarMapamundi
  * 
  * @author ?
  */
-class HomePage extends NavBarMapamundi {
+class MapamundiPage extends NavBarMapamundi {
 	extension WicketExtensionFactoryMethods = new WicketExtensionFactoryMethods
 
 	 @Property var MapamundiWicket mapamundi

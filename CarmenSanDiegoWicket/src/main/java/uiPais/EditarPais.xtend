@@ -1,4 +1,4 @@
-package ui
+package uiPais
 
 import appModel.PaisAppModel
 import dominio.Lugar
@@ -21,11 +21,11 @@ class EditarPais extends NavBarMapamundi {
 	extension WicketExtensionFactoryMethods = new WicketExtensionFactoryMethods
 
   	private final PaisAppModel paisAppModel
-	private final HomePage mainPage
+	private final MapamundiPage mainPage
 	private final boolean isNew
 	
 	
-	new(Pais paisAEditar, HomePage mainPage) {
+	new(Pais paisAEditar, MapamundiPage mainPage) {
 		this.mainPage = mainPage
 		this.isNew = paisAEditar.isNew()
 		this.paisAppModel= new PaisAppModel(paisAEditar)
