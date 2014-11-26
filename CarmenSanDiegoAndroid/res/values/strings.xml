@@ -1,0 +1,11 @@
+<resources>
+
+    <string name="app_name">CarmenSanDiegoAndroid</string>
+    <string name="buscarPista">Buscar Pistas</string>
+    <string name="ordenDeArresto">Orden de Arresto</string>
+    <string name="viajar">Viajar</string>
+    <string name="destinosRecorridosIncorrectos">Destinos Recorridos Incorrectos</string>
+    <string name="destinosRecorridosCorrectos">Destinos Recorridos Correctos</string>
+    <string name="irA">Ir</string>
+
+</resources>

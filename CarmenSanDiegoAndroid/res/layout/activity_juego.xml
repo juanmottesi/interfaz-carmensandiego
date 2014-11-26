@@ -1,0 +1,61 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".JuegoActivity" >
+
+   <TextView 
+        android:id="@+id/accion"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/viajar" />
+	
+   <Spinner 
+       android:id="@+id/listaDePaises"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"  />
+   
+	<Button
+        android:id="@+id/btnViajar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="irA"
+        android:text="@string/irA" />
+	
+	 <TextView
+        android:id="@+id/paisesRecorridosCorrectos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+	  	android:text="@string/destinosRecorridosCorrectos" />
+	
+	<TextView
+        android:id="@+id/paisesRecorridosIncorrectos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/destinosRecorridosIncorrectos" />
+
+	<TableRow
+	    android:id="@+id/tableRow1"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content" >
+
+	    <Button
+	        android:id="@+id/btnBuscarPista"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:onClick="irABuscarPista"
+	        android:text="@string/buscarPista" />
+
+	    <Button
+	        android:id="@+id/btnOrdenDeArresto"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:onClick="irAOrdenDeArresto"
+	        android:text="@string/ordenDeArresto" />
+
+	</TableRow>
+
+</LinearLayout>
