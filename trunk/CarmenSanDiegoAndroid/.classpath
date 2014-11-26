@@ -7,6 +7,6 @@
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/CarmenSanDiegoAppWeb"/>
-	<classpathentry kind="lib" path="C:/Users/juan/.m2/repository/CarmenSanDiegoDominio/CarmenSanDiegoDominio/0.0.2/CarmenSanDiegoDominio-0.0.2.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/CarmenSanDiegoDominio"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
