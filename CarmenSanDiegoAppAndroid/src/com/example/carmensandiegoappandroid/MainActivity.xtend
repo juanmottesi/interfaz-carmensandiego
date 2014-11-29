@@ -26,12 +26,19 @@ class MainActivity extends Activity implements OnItemSelectedListener{
 		
 		contentView = R.layout.activity_main
 		
+		actualizarDatos
+
+	}
+	
+	
+	// iniciarApp
+	
+	def actualizarDatos(){
 		//Pais Actual		
 		buscarPaisActual		
 	
 		//Spinner
 		buscarPaises
-
 	}
 	
 	// Metodos que buscan en el servidor
