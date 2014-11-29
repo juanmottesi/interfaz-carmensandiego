@@ -7,6 +7,10 @@ import java.util.List
 
 interface PaisesService {
 	
-	@GET("/conexionesAereasPaisActual")
+	@GET("/conexiones")
 	def void getPaises(Callback<List<String>> callback)
+
+	@GET("/paisactual")	
+	def void getPaisActual(Callback<String> callback)
+	
 }
