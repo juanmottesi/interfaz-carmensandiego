@@ -4,9 +4,10 @@
     <string name="app_name">CarmenSanDiego</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="viajar">Viajar</string>
-    <string name="titulo_lista_correcto">Paises Correctos></string>
-	<string name="titulo_lista_incorrecto">Paises Incorrectos</string>
-	<string name="seleccion_de_pais">Seleccione Pais...</string>
+    <string name="viajar">Viajar a:</string>
+    <string name="titulo_lista_correcto">Paises Correctos:</string>
+	<string name="titulo_lista_incorrecto">Paises Incorrectos:</string>
+	<string name="seleccion_de_pais">Seleccione Pais</string>
+	<string name="titulo_pais">Pais Actual: </string>
     
 </resources>

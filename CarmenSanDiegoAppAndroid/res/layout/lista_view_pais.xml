@@ -9,6 +9,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:text="@string/seleccion_de_pais"
-        android:textSize="@dimen/lista_pais_size" />
+        android:textSize="14dp" />
 
 </RelativeLayout>
