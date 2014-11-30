@@ -16,6 +16,7 @@ import android.util.Log
 import com.example.services.PaisesService
 import retrofit.RestAdapter
 import android.widget.TextView
+import android.widget.Button
 
 class MainActivity extends Activity implements OnItemSelectedListener{
 
@@ -27,7 +28,31 @@ class MainActivity extends Activity implements OnItemSelectedListener{
 		contentView = R.layout.activity_main
 		
 		actualizarDatos
-
+				
+		
+		findViewById(R.id.btn_viajar) as Button =>[
+			onClickListener = new View.OnClickListener(){
+				override onClick(View v) {
+					viajar()
+				}	
+			}
+		]
+	}
+	
+	def viajar() {
+		val paisesService = crearPaiService		
+		paisesService.viajar(aux, new Callback<String>(){
+			override failure(RetrofitError e) {
+					Log.e("", e.message)
+						e.printStackTrace
+			}
+			override success(String arg0, Response arg1) {
+				actualizarDatos
+				aux = ""
+			}		
+		})
+		
+		
 	}
 	
 	
@@ -39,10 +64,20 @@ class MainActivity extends Activity implements OnItemSelectedListener{
 	
 		//Spinner
 		buscarPaises
+		
+		//Cargar lista de paises correctos
+		
+		buscarListaCorrectos
+		
+		//Cargar lista de paises incorrectos
+		
+		buscarListaCorrectos
+		buscarListaIncorrectos
+		
 	}
 	
 	// Metodos que buscan en el servidor
-	
+		
 	def buscarPaisActual(){
 		val paisesService = crearPaiService		
 		paisesService.getPaisActual(
@@ -71,6 +106,34 @@ class MainActivity extends Activity implements OnItemSelectedListener{
 			})	
 	}
 	
+		def buscarListaCorrectos(){
+		val paisesService = crearPaiService		
+		paisesService.getListaCorrectos(
+			new Callback<String>(){
+				override failure(RetrofitError e) {
+					Log.e("", e.message)
+						e.printStackTrace
+				}
+				override success(String listaCorrectos, Response arg1) {
+					setListaCorrectos(listaCorrectos)
+				}		
+			})
+	}
+	
+	def buscarListaIncorrectos(){
+		val paisesService = crearPaiService		
+		paisesService.getListaIncorrectos(
+			new Callback<String>(){
+				override failure(RetrofitError e) {
+					Log.e("", e.message)
+						e.printStackTrace
+				}
+				override success(String listaIncorrectos, Response arg1) {
+					setListaIncorrectos(listaIncorrectos)
+				}		
+			})
+	}
+	
 	// Definiciones de vista
 	
 	def mostrarPaises(List<String> paises){
@@ -83,6 +146,18 @@ class MainActivity extends Activity implements OnItemSelectedListener{
 	def setNombrePaisActual(String nombreDelPais){
 		val destino = findViewById(R.id.pais_actual) as TextView
 		destino.setText(nombreDelPais)
+	}
+	
+	def setListaIncorrectos(String listaIncorrectos){
+		findViewById(R.id.lista_incorrectos) as TextView =>[
+			text = listaIncorrectos
+		]		
+	}
+		
+	def setListaCorrectos(String listaCorrectos){
+		findViewById(R.id.lista_correctos) as TextView =>[
+			text = listaCorrectos
+		]	
 	}
 
 	// Implementacion de OnItemSelectedListener del Spinner
