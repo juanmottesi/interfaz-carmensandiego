@@ -72,4 +72,19 @@ class CasoAppModel {
 		}
 		return "Perdiste T_T"
 	}
+	
+	def getStringPaisesVisitadosIncorrectos(){
+		transformListToString(paisesVisitadosIncorrectos)
+	}
+	
+	def getStringPaisesVisitadosCorrectos(){
+		transformListToString(paisesVisitadosCorrectos)
+	}
+	
+	def transformListToString(List<String> ls){
+		var ret = ls.toString
+		ret = ret.substring(1,ret.length-1)
+		ret = ret.replace(", ", " -> ")
+		ret
+	}
 }
