@@ -151,6 +151,6 @@
   <classpathentry kind="lib" path="C:\Users\juan\.ivy2\cache\org.easytesting\fest-util\jars\fest-util-1.1.6.jar"/>
   <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
   <classpathentry kind="output" path="bin"/>
-  <classpathentry path="C:\Users\juan\Documents\facultad\CarmenSanDiegoAppWeb\target\scala-2.11\classes_managed" kind="lib"></classpathentry>
+  <classpathentry path="C:\Users\juan\Documents\facultad\eclipse\workspace\CarmenSanDiegoAppWeb\target\scala-2.11\classes_managed" kind="lib"></classpathentry>
   <classpathentry path="C:\Users\juan\.ivy2\cache\org.scala-lang\scala-library\jars\scala-library-2.11.2.jar" kind="lib"></classpathentry>
 </classpath>

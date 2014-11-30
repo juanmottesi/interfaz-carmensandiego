@@ -4,13 +4,14 @@
 
 # LIBROS
 GET 	/iniciar					controllers.Application.iniciarJuego()
-GET 	/ordendearresto				controllers.Application.getOrdenDeArresto()
-GET		/paisactual					controllers.Application.getPaisAcutal()
-POST	/ordendearresto/:villano	controllers.Application.ordenDeArresto(villano:String)
-POST	/viajar/:pais				controllers.Application.viajar(pais:String)
-GET		/final						controllers.Application.esFinal()
-GET		/expedientes				controllers.Application.getExpedientes()
-  	
+GET		/ordendearresto/:villano	controllers.Application.ordenDeArresto(villano:String)
+GET		/viajar/:pais				controllers.Application.viajar2(pais:String)
+GET		/final						controllers.Application.fin()
+GET		/pistas						controllers.Application.obtenerPistas()
+GET		/conexiones					controllers.Application.getConexionesAereas()  	
+GET 	/paisactual					controllers.Application.getPaisActualNombre()
+GET		/listaincorrectos			controllers.Application.getListaIncorrectos()
+GET		/listacorrectos				controllers.Application.getListaCorrectos()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

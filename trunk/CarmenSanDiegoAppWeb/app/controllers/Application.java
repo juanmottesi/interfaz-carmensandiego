@@ -18,7 +18,6 @@ public class Application extends Controller {
     public static Result viajar(String pais){
     	CasoAppModel caso = CasoAppModel.getInstance().viajar(pais);
 		return ok(Json.toJson(caso));
-    	
     }
     
     public static Result ordenDeArresto(String villano){
@@ -34,6 +33,35 @@ public class Application extends Controller {
     	response().setContentType("application/json");
     	List<List<String>> pistas = CasoAppModel.getInstance().generarPistas();
     	return ok(Json.toJson(pistas));
+    }
+    
+    public static Result getConexionesAereas(){
+    	response().setContentType("application/json");
+    	List<String> paises = CasoAppModel.getInstance().getCasoActual().getCiudadActual().getConexionesAereas();
+    	return ok(Json.toJson(paises));
+    }
+    
+    public static Result getPaisActualNombre(){
+    	response().setContentType("application/json");
+    	String nombreDelPais = CasoAppModel.getInstance().getCasoActual().getCiudadActual().getNombreDelPais();
+    	return ok(Json.toJson(nombreDelPais));
+    }
+    
+    public static Result viajar2(String pais){
+    	CasoAppModel.getInstance().viajar(pais);
+		return ok(Json.toJson("ok"));
+    }
+    
+    public static Result getListaCorrectos(){
+    	response().setContentType("application/json");
+    	String listaCorrectos= CasoAppModel.getInstance().getStringPaisesVisitadosCorrectos();
+    	return ok(Json.toJson(listaCorrectos));
+    }
+    
+    public static Result getListaIncorrectos(){
+    	response().setContentType("application/json");
+    	String listaIncorrectos= CasoAppModel.getInstance().getStringPaisesVisitadosIncorrectos();
+    	return ok(Json.toJson(listaIncorrectos));
     }
     
 }
