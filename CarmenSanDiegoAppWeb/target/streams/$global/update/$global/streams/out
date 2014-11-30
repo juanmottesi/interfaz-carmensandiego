@@ -1,4 +1,4 @@
-[0m[[0minfo[0m] [0mUpdating {file:/C:/Users/juan/Documents/facultad/CarmenSanDiegoAppWeb/}root...[0m
+[0m[[0minfo[0m] [0mUpdating {file:/C:/Users/juan/Documents/facultad/eclipse/workspace/CarmenSanDiegoAppWeb/}root...[0m
 [0m[[0mdebug[0m] [0m:: resolving dependencies :: carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT[0m
 [0m[[0mdebug[0m] [0m	confs: [compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool][0m
 [0m[[0mdebug[0m] [0m	validate = true[0m
@@ -7,7 +7,7 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies for carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT [compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.1 [compile->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.11.1 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@2f8bc95[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@6306524c[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-lang#scala-library;2.11.1[0m
 [0m[[0mdebug[0m] [0m	local: revision in cache: org.scala-lang#scala-library;2.11.1[0m
 [0m[[0mdebug[0m] [0m	found org.scala-lang#scala-library;2.11.1 in sbt-chain[0m
@@ -1064,7 +1064,7 @@
 [0m[[0mdebug[0m] [0m		tried C:\Users\juan\.ivy2\local\com.google.guava\guava\[revision]\ivys\ivy.xml[0m
 [0m[[0mdebug[0m] [0m	local: no ivy file found for com.google.guava#guava;[10.0.1,14.0.1][0m
 [0m[[0mdebug[0m] [0mdefault-cache: cached resolved revision expired for com.google.guava#guava;[10.0.1,14.0.1][0m
-[0m[[0mdebug[0m] [0m		tried file:/C:/Users/juan/Documents/facultad/CarmenSanDiegoAppWeb/repository/com.google.guava/guava/[revision]/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m		tried file:/C:/Users/juan/Documents/facultad/eclipse/workspace/CarmenSanDiegoAppWeb/repository/com.google.guava/guava/[revision]/ivys/ivy.xml[0m
 [0m[[0mdebug[0m] [0m	activator-local: no ivy file found for com.google.guava#guava;[10.0.1,14.0.1][0m
 [0m[[0mdebug[0m] [0mdefault-cache: cached resolved revision expired for com.google.guava#guava;[10.0.1,14.0.1][0m
 [0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/com/google/guava/guava/[revision]/guava-[revision].pom[0m
@@ -1098,7 +1098,7 @@
 [0m[[0mdebug[0m] [0m		tried C:\Users\juan\.ivy2\local\org.uqbar-project\arena-jface\3.4-SNAPSHOT\ivys\ivy.xml[0m
 [0m[[0mdebug[0m] [0m	local: no ivy file found for org.uqbar-project#arena-jface;3.4-SNAPSHOT[0m
 [0m[[0mdebug[0m] [0mdon't use cache for org.uqbar-project#arena-jface;3.4-SNAPSHOT: changing=true[0m
-[0m[[0mdebug[0m] [0m		tried file:/C:/Users/juan/Documents/facultad/CarmenSanDiegoAppWeb/repository/org.uqbar-project/arena-jface/3.4-SNAPSHOT/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m		tried file:/C:/Users/juan/Documents/facultad/eclipse/workspace/CarmenSanDiegoAppWeb/repository/org.uqbar-project/arena-jface/3.4-SNAPSHOT/ivys/ivy.xml[0m
 [0m[[0mdebug[0m] [0m	activator-local: no ivy file found for org.uqbar-project#arena-jface;3.4-SNAPSHOT[0m
 [0m[[0mdebug[0m] [0mdon't use cache for org.uqbar-project#arena-jface;3.4-SNAPSHOT: changing=true[0m
 [0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo1.maven.org/maven2/org/uqbar-project/arena-jface/3.4-SNAPSHOT/maven-metadata.xml[0m
@@ -1138,7 +1138,7 @@
 [0m[[0mdebug[0m] [0m		tried C:\Users\juan\.ivy2\local\org.uqbar-project\arena\3.4-SNAPSHOT\ivys\ivy.xml[0m
 [0m[[0mdebug[0m] [0m	local: no ivy file found for org.uqbar-project#arena;3.4-SNAPSHOT[0m
 [0m[[0mdebug[0m] [0mdon't use cache for org.uqbar-project#arena;3.4-SNAPSHOT: changing=true[0m
-[0m[[0mdebug[0m] [0m		tried file:/C:/Users/juan/Documents/facultad/CarmenSanDiegoAppWeb/repository/org.uqbar-project/arena/3.4-SNAPSHOT/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m		tried file:/C:/Users/juan/Documents/facultad/eclipse/workspace/CarmenSanDiegoAppWeb/repository/org.uqbar-project/arena/3.4-SNAPSHOT/ivys/ivy.xml[0m
 [0m[[0mdebug[0m] [0m	activator-local: no ivy file found for org.uqbar-project#arena;3.4-SNAPSHOT[0m
 [0m[[0mdebug[0m] [0mdon't use cache for org.uqbar-project#arena;3.4-SNAPSHOT: changing=true[0m
 [0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo1.maven.org/maven2/org/uqbar-project/arena/3.4-SNAPSHOT/maven-metadata.xml[0m
@@ -1178,7 +1178,7 @@
 [0m[[0mdebug[0m] [0m		tried C:\Users\juan\.ivy2\local\org.uqbar-project\pot\3.4-SNAPSHOT\ivys\ivy.xml[0m
 [0m[[0mdebug[0m] [0m	local: no ivy file found for org.uqbar-project#pot;3.4-SNAPSHOT[0m
 [0m[[0mdebug[0m] [0mdon't use cache for org.uqbar-project#pot;3.4-SNAPSHOT: changing=true[0m
-[0m[[0mdebug[0m] [0m		tried file:/C:/Users/juan/Documents/facultad/CarmenSanDiegoAppWeb/repository/org.uqbar-project/pot/3.4-SNAPSHOT/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m		tried file:/C:/Users/juan/Documents/facultad/eclipse/workspace/CarmenSanDiegoAppWeb/repository/org.uqbar-project/pot/3.4-SNAPSHOT/ivys/ivy.xml[0m
 [0m[[0mdebug[0m] [0m	activator-local: no ivy file found for org.uqbar-project#pot;3.4-SNAPSHOT[0m
 [0m[[0mdebug[0m] [0mdon't use cache for org.uqbar-project#pot;3.4-SNAPSHOT: changing=true[0m
 [0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo1.maven.org/maven2/org/uqbar-project/pot/3.4-SNAPSHOT/maven-metadata.xml[0m
@@ -1218,7 +1218,7 @@
 [0m[[0mdebug[0m] [0m		tried C:\Users\juan\.ivy2\local\org.uqbar-project\apo-core\3.4-SNAPSHOT\ivys\ivy.xml[0m
 [0m[[0mdebug[0m] [0m	local: no ivy file found for org.uqbar-project#apo-core;3.4-SNAPSHOT[0m
 [0m[[0mdebug[0m] [0mdon't use cache for org.uqbar-project#apo-core;3.4-SNAPSHOT: changing=true[0m
-[0m[[0mdebug[0m] [0m		tried file:/C:/Users/juan/Documents/facultad/CarmenSanDiegoAppWeb/repository/org.uqbar-project/apo-core/3.4-SNAPSHOT/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m		tried file:/C:/Users/juan/Documents/facultad/eclipse/workspace/CarmenSanDiegoAppWeb/repository/org.uqbar-project/apo-core/3.4-SNAPSHOT/ivys/ivy.xml[0m
 [0m[[0mdebug[0m] [0m	activator-local: no ivy file found for org.uqbar-project#apo-core;3.4-SNAPSHOT[0m
 [0m[[0mdebug[0m] [0mdon't use cache for org.uqbar-project#apo-core;3.4-SNAPSHOT: changing=true[0m
 [0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo1.maven.org/maven2/org/uqbar-project/apo-core/3.4-SNAPSHOT/maven-metadata.xml[0m
@@ -1258,7 +1258,7 @@
 [0m[[0mdebug[0m] [0m		tried C:\Users\juan\.ivy2\local\org.uqbar-project\uqbar-domain\3.4-SNAPSHOT\ivys\ivy.xml[0m
 [0m[[0mdebug[0m] [0m	local: no ivy file found for org.uqbar-project#uqbar-domain;3.4-SNAPSHOT[0m
 [0m[[0mdebug[0m] [0mdon't use cache for org.uqbar-project#uqbar-domain;3.4-SNAPSHOT: changing=true[0m
-[0m[[0mdebug[0m] [0m		tried file:/C:/Users/juan/Documents/facultad/CarmenSanDiegoAppWeb/repository/org.uqbar-project/uqbar-domain/3.4-SNAPSHOT/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m		tried file:/C:/Users/juan/Documents/facultad/eclipse/workspace/CarmenSanDiegoAppWeb/repository/org.uqbar-project/uqbar-domain/3.4-SNAPSHOT/ivys/ivy.xml[0m
 [0m[[0mdebug[0m] [0m	activator-local: no ivy file found for org.uqbar-project#uqbar-domain;3.4-SNAPSHOT[0m
 [0m[[0mdebug[0m] [0mdon't use cache for org.uqbar-project#uqbar-domain;3.4-SNAPSHOT: changing=true[0m
 [0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo1.maven.org/maven2/org/uqbar-project/uqbar-domain/3.4-SNAPSHOT/maven-metadata.xml[0m
@@ -1363,7 +1363,7 @@
 [0m[[0mdebug[0m] [0m		tried C:\Users\juan\.ivy2\local\com.uqbar\uqbar-commons-collections\1.0-SNAPSHOT\ivys\ivy.xml[0m
 [0m[[0mdebug[0m] [0m	local: no ivy file found for com.uqbar#uqbar-commons-collections;1.0-SNAPSHOT[0m
 [0m[[0mdebug[0m] [0mdon't use cache for com.uqbar#uqbar-commons-collections;1.0-SNAPSHOT: changing=true[0m
-[0m[[0mdebug[0m] [0m		tried file:/C:/Users/juan/Documents/facultad/CarmenSanDiegoAppWeb/repository/com.uqbar/uqbar-commons-collections/1.0-SNAPSHOT/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m		tried file:/C:/Users/juan/Documents/facultad/eclipse/workspace/CarmenSanDiegoAppWeb/repository/com.uqbar/uqbar-commons-collections/1.0-SNAPSHOT/ivys/ivy.xml[0m
 [0m[[0mdebug[0m] [0m	activator-local: no ivy file found for com.uqbar#uqbar-commons-collections;1.0-SNAPSHOT[0m
 [0m[[0mdebug[0m] [0mdon't use cache for com.uqbar#uqbar-commons-collections;1.0-SNAPSHOT: changing=true[0m
 [0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo1.maven.org/maven2/com/uqbar/uqbar-commons-collections/1.0-SNAPSHOT/maven-metadata.xml[0m
@@ -1403,7 +1403,7 @@
 [0m[[0mdebug[0m] [0m		tried C:\Users\juan\.ivy2\local\com.uqbar\uqbar-commons-exceptions\1.5-SNAPSHOT\ivys\ivy.xml[0m
 [0m[[0mdebug[0m] [0m	local: no ivy file found for com.uqbar#uqbar-commons-exceptions;1.5-SNAPSHOT[0m
 [0m[[0mdebug[0m] [0mdon't use cache for com.uqbar#uqbar-commons-exceptions;1.5-SNAPSHOT: changing=true[0m
-[0m[[0mdebug[0m] [0m		tried file:/C:/Users/juan/Documents/facultad/CarmenSanDiegoAppWeb/repository/com.uqbar/uqbar-commons-exceptions/1.5-SNAPSHOT/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m		tried file:/C:/Users/juan/Documents/facultad/eclipse/workspace/CarmenSanDiegoAppWeb/repository/com.uqbar/uqbar-commons-exceptions/1.5-SNAPSHOT/ivys/ivy.xml[0m
 [0m[[0mdebug[0m] [0m	activator-local: no ivy file found for com.uqbar#uqbar-commons-exceptions;1.5-SNAPSHOT[0m
 [0m[[0mdebug[0m] [0mdon't use cache for com.uqbar#uqbar-commons-exceptions;1.5-SNAPSHOT: changing=true[0m
 [0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo1.maven.org/maven2/com/uqbar/uqbar-commons-exceptions/1.5-SNAPSHOT/maven-metadata.xml[0m
@@ -1511,7 +1511,7 @@
 [0m[[0mdebug[0m] [0m		tried C:\Users\juan\.ivy2\local\org.uqbar-project\poo\3.4-SNAPSHOT\ivys\ivy.xml[0m
 [0m[[0mdebug[0m] [0m	local: no ivy file found for org.uqbar-project#poo;3.4-SNAPSHOT[0m
 [0m[[0mdebug[0m] [0mdon't use cache for org.uqbar-project#poo;3.4-SNAPSHOT: changing=true[0m
-[0m[[0mdebug[0m] [0m		tried file:/C:/Users/juan/Documents/facultad/CarmenSanDiegoAppWeb/repository/org.uqbar-project/poo/3.4-SNAPSHOT/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m		tried file:/C:/Users/juan/Documents/facultad/eclipse/workspace/CarmenSanDiegoAppWeb/repository/org.uqbar-project/poo/3.4-SNAPSHOT/ivys/ivy.xml[0m
 [0m[[0mdebug[0m] [0m	activator-local: no ivy file found for org.uqbar-project#poo;3.4-SNAPSHOT[0m
 [0m[[0mdebug[0m] [0mdon't use cache for org.uqbar-project#poo;3.4-SNAPSHOT: changing=true[0m
 [0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo1.maven.org/maven2/org/uqbar-project/poo/3.4-SNAPSHOT/maven-metadata.xml[0m
@@ -9023,6 +9023,8 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.1 [scala-tool->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.1 [scala-tool->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.1 [scala-tool->optional(default)][0m
+[0m[[0mdebug[0m] [0mcircular dependency found: org.scala-lang.modules#scala-xml_2.11;1.0.1->org.scala-lang#scala-compiler;2.11.0->...[0m
+[0m[[0mdebug[0m] [0mcircular dependency found: org.scala-lang#scala-compiler;2.11.1->org.scala-lang.modules#scala-xml_2.11;1.0.2->...[0m
 [0m[[0mdebug[0m] [0m	resolved ivy file produced in cache[0m
 [0m[[0mdebug[0m] [0m:: downloading artifacts ::[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#scala-library;2.11.1!scala-library.jar[0m
@@ -9193,19 +9195,19 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#scala-compiler;2.11.1!scala-compiler.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang.modules#scala-xml_2.11;1.0.2!scala-xml_2.11.jar(bundle)[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] jline#jline;2.11!jline.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 14077ms :: artifacts dl 94ms[0m
-[0m[[0mdebug[0m] [0m	report for carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT compile produced in C:\Users\juan\Documents\facultad\CarmenSanDiegoAppWeb\target\resolution-cache\reports\carmensandiegoappweb-carmensandiegoappweb_2.11-compile.xml[0m
-[0m[[0mdebug[0m] [0m	report for carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT runtime produced in C:\Users\juan\Documents\facultad\CarmenSanDiegoAppWeb\target\resolution-cache\reports\carmensandiegoappweb-carmensandiegoappweb_2.11-runtime.xml[0m
-[0m[[0mdebug[0m] [0m	report for carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT test produced in C:\Users\juan\Documents\facultad\CarmenSanDiegoAppWeb\target\resolution-cache\reports\carmensandiegoappweb-carmensandiegoappweb_2.11-test.xml[0m
-[0m[[0mdebug[0m] [0m	report for carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT provided produced in C:\Users\juan\Documents\facultad\CarmenSanDiegoAppWeb\target\resolution-cache\reports\carmensandiegoappweb-carmensandiegoappweb_2.11-provided.xml[0m
-[0m[[0mdebug[0m] [0m	report for carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT optional produced in C:\Users\juan\Documents\facultad\CarmenSanDiegoAppWeb\target\resolution-cache\reports\carmensandiegoappweb-carmensandiegoappweb_2.11-optional.xml[0m
-[0m[[0mdebug[0m] [0m	report for carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT compile-internal produced in C:\Users\juan\Documents\facultad\CarmenSanDiegoAppWeb\target\resolution-cache\reports\carmensandiegoappweb-carmensandiegoappweb_2.11-compile-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT runtime-internal produced in C:\Users\juan\Documents\facultad\CarmenSanDiegoAppWeb\target\resolution-cache\reports\carmensandiegoappweb-carmensandiegoappweb_2.11-runtime-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT test-internal produced in C:\Users\juan\Documents\facultad\CarmenSanDiegoAppWeb\target\resolution-cache\reports\carmensandiegoappweb-carmensandiegoappweb_2.11-test-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT plugin produced in C:\Users\juan\Documents\facultad\CarmenSanDiegoAppWeb\target\resolution-cache\reports\carmensandiegoappweb-carmensandiegoappweb_2.11-plugin.xml[0m
-[0m[[0mdebug[0m] [0m	report for carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT sources produced in C:\Users\juan\Documents\facultad\CarmenSanDiegoAppWeb\target\resolution-cache\reports\carmensandiegoappweb-carmensandiegoappweb_2.11-sources.xml[0m
-[0m[[0mdebug[0m] [0m	report for carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT docs produced in C:\Users\juan\Documents\facultad\CarmenSanDiegoAppWeb\target\resolution-cache\reports\carmensandiegoappweb-carmensandiegoappweb_2.11-docs.xml[0m
-[0m[[0mdebug[0m] [0m	report for carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT pom produced in C:\Users\juan\Documents\facultad\CarmenSanDiegoAppWeb\target\resolution-cache\reports\carmensandiegoappweb-carmensandiegoappweb_2.11-pom.xml[0m
-[0m[[0mdebug[0m] [0m	report for carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT scala-tool produced in C:\Users\juan\Documents\facultad\CarmenSanDiegoAppWeb\target\resolution-cache\reports\carmensandiegoappweb-carmensandiegoappweb_2.11-scala-tool.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (14077ms resolve - 94ms download)[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 14853ms :: artifacts dl 135ms[0m
+[0m[[0mdebug[0m] [0m	report for carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT compile produced in C:\Users\juan\Documents\facultad\eclipse\workspace\CarmenSanDiegoAppWeb\target\resolution-cache\reports\carmensandiegoappweb-carmensandiegoappweb_2.11-compile.xml[0m
+[0m[[0mdebug[0m] [0m	report for carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT runtime produced in C:\Users\juan\Documents\facultad\eclipse\workspace\CarmenSanDiegoAppWeb\target\resolution-cache\reports\carmensandiegoappweb-carmensandiegoappweb_2.11-runtime.xml[0m
+[0m[[0mdebug[0m] [0m	report for carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT test produced in C:\Users\juan\Documents\facultad\eclipse\workspace\CarmenSanDiegoAppWeb\target\resolution-cache\reports\carmensandiegoappweb-carmensandiegoappweb_2.11-test.xml[0m
+[0m[[0mdebug[0m] [0m	report for carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT provided produced in C:\Users\juan\Documents\facultad\eclipse\workspace\CarmenSanDiegoAppWeb\target\resolution-cache\reports\carmensandiegoappweb-carmensandiegoappweb_2.11-provided.xml[0m
+[0m[[0mdebug[0m] [0m	report for carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT optional produced in C:\Users\juan\Documents\facultad\eclipse\workspace\CarmenSanDiegoAppWeb\target\resolution-cache\reports\carmensandiegoappweb-carmensandiegoappweb_2.11-optional.xml[0m
+[0m[[0mdebug[0m] [0m	report for carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT compile-internal produced in C:\Users\juan\Documents\facultad\eclipse\workspace\CarmenSanDiegoAppWeb\target\resolution-cache\reports\carmensandiegoappweb-carmensandiegoappweb_2.11-compile-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT runtime-internal produced in C:\Users\juan\Documents\facultad\eclipse\workspace\CarmenSanDiegoAppWeb\target\resolution-cache\reports\carmensandiegoappweb-carmensandiegoappweb_2.11-runtime-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT test-internal produced in C:\Users\juan\Documents\facultad\eclipse\workspace\CarmenSanDiegoAppWeb\target\resolution-cache\reports\carmensandiegoappweb-carmensandiegoappweb_2.11-test-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT plugin produced in C:\Users\juan\Documents\facultad\eclipse\workspace\CarmenSanDiegoAppWeb\target\resolution-cache\reports\carmensandiegoappweb-carmensandiegoappweb_2.11-plugin.xml[0m
+[0m[[0mdebug[0m] [0m	report for carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT sources produced in C:\Users\juan\Documents\facultad\eclipse\workspace\CarmenSanDiegoAppWeb\target\resolution-cache\reports\carmensandiegoappweb-carmensandiegoappweb_2.11-sources.xml[0m
+[0m[[0mdebug[0m] [0m	report for carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT docs produced in C:\Users\juan\Documents\facultad\eclipse\workspace\CarmenSanDiegoAppWeb\target\resolution-cache\reports\carmensandiegoappweb-carmensandiegoappweb_2.11-docs.xml[0m
+[0m[[0mdebug[0m] [0m	report for carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT pom produced in C:\Users\juan\Documents\facultad\eclipse\workspace\CarmenSanDiegoAppWeb\target\resolution-cache\reports\carmensandiegoappweb-carmensandiegoappweb_2.11-pom.xml[0m
+[0m[[0mdebug[0m] [0m	report for carmensandiegoappweb#carmensandiegoappweb_2.11;1.0-SNAPSHOT scala-tool produced in C:\Users\juan\Documents\facultad\eclipse\workspace\CarmenSanDiegoAppWeb\target\resolution-cache\reports\carmensandiegoappweb-carmensandiegoappweb_2.11-scala-tool.xml[0m
+[0m[[0mdebug[0m] [0m	resolve done (14853ms resolve - 135ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m
