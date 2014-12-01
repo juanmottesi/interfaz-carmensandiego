@@ -77,23 +77,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     
+    <!-- Text si tiene orden de arresto emitida -->
+    
+    <TextView 
+        android:id="@+id/orden_emitida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    
     <!-- Botones Orden de arresto y buscar pistas -->
     
     <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content" >
+    android:layout_height="wrap_content" 
+    android:gravity="center_horizontal">
 
 	    <Button
-	        android:id="@+id/button1"
+	        android:id="@+id/btn_ir_orden"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:text="Button" />
+	        android:text="@string/btn_ir_orden" />
 	
 	    <Button
-	        android:id="@+id/button2"
+	        android:id="@+id/btn_ir_pistas"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:text="Button" />
+	        android:text="@string/btn_ir_pistas" />
 
 	</LinearLayout>
     
