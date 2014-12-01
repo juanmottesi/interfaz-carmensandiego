@@ -9,5 +9,12 @@
 	<string name="titulo_lista_incorrecto">Paises Incorrectos:</string>
 	<string name="seleccion_de_pais">Seleccione Pais</string>
 	<string name="titulo_pais">Pais Actual: </string>
+	<string name="orden_de_arresto">Orden de Arresto</string>
+	<string name="emitir_orden">Emitir orden contra:</string>
+	<string name="btn_ir_pistas">Buscar Pistas</string>
+	<string name="btn_ir_orden">Orden de Arresto</string>
+	<string name="btn_ir_viajar">Viajar</string>
+	<string name="seleccion_de_villano">Seleccione un Villano</string>
+	<string name="pedir_orden">Pedir Orden de Arresto</string>
     
 </resources>

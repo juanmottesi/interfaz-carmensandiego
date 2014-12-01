@@ -1,0 +1,81 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".PistasActivity" >
+    
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+    
+	    <TextView
+	        android:id="@+id/titulo_pais"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/titulo_pais" />
+
+	    <TextView 
+	        android:id="@+id/pais_actual"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content" />
+	    
+	</LinearLayout>
+	
+   	<Button
+        android:id="@+id/btn_pista_uno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+   	<Button
+        android:id="@+id/btn_pista_dos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    	
+    <Button
+        android:id="@+id/btn_pista_tres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    
+    <TextView 
+        android:id="@+id/mostrar_pista"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    
+    <Button 
+        android:id="@+id/btn_terminar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible" />
+    
+	<TextView 
+        android:id="@+id/orden_emitida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" 
+    android:gravity="center_horizontal">
+	    
+	    <Button
+	        android:id="@+id/btn_ir_viajar"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/btn_ir_viajar" />
+
+	    <Button
+	        android:id="@+id/btn_ir_orden"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/btn_ir_orden" />
+
+	</LinearLayout>
+    
+
+</LinearLayout>
