@@ -26,7 +26,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 7"/>
-    <property name="classworlds.conf" value="C:\Users\juan\Documents\facultad\eclipse\workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf1379320956802295060.tmp"/>
+    <property name="classworlds.conf" value="C:\Users\juan\Documents\facultad\eclipse\workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf3836599804769827587.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
     <property name="java.library.path" value="C:\Program Files\Java\jdk1.7.0_60\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\AMD APP\bin\x86_64;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\MKVtoolnix;C:\Program Files\Java\jdk1.7.0_60\bin;C:\Users\juan\Documents\Play;C:\Users\juan\Documents\Maven\bin;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -61,8 +61,8 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase time="0.016" classname="dominio.ExpedienteTest" name="testPuedoIniciarSinVillanos"/>
+  <testcase time="0.017" classname="dominio.ExpedienteTest" name="testPuedoIniciarSinVillanos"/>
   <testcase time="0" classname="dominio.ExpedienteTest" name="testAgregarVillano"/>
   <testcase time="0" classname="dominio.ExpedienteTest" name="testPuedoIniciar"/>
-  <testcase time="0.001" classname="dominio.ExpedienteTest" name="testObtenerVillano"/>
+  <testcase time="0.002" classname="dominio.ExpedienteTest" name="testObtenerVillano"/>
 </testsuite>

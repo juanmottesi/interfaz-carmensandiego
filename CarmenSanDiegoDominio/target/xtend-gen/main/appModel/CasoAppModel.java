@@ -1,5 +1,7 @@
 package appModel;
 
+import appModel.PistaAppModel;
+import appModel.Tupla;
 import com.google.common.base.Objects;
 import dominio.Caso;
 import dominio.Detective;
@@ -15,6 +17,7 @@ import java.util.List;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
 @SuppressWarnings("all")
@@ -203,6 +206,129 @@ public class CasoAppModel {
       String _replace = ret.replace(", ", " -> ");
       ret = _replace;
       _xblockexpression = ret;
+    }
+    return _xblockexpression;
+  }
+  
+  public ArrayList<PistaAppModel> generarPistasAppModel() {
+    ArrayList<PistaAppModel> _xblockexpression = null;
+    {
+      ArrayList<PistaAppModel> ret = CollectionLiterals.<PistaAppModel>newArrayList();
+      Caso _casoActual = this.getCasoActual();
+      Pais _ciudadActual = _casoActual.getCiudadActual();
+      List<Lugar> _lugaresDeInteres = _ciudadActual.getLugaresDeInteres();
+      Lugar primero = _lugaresDeInteres.get(0);
+      String _nombreDelLugar = primero.getNombreDelLugar();
+      Ocupante _ocupante = primero.getOcupante();
+      Caso _casoActual_1 = this.getCasoActual();
+      Villano _villano = _casoActual_1.getVillano();
+      List<String> _pista = _ocupante.pista(_villano);
+      Ocupante _ocupante_1 = primero.getOcupante();
+      boolean _esVillano = _ocupante_1.esVillano();
+      Tupla _tupla = new Tupla(_pista, Boolean.valueOf(_esVillano));
+      PistaAppModel _pistaAppModel = new PistaAppModel(_nombreDelLugar, _tupla);
+      ret.add(_pistaAppModel);
+      Caso _casoActual_2 = this.getCasoActual();
+      Pais _ciudadActual_1 = _casoActual_2.getCiudadActual();
+      List<Lugar> _lugaresDeInteres_1 = _ciudadActual_1.getLugaresDeInteres();
+      Lugar segundo = _lugaresDeInteres_1.get(1);
+      String _nombreDelLugar_1 = segundo.getNombreDelLugar();
+      Ocupante _ocupante_2 = segundo.getOcupante();
+      Caso _casoActual_3 = this.getCasoActual();
+      Villano _villano_1 = _casoActual_3.getVillano();
+      List<String> _pista_1 = _ocupante_2.pista(_villano_1);
+      Ocupante _ocupante_3 = segundo.getOcupante();
+      boolean _esVillano_1 = _ocupante_3.esVillano();
+      Tupla _tupla_1 = new Tupla(_pista_1, Boolean.valueOf(_esVillano_1));
+      PistaAppModel _pistaAppModel_1 = new PistaAppModel(_nombreDelLugar_1, _tupla_1);
+      ret.add(_pistaAppModel_1);
+      Caso _casoActual_4 = this.getCasoActual();
+      Pais _ciudadActual_2 = _casoActual_4.getCiudadActual();
+      List<Lugar> _lugaresDeInteres_2 = _ciudadActual_2.getLugaresDeInteres();
+      Lugar tercero = _lugaresDeInteres_2.get(2);
+      String _nombreDelLugar_2 = tercero.getNombreDelLugar();
+      Ocupante _ocupante_4 = tercero.getOcupante();
+      Caso _casoActual_5 = this.getCasoActual();
+      Villano _villano_2 = _casoActual_5.getVillano();
+      List<String> _pista_2 = _ocupante_4.pista(_villano_2);
+      Ocupante _ocupante_5 = tercero.getOcupante();
+      boolean _esVillano_2 = _ocupante_5.esVillano();
+      Tupla _tupla_2 = new Tupla(_pista_2, Boolean.valueOf(_esVillano_2));
+      PistaAppModel _pistaAppModel_2 = new PistaAppModel(_nombreDelLugar_2, _tupla_2);
+      ret.add(_pistaAppModel_2);
+      _xblockexpression = ret;
+    }
+    return _xblockexpression;
+  }
+  
+  public ArrayList<PistaAppModel> generarPistasAppModel(final String pais) {
+    ArrayList<PistaAppModel> _xblockexpression = null;
+    {
+      Mapamundi _instance = Mapamundi.getInstance();
+      final Pais pActual = _instance.getPais(pais);
+      ArrayList<PistaAppModel> _newArrayList = CollectionLiterals.<PistaAppModel>newArrayList();
+      final Procedure1<ArrayList<PistaAppModel>> _function = new Procedure1<ArrayList<PistaAppModel>>() {
+        public void apply(final ArrayList<PistaAppModel> it) {
+          List<Lugar> _lugaresDeInteres = pActual.getLugaresDeInteres();
+          Lugar _get = _lugaresDeInteres.get(0);
+          String _nombreDelLugar = _get.getNombreDelLugar();
+          List<Lugar> _lugaresDeInteres_1 = pActual.getLugaresDeInteres();
+          Lugar _get_1 = _lugaresDeInteres_1.get(0);
+          Ocupante _ocupante = _get_1.getOcupante();
+          Caso _casoActual = CasoAppModel.this.getCasoActual();
+          Villano _villano = _casoActual.getVillano();
+          List<String> _pista = _ocupante.pista(_villano);
+          List<Lugar> _lugaresDeInteres_2 = pActual.getLugaresDeInteres();
+          Lugar _get_2 = _lugaresDeInteres_2.get(0);
+          Ocupante _ocupante_1 = _get_2.getOcupante();
+          boolean _esVillano = _ocupante_1.esVillano();
+          Tupla _tupla = new Tupla(_pista, Boolean.valueOf(_esVillano));
+          PistaAppModel _pistaAppModel = new PistaAppModel(_nombreDelLugar, _tupla);
+          it.add(_pistaAppModel);
+          List<Lugar> _lugaresDeInteres_3 = pActual.getLugaresDeInteres();
+          Lugar _get_3 = _lugaresDeInteres_3.get(1);
+          String _nombreDelLugar_1 = _get_3.getNombreDelLugar();
+          List<Lugar> _lugaresDeInteres_4 = pActual.getLugaresDeInteres();
+          Lugar _get_4 = _lugaresDeInteres_4.get(1);
+          Ocupante _ocupante_2 = _get_4.getOcupante();
+          Caso _casoActual_1 = CasoAppModel.this.getCasoActual();
+          Villano _villano_1 = _casoActual_1.getVillano();
+          List<String> _pista_1 = _ocupante_2.pista(_villano_1);
+          List<Lugar> _lugaresDeInteres_5 = pActual.getLugaresDeInteres();
+          Lugar _get_5 = _lugaresDeInteres_5.get(1);
+          Ocupante _ocupante_3 = _get_5.getOcupante();
+          boolean _esVillano_1 = _ocupante_3.esVillano();
+          Tupla _tupla_1 = new Tupla(_pista_1, Boolean.valueOf(_esVillano_1));
+          PistaAppModel _pistaAppModel_1 = new PistaAppModel(_nombreDelLugar_1, _tupla_1);
+          it.add(_pistaAppModel_1);
+          List<Lugar> _lugaresDeInteres_6 = pActual.getLugaresDeInteres();
+          Lugar _get_6 = _lugaresDeInteres_6.get(2);
+          String _nombreDelLugar_2 = _get_6.getNombreDelLugar();
+          List<Lugar> _lugaresDeInteres_7 = pActual.getLugaresDeInteres();
+          Lugar _get_7 = _lugaresDeInteres_7.get(2);
+          Ocupante _ocupante_4 = _get_7.getOcupante();
+          Caso _casoActual_2 = CasoAppModel.this.getCasoActual();
+          Villano _villano_2 = _casoActual_2.getVillano();
+          List<String> _pista_2 = _ocupante_4.pista(_villano_2);
+          List<Lugar> _lugaresDeInteres_8 = pActual.getLugaresDeInteres();
+          Lugar _get_8 = _lugaresDeInteres_8.get(2);
+          Ocupante _ocupante_5 = _get_8.getOcupante();
+          boolean _esVillano_2 = _ocupante_5.esVillano();
+          Tupla _tupla_2 = new Tupla(_pista_2, Boolean.valueOf(_esVillano_2));
+          PistaAppModel _pistaAppModel_2 = new PistaAppModel(_nombreDelLugar_2, _tupla_2);
+          it.add(_pistaAppModel_2);
+        }
+      };
+      _xblockexpression = ObjectExtensions.<ArrayList<PistaAppModel>>operator_doubleArrow(_newArrayList, _function);
+    }
+    return _xblockexpression;
+  }
+  
+  public CasoAppModel nuevoCaso() {
+    CasoAppModel _xblockexpression = null;
+    {
+      CasoAppModel.instance = null;
+      _xblockexpression = CasoAppModel.getInstance();
     }
     return _xblockexpression;
   }
