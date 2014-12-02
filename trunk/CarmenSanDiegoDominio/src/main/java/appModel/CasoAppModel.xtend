@@ -87,4 +87,30 @@ class CasoAppModel {
 		ret = ret.replace(", ", " -> ")
 		ret
 	}
+	
+	def generarPistasAppModel(){
+		var ret = newArrayList()
+		var primero = casoActual.ciudadActual.lugaresDeInteres.get(0)
+		ret.add(new PistaAppModel(primero.nombreDelLugar, new Tupla(primero.ocupante.pista(casoActual.villano), primero.ocupante.esVillano)))
+		var segundo = casoActual.ciudadActual.lugaresDeInteres.get(1)
+		ret.add(new PistaAppModel(segundo.nombreDelLugar, new Tupla(segundo.ocupante.pista(casoActual.villano), segundo.ocupante.esVillano)))
+		var tercero = casoActual.ciudadActual.lugaresDeInteres.get(2)
+		ret.add(new PistaAppModel(tercero.nombreDelLugar, new Tupla(tercero.ocupante.pista(casoActual.villano), tercero.ocupante.esVillano)))
+		
+		ret	
+	}
+	
+	def generarPistasAppModel(String pais){
+		val pActual = Mapamundi.getInstance.getPais(pais)
+		newArrayList() =>[
+			add(new PistaAppModel((pActual.lugaresDeInteres.get(0).nombreDelLugar),(new Tupla((pActual.lugaresDeInteres.get(0).ocupante.pista(casoActual.villano)),(pActual.lugaresDeInteres.get(0).ocupante.esVillano)))))
+			add(new PistaAppModel((pActual.lugaresDeInteres.get(1).nombreDelLugar),(new Tupla((pActual.lugaresDeInteres.get(1).ocupante.pista(casoActual.villano)),(pActual.lugaresDeInteres.get(1).ocupante.esVillano)))))
+			add(new PistaAppModel((pActual.lugaresDeInteres.get(2).nombreDelLugar),(new Tupla((pActual.lugaresDeInteres.get(2).ocupante.pista(casoActual.villano)),(pActual.lugaresDeInteres.get(2).ocupante.esVillano)))))
+		]
+	}
+	
+	def nuevoCaso(){
+		instance = null
+		getInstance
+	}
 }
