@@ -1,6 +1,6 @@
 // @SOURCE:C:/Users/juan/Documents/facultad/eclipse/workspace/CarmenSanDiegoAppWeb/conf/routes
-// @HASH:839cbd456f5e6073c0742797618b8318933f217f
-// @DATE:Sat Nov 29 22:41:22 ART 2014
+// @HASH:6da7218ed508a2dc5dce4a72a6acfad8ed67ab8b
+// @DATE:Tue Dec 02 00:22:19 ART 2014
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -15,7 +15,10 @@ import _root_.play.libs.F
 import Router.queryString
 
 
+// @LINE:21
 // @LINE:17
+// @LINE:16
+// @LINE:15
 // @LINE:14
 // @LINE:13
 // @LINE:12
@@ -27,11 +30,11 @@ import Router.queryString
 // @LINE:6
 package controllers {
 
-// @LINE:17
+// @LINE:21
 class ReverseAssets {
 
 
-// @LINE:17
+// @LINE:21
 def at(file:String): Call = {
    implicit val _rrc = new ReverseRouteContext(Map(("path", "/public")))
    Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[PathBindable[String]].unbind("file", file))
@@ -41,6 +44,9 @@ def at(file:String): Call = {
 }
                           
 
+// @LINE:17
+// @LINE:16
+// @LINE:15
 // @LINE:14
 // @LINE:13
 // @LINE:12
@@ -52,6 +58,20 @@ def at(file:String): Call = {
 // @LINE:6
 class ReverseApplication {
 
+
+// @LINE:16
+def getVillanos(): Call = {
+   import ReverseRouteContext.empty
+   Call("GET", _prefix + { _defaultPrefix } + "villanos")
+}
+                        
+
+// @LINE:10
+def obtenerPistas2(): Call = {
+   import ReverseRouteContext.empty
+   Call("GET", _prefix + { _defaultPrefix } + "pistas")
+}
+                        
 
 // @LINE:14
 def getListaCorrectos(): Call = {
@@ -74,10 +94,10 @@ def ordenDeArresto(villano:String): Call = {
 }
                         
 
-// @LINE:10
-def obtenerPistas(): Call = {
+// @LINE:17
+def nuevoCaso(): Call = {
    import ReverseRouteContext.empty
-   Call("GET", _prefix + { _defaultPrefix } + "pistas")
+   Call("GET", _prefix + { _defaultPrefix } + "nuevocaso")
 }
                         
 
@@ -116,13 +136,23 @@ def viajar2(pais:String): Call = {
 }
                         
 
+// @LINE:15
+def getOrdenDeArrestoEmitida(): Call = {
+   import ReverseRouteContext.empty
+   Call("GET", _prefix + { _defaultPrefix } + "ordenemitida")
+}
+                        
+
 }
                           
 }
                   
 
 
+// @LINE:21
 // @LINE:17
+// @LINE:16
+// @LINE:15
 // @LINE:14
 // @LINE:13
 // @LINE:12
@@ -135,11 +165,11 @@ def viajar2(pais:String): Call = {
 package controllers.javascript {
 import ReverseRouteContext.empty
 
-// @LINE:17
+// @LINE:21
 class ReverseAssets {
 
 
-// @LINE:17
+// @LINE:21
 def at : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Assets.at",
    """
@@ -153,6 +183,9 @@ def at : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
+// @LINE:17
+// @LINE:16
+// @LINE:15
 // @LINE:14
 // @LINE:13
 // @LINE:12
@@ -164,6 +197,28 @@ def at : JavascriptReverseRoute = JavascriptReverseRoute(
 // @LINE:6
 class ReverseApplication {
 
+
+// @LINE:16
+def getVillanos : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.getVillanos",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "villanos"})
+      }
+   """
+)
+                        
+
+// @LINE:10
+def obtenerPistas2 : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.obtenerPistas2",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "pistas"})
+      }
+   """
+)
+                        
 
 // @LINE:14
 def getListaCorrectos : JavascriptReverseRoute = JavascriptReverseRoute(
@@ -198,12 +253,12 @@ def ordenDeArresto : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:10
-def obtenerPistas : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Application.obtenerPistas",
+// @LINE:17
+def nuevoCaso : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.nuevoCaso",
    """
       function() {
-      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "pistas"})
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "nuevocaso"})
       }
    """
 )
@@ -264,13 +319,27 @@ def viajar2 : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
+// @LINE:15
+def getOrdenDeArrestoEmitida : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.getOrdenDeArrestoEmitida",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "ordenemitida"})
+      }
+   """
+)
+                        
+
 }
               
 }
         
 
 
+// @LINE:21
 // @LINE:17
+// @LINE:16
+// @LINE:15
 // @LINE:14
 // @LINE:13
 // @LINE:12
@@ -283,11 +352,11 @@ def viajar2 : JavascriptReverseRoute = JavascriptReverseRoute(
 package controllers.ref {
 
 
-// @LINE:17
+// @LINE:21
 class ReverseAssets {
 
 
-// @LINE:17
+// @LINE:21
 def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Assets.at(path, file), HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]), "GET", """ Map static resources from the /public folder to the /assets URL path""", _prefix + """assets/$file<.+>""")
 )
@@ -296,6 +365,9 @@ def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.
 }
                           
 
+// @LINE:17
+// @LINE:16
+// @LINE:15
 // @LINE:14
 // @LINE:13
 // @LINE:12
@@ -307,6 +379,18 @@ def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.
 // @LINE:6
 class ReverseApplication {
 
+
+// @LINE:16
+def getVillanos(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.getVillanos(), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "getVillanos", Seq(), "GET", """""", _prefix + """villanos""")
+)
+                      
+
+// @LINE:10
+def obtenerPistas2(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.obtenerPistas2(), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "obtenerPistas2", Seq(), "GET", """""", _prefix + """pistas""")
+)
+                      
 
 // @LINE:14
 def getListaCorrectos(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
@@ -326,9 +410,9 @@ def ordenDeArresto(villano:String): play.api.mvc.HandlerRef[_] = new play.api.mv
 )
                       
 
-// @LINE:10
-def obtenerPistas(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Application.obtenerPistas(), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "obtenerPistas", Seq(), "GET", """""", _prefix + """pistas""")
+// @LINE:17
+def nuevoCaso(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.nuevoCaso(), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "nuevoCaso", Seq(), "GET", """""", _prefix + """nuevocaso""")
 )
                       
 
@@ -359,6 +443,12 @@ def getConexionesAereas(): play.api.mvc.HandlerRef[_] = new play.api.mvc.Handler
 // @LINE:8
 def viajar2(pais:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Application.viajar2(pais), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "viajar2", Seq(classOf[String]), "GET", """""", _prefix + """viajar/$pais<[^/]+>""")
+)
+                      
+
+// @LINE:15
+def getOrdenDeArrestoEmitida(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.getOrdenDeArrestoEmitida(), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "getOrdenDeArrestoEmitida", Seq(), "GET", """""", _prefix + """ordenemitida""")
 )
                       
 

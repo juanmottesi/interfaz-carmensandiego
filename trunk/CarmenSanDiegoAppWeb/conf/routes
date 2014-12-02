@@ -7,11 +7,15 @@ GET 	/iniciar					controllers.Application.iniciarJuego()
 GET		/ordendearresto/:villano	controllers.Application.ordenDeArresto(villano:String)
 GET		/viajar/:pais				controllers.Application.viajar2(pais:String)
 GET		/final						controllers.Application.fin()
-GET		/pistas						controllers.Application.obtenerPistas()
+GET		/pistas						controllers.Application.obtenerPistas2()
 GET		/conexiones					controllers.Application.getConexionesAereas()  	
 GET 	/paisactual					controllers.Application.getPaisActualNombre()
 GET		/listaincorrectos			controllers.Application.getListaIncorrectos()
 GET		/listacorrectos				controllers.Application.getListaCorrectos()
+GET		/ordenemitida				controllers.Application.getOrdenDeArrestoEmitida()
+GET		/villanos					controllers.Application.getVillanos()
+GET		/nuevocaso					controllers.Application.nuevoCaso()
+
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

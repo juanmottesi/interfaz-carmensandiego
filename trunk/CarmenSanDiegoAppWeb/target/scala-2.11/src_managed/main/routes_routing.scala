@@ -1,6 +1,6 @@
 // @SOURCE:C:/Users/juan/Documents/facultad/eclipse/workspace/CarmenSanDiegoAppWeb/conf/routes
-// @HASH:839cbd456f5e6073c0742797618b8318933f217f
-// @DATE:Sat Nov 29 22:41:22 ART 2014
+// @HASH:6da7218ed508a2dc5dce4a72a6acfad8ed67ab8b
+// @DATE:Tue Dec 02 00:22:19 ART 2014
 
 
 import play.core._
@@ -61,10 +61,10 @@ HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "fin", N
         
 
 // @LINE:10
-private[this] lazy val controllers_Application_obtenerPistas4_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("pistas"))))
-private[this] lazy val controllers_Application_obtenerPistas4_invoker = createInvoker(
-controllers.Application.obtenerPistas(),
-HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "obtenerPistas", Nil,"GET", """""", Routes.prefix + """pistas"""))
+private[this] lazy val controllers_Application_obtenerPistas24_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("pistas"))))
+private[this] lazy val controllers_Application_obtenerPistas24_invoker = createInvoker(
+controllers.Application.obtenerPistas2(),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "obtenerPistas2", Nil,"GET", """""", Routes.prefix + """pistas"""))
         
 
 // @LINE:11
@@ -95,13 +95,34 @@ controllers.Application.getListaCorrectos(),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "getListaCorrectos", Nil,"GET", """""", Routes.prefix + """listacorrectos"""))
         
 
+// @LINE:15
+private[this] lazy val controllers_Application_getOrdenDeArrestoEmitida9_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("ordenemitida"))))
+private[this] lazy val controllers_Application_getOrdenDeArrestoEmitida9_invoker = createInvoker(
+controllers.Application.getOrdenDeArrestoEmitida(),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "getOrdenDeArrestoEmitida", Nil,"GET", """""", Routes.prefix + """ordenemitida"""))
+        
+
+// @LINE:16
+private[this] lazy val controllers_Application_getVillanos10_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("villanos"))))
+private[this] lazy val controllers_Application_getVillanos10_invoker = createInvoker(
+controllers.Application.getVillanos(),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "getVillanos", Nil,"GET", """""", Routes.prefix + """villanos"""))
+        
+
 // @LINE:17
-private[this] lazy val controllers_Assets_at9_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assets/"),DynamicPart("file", """.+""",false))))
-private[this] lazy val controllers_Assets_at9_invoker = createInvoker(
+private[this] lazy val controllers_Application_nuevoCaso11_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("nuevocaso"))))
+private[this] lazy val controllers_Application_nuevoCaso11_invoker = createInvoker(
+controllers.Application.nuevoCaso(),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "nuevoCaso", Nil,"GET", """""", Routes.prefix + """nuevocaso"""))
+        
+
+// @LINE:21
+private[this] lazy val controllers_Assets_at12_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assets/"),DynamicPart("file", """.+""",false))))
+private[this] lazy val controllers_Assets_at12_invoker = createInvoker(
 controllers.Assets.at(fakeValue[String], fakeValue[String]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]),"GET", """ Map static resources from the /public folder to the /assets URL path""", Routes.prefix + """assets/$file<.+>"""))
         
-def documentation = List(("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """iniciar""","""controllers.Application.iniciarJuego()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """ordendearresto/$villano<[^/]+>""","""controllers.Application.ordenDeArresto(villano:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """viajar/$pais<[^/]+>""","""controllers.Application.viajar2(pais:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """final""","""controllers.Application.fin()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """pistas""","""controllers.Application.obtenerPistas()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """conexiones""","""controllers.Application.getConexionesAereas()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """paisactual""","""controllers.Application.getPaisActualNombre()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """listaincorrectos""","""controllers.Application.getListaIncorrectos()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """listacorrectos""","""controllers.Application.getListaCorrectos()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
+def documentation = List(("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """iniciar""","""controllers.Application.iniciarJuego()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """ordendearresto/$villano<[^/]+>""","""controllers.Application.ordenDeArresto(villano:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """viajar/$pais<[^/]+>""","""controllers.Application.viajar2(pais:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """final""","""controllers.Application.fin()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """pistas""","""controllers.Application.obtenerPistas2()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """conexiones""","""controllers.Application.getConexionesAereas()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """paisactual""","""controllers.Application.getPaisActualNombre()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """listaincorrectos""","""controllers.Application.getListaIncorrectos()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """listacorrectos""","""controllers.Application.getListaCorrectos()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """ordenemitida""","""controllers.Application.getOrdenDeArrestoEmitida()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """villanos""","""controllers.Application.getVillanos()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """nuevocaso""","""controllers.Application.nuevoCaso()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
   case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
   case l => s ++ l.asInstanceOf[List[(String,String,String)]]
 }}
@@ -142,9 +163,9 @@ case controllers_Application_fin3_route(params) => {
         
 
 // @LINE:10
-case controllers_Application_obtenerPistas4_route(params) => {
+case controllers_Application_obtenerPistas24_route(params) => {
    call { 
-        controllers_Application_obtenerPistas4_invoker.call(controllers.Application.obtenerPistas())
+        controllers_Application_obtenerPistas24_invoker.call(controllers.Application.obtenerPistas2())
    }
 }
         
@@ -181,10 +202,34 @@ case controllers_Application_getListaCorrectos8_route(params) => {
 }
         
 
+// @LINE:15
+case controllers_Application_getOrdenDeArrestoEmitida9_route(params) => {
+   call { 
+        controllers_Application_getOrdenDeArrestoEmitida9_invoker.call(controllers.Application.getOrdenDeArrestoEmitida())
+   }
+}
+        
+
+// @LINE:16
+case controllers_Application_getVillanos10_route(params) => {
+   call { 
+        controllers_Application_getVillanos10_invoker.call(controllers.Application.getVillanos())
+   }
+}
+        
+
 // @LINE:17
-case controllers_Assets_at9_route(params) => {
+case controllers_Application_nuevoCaso11_route(params) => {
+   call { 
+        controllers_Application_nuevoCaso11_invoker.call(controllers.Application.nuevoCaso())
+   }
+}
+        
+
+// @LINE:21
+case controllers_Assets_at12_route(params) => {
    call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
-        controllers_Assets_at9_invoker.call(controllers.Assets.at(path, file))
+        controllers_Assets_at12_invoker.call(controllers.Assets.at(path, file))
    }
 }
         
