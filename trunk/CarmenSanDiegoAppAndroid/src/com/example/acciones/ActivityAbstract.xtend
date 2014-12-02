@@ -18,10 +18,11 @@ abstract class ActivityAbstract extends Activity implements OnItemSelectedListen
 	String aux
 	
 	
+	
 	override onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);		
-		contentView = getLayout//R.layout.activity_pistas
+		contentView = getLayout
 		
 		actualizarDatos
 	

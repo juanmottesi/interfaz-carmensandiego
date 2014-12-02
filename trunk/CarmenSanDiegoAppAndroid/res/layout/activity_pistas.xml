@@ -51,7 +51,8 @@
         android:id="@+id/btn_terminar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+        android:text="Terminar Juego" />
     
 	<TextView 
         android:id="@+id/orden_emitida"
