@@ -9,7 +9,6 @@ import retrofit.Callback
 import retrofit.RetrofitError
 import retrofit.client.Response
 import android.view.View
-import android.app.Dialog
 
 class PistasActivity extends ActivityAbstract {
 		
@@ -57,24 +56,21 @@ class PistasActivity extends ActivityAbstract {
 					e.printStackTrace
 				}
 				override success(List<PistaAppModel> pistaAppModel, Response arg1) {
-					val pistaUno = pistaAppModel.get(0)
-					val pistaDos = pistaAppModel.get(1)
-					val pistaTres = pistaAppModel.get(2)
-					Acciones.setButtonView(activity, R.id.btn_pista_uno, pistaUno.nombreDelLugar, [						
-						Acciones.setTextView(activity,R.id.mostrar_pista, pistaUno.pista.info)
-						if(pistaUno.pista.estaElVillano){
+					Acciones.setButtonView(activity, R.id.btn_pista_uno, pistaAppModel.get(0).nombreDelLugar, [						
+						Acciones.setTextView(activity,R.id.mostrar_pista, pistaAppModel.get(0).pista.info)
+						if(pistaAppModel.get(0).pista.estaElVillano){
 							findViewById(R.id.btn_terminar) =>[visibility = View.VISIBLE]
 						}
 					])
-					Acciones.setButtonView(activity, R.id.btn_pista_dos,pistaDos.nombreDelLugar, [
-						Acciones.setTextView(activity,R.id.mostrar_pista, pistaDos.pista.info)
-						if(pistaDos.pista.estaElVillano){
+					Acciones.setButtonView(activity, R.id.btn_pista_dos,pistaAppModel.get(1).nombreDelLugar, [
+						Acciones.setTextView(activity,R.id.mostrar_pista, pistaAppModel.get(1).pista.info)
+						if(pistaAppModel.get(1).pista.estaElVillano){
 							findViewById(R.id.btn_terminar) =>[visibility = View.VISIBLE]
 						}
 					])
-					Acciones.setButtonView(activity, R.id.btn_pista_tres, pistaTres.nombreDelLugar, [
-						Acciones.setTextView(activity,R.id.mostrar_pista, pistaTres.pista.info)
-						if(pistaTres.pista.estaElVillano){
+					Acciones.setButtonView(activity, R.id.btn_pista_tres, pistaAppModel.get(2).nombreDelLugar, [
+						Acciones.setTextView(activity,R.id.mostrar_pista, pistaAppModel.get(2).pista.info)
+						if(pistaAppModel.get(2).pista.estaElVillano){
 							findViewById(R.id.btn_terminar) =>[visibility = View.VISIBLE]
 						}
 					])
@@ -85,24 +81,7 @@ class PistasActivity extends ActivityAbstract {
 	}
 	
 	def fin(){
-		val paisesService = Acciones.crearServicio
-		val activity = this
-		paisesService.getFin(
-			new Callback<String>(){
-				
-				override failure(RetrofitError e) {
-					Log.e("", e.message)
-					e.printStackTrace
-				}
-				
-				override success(String texto, Response arg1) {
-						new Dialog(activity) =>[
-							contentView = R.layout.dialog_final
-							Acciones.setTextView(activity, R.id.text_final, texto)
-						]
-				}		
-		})
-		
+		new FinDialog().show(fragmentManager,"dialog")
 	}
 	
 }

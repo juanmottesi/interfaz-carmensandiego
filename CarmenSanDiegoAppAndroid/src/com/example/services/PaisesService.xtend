@@ -39,5 +39,8 @@ interface PaisesService {
 
 	@GET("/final")	
 	def void getFin(Callback<String> callback)
-		
+
+	@GET("/nuevocaso")	
+	def void getNuevoCaso(Callback<String> callback)
+			
 }

@@ -72,6 +72,4 @@ class OrdenDeArrestoActivity extends ActivityAbstract {
 			})
 	}
 	
-
-	
 }

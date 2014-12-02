@@ -3,17 +3,17 @@ package com.example.acciones
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Button
-import android.widget.ListView
 import android.widget.Spinner
 import android.widget.TextView
 import com.example.services.PaisesService
 import java.util.List
 import retrofit.RestAdapter
+import android.app.Activity
 
 class Acciones {
 	// Crear servicio
 	def static crearServicio(){
-		val SERVER_IP = "192.168.1.101"//"localhost"//"127.0.0.1" //"10.0.2.2"//"127.0.0.1"//"10.0.2.2" //"localhost"//
+		val SERVER_IP = "192.168.1.102"//"localhost"//"127.0.0.1" //"10.0.2.2"//"127.0.0.1"//"10.0.2.2" //"localhost"//
 		val API_URL = '''http://«SERVER_IP»:9000/'''
 		
 		val restAdapter = new RestAdapter.Builder().setEndpoint(API_URL).build
@@ -24,11 +24,11 @@ class Acciones {
 	
 	// Views de TextView
 	
-	def static setTextView(ActivityAbstract activity, int id, String texto) {
+	def static setTextView(Activity activity, int id, String texto) {
 		activity.findViewById(id) as TextView => [text = texto]
 	}
 
-	def static setTextView(ActivityAbstract activity, int id, List<String> lista) {
+	def static setTextView(Activity activity, int id, List<String> lista) {
 		var aux = lista.toString
 		aux = aux.substring(1,aux.length-1)
 		aux.replace(",", "\n")
@@ -47,7 +47,7 @@ class Acciones {
 	
 	// View de Button
 	
-	def static setButtonView(ActivityAbstract activity, int id, (Object)=>void block){
+	def static setButtonView(Activity activity, int id, (Object)=>void block){
 			activity.findViewById(id) as Button =>[
 				onClickListener = new View.OnClickListener(){
 					override onClick(View v) {
@@ -57,7 +57,7 @@ class Acciones {
 		]
 	}
 	
-	def static setButtonView(ActivityAbstract activity, int id,String nombreButton ,(Object)=>void block){
+	def static setButtonView(Activity activity, int id,String nombreButton ,(Object)=>void block){
 			activity.findViewById(id) as Button =>[
 				text = nombreButton
 				onClickListener = new View.OnClickListener(){
@@ -67,14 +67,5 @@ class Acciones {
 				}
 		]
 	}
-	
-	// View de Lista
-	
-	def static setListView(ActivityAbstract activity, int id, int idView, List<String> lista) {
-		activity.findViewById(id) as ListView =>[
-			adapter = new ArrayAdapter(activity, id, idView, lista)
-			onItemSelectedListener = activity
-		]
-	}
-	
+		
 }
