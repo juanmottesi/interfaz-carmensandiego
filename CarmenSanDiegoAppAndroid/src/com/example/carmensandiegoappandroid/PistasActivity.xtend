@@ -9,6 +9,7 @@ import retrofit.Callback
 import retrofit.RetrofitError
 import retrofit.client.Response
 import android.view.View
+import android.content.Intent
 
 class PistasActivity extends ActivityAbstract {
 		
@@ -81,7 +82,9 @@ class PistasActivity extends ActivityAbstract {
 	}
 	
 	def fin(){
-		new FinDialog().show(fragmentManager,"dialog")
+		var mainView = new Intent(this, FinActivity);
+			startActivityForResult(mainView,0)
+			finish			
 	}
 	
 }
