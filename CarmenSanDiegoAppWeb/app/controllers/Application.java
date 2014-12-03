@@ -23,13 +23,15 @@ public class Application extends Controller {
     }
         
     public static Result viajar(String pais){
+    	response().setContentType("application/json");
     	CasoAppModel caso = CasoAppModel.getInstance().viajar(pais);
 		return ok(Json.toJson(caso));
     }
     
     public static Result ordenDeArresto(String villano){
+    	response().setContentType("application/json");
     	CasoAppModel.getInstance().ordenDeArresto(villano);
-    	return ok();
+    	return ok(Json.toJson(CasoAppModel.getInstance()));
     }
     
     public static Result fin(){
