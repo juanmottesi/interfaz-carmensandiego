@@ -44,7 +44,7 @@
     	</activity>
     	
         <activity
-        	android:name=".FinDialog"
+        	android:name=".FinActivity"
         	android:parentActivityName=".MainActivity" >
         	<meta-data
             	android:name="android.support.PARENT_ACTIVITY"
