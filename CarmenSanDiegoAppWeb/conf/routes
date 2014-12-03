@@ -4,7 +4,7 @@
 
 # LIBROS
 GET 	/iniciar					controllers.Application.iniciarJuego()
-GET		/ordendearresto/:villano	controllers.Application.ordenDeArresto(villano:String)
+GET		/ordendearresto/:villano	controllers.Application.ordenDeArresto2(villano:String)
 GET		/viajar/:pais				controllers.Application.viajar2(pais:String)
 GET		/final						controllers.Application.fin()
 GET		/pistas						controllers.Application.obtenerPistas2()

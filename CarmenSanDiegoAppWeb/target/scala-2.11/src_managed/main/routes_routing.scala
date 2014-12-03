@@ -1,6 +1,6 @@
 // @SOURCE:C:/Users/juan/Documents/facultad/eclipse/workspace/CarmenSanDiegoAppWeb/conf/routes
-// @HASH:6da7218ed508a2dc5dce4a72a6acfad8ed67ab8b
-// @DATE:Wed Dec 03 03:00:15 ART 2014
+// @HASH:05374eba5630afc7134a3e0d6ed0e991a283d96c
+// @DATE:Wed Dec 03 10:19:25 ART 2014
 
 
 import play.core._
@@ -40,10 +40,10 @@ HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "iniciar
         
 
 // @LINE:7
-private[this] lazy val controllers_Application_ordenDeArresto1_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("ordendearresto/"),DynamicPart("villano", """[^/]+""",true))))
-private[this] lazy val controllers_Application_ordenDeArresto1_invoker = createInvoker(
-controllers.Application.ordenDeArresto(fakeValue[String]),
-HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "ordenDeArresto", Seq(classOf[String]),"GET", """""", Routes.prefix + """ordendearresto/$villano<[^/]+>"""))
+private[this] lazy val controllers_Application_ordenDeArresto21_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("ordendearresto/"),DynamicPart("villano", """[^/]+""",true))))
+private[this] lazy val controllers_Application_ordenDeArresto21_invoker = createInvoker(
+controllers.Application.ordenDeArresto2(fakeValue[String]),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "ordenDeArresto2", Seq(classOf[String]),"GET", """""", Routes.prefix + """ordendearresto/$villano<[^/]+>"""))
         
 
 // @LINE:8
@@ -122,7 +122,7 @@ private[this] lazy val controllers_Assets_at12_invoker = createInvoker(
 controllers.Assets.at(fakeValue[String], fakeValue[String]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]),"GET", """ Map static resources from the /public folder to the /assets URL path""", Routes.prefix + """assets/$file<.+>"""))
         
-def documentation = List(("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """iniciar""","""controllers.Application.iniciarJuego()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """ordendearresto/$villano<[^/]+>""","""controllers.Application.ordenDeArresto(villano:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """viajar/$pais<[^/]+>""","""controllers.Application.viajar2(pais:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """final""","""controllers.Application.fin()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """pistas""","""controllers.Application.obtenerPistas2()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """conexiones""","""controllers.Application.getConexionesAereas()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """paisactual""","""controllers.Application.getPaisActualNombre()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """listaincorrectos""","""controllers.Application.getListaIncorrectos()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """listacorrectos""","""controllers.Application.getListaCorrectos()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """ordenemitida""","""controllers.Application.getOrdenDeArrestoEmitida()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """villanos""","""controllers.Application.getVillanos()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """nuevocaso""","""controllers.Application.nuevoCaso()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
+def documentation = List(("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """iniciar""","""controllers.Application.iniciarJuego()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """ordendearresto/$villano<[^/]+>""","""controllers.Application.ordenDeArresto2(villano:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """viajar/$pais<[^/]+>""","""controllers.Application.viajar2(pais:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """final""","""controllers.Application.fin()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """pistas""","""controllers.Application.obtenerPistas2()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """conexiones""","""controllers.Application.getConexionesAereas()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """paisactual""","""controllers.Application.getPaisActualNombre()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """listaincorrectos""","""controllers.Application.getListaIncorrectos()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """listacorrectos""","""controllers.Application.getListaCorrectos()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """ordenemitida""","""controllers.Application.getOrdenDeArrestoEmitida()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """villanos""","""controllers.Application.getVillanos()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """nuevocaso""","""controllers.Application.nuevoCaso()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
   case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
   case l => s ++ l.asInstanceOf[List[(String,String,String)]]
 }}
@@ -139,9 +139,9 @@ case controllers_Application_iniciarJuego0_route(params) => {
         
 
 // @LINE:7
-case controllers_Application_ordenDeArresto1_route(params) => {
+case controllers_Application_ordenDeArresto21_route(params) => {
    call(params.fromPath[String]("villano", None)) { (villano) =>
-        controllers_Application_ordenDeArresto1_invoker.call(controllers.Application.ordenDeArresto(villano))
+        controllers_Application_ordenDeArresto21_invoker.call(controllers.Application.ordenDeArresto2(villano))
    }
 }
         

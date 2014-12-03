@@ -1,6 +1,6 @@
 // @SOURCE:C:/Users/juan/Documents/facultad/eclipse/workspace/CarmenSanDiegoAppWeb/conf/routes
-// @HASH:6da7218ed508a2dc5dce4a72a6acfad8ed67ab8b
-// @DATE:Wed Dec 03 03:00:15 ART 2014
+// @HASH:05374eba5630afc7134a3e0d6ed0e991a283d96c
+// @DATE:Wed Dec 03 10:19:25 ART 2014
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -80,17 +80,17 @@ def getListaCorrectos(): Call = {
 }
                         
 
+// @LINE:7
+def ordenDeArresto2(villano:String): Call = {
+   import ReverseRouteContext.empty
+   Call("GET", _prefix + { _defaultPrefix } + "ordendearresto/" + implicitly[PathBindable[String]].unbind("villano", dynamicString(villano)))
+}
+                        
+
 // @LINE:12
 def getPaisActualNombre(): Call = {
    import ReverseRouteContext.empty
    Call("GET", _prefix + { _defaultPrefix } + "paisactual")
-}
-                        
-
-// @LINE:7
-def ordenDeArresto(villano:String): Call = {
-   import ReverseRouteContext.empty
-   Call("GET", _prefix + { _defaultPrefix } + "ordendearresto/" + implicitly[PathBindable[String]].unbind("villano", dynamicString(villano)))
 }
                         
 
@@ -231,23 +231,23 @@ def getListaCorrectos : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
+// @LINE:7
+def ordenDeArresto2 : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.ordenDeArresto2",
+   """
+      function(villano) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "ordendearresto/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("villano", encodeURIComponent(villano))})
+      }
+   """
+)
+                        
+
 // @LINE:12
 def getPaisActualNombre : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Application.getPaisActualNombre",
    """
       function() {
       return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "paisactual"})
-      }
-   """
-)
-                        
-
-// @LINE:7
-def ordenDeArresto : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Application.ordenDeArresto",
-   """
-      function(villano) {
-      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "ordendearresto/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("villano", encodeURIComponent(villano))})
       }
    """
 )
@@ -398,15 +398,15 @@ def getListaCorrectos(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRe
 )
                       
 
-// @LINE:12
-def getPaisActualNombre(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Application.getPaisActualNombre(), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "getPaisActualNombre", Seq(), "GET", """""", _prefix + """paisactual""")
+// @LINE:7
+def ordenDeArresto2(villano:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.ordenDeArresto2(villano), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "ordenDeArresto2", Seq(classOf[String]), "GET", """""", _prefix + """ordendearresto/$villano<[^/]+>""")
 )
                       
 
-// @LINE:7
-def ordenDeArresto(villano:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Application.ordenDeArresto(villano), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "ordenDeArresto", Seq(classOf[String]), "GET", """""", _prefix + """ordendearresto/$villano<[^/]+>""")
+// @LINE:12
+def getPaisActualNombre(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.getPaisActualNombre(), HandlerDef(this.getClass.getClassLoader, "", "controllers.Application", "getPaisActualNombre", Seq(), "GET", """""", _prefix + """paisactual""")
 )
                       
 

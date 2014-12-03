@@ -4,15 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dominio.Expediente;
-import dominio.Mapamundi;
-import dominio.Pais;
 import dominio.Villano;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
 import appModel.CasoAppModel;
 import appModel.PistaAppModel;
-import appModel.Tupla;
 
 public class Application extends Controller {
     
@@ -113,6 +110,12 @@ public class Application extends Controller {
     	response().setContentType("application/json");
     	List<PistaAppModel> pistas = CasoAppModel.getInstance().generarPistasAppModel(pais);
     	return ok(Json.toJson(pistas));
+    }
+    
+    public static Result ordenDeArresto2(String villano){
+    	response().setContentType("application/json");
+    	CasoAppModel.getInstance().ordenDeArresto(villano);
+    	return ok(Json.toJson("ok"));
     }
     
     
