@@ -1,6 +1,6 @@
 // @SOURCE:C:/Users/juan/Documents/facultad/eclipse/workspace/CarmenSanDiegoAppWeb/conf/routes
 // @HASH:6da7218ed508a2dc5dce4a72a6acfad8ed67ab8b
-// @DATE:Tue Dec 02 00:22:19 ART 2014
+// @DATE:Wed Dec 03 03:00:15 ART 2014
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
