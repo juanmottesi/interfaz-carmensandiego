@@ -1,16 +1,16 @@
 package com.example.carmensandiegoappandroid
 
-import android.app.AlertDialog
-import android.app.DialogFragment
-import android.content.DialogInterface
-import android.os.Bundle
-import com.example.acciones.Acciones
-import retrofit.RetrofitError
-import retrofit.Callback
-import retrofit.client.Response
+//import android.app.AlertDialog
+//import android.app.DialogFragment
+//import android.content.DialogInterface
+//import android.os.Bundle
+//import com.example.acciones.Acciones
+//import retrofit.RetrofitError
+//import retrofit.Callback
+//import retrofit.client.Response
 import org.eclipse.xtend.lib.annotations.Accessors
-import android.util.Log
-import com.example.acciones.ActivityAbstract
+//import android.util.Log
+//import com.example.acciones.ActivityAbstract
 import android.app.Activity
 
 @Accessors

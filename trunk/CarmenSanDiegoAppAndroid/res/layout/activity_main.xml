@@ -9,101 +9,106 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
-    
+
     <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" >
-    
-	    <TextView
-	        android:id="@+id/titulo_pais"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:text="@string/titulo_pais" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
 
-	    <TextView 
-	        android:id="@+id/pais_actual"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content" />
-	    
-	</LinearLayout>
-	
-    <TextView
-	    android:id="@+id/titulo_viajar"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:text="@string/viajar" />
-    
-    <!--  Seleccion del pais Al cual Viajar -->
-    <Spinner 
-        android:id="@+id/lista_paises"
-        android:layout_height="wrap_content"
-        android:layout_width="fill_parent" />
-    
-    <!-- Boton de Viajar -->
- 	<LinearLayout
-    	android:layout_width="match_parent"
-    	android:layout_height="wrap_content" 
-    	android:gravity="center_horizontal">
-	    
+        <TextView
+            android:id="@+id/titulo_pais"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/titulo_pais" />
 
-	    <Button
-	        android:id="@+id/btn_viajar"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:text="Viajar!!" />
-    
+        <TextView
+            android:id="@+id/pais_actual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
-    
+
+    <TextView
+        android:id="@+id/titulo_viajar"
+        android:layout_width="68dp"
+        android:layout_height="wrap_content"
+        android:text="@string/viajar" />
+
+    <!-- Seleccion del pais Al cual Viajar -->
+
+    <Spinner
+        android:id="@+id/lista_paises"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp" />
+
+    <!-- Boton de Viajar -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal" >
+
+        <Button
+            android:id="@+id/btn_viajar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ir_viajar" />
+    </LinearLayout>
+
     <!-- Se Muestran los paises visitados tanto correctos como incorrectos -->
+
     <TextView
         android:id="@+id/titulo_lista_correctos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="177dp"
+        android:layout_height="34dp"
         android:text="@string/titulo_lista_correcto" />
-    
-     <TextView
+
+    <TextView
         android:id="@+id/lista_correctos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-    
+
     <TextView
         android:id="@+id/titulo_lista_incorrectos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/titulo_lista_incorrecto" />
-    
+
     <TextView
         android:id="@+id/lista_incorrectos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-    
+
     <!-- Text si tiene orden de arresto emitida -->
-    
-    <TextView 
-        android:id="@+id/orden_emitida"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    
+
+  <TableLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content" >
+
+	   <TextView
+	        android:id="@+id/orden_emitida"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content" />
+
     <!-- Botones Orden de arresto y buscar pistas -->
-    
-    <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" 
-    android:gravity="center_horizontal">
 
-	    <Button
-	        android:id="@+id/btn_ir_orden"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:text="@string/btn_ir_orden" />
-	
-	    <Button
-	        android:id="@+id/btn_ir_pistas"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:text="@string/btn_ir_pistas" />
+		<LinearLayout
+			android:layout_width="match_parent"
+	        android:layout_height="wrap_content" >
 
-	</LinearLayout>
-    
+        <Button
+            android:id="@+id/btn_ir_orden"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.47"
+            android:text="@string/btn_ir_orden" />
+
+        <Button
+            android:id="@+id/btn_ir_pistas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.02"
+            android:text="@string/btn_ir_pistas" />
+    	</LinearLayout>
+    	
+  </TableLayout>
 
 </LinearLayout>

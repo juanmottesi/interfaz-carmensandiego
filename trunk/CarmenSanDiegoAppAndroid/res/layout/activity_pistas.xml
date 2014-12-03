@@ -28,18 +28,18 @@
 	</LinearLayout>
 	
    	<Button
-        android:id="@+id/btn_pista_uno"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+   	    android:id="@+id/btn_pista_uno"
+   	    android:layout_width="match_parent"
+   	    android:layout_height="wrap_content" />
 
    	<Button
-        android:id="@+id/btn_pista_dos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+   	    android:id="@+id/btn_pista_dos"
+   	    android:layout_width="match_parent"
+   	    android:layout_height="wrap_content" />
     	
     <Button
         android:id="@+id/btn_pista_tres"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     
     <TextView 
@@ -52,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="invisible"
-        android:text="Terminar Juego" />
+        android:text="@string/terminar_juego" />
     
 	<TextView 
         android:id="@+id/orden_emitida"
@@ -60,23 +60,22 @@
         android:layout_height="wrap_content" />
     
     <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" 
-    android:gravity="center_horizontal">
-	    
-	    <Button
-	        android:id="@+id/btn_ir_viajar"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:text="@string/btn_ir_viajar" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal" >
 
-	    <Button
-	        android:id="@+id/btn_ir_orden"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:text="@string/btn_ir_orden" />
+        <Button
+            android:id="@+id/btn_ir_viajar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2.41"
+            android:text="@string/btn_ir_viajar" />
 
-	</LinearLayout>
-    
+        <Button
+            android:id="@+id/btn_ir_orden"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_ir_orden" />
+    </LinearLayout>
 
 </LinearLayout>

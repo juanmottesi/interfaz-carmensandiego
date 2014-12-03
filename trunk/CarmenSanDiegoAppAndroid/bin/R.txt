@@ -247,7 +247,7 @@ int id action_context_bar 0x7f09001d
 int id action_menu_divider 0x7f090002
 int id action_menu_presenter 0x7f090003
 int id action_mode_close_button 0x7f090024
-int id action_settings 0x7f090055
+int id action_settings 0x7f090056
 int id activity_chooser_view_content 0x7f090025
 int id always 0x7f09000f
 int id beginning 0x7f090016
@@ -289,8 +289,8 @@ int id none 0x7f090019
 int id normal 0x7f090007
 int id orden_emitida 0x7f090045
 int id pais_actual 0x7f09003d
-int id paises_text 0x7f090052
-int id pistas_text 0x7f090053
+int id paises_text 0x7f090053
+int id pistas_text 0x7f090054
 int id progress_circular 0x7f090004
 int id progress_horizontal 0x7f090005
 int id radio 0x7f09002f
@@ -320,7 +320,8 @@ int id titulo_viajar 0x7f09003e
 int id top_action_bar 0x7f090020
 int id up 0x7f090021
 int id useLogo 0x7f09000e
-int id villano_text 0x7f090054
+int id villano_text 0x7f090055
+int id volver_al_inicio 0x7f090052
 int id withText 0x7f090013
 int integer abc_max_action_buttons 0x7f080000
 int layout abc_action_bar_decor 0x7f030000
@@ -376,10 +377,13 @@ int string btn_ir_pistas 0x7f0a0017
 int string btn_ir_viajar 0x7f0a0019
 int string emitir_orden 0x7f0a0016
 int string hello_world 0x7f0a000e
+int string ir_viajar 0x7f0a001c
+int string ir_volver 0x7f0a001e
 int string orden_de_arresto 0x7f0a0015
 int string pedir_orden 0x7f0a001b
 int string seleccion_de_pais 0x7f0a0013
 int string seleccion_de_villano 0x7f0a001a
+int string terminar_juego 0x7f0a001d
 int string titulo_lista_correcto 0x7f0a0011
 int string titulo_lista_incorrecto 0x7f0a0012
 int string titulo_pais 0x7f0a0014
