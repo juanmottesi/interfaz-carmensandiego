@@ -16,5 +16,8 @@
 	<string name="btn_ir_viajar">Viajar</string>
 	<string name="seleccion_de_villano">Seleccione un Villano</string>
 	<string name="pedir_orden">Pedir Orden de Arresto</string>
+	<string name="ir_viajar">Viajar!!</string>
+	<string name="terminar_juego">Terminar Juego</string>
+	<string name="ir_volver">Volver</string>
     
 </resources>

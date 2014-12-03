@@ -7,6 +7,7 @@ import retrofit.Callback
 import retrofit.RetrofitError
 import retrofit.client.Response
 import android.util.Log
+import android.content.Intent
 
 class FinActivity extends Activity{
 	
@@ -16,6 +17,9 @@ class FinActivity extends Activity{
 		contentView = R.layout.dialog_final
 		
 		buscarResultado()
+		
+		Acciones.setButtonView(this, R.id.volver_al_inicio, [volver()])
+	
 	
 		
 	}
@@ -36,6 +40,12 @@ class FinActivity extends Activity{
 
 		})
 		
+	}
+	
+	def volver(){
+		var ordenView = new Intent(this, MainActivity);
+		startActivityForResult(ordenView,0)
+		finish
 	}
 	
 }

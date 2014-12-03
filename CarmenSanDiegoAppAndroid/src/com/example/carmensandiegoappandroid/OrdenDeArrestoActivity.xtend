@@ -10,12 +10,6 @@ import com.example.acciones.ActivityAbstract
 
 class OrdenDeArrestoActivity extends ActivityAbstract {
 	
-	override actualizarDatos(){
-		buscarPaisActual(R.id.pais_actual)		
-		buscarOrdenEmitida(R.id.orden_emitida)
-		this.buscarVillanos();
-	}
-	
 	override int getLayout(){
 		R.layout.activity_orden_de_arresto
 	}
@@ -42,6 +36,12 @@ class OrdenDeArrestoActivity extends ActivityAbstract {
 	override getBlockMainBtn() {
 		[pedirOrden()]
 	}
+		
+	override actualizarDatos(){
+		buscarPaisActual(R.id.pais_actual)		
+		buscarOrdenEmitida(R.id.orden_emitida)
+		this.buscarVillanos();
+	}	
 		
 	def pedirOrden(){
 		val paisesService = Acciones.crearServicio		
